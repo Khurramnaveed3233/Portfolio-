@@ -6,34 +6,63 @@
     <title>Khurram Naveed | Portfolio</title>
     <style>
         body, html { margin: 0; padding: 0; font-family: 'Times New Roman', serif; background-color: #ffffff; }
-        .hero { background-color: #1a1a1a; color: #ffffff; text-align: center; padding: 80px 20px; }
         
-        /* Profile Image Style */
-        .profile-img {
-            width: 180px; height: 180px; border-radius: 50%; border: 4px solid #c5a059;
-            margin-bottom: 20px; object-fit: cover;
+        /* Hero Section - Dark Background */
+        .hero { 
+            background-color: #1a1a1a; 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 100px 20px; /* Padding thodi badha di hai taake look balanced rahe */
         }
 
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 500; }
         .hero p { font-size: 1.2rem; color: #cccccc; font-family: Arial, sans-serif; letter-spacing: 1px; }
+        
+        /* Social Icons/Links */
         .social-icons { margin-top: 30px; }
-        .social-icons a { color: white; text-decoration: none; margin: 0 15px; font-size: 1rem; border: 1px solid #444; padding: 8px 15px; border-radius: 5px; transition: 0.3s; font-family: Arial; }
+        .social-icons a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 1rem; 
+            border: 1px solid #444; 
+            padding: 8px 15px; 
+            border-radius: 5px; 
+            transition: 0.3s; 
+            font-family: Arial; 
+        }
         .social-icons a:hover { background: #c5a059; border-color: #c5a059; }
 
-        nav { background-color: #222; padding: 15px 0; text-align: center; border-top: 1px solid #333; position: sticky; top: 0; }
-        nav a { color: #bbb; text-decoration: none; margin: 0 20px; font-family: Arial; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        /* Navigation Bar */
+        nav { 
+            background-color: #222; 
+            padding: 15px 0; 
+            text-align: center; 
+            border-top: 1px solid #333; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+        nav a { 
+            color: #bbb; 
+            text-decoration: none; 
+            margin: 0 20px; 
+            font-family: Arial; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
         nav a:hover { color: #fff; }
 
+        /* Welcome/Preview Section */
         .about-preview { text-align: center; padding: 80px 20px; }
         .underline { width: 50px; height: 2px; background: #c5a059; margin: 15px auto; }
     </style>
 </head>
 <body>
 
+    <!-- Hero Section (Ab bilkul clean hai) -->
     <section class="hero">
-        <!-- Agar aapki photo ka naam profile.jpg hai to wo yahan dikhegi -->
-        <img src="profile.jpg" alt="Khurram Naveed" class="profile-img">
-        
         <h1>Khurram Naveed</h1>
         <p>Data Analyst | Power BI Developer | SQL Specialist</p>
         
@@ -44,6 +73,7 @@
         </div>
     </section>
 
+    <!-- Navigation Menu -->
     <nav>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
@@ -52,6 +82,7 @@
         <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- Welcome Content -->
     <div class="about-preview">
         <h2>Professional Portfolio</h2>
         <div class="underline"></div>
