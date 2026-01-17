@@ -2,18 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Khurram Naveed</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; line-height: 1.7; color: #333; }
-        nav { background: #222; padding: 15px; text-align: center; }
-        nav a { color: #bbb; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; }
-        .container { max-width: 850px; margin: 50px auto; padding: 20px; }
-        h1 { font-family: 'Times New Roman', serif; font-size: 2.5rem; text-align: center; }
-        .underline { width: 60px; height: 3px; background: #c5a059; margin: 10px auto 40px; }
-        strong { color: #1a1a1a; }
+        /* Global Styles */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f8f9fa; 
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        /* Navigation Bar - Matches Theme */
+        nav { 
+            background-color: #1a0b2e; 
+            padding: 18px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: #d1b3ff; 
+            text-decoration: none; 
+            margin: 0 18px; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* About Hero Section */
+        .about-hero { 
+            background: linear-gradient(135deg, #4b0082, #2b004e); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 80px 20px;
+        }
+        .about-hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+        }
+        .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 10px auto; border-radius: 10px; }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: -40px auto 80px; /* Pulls up into the hero section */
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        h2 {
+            color: #1a0b2e;
+            font-family: 'Times New Roman', serif;
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 10px;
+            margin-top: 35px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #4b0082;
+            font-weight: 600;
+        }
+
+        /* Achievement Box Style */
+        .achievement-card {
+            background: #f8f4ff;
+            border-left: 5px solid #4b0082;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        /* Footer/CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 30px; }
+            .about-hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Professional Navigation -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html" style="color:white">About</a>
@@ -22,12 +115,47 @@
         <a href="certifications.html">Certifications</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <div class="container">
+
+    <!-- Header Section -->
+    <header class="about-hero">
         <h1>About Me</h1>
         <div class="underline"></div>
-        <p>I am <strong>Khurram Naveed</strong>, a passionate Data Analyst and Business Intelligence Specialist with a proven track record in creating compelling dashboards using <strong>Excel, Power BI, and SQL</strong>.</p>
-        <p>During my tenure at <strong>TCS Courier Service</strong>, I managed and tracked over 1,000 daily shipments. I implemented a retail software system that <strong>boosted efficiency by 20%</strong> and uncovered cost-saving opportunities that achieved a <strong>15% reduction in daily costs</strong>.</p>
-        <p>My expertise includes advanced Excel (Pivot, VLOOKUP, INDEX/MATCH), DAX modeling, and Power Query for data transformation. I am certified by Google, Cisco, and HP Life Foundation, ensuring data quality and reliability for comprehensive BI reports.</p>
+        <p style="color: #d1b3ff; margin-top: 15px;">Data Analyst | BI Enthusiast | Problem Solver</p>
+    </header>
+
+    <!-- Main Bio Content -->
+    <div class="container">
+        
+        <p>
+            I am <span class="highlight">Khurram Naveed</span>, a Data Analyst and Business Intelligence enthusiast with a strong passion for transforming raw data into meaningful insights that support informed business decisions. I specialize in building interactive dashboards, analytical reports, and data-driven solutions using <span class="highlight">Excel, Power BI, and SQL</span>.
+        </p>
+
+        <p>
+            I have successfully designed and delivered multiple real-world projects, including sales performance analysis, HR analytics dashboards, healthcare data insights, and global terrorism data analysis. These projects demonstrate my ability to work across diverse datasets, identify trends, and present insights in a clear and impactful way for stakeholders.
+        </p>
+
+        <div class="achievement-card">
+            <h2>Professional Experience</h2>
+            <p>
+                During my role at <span class="highlight">TCS Courier Service</span>, I applied analytical skills to manage and track 1,000+ daily shipments. I played a key role in implementing a retail software system, which improved <strong>operational efficiency by 20%</strong>, and identified cost-saving opportunities that <strong>reduced daily expenses by 15%</strong>.
+            </p>
+        </div>
+
+        <h2>Technical Expertise</h2>
+        <p>
+            I am proficient in advanced Excel functions (Pivot Tables, VLOOKUP, INDEX/MATCH), SQL querying, and Power BI development. I have hands-on experience with <span class="highlight">DAX</span> for complex calculations, data modeling, and <span class="highlight">Power Query</span> for cleaning and integrating data from multiple sources—ensuring accuracy and reliability in business intelligence reporting.
+        </p>
+
+        <h2>Education & Certifications</h2>
+        <p>
+            I hold industry-recognized certifications in Google Data Analytics, Data Analytics & BI from DigiSkills.pk, and have completed a Virtual Experience Program with <span class="highlight">J.P. Morgan Chase & Co.</span> I earned my Bachelor’s degree from <strong>Bahauddin Zakariya University</strong>, which helped build a solid foundation in analytical thinking.
+        </p>
+
+        <div class="cta-section">
+            <p><strong>I am currently seeking entry-level roles, internships, or junior analyst positions where I can contribute and grow. Let’s connect and turn data into impactful decisions.</strong></p>
+        </div>
+
     </div>
+
 </body>
 </html>
