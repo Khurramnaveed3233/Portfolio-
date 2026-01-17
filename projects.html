@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Projects | Khurram Naveed</title>
+    <title>Technical Portfolio | Khurram Naveed</title>
     <style>
         /* Global Styles */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
@@ -25,12 +24,12 @@
         .projects-hero h1 { font-size: 3rem; margin: 0; font-family: 'Times New Roman', serif; }
         .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 15px auto; border-radius: 10px; }
 
-        /* 3-Column Grid Layout */
+        /* 3-Column Layout */
         .main-container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr 1.5fr; /* SQL slightly wider for text */
             gap: 25px;
-            max-width: 1450px;
+            max-width: 1500px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -41,10 +40,11 @@
             padding: 15px;
             text-align: center;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Card Design */
@@ -69,10 +69,9 @@
             border: 1px solid #f0f0f0; margin-top: 5px; 
         }
         .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
-        .img-box img:hover { transform: scale(1.03); }
 
-        /* SQL Details Section */
-        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; }
+        /* SQL Description Styling */
+        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 10px; }
         .sql-desc b { color: #2b004e; }
         .tag-box { 
             display: inline-block; background: #f0e6ff; color: #4b0082; 
@@ -80,7 +79,6 @@
             font-weight: bold; margin-bottom: 10px; 
         }
 
-        /* Mobile View */
         @media (max-width: 1100px) {
             .main-container { grid-template-columns: 1fr; }
         }
@@ -124,7 +122,7 @@
             </div>
 
             <div class="project-card">
-                <span class="project-name">CRM Dashboard</span>
+                <span class="project-name">CRM Dashboard in Excel</span>
                 <div class="img-box"><img src="CRM Dahboard in Excel.jpg"></div>
             </div>
 
@@ -144,27 +142,27 @@
             </div>
 
             <div class="project-card">
-                <span class="project-name">Data Professional Survey Breakdown</span>
+                <span class="project-name">Data Professional Survey Analysis</span>
                 <div class="img-box"><img src="Data Professional Survey Analysis Dashboard.jpg"></div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">Electronics Sales Analysis</span>
+                <span class="project-name">Electronics Sales Dashboard</span>
                 <div class="img-box"><img src="Electronics Sales Dashboard.jpg"></div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">Financial Sales Report</span>
+                <span class="project-name">Financial Sales Analysis</span>
                 <div class="img-box"><img src="Financial Sales Analysis Dashboard.jpg"></div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">HR Analytics (Workforce Turnover)</span>
-                <div class="img-box"><img src="HR Analytics Dashboard Turnover 1.jpg"></div>
+                <span class="project-name">HR Analytics Dashboard</span>
+                <div class="img-box"><img src="HR Analytics Dashboard.jpg"></div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">Jazz Telecom Data Analysis</span>
+                <span class="project-name">Jazz Telecom Data Dashboard</span>
                 <div class="img-box"><img src="Jazz Telecom Data Analysis Dashboard.jpg"></div>
             </div>
 
@@ -174,7 +172,7 @@
             </div>
 
             <div class="project-card">
-                <span class="project-name">Xmart Sales Analysis</span>
+                <span class="project-name">Xmart Sales Dashboard</span>
                 <div class="img-box"><img src="Xmart sales Dashboard.jpg"></div>
             </div>
 
@@ -184,78 +182,83 @@
             </div>
 
             <div class="project-card">
-                <span class="project-name">Bank Customer Churn Analysis</span>
+                <span class="project-name">Bank Customer Churn Dashboard</span>
                 <div class="img-box"><img src="Bank Customer Churn Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">I Point Sales Dashboard</span>
+                <div class="img-box"><img src="I Point Sales Dashboard.jpg"></div>
             </div>
         </div>
 
-        <!-- COLUMN 3: SQL PROJECTS (With PDF Descriptions) -->
+        <!-- COLUMN 3: SQL PROJECTS -->
         <div class="column">
-            <div class="column-header">SQL Analytics (PDF Context)</div>
+            <div class="column-header">SQL Analytics (Advanced)</div>
 
-            <!-- SQL 1 -->
+            <!-- 1. Ola NZ -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
-                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Performance Analysis</a>
-                <div class="img-box"><img src="Samsung Pakistan Sales Analysis Dashboard.jpg"></div>
+                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Ride‑Hailing Performance Analysis</a>
+                <div class="img-box"><img src="Ola NZ – Ride-Hailing Performance Analysis & Strategy.jpg"></div>
                 <div class="sql-desc">
-                    <b>Problem:</b> High cancellations (39%) & revenue leakage.<br>
-                    <b>Solution:</b> Star-schema modeling & Advanced SQL (CTEs, Joins, Window Functions).<br>
-                    <b>Impact:</b> NZD 3.1M+ estimated incremental revenue and 24% reduction in cancellations.
+                    <b>Problem:</b> Facing high ride cancellations (39%) and revenue leakage.<br>
+                    <b>Solution:</b> Star-schema data modeling & Complex SQL (CTEs, Joins, Window functions).<br>
+                    <b>Impact:</b> Projected incremental revenue of <b>NZD 3.1M+</b> and cancellation reduction to 15%.
                 </div>
             </div>
 
-            <!-- SQL 2 -->
+            <!-- 2. TCS Logistics -->
             <div class="project-card">
                 <div class="tag-box">Logistics Analytics</div>
-                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. TCS Logistics – Karachi Branch</a>
-                <div class="img-box"><img src="Jazz Telecom Data Analysis Dashboard.jpg"></div>
+                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. SQL Analytics for TCS Logistics – Karachi</a>
+                <div class="img-box"><img src="SQL Analytics for TCS Logistics – Karachi Branch.jpg"></div>
                 <div class="sql-desc">
-                    <b>Problem:</b> Systemic delays and 26% return rates impacting SLA compliance.<br>
-                    <b>Solution:</b> Normalized relational database design to diagnose operational flow bottlenecks.<br>
-                    <b>Impact:</b> 20% improvement in on-time delivery & 50% reduction in customer complaints.
+                    <b>Problem:</b> Delivery delays (58hr avg) and 26% return rate impacting SLA.<br>
+                    <b>Solution:</b> Designed a normalized relational database covering flow from booking to delivery.<br>
+                    <b>Impact:</b> Projected 20% improvement in on-time delivery and 50% reduction in customer complaints.
                 </div>
             </div>
 
-            <!-- SQL 3 -->
+            <!-- 3. Kap's Cafe -->
             <div class="project-card">
-                <div class="tag-box">Sales Intelligence</div>
-                <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="project-name" target="_blank">3. Kap’s Café – SQL Analytics</a>
-                <div class="img-box"><img src="Coffee Sales Dashboard.jpg"></div>
+                <div class="tag-box">SQL Server</div>
+                <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="project-name" target="_blank">3. Kap’s Café – SQL Analytics Project</a>
+                <div class="img-box"><img src="Kap’s Café – SQL Analytics Project.jpg"></div>
                 <div class="sql-desc">
-                    <b>Objective:</b> Transform raw transactional data into monthly performance drivers.<br>
-                    <b>Method:</b> SQL window functions (LAG) to measure month-over-month growth volatility.<br>
-                    <b>Finding:</b> Identified pricing effect correlations between volume and revenue stabilization.
+                    <b>Objective:</b> Analyze sales revenue and product trends to support business decisions.<br>
+                    <b>Method:</b> Monthly aggregation and LAG functions to calculate growth and volatility.<br>
+                    <b>Conclusion:</b> Created a data-driven roadmap for sustainable growth and customer behavior tracking.
                 </div>
             </div>
 
-            <!-- SQL 4 -->
+            <!-- 4. Airbnb Pakistan -->
             <div class="project-card">
-                <div class="tag-box">Market Simulation</div>
-                <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="project-name" target="_blank">4. Airbnb Pakistan – Business Insights</a>
-                <div class="img-box"><img src="Bhatti Property Managment Dashboard.jpg"></div>
+                <div class="tag-box">Market Insights</div>
+                <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="project-name" target="_blank">4. Airbnb Pakistan 2025 Insights</a>
+                <div class="img-box"><img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg"></div>
                 <div class="sql-desc">
-                    <b>Problem:</b> Lack of accessible pricing data for the Pakistan short-term rental market.<br>
-                    <b>Solution:</b> Simulated 10-city dataset covering 50+ bookings using Advanced SQL aggregations.<br>
-                    <b>Insight:</b> Murree identified as high-volume market with 30% underpricing revenue gap.
+                    <b>Project:</b> Simulated Pakistan's rental market to analyze city-level demand and pricing.<br>
+                    <b>Analysis:</b> Used advanced window functions (RANK) and Common Table Expressions (CTEs).<br>
+                    <b>Impact:</b> Identified underpriced listings in Murree with an estimated 30% revenue growth opportunity.
                 </div>
             </div>
 
-            <!-- SQL 5 -->
+            <!-- 5. Spotify -->
             <div class="project-card">
-                <div class="tag-box">Music Data Analysis</div>
-                <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="project-name" target="_blank">5. Spotify Data Analysis (SQL Alone)</a>
-                <div class="img-box"><img src="Data Professional Survey Analysis Dashboard.jpg"></div>
+                <div class="tag-box">Data Normalization</div>
+                <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="project-name" target="_blank">5. Spotify Data Analysis using SQL</a>
+                <div class="img-box"><img src="Spotify-Data-Analysis-using-SQL.jpg"></div>
                 <div class="sql-desc">
-                    <b>Objective:</b> Extract business-relevant insights from music streaming engagement metrics.<br>
-                    <b>Process:</b> Normalized denormalized dataset to optimize complex query performance.<br>
-                    <b>Result:</b> Identified key track popularity drivers (energy, tempo) and platform-listener preferences.
+                    <b>Approach:</b> Normalized denormalized datasets to improve data integrity and query performance.<br>
+                    <b>Insights:</b> Analyzed track popularity (danceability, tempo) and engagement metrics.<br>
+                    <b>Result:</b> Strengthened practical SQL expertise for complex data analysis without BI dashboards.
                 </div>
             </div>
 
-        </div> <!-- End Column 3 -->
+        </div> <!-- Column End -->
 
-    </div> <!-- End Main Container -->
+    </div> <!-- Container End -->
 
 </body>
 </html>
