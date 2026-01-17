@@ -2,24 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Khurram Naveed</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; text-align: center; }
-        nav { background: #222; padding: 15px; }
-        nav a { color: #bbb; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; }
-        .container { max-width: 600px; margin: 100px auto; padding: 20px; }
-        .contact-btn { display: block; background: #f4f4f4; border: 1px solid #ddd; padding: 20px; margin: 15px 0; text-decoration: none; color: #333; font-weight: bold; border-radius: 5px; transition: 0.3s; }
-        .contact-btn:hover { background: #c5a059; color: white; border-color: #c5a059; }
+        /* Global Styles */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #ffffff; 
+            height: 100%;
+        }
+        
+        /* Navigation Bar - Matches Home Page Indigo Theme */
+        nav { 
+            background-color: #1a0b2e; 
+            padding: 18px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: #d1b3ff; 
+            text-decoration: none; 
+            margin: 0 18px; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* Contact Hero Section - Purple Gradient */
+        .contact-hero { 
+            background: linear-gradient(135deg, #4b0082, #2b004e); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 100px 20px;
+        }
+
+        .contact-hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 15px; 
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: #d1b3ff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Buttons Section */
+        .contact-container {
+            max-width: 600px;
+            margin: -50px auto 100px; /* Pulls container slightly into the purple section */
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f4ff;
+            color: #2b004e;
+            text-decoration: none;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 1px solid #e0d1ff;
+            transition: 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #4b0082;
+            color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(75, 0, 130, 0.2);
+        }
+
+        .contact-link span {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* Footer Style Text */
+        .footer-note {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero h1 { font-size: 2.5rem; }
+            .contact-container { margin: 20px; padding: 20px; }
+        }
     </style>
 </head>
 <body>
-    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="certifications.html">Certifications</a><a href="contact.html" style="color:white">Contact</a></nav>
-    <div class="container">
-        <h1>Let's Connect</h1>
-        <p>I am looking for internship and career opportunities in Data Analytics.</p>
-        <a class="contact-btn" href="mailto:khurramnaveed4545@gmail.com">📧 Email: khurramnaveed4545@gmail.com</a>
-        <a class="contact-btn" href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank">🔗 LinkedIn Profile</a>
-        <a class="contact-btn" href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank">💻 GitHub Portfolio</a>
+
+    <!-- Professional Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="contact.html" style="color:white">Contact</a>
+    </nav>
+
+    <!-- Header Section with Purple Gradient -->
+    <header class="contact-hero">
+        <h1>Get In Touch</h1>
+        <p>I am actively seeking opportunities to apply my data skills and collaborate on impactful projects. Let's grow together!</p>
+    </header>
+
+    <!-- Main Contact Box -->
+    <div class="contact-container">
+        
+        <a href="mailto:khurramnaveed4545@gmail.com" class="contact-link">
+            <span>📧</span> Email: khurramnaveed4545@gmail.com
+        </a>
+
+        <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank" class="contact-link">
+            <span>🔗</span> LinkedIn Profile
+        </a>
+
+        <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank" class="contact-link">
+            <span>💻</span> GitHub Portfolio
+        </a>
+
+        <p class="footer-note">Open to Remote Data Analyst & BI Roles</p>
     </div>
+
 </body>
 </html>
