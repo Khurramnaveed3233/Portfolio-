@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khurram Naveed | Portfolio</title>
+    <title>Khurram Naveed | Data Analyst Portfolio</title>
     <style>
-        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; }
+        /* Global Styles */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #ffffff; 
+            scroll-behavior: smooth;
+        }
         
         /* Hero Section - Attractive Purple Gradient */
         .hero { 
-            background: linear-gradient(135deg, #4b0082, #2b004e); /* Deep Royal Purple Gradient */
+            background: linear-gradient(135deg, #4b0082, #2b004e); /* Dark Indigo to Deep Purple */
             color: #ffffff; 
             text-align: center; 
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
 
         .hero h1 { 
-            font-size: 3.8rem; 
-            margin-bottom: 20px; 
+            font-size: 4rem; 
+            margin-bottom: 10px; 
             font-weight: 700; 
             letter-spacing: -1px;
             font-family: 'Times New Roman', serif;
@@ -25,36 +32,44 @@
 
         /* Typing SVG Container */
         .typing-container {
-            margin-bottom: 30px;
-            min-height: 50px;
+            margin: 20px auto 40px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .typing-container img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Social Icons/Links */
-        .social-icons { margin-top: 40px; }
+        .social-icons { margin-top: 20px; }
         .social-icons a { 
             color: white; 
             text-decoration: none; 
             margin: 0 10px; 
             font-size: 0.9rem; 
             border: 1px solid rgba(255,255,255,0.3); 
-            padding: 10px 20px; 
+            padding: 12px 25px; 
             border-radius: 30px; 
-            transition: 0.3s; 
+            transition: 0.3s ease; 
             background: rgba(255,255,255,0.1);
+            display: inline-block;
+            font-weight: 600;
         }
         .social-icons a:hover { 
             background: #ffffff; 
             color: #2b004e; 
-            border-color: #ffffff;
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         /* Navigation Bar */
         nav { 
-            background-color: #1a0b2e; /* Darker Purple for Nav */
+            background-color: #1a0b2e; 
             padding: 18px 0; 
             text-align: center; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
             position: sticky; 
             top: 0; 
             z-index: 1000;
@@ -63,30 +78,56 @@
         nav a { 
             color: #d1b3ff; 
             text-decoration: none; 
-            margin: 0 18px; 
+            margin: 0 20px; 
             font-size: 0.85rem; 
             text-transform: uppercase; 
             letter-spacing: 1.5px; 
-            font-weight: 600;
+            font-weight: 700;
+            transition: 0.3s;
         }
         nav a:hover { color: #fff; }
 
-        /* Content Section */
-        .about-preview { text-align: center; padding: 100px 20px; background: #fff; }
-        .underline { width: 60px; height: 3px; background: #4b0082; margin: 20px auto; border-radius: 2px; }
-        .about-preview h2 { font-size: 2.2rem; color: #1a0b2e; }
-        .about-preview p { max-width: 750px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: #555; }
+        /* Welcome Section */
+        .content-preview { 
+            text-align: center; 
+            padding: 100px 20px; 
+            background: #fff; 
+        }
+        .content-preview h2 { 
+            font-size: 2.5rem; 
+            color: #1a0b2e; 
+            margin-bottom: 15px;
+            font-family: 'Times New Roman', serif;
+        }
+        .underline { 
+            width: 60px; 
+            height: 4px; 
+            background: #4b0082; 
+            margin: 0 auto 30px; 
+            border-radius: 10px; 
+        }
+        .content-preview p { 
+            max-width: 750px; 
+            margin: 0 auto; 
+            font-size: 1.15rem; 
+            line-height: 1.8; 
+            color: #444; 
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav a { margin: 0 8px; font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section with Purple Theme & Typing SVG -->
     <section class="hero">
         <h1>Khurram Naveed</h1>
         
-        <!-- Aapka Typing SVG Code yahan hai -->
+        <!-- Fixed Junior Spelling in SVG Link -->
         <div class="typing-container">
-            <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=600&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
+            <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=650&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
         </div>
         
         <div class="social-icons">
@@ -96,7 +137,6 @@
         </div>
     </section>
 
-    <!-- Professional Navigation -->
     <nav>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
@@ -105,12 +145,11 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Welcome Section -->
-    <div class="about-preview">
-        <h2>Data-Driven Professional</h2>
+    <div class="content-preview">
+        <h2>Data-Driven Insights</h2>
         <div class="underline"></div>
         <p>
-            Welcome to my official portfolio. I specialize in turning complex raw data into interactive dashboards and meaningful business insights. With expertise in **SQL, Power BI, and Advanced Excel**, I help organizations make informed decisions through data storytelling.
+            Welcome to my official portfolio. I am a Data Analytics professional dedicated to transforming raw data into interactive dashboards and meaningful business stories. With a strong foundation in <strong>SQL, Power BI, and Advanced Excel</strong>, I help organizations make impactful, data-driven decisions.
         </p>
     </div>
 
