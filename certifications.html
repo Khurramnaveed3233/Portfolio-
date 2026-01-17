@@ -1,215 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certifications | Khurram Naveed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Khurram Naveed</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
+        
+        /* Navigation Bar */
+        nav { 
+            background: #1a0b2e; 
+            padding: 18px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: #d1b3ff; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        nav a:hover { color: #fff; }
 
-<style>
-body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    margin:0;
-    background:#f4f4f9;
-    color:#333;
-}
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        
+        h1 { text-align: center; font-family: 'Times New Roman', serif; font-size: 3rem; color: #1a0b2e; margin-bottom: 10px; }
+        .underline { width: 60px; height: 4px; background: #4b0082; margin: 0 auto 50px; border-radius: 10px; }
 
-/* NAVBAR */
-nav{
-    background:#1a0b2e;
-    padding:18px 0;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-nav a{
-    color:#d1b3ff;
-    text-decoration:none;
-    margin:0 15px;
-    font-size:.85rem;
-    font-weight:700;
-    text-transform:uppercase;
-}
-nav a:hover{color:#fff}
+        /* Certificate Card Style */
+        .cert-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e1e1e1;
+            transition: 0.3s;
+        }
+        .cert-card:hover { transform: translateY(-5px); }
 
-.container{
-    max-width:1000px;
-    margin:50px auto;
-    padding:0 20px;
-}
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-h1{
-    text-align:center;
-    font-family:'Times New Roman',serif;
-    font-size:2.6rem;
-    color:#1a0b2e;
-}
-.underline{
-    width:60px;
-    height:4px;
-    background:#4b0082;
-    margin:10px auto 50px;
-    border-radius:10px;
-}
+        .cert-name { font-size: 1.2rem; font-weight: 700; color: #1a0b2e; }
 
-/* CERT CARD */
-.cert-card{
-    background:#fff;
-    border-radius:12px;
-    padding:25px;
-    margin-bottom:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+        .view-btn {
+            background: linear-gradient(135deg, #4b0082, #2b004e);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .view-btn:hover { background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
-/* HEADER */
-.cert-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #eee;
-    padding-bottom:15px;
-    margin-bottom:20px;
-}
-.cert-name{
-    font-size:1.25rem;
-    font-weight:700;
-    color:#1a0b2e;
-}
-.view-btn{
-    background:linear-gradient(135deg,#4b0082,#2b004e);
-    color:#fff;
-    padding:10px 18px;
-    text-decoration:none;
-    font-size:.8rem;
-    border-radius:6px;
-}
+        .cert-image { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
+        .cert-image img { width: 100%; height: auto; display: block; transition: 0.5s; }
+        .cert-image img:hover { transform: scale(1.02); }
 
-/* IMAGE FIX (NO OVERLAP GUARANTEED) */
-.cert-image{
-    width:100%;
-    margin-top:15px;
-}
-.cert-image img{
-    width:100%;
-    max-width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-/* MOBILE */
-@media(max-width:700px){
-    .cert-header{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-    }
-}
-</style>
+        @media (max-width: 650px) {
+            .cert-header { flex-direction: column; text-align: center; gap: 15px; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="certifications.html" style="color:#fff">Certifications</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="certifications.html" style="color:white">Certifications</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-<div class="container">
-<h1>My Certifications</h1>
-<div class="underline"></div>
+    <div class="container">
+        <h1>Professional Certifications</h1>
+        <div class="underline"></div>
 
-<!-- 1 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">Google Data Analytics & Business Intelligence</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="google_bi.jpg"></div>
-</div>
+        <!-- 1. Power BI by PwC -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">Power BI Corporate Training - PwC</span>
+                <a href="https://github.com/Khurramnaveed3233/Portfolio/blob/main/Power%20Bi%20by%20PwC.jpg" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="Power%20Bi%20by%20PwC.jpg" alt="Power BI PwC Certificate">
+            </div>
+        </div>
 
-<!-- 2 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">Google Data Analytics Professional Certificate</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="google_pro.jpg"></div>
-</div>
+        <!-- 2. Google AI Essentials -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">Google AI Essentials Professional</span>
+                <a href="#" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <!-- Filename cut in screenshot, using first part -->
+                <img src="Google AI Essentials Professional Certificate.jpg" alt="Google AI Essentials">
+            </div>
+        </div>
 
-<!-- 3 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">Cisco Data Analytics Essentials</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="cisco.jpg"></div>
-</div>
+        <!-- 3. JPMorgan Chase -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">JPMorgan Chase & Co. Virtual Experience</span>
+                <a href="#" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="JPMorgan Chase & Co. completion certificate.jpg" alt="JPMorgan Certificate">
+            </div>
+        </div>
 
-<!-- 4 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">HP Life – Diploma in Data Analytics</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="hplife.jpg"></div>
-</div>
+        <!-- 4. Google BI -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">Google Data Analytics & Business Intelligence</span>
+                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="google_bi.jpg" alt="Google BI Certificate">
+            </div>
+        </div>
 
-<!-- 5 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">NSW Data Analytics Certificate</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="nsw.jpg"></div>
-</div>
+        <!-- 5. Google Pro -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">Google Data Analytics Professional</span>
+                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="google_pro.jpg" alt="Google Pro Certificate">
+            </div>
+        </div>
 
-<!-- 6 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">DigiSkills – Data Analytics & BI</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="digiskills.jpg"></div>
-</div>
+        <!-- 6. Cisco -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">CISCO Data Analytics Essentials</span>
+                <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="cisco.jpg" alt="Cisco Certificate">
+            </div>
+        </div>
 
-<!-- 7 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">JPMorgan Chase & Co. – Completion Certificate</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image">
-<img src="JPMorgan Chase & Co. completion_certificate.jpg">
-</div>
-</div>
+        <!-- 7. HP Life -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">Diploma in Data Analytics - HP Life Foundation</span>
+                <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="hplife.jpg" alt="HP Life Certificate">
+            </div>
+        </div>
 
-<!-- 8 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">Power BI by PwC</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image"><img src="Power Bi by PwC.jpg"></div>
-</div>
+        <!-- 8. NSW -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">NSW Data Analytics Certificate</span>
+                <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="nsw.jpg" alt="NSW Certificate">
+            </div>
+        </div>
 
-<!-- 9 -->
-<div class="cert-card">
-<div class="cert-header">
-<span class="cert-name">Google AI Essentials Professional Certificate</span>
-<a class="view-btn" target="_blank" href="#">View</a>
-</div>
-<div class="cert-image">
-<img src="Google AI Essentials Professional Certificate.jpg">
-</div>
-</div>
+        <!-- 9. DigiSkills -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="cert-name">DigiSkills Data Analytics & BI Certificate</span>
+                <a href="https://github.com/Khurramnaveed3233/DigiSkills_-Data-Analytics-and-Business-Intelligence-Certificate/blob/main/README.md" class="view-btn" target="_blank">View on GitHub</a>
+            </div>
+            <div class="cert-image">
+                <img src="digiskills.jpg" alt="DigiSkills Certificate">
+            </div>
+        </div>
 
-</div>
+    </div>
+
 </body>
 </html>
