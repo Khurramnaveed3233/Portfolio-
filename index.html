@@ -5,66 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khurram Naveed | Portfolio</title>
     <style>
-        body, html { margin: 0; padding: 0; font-family: 'Times New Roman', serif; background-color: #ffffff; }
+        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; }
         
-        /* Hero Section - Dark Background */
+        /* Hero Section - Attractive Purple Gradient */
         .hero { 
-            background-color: #1a1a1a; 
+            background: linear-gradient(135deg, #4b0082, #2b004e); /* Deep Royal Purple Gradient */
             color: #ffffff; 
             text-align: center; 
-            padding: 100px 20px; /* Padding thodi badha di hai taake look balanced rahe */
+            padding: 100px 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 500; }
-        .hero p { font-size: 1.2rem; color: #cccccc; font-family: Arial, sans-serif; letter-spacing: 1px; }
-        
+        .hero h1 { 
+            font-size: 3.8rem; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            letter-spacing: -1px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Typing SVG Container */
+        .typing-container {
+            margin-bottom: 30px;
+            min-height: 50px;
+        }
+
         /* Social Icons/Links */
-        .social-icons { margin-top: 30px; }
+        .social-icons { margin-top: 40px; }
         .social-icons a { 
             color: white; 
             text-decoration: none; 
-            margin: 0 15px; 
-            font-size: 1rem; 
-            border: 1px solid #444; 
-            padding: 8px 15px; 
-            border-radius: 5px; 
+            margin: 0 10px; 
+            font-size: 0.9rem; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            padding: 10px 20px; 
+            border-radius: 30px; 
             transition: 0.3s; 
-            font-family: Arial; 
+            background: rgba(255,255,255,0.1);
         }
-        .social-icons a:hover { background: #c5a059; border-color: #c5a059; }
+        .social-icons a:hover { 
+            background: #ffffff; 
+            color: #2b004e; 
+            border-color: #ffffff;
+            transform: translateY(-5px);
+        }
 
         /* Navigation Bar */
         nav { 
-            background-color: #222; 
-            padding: 15px 0; 
+            background-color: #1a0b2e; /* Darker Purple for Nav */
+            padding: 18px 0; 
             text-align: center; 
-            border-top: 1px solid #333; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
             position: sticky; 
             top: 0; 
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         nav a { 
-            color: #bbb; 
+            color: #d1b3ff; 
             text-decoration: none; 
-            margin: 0 20px; 
-            font-family: Arial; 
+            margin: 0 18px; 
             font-size: 0.85rem; 
             text-transform: uppercase; 
-            letter-spacing: 1px; 
+            letter-spacing: 1.5px; 
+            font-weight: 600;
         }
         nav a:hover { color: #fff; }
 
-        /* Welcome/Preview Section */
-        .about-preview { text-align: center; padding: 80px 20px; }
-        .underline { width: 50px; height: 2px; background: #c5a059; margin: 15px auto; }
+        /* Content Section */
+        .about-preview { text-align: center; padding: 100px 20px; background: #fff; }
+        .underline { width: 60px; height: 3px; background: #4b0082; margin: 20px auto; border-radius: 2px; }
+        .about-preview h2 { font-size: 2.2rem; color: #1a0b2e; }
+        .about-preview p { max-width: 750px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: #555; }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section (Ab bilkul clean hai) -->
+    <!-- Hero Section with Purple Theme & Typing SVG -->
     <section class="hero">
         <h1>Khurram Naveed</h1>
-        <p>Data Analyst | Power BI Developer | SQL Specialist</p>
+        
+        <!-- Aapka Typing SVG Code yahan hai -->
+        <div class="typing-container">
+            <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=600&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
+        </div>
         
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank">LinkedIn</a>
@@ -73,7 +96,7 @@
         </div>
     </section>
 
-    <!-- Navigation Menu -->
+    <!-- Professional Navigation -->
     <nav>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
@@ -82,12 +105,12 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Welcome Content -->
+    <!-- Welcome Section -->
     <div class="about-preview">
-        <h2>Professional Portfolio</h2>
+        <h2>Data-Driven Professional</h2>
         <div class="underline"></div>
-        <p style="max-width: 700px; margin: 20px auto; line-height: 1.6; font-family: Arial; color: #444;">
-            Welcome to my official data analytics portfolio. Explore my journey in translating complex data into actionable insights using SQL, Power BI, and Advanced Excel.
+        <p>
+            Welcome to my official portfolio. I specialize in turning complex raw data into interactive dashboards and meaningful business insights. With expertise in **SQL, Power BI, and Advanced Excel**, I help organizations make informed decisions through data storytelling.
         </p>
     </div>
 
