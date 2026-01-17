@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications | Khurram Naveed</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f9; }
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #ffffff; }
         
-        /* Navigation Bar */
+        /* Navigation Bar - Matches Home Page Theme */
         nav { 
             background: #1a0b2e; 
             padding: 18px 0; 
@@ -15,6 +15,7 @@
             position: sticky; 
             top: 0; 
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         nav a { 
             color: #bbb; 
@@ -23,64 +24,76 @@
             font-size: 0.85rem; 
             text-transform: uppercase; 
             font-weight: 600;
+            letter-spacing: 1px;
         }
         nav a:hover { color: #fff; }
 
-        .container { max-width: 850px; margin: 40px auto; padding: 20px; }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
         
-        h1 { text-align: center; font-family: 'Times New Roman', serif; color: #1a0b2e; font-size: 2.5rem; }
-        .underline { width: 50px; height: 3px; background: #4b0082; margin: 10px auto 40px; }
-
-        /* Card Design */
-        .cert-card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
+        h1 { 
+            text-align: center; 
+            font-family: 'Times New Roman', serif; 
+            font-size: 2.8rem; 
+            color: #1a0b2e;
+            margin-bottom: 10px;
+        }
+        
+        .underline { 
+            width: 60px; 
+            height: 3px; 
+            background: #4b0082; 
+            margin: 0 auto 40px; 
+            border-radius: 2px;
         }
 
-        .cert-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .cert-name { font-weight: bold; color: #333; font-size: 1.1rem; }
-
-        .view-btn {
-            background: linear-gradient(135deg, #4b0082, #2b004e);
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+        .cert-row { 
+            padding: 22px; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
             transition: 0.3s;
         }
-        .view-btn:hover { background: #000; }
+        .cert-row:hover { background-color: #fdfbff; }
 
-        /* Image Display */
-        .img-container {
-            width: 100%;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            text-align: center;
+        .cert-name { 
+            font-weight: 600; 
+            color: #333; 
+            font-size: 1.05rem;
+            max-width: 70%;
         }
 
-        .img-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            display: block;
-            margin: 0 auto;
+        /* Gradient Buttons - Purple to Indigo */
+        .cert-row a { 
+            background: linear-gradient(135deg, #4b0082, #2b004e); /* Dark Indigo to Deep Purple */
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            border-radius: 6px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            transition: 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Black Hover Effect */
+        .cert-row a:hover { 
+            background: #000000; /* Turns Black on Hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 600px) {
+            .cert-row { flex-direction: column; text-align: center; gap: 15px; }
+            .cert-name { max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Professional Navigation -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -91,75 +104,39 @@
     </nav>
 
     <div class="container">
-        <h1>My Certifications</h1>
+        <h1>Certifications</h1>
         <div class="underline"></div>
-
-        <!-- Certificate 1 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">Google Data Analytics and Business Intelligence</span>
-                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="google_bi.jpg" alt="Google BI Certificate">
-            </div>
+        
+        <div class="cert-row">
+            <span class="cert-name">Google Data Analytics and Business Intelligence</span>
+            <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" target="_blank">View Certificate</a>
         </div>
 
-        <!-- Certificate 2 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">Google Data Analytics Professional Certificate</span>
-                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="google_pro.jpg" alt="Google Pro Certificate">
-            </div>
+        <div class="cert-row">
+            <span class="cert-name">Google Data Analytics Professional Certificate</span>
+            <!-- Updated Link Below -->
+            <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" target="_blank">View Certificate</a>
         </div>
 
-        <!-- Certificate 3 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">CISCO Data Analytics Essentials</span>
-                <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="cisco.jpg" alt="Cisco Certificate">
-            </div>
+        <div class="cert-row">
+            <span class="cert-name">CISCO Data Analytics Essentials</span>
+            <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" target="_blank">View Certificate</a>
         </div>
 
-        <!-- Certificate 4 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">Diploma in Data Analytics - HP Life Foundation</span>
-                <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="hplife.jpg" alt="HP Life Certificate">
-            </div>
+        <div class="cert-row">
+            <span class="cert-name">Diploma in Data Analytics - HP Life Foundation</span>
+            <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" target="_blank">View Certificate</a>
         </div>
 
-        <!-- Certificate 5 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">NSW Data Analytics Certificate</span>
-                <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="nsw.jpg" alt="NSW Certificate">
-            </div>
+        <div class="cert-row">
+            <span class="cert-name">NSW Data Analytics Certificate</span>
+            <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" target="_blank">View Certificate</a>
         </div>
 
-        <!-- Certificate 6 -->
-        <div class="cert-card">
-            <div class="cert-info">
-                <span class="cert-name">DigiSkills Data Analytics & BI Certificate</span>
-                <a href="https://github.com/Khurramnaveed3233/DigiSkills_-Data-Analytics-and-Business-Intelligence-Certificate/blob/main/README.md" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <div class="img-container">
-                <img src="digiskills.jpg" alt="DigiSkills Certificate">
-            </div>
+        <div class="cert-row">
+            <span class="cert-name">DigiSkills Data Analytics & BI Certificate</span>
+            <a href="https://github.com/Khurramnaveed3233/DigiSkills_-Data-Analytics-and-Business-Intelligence-Certificate/blob/main/README.md" target="_blank">View Certificate</a>
         </div>
-
     </div>
 
 </body>
