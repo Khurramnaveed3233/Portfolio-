@@ -1,113 +1,88 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Khurram Naveed</title>
+    <title>Professional Projects | Khurram Naveed</title>
     <style>
         /* Global Styles */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
         
         /* Navigation Bar */
         nav { 
-            background: #1a0b2e; 
-            padding: 18px 0; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background: #1a0b2e; padding: 18px 0; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        nav a { 
-            color: #d1b3ff; 
-            text-decoration: none; 
-            margin: 0 15px; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         nav a:hover { color: #fff; }
 
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        
         /* Hero Section */
         .projects-hero { 
             background: linear-gradient(135deg, #4b0082, #2b004e); 
-            color: #ffffff; 
-            text-align: center; 
-            padding: 80px 20px;
-            margin-bottom: 40px;
+            color: #ffffff; text-align: center; padding: 60px 20px;
         }
-        .projects-hero h1 { font-size: 3.2rem; margin: 0; font-family: 'Times New Roman', serif; }
+        .projects-hero h1 { font-size: 3rem; margin: 0; font-family: 'Times New Roman', serif; }
         .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 15px auto; border-radius: 10px; }
 
-        /* Category Header */
-        .category-header {
-            background-color: #1a0b2e;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1.4rem;
-            margin: 50px 0 30px;
-            display: inline-block;
-            font-weight: 600;
+        /* 3-Column Grid Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            gap: 25px;
+            max-width: 1450px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* Project Card Design */
+        .column-header {
+            background-color: #1a0b2e;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* Card Design */
         .project-card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-            border: 1px solid #e1e1e1;
-            transition: 0.3s;
-        }
-        .project-card:hover { transform: translateY(-5px); }
-
-        .project-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .project-name { font-size: 1.25rem; font-weight: 700; color: #1a0b2e; }
-
-        /* Purple Gradient Button */
-        .view-btn {
-            background: linear-gradient(135deg, #4b0082, #2b004e);
-            color: white;
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .view-btn:hover { background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-
-        /* Dashboard Image Style */
-        .project-img-container {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
+            padding: 18px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
+            transition: 0.3s;
         }
-        .project-img-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: 0.5s;
-        }
-        .project-img-container img:hover { transform: scale(1.02); }
+        .project-card:hover { transform: translateY(-5px); border-color: #4b0082; }
 
-        @media (max-width: 650px) {
-            .project-info { flex-direction: column; text-align: center; gap: 15px; }
-            .projects-hero h1 { font-size: 2.2rem; }
+        .project-name { 
+            font-size: 1.1rem; font-weight: 700; color: #1a0b2e; 
+            display: block; margin-bottom: 12px; text-decoration: none;
+        }
+
+        .img-box { 
+            width: 100%; border-radius: 8px; overflow: hidden; 
+            border: 1px solid #f0f0f0; margin-top: 5px; 
+        }
+        .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
+        .img-box img:hover { transform: scale(1.03); }
+
+        /* SQL Details Section */
+        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; }
+        .sql-desc b { color: #2b004e; }
+        .tag-box { 
+            display: inline-block; background: #f0e6ff; color: #4b0082; 
+            padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; 
+            font-weight: bold; margin-bottom: 10px; 
+        }
+
+        /* Mobile View */
+        @media (max-width: 1100px) {
+            .main-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -123,213 +98,164 @@
     </nav>
 
     <header class="projects-hero">
-        <h1>Technical Projects</h1>
+        <h1>Technical Portfolio</h1>
         <div class="underline"></div>
-        <p>Turning Complex Data into Visual Stories</p>
     </header>
 
-    <div class="container">
+    <div class="main-container">
 
-        <!-- SQL SECTION -->
-        <div class="category-header">SQL Projects</div>
-        
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Ola NZ – Ride-Hailing Analysis & Strategy</span>
-                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <p style="color: #666; font-size: 0.9rem;">Comprehensive analysis of ride-hailing data using advanced SQL queries to drive business growth.</p>
-        </div>
+        <!-- COLUMN 1: EXCEL PROJECTS -->
+        <div class="column">
+            <div class="column-header">Excel Projects</div>
 
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Samsung Pakistan Retail Sales Analysis</span>
-                <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <p style="color: #666; font-size: 0.9rem;">Analyzing retail channel performance using SQL to optimize sales strategy.</p>
-        </div>
-
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Zomato Business Growth Analysis</span>
-                <a href="https://github.com/Khurramnaveed3233/Comprehensive-Analysis-of-Zomato-s-Restaurant-and-Customer-Data-to-Drive-Business-Growth" class="view-btn" target="_blank">GitHub Link</a>
-            </div>
-            <p style="color: #666; font-size: 0.9rem;">Deep dive into restaurant and customer data to identify expansion opportunities.</p>
-        </div>
-
-        <!-- POWER BI SECTION -->
-        <div class="category-header">Power BI Dashboards</div>
-
-        <!-- 1 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Bhatti Property Management Dashboard</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Bhatti Property Managment Dashboard.jpg" alt="Bhatti Property Dashboard">
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Data Professional Survey Analysis Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Data Professional Survey Analysis Dashboard.jpg" alt="Survey Analysis Dashboard">
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Electronics Sales Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Electronics Sales Dashboard.jpg" alt="Electronics Sales Dashboard">
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Financial Sales Analysis Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Financial Sales Analysis Dashboard.jpg" alt="Financial Analysis Dashboard">
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">HR Analytics Dashboard - Turnover Analysis</span>
-                <a href="https://github.com/Khurramnaveed3233/HR-Analytics-Dashboard-Unlocking-Workforce-Insights" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <!-- Using version 1 of turnover dashboard -->
-                <img src="HR Analytics Dashboard Turnover 1.jpg" alt="HR Turnover Dashboard">
-            </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Jazz Telecom Data Analysis Dashboard</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Jazz Telecom Data Analysis Dashboard.jpg" alt="Jazz Telecom Dashboard">
-            </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">TrendMart Sales Analysis Dashboard</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="TrendMart Sales Analysis Dashboard.jpg" alt="TrendMart Dashboard">
-            </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Xmart Sales Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Xmart sales Dashboard.jpg" alt="Xmart Dashboard">
-            </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Samsung Pakistan Sales Analysis Dashboard</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Samsung Sales Dashboard">
-            </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Bank Customer Churn Analysis Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Bank Customer Churn Analysis Dashboard.jpg" alt="Bank Churn Dashboard">
-            </div>
-        </div>
-
-        <!-- EXCEL SECTION -->
-        <div class="category-header">Excel Projects</div>
-
-        <!-- 1 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Call Centre Data Analysis Excel Project</span>
-                <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Call Centre Data Analysis Excel Project.jpg" alt="Call Centre Excel Dashboard">
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">Coffee Sales Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="Coffee Sales Dashboard.jpg" alt="Coffee Sales Excel Dashboard">
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">CRM Dashboard in Excel</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="CRM Dahboard in Excel.jpg" alt="CRM Excel Dashboard">
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-name">E-Commerce Sales Analysis</span>
-                <a href="#" class="view-btn" target="_blank">View Project</a>
-            </div>
-            <div class="project-img-container">
-                <img src="ECOMMERCE SALES ANALYSIS.jpg" alt="E-Commerce Excel Dashboard">
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="project-card">
-            <div class="project-info">
+            <div class="project-card">
                 <span class="project-name">Road Accident Dashboard</span>
-                <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="view-btn" target="_blank">View Project</a>
+                <div class="img-box"><img src="Road Accident Dashboard.jpg"></div>
             </div>
-            <div class="project-img-container">
-                <img src="Road Accident Dashboard.jpg" alt="Road Accident Excel Dashboard">
+
+            <div class="project-card">
+                <span class="project-name">Call Centre Data Analysis</span>
+                <div class="img-box"><img src="Call Centre Data Analysis Excel Project.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Coffee Sales Dashboard</span>
+                <div class="img-box"><img src="Coffee Sales Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">CRM Dashboard</span>
+                <div class="img-box"><img src="CRM Dahboard in Excel.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">E-Commerce Sales Analysis</span>
+                <div class="img-box"><img src="ECOMMERCE SALES ANALYSIS.jpg"></div>
             </div>
         </div>
 
-    </div>
+        <!-- COLUMN 2: POWER BI DASHBOARDS -->
+        <div class="column">
+            <div class="column-header">Power BI Dashboards</div>
+
+            <div class="project-card">
+                <span class="project-name">Bhatti Property Management</span>
+                <div class="img-box"><img src="Bhatti Property Managment Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Data Professional Survey Breakdown</span>
+                <div class="img-box"><img src="Data Professional Survey Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Electronics Sales Analysis</span>
+                <div class="img-box"><img src="Electronics Sales Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Financial Sales Report</span>
+                <div class="img-box"><img src="Financial Sales Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">HR Analytics (Workforce Turnover)</span>
+                <div class="img-box"><img src="HR Analytics Dashboard Turnover 1.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Jazz Telecom Data Analysis</span>
+                <div class="img-box"><img src="Jazz Telecom Data Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">TrendMart Sales Dashboard</span>
+                <div class="img-box"><img src="TrendMart Sales Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Xmart Sales Analysis</span>
+                <div class="img-box"><img src="Xmart sales Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Samsung Pakistan Sales Dashboard</span>
+                <div class="img-box"><img src="Samsung Pakistan Sales Analysis Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Bank Customer Churn Analysis</span>
+                <div class="img-box"><img src="Bank Customer Churn Analysis Dashboard.jpg"></div>
+            </div>
+        </div>
+
+        <!-- COLUMN 3: SQL PROJECTS (With PDF Descriptions) -->
+        <div class="column">
+            <div class="column-header">SQL Analytics (PDF Context)</div>
+
+            <!-- SQL 1 -->
+            <div class="project-card">
+                <div class="tag-box">SQL + Power BI</div>
+                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Performance Analysis</a>
+                <div class="img-box"><img src="Samsung Pakistan Sales Analysis Dashboard.jpg"></div>
+                <div class="sql-desc">
+                    <b>Problem:</b> High cancellations (39%) & revenue leakage.<br>
+                    <b>Solution:</b> Star-schema modeling & Advanced SQL (CTEs, Joins, Window Functions).<br>
+                    <b>Impact:</b> NZD 3.1M+ estimated incremental revenue and 24% reduction in cancellations.
+                </div>
+            </div>
+
+            <!-- SQL 2 -->
+            <div class="project-card">
+                <div class="tag-box">Logistics Analytics</div>
+                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. TCS Logistics – Karachi Branch</a>
+                <div class="img-box"><img src="Jazz Telecom Data Analysis Dashboard.jpg"></div>
+                <div class="sql-desc">
+                    <b>Problem:</b> Systemic delays and 26% return rates impacting SLA compliance.<br>
+                    <b>Solution:</b> Normalized relational database design to diagnose operational flow bottlenecks.<br>
+                    <b>Impact:</b> 20% improvement in on-time delivery & 50% reduction in customer complaints.
+                </div>
+            </div>
+
+            <!-- SQL 3 -->
+            <div class="project-card">
+                <div class="tag-box">Sales Intelligence</div>
+                <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="project-name" target="_blank">3. Kap’s Café – SQL Analytics</a>
+                <div class="img-box"><img src="Coffee Sales Dashboard.jpg"></div>
+                <div class="sql-desc">
+                    <b>Objective:</b> Transform raw transactional data into monthly performance drivers.<br>
+                    <b>Method:</b> SQL window functions (LAG) to measure month-over-month growth volatility.<br>
+                    <b>Finding:</b> Identified pricing effect correlations between volume and revenue stabilization.
+                </div>
+            </div>
+
+            <!-- SQL 4 -->
+            <div class="project-card">
+                <div class="tag-box">Market Simulation</div>
+                <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="project-name" target="_blank">4. Airbnb Pakistan – Business Insights</a>
+                <div class="img-box"><img src="Bhatti Property Managment Dashboard.jpg"></div>
+                <div class="sql-desc">
+                    <b>Problem:</b> Lack of accessible pricing data for the Pakistan short-term rental market.<br>
+                    <b>Solution:</b> Simulated 10-city dataset covering 50+ bookings using Advanced SQL aggregations.<br>
+                    <b>Insight:</b> Murree identified as high-volume market with 30% underpricing revenue gap.
+                </div>
+            </div>
+
+            <!-- SQL 5 -->
+            <div class="project-card">
+                <div class="tag-box">Music Data Analysis</div>
+                <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="project-name" target="_blank">5. Spotify Data Analysis (SQL Alone)</a>
+                <div class="img-box"><img src="Data Professional Survey Analysis Dashboard.jpg"></div>
+                <div class="sql-desc">
+                    <b>Objective:</b> Extract business-relevant insights from music streaming engagement metrics.<br>
+                    <b>Process:</b> Normalized denormalized dataset to optimize complex query performance.<br>
+                    <b>Result:</b> Identified key track popularity drivers (energy, tempo) and platform-listener preferences.
+                </div>
+            </div>
+
+        </div> <!-- End Column 3 -->
+
+    </div> <!-- End Main Container -->
 
 </body>
 </html>
