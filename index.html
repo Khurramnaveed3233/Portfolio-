@@ -1,71 +1,136 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khurram Naveed | Data Analyst Portfolio</title>
+    <!-- Font Awesome for Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts for Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Global Styles */
+        /* Global Reset */
         body, html { 
             margin: 0; 
             padding: 0; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Poppins', sans-serif; 
             background-color: #ffffff; 
             scroll-behavior: smooth;
-        }
-        
-        /* Hero Section - Attractive Purple Gradient */
-        .hero { 
-            background: linear-gradient(135deg, #4b0082, #2b004e); /* Dark Indigo to Deep Purple */
-            color: #ffffff; 
-            text-align: center; 
-            padding: 120px 20px;
+            overflow-x: hidden;
         }
 
-        .hero h1 { 
-            font-size: 4rem; 
-            margin-bottom: 10px; 
-            font-weight: 700; 
+        /* Full Hero Section with Purple Gradient Background */
+        .hero-section {
+            background: linear-gradient(135deg, #4b0082, #2b004e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* 1. Social Icons Styling */
+        .social-icons {
+            margin-bottom: 30px;
+        }
+        .social-icons a {
+            color: #d1b3ff;
+            font-size: 1.8rem;
+            margin: 0 20px;
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* Name and Typing SVG */
+        .hero-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 10px 0;
             letter-spacing: -1px;
-            font-family: 'Times New Roman', serif;
+        }
+        .typing-container {
+            margin-bottom: 40px;
         }
 
-        /* Typing SVG Container */
-        .typing-container {
-            margin: 20px auto 40px;
-            min-height: 60px;
+        /* 2. Main Split Content Layout */
+        .split-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            gap: 40px;
+        }
+
+        /* Left Side: Quotation */
+        .quote-column {
+            flex: 1.2;
+            padding: 20px;
+        }
+        .quote-text {
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: #e0d1ff;
+            position: relative;
+            padding-left: 30px;
+        }
+        .quote-text::before {
+            content: "\f10d"; /* FontAwesome Quote Left */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: -5px;
+            top: -10px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        .attribution {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: #ffffff;
+            display: block;
+        }
+        /* Specific Styling for Clive Humby */
+        .author-name {
+            font-family: 'Dancing Script', cursive; /* Elegant Script Font */
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #d1b3ff;
+            margin-left: 10px;
+        }
+
+        /* Right Side: Profile Image (Purple Area) */
+        .image-column {
+            flex: 0.8;
+            background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect inside purple */
+            padding: 20px;
+            border-radius: 30px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .typing-container img {
-            max-width: 100%;
+        .profile-pic {
+            width: 100%;
+            max-width: 320px;
             height: auto;
+            border-radius: 20px; /* Styled rounded corners */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 3px solid #4b0082;
+            transition: 0.4s ease;
+        }
+        .profile-pic:hover {
+            transform: translateY(-10px);
+            border-color: #d1b3ff;
         }
 
-        /* Social Icons/Links */
-        .social-icons { margin-top: 20px; }
-        .social-icons a { 
-            color: white; 
-            text-decoration: none; 
-            margin: 0 10px; 
-            font-size: 0.9rem; 
-            border: 1px solid rgba(255,255,255,0.3); 
-            padding: 12px 25px; 
-            border-radius: 30px; 
-            transition: 0.3s ease; 
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            font-weight: 600;
-        }
-        .social-icons a:hover { 
-            background: #ffffff; 
-            color: #2b004e; 
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Navigation Bar */
+        /* Navigation Bar - Indigo */
         nav { 
             background-color: #1a0b2e; 
             padding: 18px 0; 
@@ -73,71 +138,76 @@
             position: sticky; 
             top: 0; 
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         nav a { 
             color: #d1b3ff; 
             text-decoration: none; 
-            margin: 0 20px; 
+            margin: 0 18px; 
             font-size: 0.85rem; 
             text-transform: uppercase; 
             letter-spacing: 1.5px; 
             font-weight: 700;
             transition: 0.3s;
         }
-        nav a:hover { color: #fff; }
+        nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
 
-        /* Welcome Section */
-        .content-preview { 
-            text-align: center; 
-            padding: 100px 20px; 
-            background: #fff; 
-        }
-        .content-preview h2 { 
-            font-size: 2.5rem; 
-            color: #1a0b2e; 
-            margin-bottom: 15px;
-            font-family: 'Times New Roman', serif;
-        }
-        .underline { 
-            width: 60px; 
-            height: 4px; 
-            background: #4b0082; 
-            margin: 0 auto 30px; 
-            border-radius: 10px; 
-        }
-        .content-preview p { 
-            max-width: 750px; 
-            margin: 0 auto; 
-            font-size: 1.15rem; 
-            line-height: 1.8; 
-            color: #444; 
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.8rem; }
-            nav a { margin: 0 8px; font-size: 0.7rem; }
+        /* Responsive Mobile Layout */
+        @media (max-width: 900px) {
+            .split-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .quote-text { padding-left: 0; font-size: 1.3rem; }
+            .hero-header h1 { font-size: 2.5rem; }
+            .profile-pic { max-width: 250px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>Khurram Naveed</h1>
+    <!-- Hero Section -->
+    <section class="hero-section">
         
-        <!-- Fixed Junior Spelling in SVG Link -->
-        <div class="typing-container">
-            <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=650&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
-        </div>
-        
+        <!-- 1. Social Media Icons (Top Banner) -->
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank">GitHub</a>
-            <a href="mailto:khurramnaveed4545@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:khurramnaveed4545@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="hero-header">
+            <h1>Khurram Naveed</h1>
+            <!-- Typing SVG Header -->
+            <div class="typing-container">
+                <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=650&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
+            </div>
+        </div>
+
+        <!-- 2 & 3. Split Content Layout -->
+        <div class="split-container">
+            
+            <!-- Left: Styled Quote -->
+            <div class="quote-column">
+                <div class="quote-text">
+                    "Data is the new oil. It’s valuable, but if unrefined it cannot really be used."
+                </div>
+                <div class="attribution">
+                    — <span class="author-name">Clive Humby</span>
+                </div>
+            </div>
+
+            <!-- Right: Purple Image Area -->
+            <div class="image-column">
+                <img src="khurram.jpg" alt="Khurram Naveed" class="profile-pic">
+            </div>
+
         </div>
     </section>
 
+    <!-- Navigation Menu -->
     <nav>
+        <a href="index.html" style="color:white; border-bottom: 2px solid #d1b3ff;">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="skills.html">Skills</a>
@@ -145,11 +215,13 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="content-preview">
-        <h2>Data-Driven Insights</h2>
-        <div class="underline"></div>
-        <p>
-            Welcome to my official portfolio. I am a Data Analytics professional dedicated to transforming raw data into interactive dashboards and meaningful business stories. With a strong foundation in <strong>SQL, Power BI, and Advanced Excel</strong>, I help organizations make impactful, data-driven decisions.
+    <!-- Page Content Preview -->
+    <div style="text-align: center; padding: 80px 20px;">
+        <h2 style="color: #1a0b2e; font-size: 2.2rem; font-family: 'Playfair Display', serif;">Bridging the Gap Between Data and Decisions</h2>
+        <div style="width: 60px; height: 4px; background: #4b0082; margin: 20px auto; border-radius: 10px;"></div>
+        <p style="max-width: 800px; margin: 20px auto; line-height: 1.8; color: #555; font-size: 1.1rem;">
+            I am a Data Analytics professional specializing in uncovering trends and optimizing business performance through 
+            data modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to see data in action.
         </p>
     </div>
 
