@@ -7,7 +7,7 @@
     <title>Khurram Naveed | Data Analyst Portfolio</title>
     <!-- Font Awesome for Professional Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts for Elegant Typography -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* Full Hero Section with Purple Gradient Background */
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #4b0082, #2b004e);
             color: white;
@@ -36,27 +36,31 @@
         .social-icons a {
             color: #d1b3ff;
             font-size: 1.8rem;
-            margin: 0 20px;
+            margin: 0 15px;
             transition: 0.3s ease;
             text-decoration: none;
+            display: inline-block;
         }
         .social-icons a:hover {
             color: #ffffff;
             transform: scale(1.2);
         }
 
-        /* Name and Typing SVG */
         .hero-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             margin: 10px 0;
             letter-spacing: -1px;
         }
+
+        /* Roles Animation (Typing SVG) */
         .typing-container {
             margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
         }
 
-        /* 2. Main Split Content Layout */
+        /* 2. Split Content Layout */
         .split-container {
             display: flex;
             max-width: 1200px;
@@ -67,48 +71,49 @@
             gap: 40px;
         }
 
-        /* Left Side: Quotation */
+        /* 3. Floating Quote Animation (LEFT SIDE) */
         .quote-column {
             flex: 1.2;
             padding: 20px;
+            /* Floating Animation */
+            animation: floatText 4s ease-in-out infinite;
         }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
         .quote-text {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-style: italic;
             line-height: 1.5;
             color: #e0d1ff;
             position: relative;
             padding-left: 30px;
+            border-left: 4px solid #d1b3ff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
         }
-        .quote-text::before {
-            content: "\f10d"; /* FontAwesome Quote Left */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: -5px;
-            top: -10px;
-            font-size: 2rem;
-            opacity: 0.3;
-        }
+
         .attribution {
             margin-top: 20px;
             font-size: 1.3rem;
             color: #ffffff;
             display: block;
         }
-        /* Specific Styling for Clive Humby */
+
         .author-name {
-            font-family: 'Dancing Script', cursive; /* Elegant Script Font */
+            font-family: 'Dancing Script', cursive;
             font-weight: bold;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #d1b3ff;
             margin-left: 10px;
         }
 
-        /* Right Side: Profile Image (Purple Area) */
+        /* Right Side: Profile Image */
         .image-column {
             flex: 0.8;
-            background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect inside purple */
+            background: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 30px;
             display: flex;
@@ -116,21 +121,18 @@
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .profile-pic {
             width: 100%;
             max-width: 320px;
             height: auto;
-            border-radius: 20px; /* Styled rounded corners */
+            border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 3px solid #4b0082;
             transition: 0.4s ease;
         }
-        .profile-pic:hover {
-            transform: translateY(-10px);
-            border-color: #d1b3ff;
-        }
 
-        /* Navigation Bar - Indigo */
+        /* Navigation Bar */
         nav { 
             background-color: #1a0b2e; 
             padding: 18px 0; 
@@ -154,11 +156,8 @@
 
         /* Responsive Mobile Layout */
         @media (max-width: 900px) {
-            .split-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .quote-text { padding-left: 0; font-size: 1.3rem; }
+            .split-container { flex-direction: column; text-align: center; }
+            .quote-text { padding-left: 10px; font-size: 1.3rem; border-left: none; }
             .hero-header h1 { font-size: 2.5rem; }
             .profile-pic { max-width: 250px; }
         }
@@ -169,25 +168,26 @@
     <!-- Hero Section -->
     <section class="hero-section">
         
-        <!-- 1. Social Media Icons (Top Banner) -->
+        <!-- Social Icons with Instagram -->
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/khurram_insights/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="mailto:khurramnaveed4545@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
 
         <div class="hero-header">
             <h1>Khurram Naveed</h1>
-            <!-- Typing SVG Header -->
+            <!-- Rotating Roles (Typing SVG) -->
             <div class="typing-container">
                 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=650&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
             </div>
         </div>
 
-        <!-- 2 & 3. Split Content Layout -->
+        <!-- Split Content Layout -->
         <div class="split-container">
             
-            <!-- Left: Styled Quote -->
+            <!-- Left Side: ANIMATED QUOTE -->
             <div class="quote-column">
                 <div class="quote-text">
                     "Data is the new oil. It’s valuable, but if unrefined it cannot really be used."
@@ -197,7 +197,7 @@
                 </div>
             </div>
 
-            <!-- Right: Purple Image Area -->
+            <!-- Right Side: Profile Image Area -->
             <div class="image-column">
                 <img src="khurram.jpg" alt="Khurram Naveed" class="profile-pic">
             </div>
@@ -217,10 +217,10 @@
 
     <!-- Page Content Preview -->
     <div style="text-align: center; padding: 80px 20px;">
-        <h2 style="color: #1a0b2e; font-size: 2.2rem; font-family: 'Playfair Display', serif;">Bridging the Gap Between Data and Decisions</h2>
+        <h2 style="color: #1a0b2e; font-size: 2.2rem; font-family: 'Playfair Display', serif;">Data-Driven Problem Solver</h2>
         <div style="width: 60px; height: 4px; background: #4b0082; margin: 20px auto; border-radius: 10px;"></div>
         <p style="max-width: 800px; margin: 20px auto; line-height: 1.8; color: #555; font-size: 1.1rem;">
-            I am a Data Analytics professional specializing in uncovering trends and optimizing business performance through 
+            I specialize in uncovering trends and optimizing business performance through 
             data modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to see data in action.
         </p>
     </div>
