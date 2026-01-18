@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Projects | Khurram Naveed</title>
+    <title>Technical Portfolio | Khurram Naveed</title>
     <style>
         /* Global Styles */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
@@ -45,13 +44,14 @@
             font-weight: 700;
             margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Card Design */
         .project-card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             margin-bottom: 30px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
@@ -59,15 +59,25 @@
         }
         .project-card:hover { transform: translateY(-5px); border-color: #4b0082; }
 
-        .project-name { font-size: 1.1rem; font-weight: 700; color: #1a0b2e; display: block; margin-bottom: 12px; text-decoration: none; }
+        .project-name { 
+            font-size: 1.1rem; font-weight: 700; color: #1a0b2e; 
+            display: block; margin-bottom: 12px; text-decoration: none;
+        }
 
-        .img-box { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; margin-top: 10px; }
+        .img-box { 
+            width: 100%; border-radius: 8px; overflow: hidden; 
+            border: 1px solid #f0f0f0; margin-top: 10px; 
+        }
         .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
 
         /* SQL Description Styling */
         .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 15px; text-align: justify; }
         .sql-desc b { color: #2b004e; }
-        .tag-box { display: inline-block; background: #f0e6ff; color: #4b0082; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; }
+        .tag-box { 
+            display: inline-block; background: #f0e6ff; color: #4b0082; 
+            padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; 
+            font-weight: bold; margin-bottom: 10px; 
+        }
         
         .insights-list { padding-left: 20px; margin-top: 5px; }
 
@@ -97,7 +107,7 @@
         <!-- COLUMN 1: EXCEL PROJECTS -->
         <div class="column">
             <div class="column-header">Excel Projects</div>
-            
+
             <div class="project-card">
                 <span class="project-name">Road Accident Dashboard</span>
                 <div class="img-box"><img src="Road%20Accident%20Dashboard.jpg"></div>
@@ -112,20 +122,26 @@
                 <span class="project-name">Coffee Sales Dashboard</span>
                 <div class="img-box"><img src="Coffee%20Sales%20Dashboard.jpg"></div>
             </div>
-            
+
             <div class="project-card">
                 <span class="project-name">CRM Dashboard in Excel</span>
                 <div class="img-box"><img src="CRM%20Dahboard%20in%20Excel.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">E-Commerce Sales Analysis</span>
+                <div class="img-box"><img src="ECOMMERCE%20SALES%20ANALYSIS.jpg"></div>
             </div>
         </div>
 
         <!-- COLUMN 2: POWER BI DASHBOARDS -->
         <div class="column">
             <div class="column-header">Power BI Dashboards</div>
-            
+
+            <!-- NEW: Amazon Power BI Card -->
             <div class="project-card">
                 <span class="project-name">Amazon E-Commerce Sales Dashboard</span>
-                <div class="img-box"><img src="AmazonPowerBI.png"></div>
+                <div class="img-box"><img src="AmazonPowerBI.png" alt="Amazon Power BI"></div>
             </div>
 
             <div class="project-card">
@@ -134,21 +150,41 @@
             </div>
 
             <div class="project-card">
+                <span class="project-name">Data Professional Survey Analysis</span>
+                <div class="img-box"><img src="Data%20Professional%20Survey%20Analysis%20Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
                 <span class="project-name">Electronics Sales Dashboard</span>
                 <div class="img-box"><img src="Electronics%20Sales%20Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">Financial Sales Analysis Dashboard</span>
+                <div class="img-box"><img src="Financial%20Sales%20Analysis%20Dashboard.jpg"></div>
             </div>
 
             <div class="project-card">
                 <span class="project-name">Samsung Pakistan Sales Dashboard</span>
                 <div class="img-box"><img src="Samsung%20Pakistan%20Sales%20Analysis%20Dashboard.jpg"></div>
             </div>
+
+            <div class="project-card">
+                <span class="project-name">Bank Customer Churn Dashboard</span>
+                <div class="img-box"><img src="Bank%20Customer%20Churn%20Analysis%20Dashboard.jpg"></div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-name">I Point Sales Dashboard</span>
+                <div class="img-box"><img src="I%20Point%20Sales%20Dashboard.jpg"></div>
+            </div>
         </div>
 
-        <!-- COLUMN 3: SQL PROJECTS (Fixed Images) -->
+        <!-- COLUMN 3: SQL PROJECTS -->
         <div class="column">
             <div class="column-header">SQL Analytics (Advanced)</div>
 
-            <!-- Amazon SQL -->
+            <!-- NEW: Amazon SQL Card with Detailed Description -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
                 <span class="project-name">Amazon E-Commerce Sales & Performance Dashboard</span>
@@ -156,34 +192,41 @@
                     <img src="AmazonSQL.png" alt="Amazon SQL">
                 </div>
                 <div class="sql-desc">
-                    <b>Problem:</b> Clear insights into sales performance were lacking.<br>
-                    <b>Solution:</b> SQL analysis + Power BI Visualization.<br>
-                    <b>Key Insights:</b> Pareto principle in products, high LTV customers, regional trends.
+                    <b>Problem:</b> The business had large volumes of e-commerce data but lacked clear insights into performance, profitability, and trends, making decisions difficult.<br><br>
+                    <b>Solution:</b> I analyzed data using SQL to answer business questions and built an interactive Power BI dashboard for KPI visualization.<br><br>
+                    <b>Key Insights:</b>
+                    <ul class="insights-list">
+                        <li>High-value customers contribute significant lifetime value.</li>
+                        <li>Pareto principle: few products drive most revenue.</li>
+                        <li>Discounts increase volume but impact profit margins.</li>
+                        <li>Regional performance varies consistently across segments.</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Ola NZ -->
+            <!-- 1. Ola NZ -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
-                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Performance Analysis</a>
+                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Ride‑Hailing Performance Analysis</a>
                 <div class="img-box">
-                    <img src="ola_sql.jpg" alt="Ola NZ SQL">
+                    <img src="ola_sql.jpg" alt="Ola NZ SQL Project">
                 </div>
                 <div class="sql-desc">
-                    <b>Problem:</b> High cancellations (39%) and revenue leakage.<br>
-                    <b>Impact:</b> Projected incremental revenue of <b>NZD 3.1M+</b>.
+                    <b>Problem:</b> Facing high ride cancellations (39%) and revenue leakage.<br>
+                    <b>Impact:</b> Projected incremental revenue of <b>NZD 3.1M+</b> and cancellation reduction to 15%.
                 </div>
             </div>
 
-            <!-- TCS Logistics -->
+            <!-- 2. TCS Logistics -->
             <div class="project-card">
                 <div class="tag-box">Logistics Analytics</div>
-                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. SQL Analytics for TCS Logistics</a>
+                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. SQL Analytics for TCS Logistics – Karachi</a>
                 <div class="img-box">
-                    <img src="SQL%20Analytics%20for%20TCS%20Logistics%20%E2%80%93%20Karachi%20Branch.jpg" alt="TCS SQL">
+                    <img src="SQL%20Analytics%20for%20TCS%20Logistics%20%E2%80%93%20Karachi%20Branch.jpg" alt="TCS Logistics SQL">
                 </div>
                 <div class="sql-desc">
-                    <b>Impact:</b> 20% improvement in on-time delivery & 50% reduction in customer complaints.
+                    <b>Problem:</b> Delivery delays (58hr avg) and 26% return rate impacting SLA.<br>
+                    <b>Impact:</b> Projected 20% improvement in on-time delivery.
                 </div>
             </div>
         </div>
