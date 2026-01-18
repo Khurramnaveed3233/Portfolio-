@@ -1,28 +1,79 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Portfolio | Khurram Naveed</title>
+    <title>Technical Projects | Khurram Naveed</title>
     <style>
+        /* Global Styles */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
-        nav { background: #1a0b2e; padding: 18px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; }
+        
+        /* Navigation Bar */
+        nav { 
+            background: #1a0b2e; padding: 18px 0; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         nav a:hover { color: #fff; }
-        .projects-hero { background: linear-gradient(135deg, #4b0082, #2b004e); color: #ffffff; text-align: center; padding: 60px 20px; }
+
+        /* Hero Section */
+        .projects-hero { 
+            background: linear-gradient(135deg, #4b0082, #2b004e); 
+            color: #ffffff; text-align: center; padding: 60px 20px;
+        }
         .projects-hero h1 { font-size: 3rem; margin: 0; font-family: 'Times New Roman', serif; }
         .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 15px auto; border-radius: 10px; }
-        .main-container { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 25px; max-width: 1550px; margin: 40px auto; padding: 0 20px; }
-        .column-header { background-color: #1a0b2e; color: #fff; padding: 15px; text-align: center; border-radius: 8px; font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
-        .project-card { background: #ffffff; border-radius: 12px; padding: 18px; margin-bottom: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #eee; transition: 0.3s; }
+
+        /* 3-Column Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            gap: 25px;
+            max-width: 1550px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .column-header {
+            background-color: #1a0b2e;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* Card Design */
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
         .project-card:hover { transform: translateY(-5px); border-color: #4b0082; }
-        .project-name { font-size: 1.1rem; font-weight: 700; color: #1a0b2e; display: block; margin-bottom: 12px; }
-        .img-box { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; margin-top: 5px; }
-        .img-box img { width: 100%; height: auto; display: block; }
-        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 10px; text-align: justify; }
+
+        .project-name { font-size: 1.1rem; font-weight: 700; color: #1a0b2e; display: block; margin-bottom: 12px; text-decoration: none; }
+
+        .img-box { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; margin-top: 10px; }
+        .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
+
+        /* SQL Description Styling */
+        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 15px; text-align: justify; }
+        .sql-desc b { color: #2b004e; }
         .tag-box { display: inline-block; background: #f0e6ff; color: #4b0082; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; }
+        
         .insights-list { padding-left: 20px; margin-top: 5px; }
-        @media (max-width: 1100px) { .main-container { grid-template-columns: 1fr; } }
+
+        @media (max-width: 1100px) {
+            .main-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -43,61 +94,66 @@
 
     <div class="main-container">
 
-        <!-- COLUMN 1: EXCEL (Using .jpg as per your GitHub list) -->
+        <!-- COLUMN 1: EXCEL PROJECTS -->
         <div class="column">
             <div class="column-header">Excel Projects</div>
+            
             <div class="project-card">
                 <span class="project-name">Road Accident Dashboard</span>
                 <div class="img-box"><img src="Road%20Accident%20Dashboard.jpg"></div>
             </div>
+
             <div class="project-card">
                 <span class="project-name">Call Centre Data Analysis</span>
                 <div class="img-box"><img src="Call%20Centre%20Data%20Analysis%20Excel%20Project.jpg"></div>
             </div>
+
             <div class="project-card">
                 <span class="project-name">Coffee Sales Dashboard</span>
                 <div class="img-box"><img src="Coffee%20Sales%20Dashboard.jpg"></div>
             </div>
+            
             <div class="project-card">
                 <span class="project-name">CRM Dashboard in Excel</span>
                 <div class="img-box"><img src="CRM%20Dahboard%20in%20Excel.jpg"></div>
             </div>
         </div>
 
-        <!-- COLUMN 2: POWER BI -->
+        <!-- COLUMN 2: POWER BI DASHBOARDS -->
         <div class="column">
             <div class="column-header">Power BI Dashboards</div>
             
-            <!-- Amazon (PNG) -->
             <div class="project-card">
                 <span class="project-name">Amazon E-Commerce Sales Dashboard</span>
-                <div class="img-box"><img src="AmazonPowerBI.png" alt="Amazon Power BI"></div>
+                <div class="img-box"><img src="AmazonPowerBI.png"></div>
             </div>
 
             <div class="project-card">
                 <span class="project-name">Bhatti Property Management</span>
                 <div class="img-box"><img src="Bhatti%20Property%20Managment%20Dashboard.jpg"></div>
             </div>
+
             <div class="project-card">
                 <span class="project-name">Electronics Sales Dashboard</span>
                 <div class="img-box"><img src="Electronics%20Sales%20Dashboard.jpg"></div>
             </div>
+
             <div class="project-card">
                 <span class="project-name">Samsung Pakistan Sales Dashboard</span>
                 <div class="img-box"><img src="Samsung%20Pakistan%20Sales%20Analysis%20Dashboard.jpg"></div>
             </div>
         </div>
 
-        <!-- COLUMN 3: SQL -->
+        <!-- COLUMN 3: SQL PROJECTS (Fixed Images) -->
         <div class="column">
             <div class="column-header">SQL Analytics (Advanced)</div>
 
-            <!-- Amazon (PNG) -->
+            <!-- Amazon SQL -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
                 <span class="project-name">Amazon E-Commerce Sales & Performance Dashboard</span>
                 <div class="img-box">
-                    <img src="https://raw.githubusercontent.com/Khurramnaveed3233/Portfolio/main/AmazonSQL.png" alt="Amazon SQL">
+                    <img src="AmazonSQL.png" alt="Amazon SQL">
                 </div>
                 <div class="sql-desc">
                     <b>Problem:</b> Clear insights into sales performance were lacking.<br>
@@ -106,14 +162,28 @@
                 </div>
             </div>
 
-            <!-- Ola NZ (JPG) -->
+            <!-- Ola NZ -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
                 <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">1. Ola NZ – Performance Analysis</a>
-                <div class="img-box"><img src="https://raw.githubusercontent.com/Khurramnaveed3233/Portfolio/main/ola_sql.jpg"></div>
+                <div class="img-box">
+                    <img src="ola_sql.jpg" alt="Ola NZ SQL">
+                </div>
                 <div class="sql-desc">
-                    <b>Problem:</b> High cancellations (39%).<br>
+                    <b>Problem:</b> High cancellations (39%) and revenue leakage.<br>
                     <b>Impact:</b> Projected incremental revenue of <b>NZD 3.1M+</b>.
+                </div>
+            </div>
+
+            <!-- TCS Logistics -->
+            <div class="project-card">
+                <div class="tag-box">Logistics Analytics</div>
+                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">2. SQL Analytics for TCS Logistics</a>
+                <div class="img-box">
+                    <img src="SQL%20Analytics%20for%20TCS%20Logistics%20%E2%80%93%20Karachi%20Branch.jpg" alt="TCS SQL">
+                </div>
+                <div class="sql-desc">
+                    <b>Impact:</b> 20% improvement in on-time delivery & 50% reduction in customer complaints.
                 </div>
             </div>
         </div>
