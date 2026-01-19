@@ -8,7 +8,6 @@
         /* Global Styles */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
         
-        /* Navigation Bar */
         nav { 
             background: #1a0b2e; padding: 18px 0; text-align: center; 
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -16,7 +15,6 @@
         nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         nav a:hover { color: #fff; }
 
-        /* Hero Section */
         .projects-hero { 
             background: linear-gradient(135deg, #4b0082, #2b004e); 
             color: #ffffff; text-align: center; padding: 60px 20px;
@@ -24,7 +22,6 @@
         .projects-hero h1 { font-size: 3rem; margin: 0; font-family: 'Times New Roman', serif; }
         .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 15px auto; border-radius: 10px; }
 
-        /* 3-Column Layout */
         .main-container {
             display: grid;
             grid-template-columns: 1fr 1fr 1.5fr;
@@ -35,54 +32,48 @@
         }
 
         .column-header {
-            background-color: #1a0b2e;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-transform: uppercase;
+            background-color: #1a0b2e; color: #fff; padding: 15px; text-align: center;
+            border-radius: 8px; font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase;
         }
 
-        /* Card Design */
         .project-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            border: 1px solid #eee;
-            transition: 0.3s;
+            background: #ffffff; border-radius: 12px; padding: 18px; margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #eee; transition: 0.3s;
         }
         .project-card:hover { transform: translateY(-5px); border-color: #4b0082; }
 
-        .project-name { 
-            font-size: 1.1rem; font-weight: 700; color: #1a0b2e; 
-            display: block; margin-bottom: 12px; text-decoration: none;
-        }
+        .project-name { font-size: 1.1rem; font-weight: 700; color: #1a0b2e; display: block; margin-bottom: 12px; text-decoration: none; }
 
+        /* Clickable Image Style */
         .img-box { 
-            width: 100%; border-radius: 8px; overflow: hidden; 
-            border: 1px solid #f0f0f0; margin-top: 10px; 
+            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; 
+            margin-top: 10px; cursor: pointer; position: relative;
         }
+        .img-box:after {
+            content: "🔍 Click to Preview"; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(75, 0, 130, 0.4); color: white; display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s; font-size: 0.8rem; font-weight: bold;
+        }
+        .img-box:hover:after { opacity: 1; }
         .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
 
-        /* SQL Description Styling */
-        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 15px; text-align: justify; }
-        .sql-desc b { color: #2b004e; }
-        .tag-box { 
-            display: inline-block; background: #f0e6ff; color: #4b0082; 
-            padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; 
-            font-weight: bold; margin-bottom: 10px; 
-        }
-        
-        .insights-list { padding-left: 20px; margin-top: 5px; }
+        .sql-desc { font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 15px; }
+        .tag-box { display: inline-block; background: #f0e6ff; color: #4b0082; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; }
 
-        @media (max-width: 1100px) {
-            .main-container { grid-template-columns: 1fr; }
+        /* --- POP-UP MODAL STYLING --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column;
         }
+        .modal-content {
+            max-width: 90%; max-height: 80%; border: 3px solid white; border-radius: 8px; cursor: zoom-in; animation: zoomIn 0.3s;
+        }
+        @keyframes zoomIn { from {transform: scale(0.8)} to {transform: scale(1)} }
+        .modal-caption { color: #d1b3ff; margin-top: 15px; font-weight: bold; font-size: 1.2rem; text-align: center; }
+        .close-btn { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .modal-hint { color: #888; font-size: 0.8rem; margin-top: 10px; }
+
+        @media (max-width: 1100px) { .main-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -103,178 +94,113 @@
 
     <div class="main-container">
 
-        <!-- COLUMN 1: EXCEL PROJECTS -->
+        <!-- COLUMN 1: EXCEL -->
         <div class="column">
             <div class="column-header">Excel Projects</div>
             
             <div class="project-card">
                 <span class="project-name">Road Accident Dashboard</span>
-                <div class="img-box"><img src="Road%20Accident%20Dashboard.jpg"></div>
+                <div class="img-box" onclick="openModal('Road%20Accident%20Dashboard.jpg', 'Road Accident Dashboard - Excel')">
+                    <img src="Road%20Accident%20Dashboard.jpg">
+                </div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">Call Centre Data Analysis Excel Project</span>
-                <div class="img-box"><img src="Call%20Centre%20Data%20Analysis%20Excel%20Project.jpg"></div>
+                <span class="project-name">Call Centre Analysis</span>
+                <div class="img-box" onclick="openModal('Call%20Centre%20Data%20Analysis%20Excel%20Project.jpg', 'Call Centre Analysis - Excel')">
+                    <img src="Call%20Centre%20Data%20Analysis%20Excel%20Project.jpg">
+                </div>
             </div>
 
             <div class="project-card">
                 <span class="project-name">Coffee Sales Dashboard</span>
-                <div class="img-box"><img src="Coffee%20Sales%20Dashboard.jpg"></div>
-            </div>
-            
-            <div class="project-card">
-                <span class="project-name">CRM Dahboard in Excel</span>
-                <div class="img-box"><img src="CRM%20Dahboard%20in%20Excel.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">ECOMMERCE SALES ANALYSIS</span>
-                <div class="img-box"><img src="ECOMMERCE%20SALES%20ANALYSIS.jpg"></div>
+                <div class="img-box" onclick="openModal('Coffee%20Sales%20Dashboard.jpg', 'Coffee Sales Dashboard - Excel')">
+                    <img src="Coffee%20Sales%20Dashboard.jpg">
+                </div>
             </div>
         </div>
 
-        <!-- COLUMN 2: POWER BI DASHBOARDS -->
+        <!-- COLUMN 2: POWER BI -->
         <div class="column">
             <div class="column-header">Power BI Dashboards</div>
             
-            <!-- NEW: Amazon E-Commerce PNG -->
             <div class="project-card">
-                <span class="project-name">Amazon E-Commerce Sales Dashboard</span>
-                <div class="img-box"><img src="AmazonPowerBI.png"></div>
+                <span class="project-name">Amazon Sales Dashboard</span>
+                <div class="img-box" onclick="openModal('AmazonPowerBI.png', 'Amazon E-Commerce Dashboard - Power BI')">
+                    <img src="AmazonPowerBI.png">
+                </div>
             </div>
 
             <div class="project-card">
-                <span class="project-name">Bhatti Property Managment Dashboard</span>
-                <div class="img-box"><img src="Bhatti%20Property%20Managment%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Data Professional Survey Analysis Dashboard</span>
-                <div class="img-box"><img src="Data%20Professional%20Survey%20Analysis%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Electronics Sales Dashboard</span>
-                <div class="img-box"><img src="Electronics%20Sales%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Financial Sales Analysis Dashboard</span>
-                <div class="img-box"><img src="Financial%20Sales%20Analysis%20Dashboard.jpg"></div>
+                <span class="project-name">Electronics Sales Analysis</span>
+                <div class="img-box" onclick="openModal('Electronics%20Sales%20Dashboard.jpg', 'Electronics Sales Dashboard - Power BI')">
+                    <img src="Electronics%20Sales%20Dashboard.jpg">
+                </div>
             </div>
 
             <div class="project-card">
                 <span class="project-name">HR Analytics Dashboard</span>
-                <div class="img-box"><img src="HR%20Analytics%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Jazz Telecom Data Analysis Dashboard</span>
-                <div class="img-box"><img src="Jazz%20Telecom%20Data%20Analysis%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">TrendMart Sales Analysis Dashboard</span>
-                <div class="img-box"><img src="TrendMart%20Sales%20Analysis%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Xmart sales Dashboard</span>
-                <div class="img-box"><img src="Xmart%20sales%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Samsung Pakistan Sales Analysis Dashboard</span>
-                <div class="img-box"><img src="Samsung%20Pakistan%20Sales%20Analysis%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">Bank Customer Churn Analysis Dashboard</span>
-                <div class="img-box"><img src="Bank%20Customer%20Churn%20Analysis%20Dashboard.jpg"></div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-name">I Point Sales Dashboard</span>
-                <div class="img-box"><img src="I%20Point%20Sales%20Dashboard.jpg"></div>
+                <div class="img-box" onclick="openModal('HR%20Analytics%20Dashboard.jpg', 'HR Analytics Dashboard - Power BI')">
+                    <img src="HR%20Analytics%20Dashboard.jpg">
+                </div>
             </div>
         </div>
 
-        <!-- COLUMN 3: SQL PROJECTS -->
+        <!-- COLUMN 3: SQL -->
         <div class="column">
             <div class="column-header">SQL Analytics (Advanced)</div>
 
-            <!-- NEW: Amazon SQL Project PNG with Description -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
-                <span class="project-name">Amazon E-Commerce Sales & Performance Dashboard</span>
-                <div class="img-box"><img src="AmazonSQL.png"></div>
+                <span class="project-name">Amazon E-Commerce SQL Analysis</span>
+                <div class="img-box" onclick="openModal('AmazonSQL.png', 'Amazon E-Commerce SQL Insights')">
+                    <img src="AmazonSQL.png">
+                </div>
                 <div class="sql-desc">
-                    <b>Problem:</b> Large data volume but lack of insights into customer value, product profitability, and regional trends.<br><br>
-                    <b>Solution:</b> SQL analysis to answer key business questions combined with interactive Power BI visualization.<br><br>
-                    <b>Key Insights:</b>
-                    <ul class="insights-list">
-                        <li>Pareto principle: Small number of products drive most revenue.</li>
-                        <li>High-value customers contribute significant lifetime value.</li>
-                        <li>Discounts increase volume but impact profit margins.</li>
-                        <li>Certain regions consistently outperform others.</li>
-                    </ul>
+                    <b>Problem:</b> Lacked clear insights into sales performance & profitability.<br>
+                    <b>Impact:</b> Optimized regional trends and identified high LTV customers.
                 </div>
             </div>
 
-            <!-- 1. Ola NZ -->
             <div class="project-card">
                 <div class="tag-box">SQL + Power BI</div>
-                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">Ola NZ – Ride‑Hailing Performance Analysis</a>
-                <div class="img-box"><img src="ola_sql.jpg"></div>
-                <div class="sql-desc">
-                    <b>Problem:</b> High ride cancellations (39%) and uneven driver utilization.<br>
-                    <b>Impact:</b> Projected NZD 3.1M+ incremental revenue and reduction in cancellations to 15%.
+                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="project-name" target="_blank">Ola NZ – Performance Analysis</a>
+                <div class="img-box" onclick="openModal('ola_sql.jpg', 'Ola NZ Ride-Hailing SQL Analysis')">
+                    <img src="ola_sql.jpg">
                 </div>
-            </div>
-
-            <!-- 2. TCS Logistics -->
-            <div class="project-card">
-                <div class="tag-box">Logistics Analytics</div>
-                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="project-name" target="_blank">SQL Analytics for TCS Logistics – Karachi</a>
-                <div class="img-box"><img src="SQL%20Analytics%20for%20TCS%20Logistics%20%E2%80%93%20Karachi%20Branch.jpg"></div>
                 <div class="sql-desc">
-                    <b>Problem:</b> Delivery delays and 26% return rate at Karachi hub.<br>
-                    <b>Impact:</b> Projected 20% improvement in on-time delivery.
-                </div>
-            </div>
-
-            <!-- 3. Kap's Cafe -->
-            <div class="project-card">
-                <div class="tag-box">SQL Server</div>
-                <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="project-name" target="_blank">Kap’s Café – SQL Analytics Project</a>
-                <div class="img-box"><img src="Kap’s%20Café%20–%20SQL%20Analytics%20Project.jpg"></div>
-                <div class="sql-desc">
-                    <b>Method:</b> Used monthly aggregation and LAG functions to calculate growth.
-                </div>
-            </div>
-
-            <!-- 4. Airbnb Pakistan -->
-            <div class="project-card">
-                <div class="tag-box">Market Insights</div>
-                <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="project-name" target="_blank">Airbnb Pakistan 2025 Insights</a>
-                <div class="img-box"><img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg"></div>
-                <div class="sql-desc">
-                    <b>Impact:</b> Identified underpriced listings in Murree with 30% revenue growth opportunity.
-                </div>
-            </div>
-
-            <!-- 5. Spotify -->
-            <div class="project-card">
-                <div class="tag-box">Data Normalization</div>
-                <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="project-name" target="_blank">Spotify Data Analysis using SQL</a>
-                <div class="img-box"><img src="Spotify-Data-Analysis-using-SQL.jpg"></div>
-                <div class="sql-desc">
-                    <b>Result:</b> Strengthened practical SQL expertise for complex data analysis.
+                    <b>Impact:</b> Projected NZD 3.1M+ incremental revenue.
                 </div>
             </div>
         </div>
 
     </div>
+
+    <!-- MODAL OVERLAY -->
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="fullImg" onclick="openFullRes(event)">
+        <div id="caption" class="modal-caption"></div>
+        <p class="modal-hint">(Click image again for full resolution | Click outside to close)</p>
+    </div>
+
+    <script>
+        function openModal(src, title) {
+            document.getElementById("imgModal").style.display = "flex";
+            document.getElementById("fullImg").src = src;
+            document.getElementById("caption").innerHTML = title;
+        }
+
+        function closeModal() {
+            document.getElementById("imgModal").style.display = "none";
+        }
+
+        function openFullRes(event) {
+            event.stopPropagation();
+            const imgSrc = document.getElementById("fullImg").src;
+            window.open(imgSrc, '_blank');
+        }
+    </script>
 
 </body>
 </html>
