@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Khurram Insights</title>
-    <!-- Font Awesome for Professional Icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         body, html { 
             margin: 0; padding: 0; 
             font-family: 'Poppins', sans-serif; 
-            background-color: #0d0415; /* Premium Dark Background */
+            background-color: #0d0415; 
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -30,7 +30,8 @@
             max-width: 1400px; margin: 0 auto;
             display: flex; justify-content: space-between; align-items: center; padding: 0 30px;
         }
-        .site-logo { height: 50px; width: auto; }
+        .site-logo { height: 55px; width: auto; transition: 0.3s; }
+        .site-logo:hover { transform: scale(1.05); }
         .nav-links a { color: #d1b3ff; text-decoration: none; margin-left: 25px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; }
         .nav-links a:hover { color: #fff; }
 
@@ -46,7 +47,7 @@
             display: flex; align-items: center; gap: 80px;
         }
 
-        /* Left Side: Profile Image & Signature */
+        /* Left Side: Image & Blue Signature */
         .image-side { flex: 1; text-align: center; }
         .profile-wrapper {
             position: relative; display: inline-block;
@@ -55,36 +56,38 @@
             width: 350px; height: 350px; border-radius: 50%;
             object-fit: cover; border: 8px solid #1a0b2e;
             box-shadow: 0 0 50px rgba(75, 0, 130, 0.5);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
-        /* Signature Image Styling */
+        /* Blue Signature Image Styling */
         .signature-img {
-            width: 220px; /* Adjust size based on your image */
+            width: 250px;
             height: auto;
             display: block;
             margin: 0 auto;
-            /* Invert filter: Agar signature black ink se hai to isse wo white ho jayegi dark background par */
-            filter: brightness(0) invert(1); 
-            opacity: 0.9;
+            /* Filter to make blue ink pop on dark background */
+            filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 5px rgba(0, 210, 255, 0.3));
+            opacity: 0.95;
+            transition: 0.3s ease;
         }
+        .signature-img:hover { transform: scale(1.05); opacity: 1; }
 
-        /* Right Side: Content Side */
+        /* Right Side: Content */
         .content-side { flex: 1.5; }
         .top-tag { color: #d1b3ff; font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .main-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 10px 0; line-height: 1.2; }
-        .desc-text { font-size: 1.05rem; color: #cccccc; line-height: 1.8; margin-bottom: 30px; }
+        .main-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 10px 0; line-height: 1.2; color: #ffffff; }
+        .desc-text { font-size: 1.05rem; color: #cccccc; line-height: 1.8; margin-bottom: 35px; text-align: justify; }
 
         /* Stats Grid */
         .stats-grid {
-            display: flex; gap: 40px; margin-bottom: 40px;
+            display: flex; gap: 40px; margin-bottom: 45px;
         }
         .stat-item { display: flex; align-items: center; gap: 15px; }
-        .stat-item i { font-size: 2rem; color: #d1b3ff; }
-        .stat-info h3 { font-size: 1.8rem; margin: 0; color: #ffffff; }
-        .stat-info p { font-size: 0.75rem; color: #d1b3ff; margin: 0; text-transform: uppercase; font-weight: 700; }
+        .stat-item i { font-size: 2.2rem; color: #d1b3ff; opacity: 0.9; }
+        .stat-info h3 { font-size: 1.8rem; margin: 0; color: #ffffff; font-weight: 700; }
+        .stat-info p { font-size: 0.75rem; color: #d1b3ff; margin: 0; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
 
-        /* Action Buttons */
+        /* CTA Buttons */
         .btn-group { display: flex; gap: 20px; }
         .btn {
             padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700;
@@ -102,33 +105,35 @@
         }
         .btn-connect:hover { background: #fff; color: #1a0b2e; }
 
-        /* Footer */
+        /* Footer Styling */
         .site-footer {
-            background-color: #1a0b2e; color: #d1b3ff; padding: 40px 20px;
+            background-color: #1a0b2e; color: #d1b3ff; padding: 50px 20px;
             text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .footer-logo { height: 40px; margin-bottom: 15px; }
+        .footer-logo { height: 45px; margin-bottom: 20px; opacity: 0.9; }
+        .copyright { font-size: 0.85rem; color: #888; }
 
-        /* Responsive Settings for Mobile */
+        /* Mobile View Fixes */
         @media (max-width: 1024px) {
-            .about-container { flex-direction: column; text-align: center; gap: 40px; }
+            .about-container { flex-direction: column; text-align: center; gap: 50px; }
             .stats-grid { justify-content: center; flex-wrap: wrap; }
             .btn-group { justify-content: center; }
-            .main-title { font-size: 2.5rem; }
+            .main-title { font-size: 2.8rem; }
             .profile-img { width: 280px; height: 280px; }
-            .signature-img { width: 180px; }
+            .signature-img { width: 200px; }
+            .desc-text { text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Professional Navbar -->
+    <!-- Professional Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html"><img src="Khurram Insights.jpeg" alt="Logo" class="site-logo"></a>
+            <a href="index.html"><img src="Khurram Insights.jpeg" alt="Khurram Insights Logo" class="site-logo"></a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+                <a href="about.html" style="color:#fff;">About</a>
                 <a href="projects.html">Projects</a>
                 <a href="skills.html">Skills</a>
                 <a href="certifications.html">Certifications</a>
@@ -137,20 +142,20 @@
         </div>
     </nav>
 
-    <!-- Enhanced About Section -->
+    <!-- Main About Section Content -->
     <section class="about-section">
         <div class="about-container">
             
-            <!-- Left Side: Profile Pic & Sig.png -->
+            <!-- Left Side: Profile Pic & Signature -->
             <div class="image-side">
                 <div class="profile-wrapper">
-                    <img src="KhurramImage.jpeg" alt="Khurram Naveed" class="profile-img">
+                    <img src="KhurramImage.jpeg" alt="Khurram Naveed Profile" class="profile-img">
                 </div>
-                <!-- Signature Image Implementation -->
-                <img src="Sig.png" alt="Signature" class="signature-img">
+                <!-- Your Blue Signature Image -->
+                <img src="Sig.png" alt="Khurram Naveed Signature" class="signature-img">
             </div>
 
-            <!-- Right Side: Professional Biography -->
+            <!-- Right Side: Textual Content & Stats -->
             <div class="content-side">
                 <span class="top-tag">ABOUT ME: THE DATA STORYTELLER</span>
                 <h1 class="main-title">Turning Data into Decisive Action</h1>
@@ -159,7 +164,7 @@
                     I'm a passionate Data Analyst dedicated to uncovering the stories hidden within complex datasets. With a strong foundation in the entire analytics lifecycle—from wrangling raw data in Excel and SQL to crafting compelling visualizations in Power BI—I bridge the gap between technical data and strategic business goals. My mission is to empower organizations with clear, actionable insights that drive growth.
                 </p>
 
-                <!-- Data Analyst Professional Stats -->
+                <!-- Achievement Statistics -->
                 <div class="stats-grid">
                     <div class="stat-item">
                         <i class="fa-regular fa-clock"></i>
@@ -186,7 +191,7 @@
 
                 <!-- Call to Action Buttons -->
                 <div class="btn-group">
-                    <!-- Download Resume Button (KhurramResume.pdf) -->
+                    <!-- Link to your uploaded Resume PDF -->
                     <a href="KhurramResume.pdf" download class="btn btn-resume">
                         <i class="fa-solid fa-download"></i> Download Resume
                     </a>
@@ -197,10 +202,10 @@
         </div>
     </section>
 
-    <!-- Professional Footer -->
+    <!-- Brand Consistent Footer -->
     <footer class="site-footer">
-        <img src="Khurram Insights.jpeg" alt="Logo" class="footer-logo">
-        <p>&copy; 2025 Khurram Insights. All rights reserved.</p>
+        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo" class="footer-logo">
+        <p class="copyright">&copy; 2025 Khurram Insights. All rights reserved.</p>
     </footer>
 
 </body>
