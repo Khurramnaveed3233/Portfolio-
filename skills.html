@@ -11,12 +11,12 @@
         body, html { 
             margin: 0; padding: 0; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0d0415; /* Premium Dark Background */
+            background-color: #0d0415; /* Matching Premium Dark Theme */
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* Consistent Navbar */
+        /* Navbar Styling */
         nav { 
             background: #1a0b2e; padding: 18px 0; text-align: center; 
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -24,7 +24,7 @@
         nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
 
-        /* Journey Header */
+        /* Header Section */
         .journey-header {
             text-align: center; padding: 60px 20px;
             background: radial-gradient(circle at center, #2b004e 0%, #0d0415 100%);
@@ -33,22 +33,22 @@
             font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; 
             font-weight: 800; font-family: 'Times New Roman', serif;
         }
-        .journey-header p { color: #d1b3ff; font-weight: 600; margin-top: 10px; font-size: 0.9rem; letter-spacing: 1px; }
+        .journey-header p { color: #d1b3ff; font-weight: 600; margin-top: 10px; font-size: 0.9rem; }
         .underline { width: 60px; height: 4px; background: #ffffff; margin: 15px auto; border-radius: 10px; }
 
-        /* Main Journey Flow Container */
-        .journey-container {
+        /* Main Journey Container */
+        .journey-flow {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            max-width: 1400px;
-            margin: 50px auto 100px;
+            max-width: 1450px;
+            margin: 40px auto 100px;
             padding: 0 20px;
-            gap: 15px;
+            gap: 10px;
         }
 
-        /* Individual Column Block */
-        .journey-step {
+        /* Step Card Styling */
+        .step-card {
             flex: 1;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(209, 179, 255, 0.1);
@@ -56,65 +56,78 @@
             padding: 30px 20px;
             text-align: center;
             position: relative;
-            transition: 0.3s;
+            transition: 0.4s ease;
         }
 
-        /* SQL "ACTIVE" HIGHLIGHT (Matching your image but in Purple) */
-        .journey-step.active-glow {
+        /* Highlighted Step (SQL Glow - Matching image) */
+        .step-card.active-glow {
             border: 2px solid #d1b3ff;
-            box-shadow: 0 0 30px rgba(123, 31, 162, 0.4);
-            background: rgba(123, 31, 162, 0.05);
+            box-shadow: 0 0 30px rgba(123, 31, 162, 0.5);
+            background: rgba(123, 31, 162, 0.08);
         }
 
-        .step-icon { font-size: 2.5rem; color: #d1b3ff; margin-bottom: 15px; }
-        .step-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; color: #fff; }
+        /* ICON STYLING (Colorful Logos) */
+        .step-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        
+        .icon-excel { color: #217346; filter: drop-shadow(0 0 10px rgba(33, 115, 70, 0.3)); } /* Official Excel Green */
+        .icon-sql { color: #ffffff; } /* SQL White */
+        .icon-powerbi { color: #F2C811; filter: drop-shadow(0 0 10px rgba(242, 200, 17, 0.3)); } /* Official Power BI Yellow */
+        .icon-insights { color: #d1b3ff; }
+
+        .step-title { font-size: 1rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
         .step-subtitle { font-size: 0.75rem; color: #aaa; margin-bottom: 25px; display: block; }
 
-        /* Inner Content Card (Simulating the code/dashboard view in image) */
-        .content-card {
+        /* Visual Content Box (Mockup view) */
+        .visual-box {
             background: #161b22;
             border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin-bottom: 25px;
             border: 1px solid #301a4d;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
-        .content-card img {
+        .visual-box img {
             width: 100%;
             height: auto;
             border-radius: 5px;
             opacity: 0.8;
+            transition: 0.3s;
         }
+        .visual-box:hover img { opacity: 1; transform: scale(1.05); }
 
-        /* Text Descriptions */
-        .step-desc-title { font-size: 0.9rem; font-weight: 700; color: #d1b3ff; margin-bottom: 10px; display: block; }
-        .step-desc-text { font-size: 0.8rem; color: #bbb; line-height: 1.6; }
+        /* Description Area */
+        .desc-title { font-size: 0.9rem; font-weight: 700; color: #d1b3ff; margin-bottom: 12px; display: block; }
+        .desc-text { font-size: 0.85rem; color: #bbbbbb; line-height: 1.6; }
 
-        /* Arrow Styling (Hidden on Mobile) */
-        .arrow {
+        /* Flow Arrow Styling */
+        .flow-arrow {
             display: flex;
             align-items: center;
             justify-content: center;
             color: #d1b3ff;
             font-size: 1.5rem;
-            padding-top: 150px;
-            opacity: 0.5;
+            padding-top: 180px;
+            opacity: 0.6;
         }
 
-        /* Footer Branding */
-        .footer-logo { height: 40px; margin: 50px auto; display: block; opacity: 0.8; }
+        /* Brand Footer Logo */
+        .footer-logo { height: 40px; margin: 40px auto; display: block; opacity: 0.7; }
 
         /* Responsive Fixes */
-        @media (max-width: 1100px) {
-            .journey-container { flex-direction: column; align-items: center; }
-            .arrow { display: none; }
-            .journey-step { width: 90%; margin-bottom: 30px; }
+        @media (max-width: 1150px) {
+            .journey-flow { flex-direction: column; align-items: center; }
+            .flow-arrow { display: none; }
+            .step-card { width: 95%; margin-bottom: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Professional Navbar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -124,92 +137,89 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Page Header -->
     <header class="journey-header">
-        <h1>MY ANALYTICS SKILLS JOURNEY</h1>
-        <p>FROM RAW DATA TO INSIGHTS</p>
+        <h1>My Analytics Skills Journey</h1>
+        <p>FROM RAW DATA TO DECISIVE ACTION</p>
         <div class="underline"></div>
     </header>
 
-    <div class="journey-container">
+    <main class="journey-flow">
 
         <!-- STEP 1: SPREADSHEETS -->
-        <div class="journey-step">
-            <i class="fa-solid fa-file-excel step-icon"></i>
+        <div class="step-card">
+            <i class="fa-solid fa-file-excel step-icon icon-excel"></i>
             <span class="step-title">Spreadsheets</span>
             <span class="step-subtitle">(Excel & Google Sheets)</span>
             
-            <div class="content-card">
-                <!-- Using one of your Excel project images as a placeholder -->
-                <img src="Road Accident Dashboard.jpg" alt="Excel Visualization">
+            <div class="visual-box">
+                <img src="Road Accident Dashboard.jpg" alt="Excel View">
             </div>
 
-            <span class="step-desc-title">Data Cleaning & Exploratory Analysis</span>
-            <p class="step-desc-text">
-                I use advanced formulas (VLOOKUP, INDEX+MATCH), Pivot Tables, and Power Query to clean messy datasets and perform quick EDA.
+            <span class="desc-title">Data Cleaning & EDA</span>
+            <p class="desc-text">
+                Leveraging advanced formulas (XLOOKUP, INDEX+MATCH), Pivot Tables, and Power Query to transform messy raw data into clean, structured datasets.
             </p>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
 
-        <!-- STEP 2: SQL (Highlighted Glow) -->
-        <div class="journey-step active-glow">
-            <i class="fa-solid fa-database step-icon"></i>
+        <!-- STEP 2: SQL (GLOWING ACTIVE STEP) -->
+        <div class="step-card active-glow">
+            <i class="fa-solid fa-database step-icon icon-sql"></i>
             <span class="step-title">SQL</span>
             <span class="step-subtitle">(Structured Query Language)</span>
             
-            <div class="content-card">
-                <!-- Mini view of SQL code -->
-                <img src="AmazonSQL.png" alt="SQL Querying">
+            <div class="visual-box">
+                <img src="AmazonSQL.png" alt="SQL Code View">
             </div>
 
-            <span class="step-desc-title">Database Querying & Transformation</span>
-            <p class="step-desc-text">
-                My engine for large datasets. I write complex queries with JOINS, CTEs, and Window Functions (RANK, LAG) to extract exact business data.
+            <span class="desc-title">Database Querying & Management</span>
+            <p class="desc-text">
+                Writing complex queries with multi-joins, CTEs, and Window Functions (RANK, LEAD/LAG) to extract and manipulate large-scale business data.
             </p>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
 
         <!-- STEP 3: POWER BI -->
-        <div class="journey-step">
-            <i class="fa-solid fa-chart-line step-icon"></i>
+        <div class="step-card">
+            <i class="fa-solid fa-chart-pie step-icon icon-powerbi"></i>
             <span class="step-title">Power BI</span>
             <span class="step-subtitle">(The Storyteller)</span>
             
-            <div class="content-card">
-                <!-- Using your Power BI project image -->
+            <div class="visual-box">
                 <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Power BI Dashboard">
             </div>
 
-            <span class="step-desc-title">Visualization & Business Intelligence</span>
-            <p class="step-desc-text">
-                Transforming processed data into interactive dashboards using DAX for custom measures and creating compelling data stories.
+            <span class="desc-title">Visualization & BI</span>
+            <p class="desc-text">
+                Developing interactive dashboards using DAX for custom measures and creating compelling data stories that reveal hidden trends.
             </p>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
 
         <!-- STEP 4: FINAL INSIGHTS -->
-        <div class="journey-step">
-            <i class="fa-solid fa-lightbulb step-icon"></i>
+        <div class="step-card">
+            <i class="fa-solid fa-gem step-icon icon-insights"></i>
             <span class="step-title">Final Insights</span>
-            <span class="step-subtitle">(Driving Business Value)</span>
+            <span class="step-subtitle">(Delivering Actionable Value)</span>
             
-            <div class="content-card" style="border-style: dashed; background: transparent;">
-                <img src="Khurram Insights.jpeg" alt="Actionable Insights" style="filter: brightness(1.2);">
+            <div class="visual-box" style="border-style: dashed; background: transparent;">
+                <img src="Khurram Insights.jpeg" alt="Final Insights" style="filter: brightness(1.2);">
             </div>
 
-            <span class="step-desc-title">Delivering Actionable Value</span>
-            <p class="step-desc-text">
-                Synthesizing all steps to provide clear recommendations and strategic insights that empower organizations to grow.
+            <span class="desc-title">Decisive Action</span>
+            <p class="desc-text">
+                Synthesizing analytics from all stages to provide clear, strategic recommendations that drive organizational growth and efficiency.
             </p>
         </div>
 
-    </div>
+    </main>
 
-    <!-- Logo Footer -->
-    <img src="Khurram Insights.jpeg" alt="Brand Logo" class="footer-logo">
+    <!-- Branding Footer -->
+    <img src="Khurram Insights.jpeg" alt="Logo" class="footer-logo">
 
 </body>
 </html>
