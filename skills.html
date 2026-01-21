@@ -3,189 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills | Khurram Naveed</title>
+    <title>Skills Journey | Khurram Insights</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Global Styles */
         body, html { 
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f8f9fa; 
-            color: #333;
+            background-color: #0d0415; /* Premium Dark Background */
+            color: #ffffff;
+            overflow-x: hidden;
         }
-        
-        /* Navigation Bar - Matches Theme */
+
+        /* Consistent Navbar */
         nav { 
-            background-color: #1a0b2e; 
-            padding: 18px 0; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background: #1a0b2e; padding: 18px 0; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        nav a { 
-            color: #d1b3ff; 
-            text-decoration: none; 
-            margin: 0 18px; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-weight: 700;
+        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
+
+        /* Journey Header */
+        .journey-header {
+            text-align: center; padding: 60px 20px;
+            background: radial-gradient(circle at center, #2b004e 0%, #0d0415 100%);
+        }
+        .journey-header h1 { 
+            font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; 
+            font-weight: 800; font-family: 'Times New Roman', serif;
+        }
+        .journey-header p { color: #d1b3ff; font-weight: 600; margin-top: 10px; font-size: 0.9rem; letter-spacing: 1px; }
+        .underline { width: 60px; height: 4px; background: #ffffff; margin: 15px auto; border-radius: 10px; }
+
+        /* Main Journey Flow Container */
+        .journey-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1400px;
+            margin: 50px auto 100px;
+            padding: 0 20px;
+            gap: 15px;
+        }
+
+        /* Individual Column Block */
+        .journey-step {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(209, 179, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
             transition: 0.3s;
         }
-        nav a:hover { color: #fff; }
 
-        /* Skills Hero Section */
-        .skills-hero { 
-            background: linear-gradient(135deg, #4b0082, #2b004e); 
-            color: #ffffff; 
-            text-align: center; 
-            padding: 80px 20px;
+        /* SQL "ACTIVE" HIGHLIGHT (Matching your image but in Purple) */
+        .journey-step.active-glow {
+            border: 2px solid #d1b3ff;
+            box-shadow: 0 0 30px rgba(123, 31, 162, 0.4);
+            background: rgba(123, 31, 162, 0.05);
         }
 
-        .skills-hero h1 { 
-            font-size: 3.2rem; 
-            margin-bottom: 10px; 
-            font-family: 'Times New Roman', serif;
-        }
-        .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 10px auto; border-radius: 10px; }
+        .step-icon { font-size: 2.5rem; color: #d1b3ff; margin-bottom: 15px; }
+        .step-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; color: #fff; }
+        .step-subtitle { font-size: 0.75rem; color: #aaa; margin-bottom: 25px; display: block; }
 
-        /* Skills Grid Layout */
-        .skills-container {
-            max-width: 1100px;
-            margin: 40px auto 80px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        /* Skill Card Style */
-        .skill-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
-            transition: 0.3s ease;
-        }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: #4b0082;
-        }
-
-        .skill-card h2 {
-            color: #4b0082;
-            font-size: 1.5rem;
+        /* Inner Content Card (Simulating the code/dashboard view in image) */
+        .content-card {
+            background: #161b22;
+            border-radius: 10px;
+            padding: 15px;
             margin-bottom: 20px;
+            border: 1px solid #301a4d;
+            overflow: hidden;
+        }
+        .content-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            opacity: 0.8;
+        }
+
+        /* Text Descriptions */
+        .step-desc-title { font-size: 0.9rem; font-weight: 700; color: #d1b3ff; margin-bottom: 10px; display: block; }
+        .step-desc-text { font-size: 0.8rem; color: #bbb; line-height: 1.6; }
+
+        /* Arrow Styling (Hidden on Mobile) */
+        .arrow {
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #f4f4f4;
-            padding-bottom: 10px;
+            justify-content: center;
+            color: #d1b3ff;
+            font-size: 1.5rem;
+            padding-top: 150px;
+            opacity: 0.5;
         }
 
-        .skill-card h2 span { margin-right: 10px; font-size: 1.8rem; }
+        /* Footer Branding */
+        .footer-logo { height: 40px; margin: 50px auto; display: block; opacity: 0.8; }
 
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .skill-list li {
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.4;
-        }
-
-        .skill-list li::before {
-            content: "✓";
-            color: #4b0082;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .skills-hero h1 { font-size: 2.5rem; }
-            .skills-container { grid-template-columns: 1fr; }
+        /* Responsive Fixes */
+        @media (max-width: 1100px) {
+            .journey-container { flex-direction: column; align-items: center; }
+            .arrow { display: none; }
+            .journey-step { width: 90%; margin-bottom: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Professional Navigation -->
+    <!-- Navbar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
-        <a href="skills.html" style="color:white">Skills</a>
+        <a href="skills.html" style="color:#fff; border-bottom: 2px solid #d1b3ff;">Skills</a>
         <a href="certifications.html">Certifications</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <!-- Header Section -->
-    <header class="skills-hero">
-        <h1>Technical Expertise</h1>
+    <header class="journey-header">
+        <h1>MY ANALYTICS SKILLS JOURNEY</h1>
+        <p>FROM RAW DATA TO INSIGHTS</p>
         <div class="underline"></div>
-        <p style="color: #d1b3ff; margin-top: 15px;">Transforming complex data into meaningful insights</p>
     </header>
 
-    <!-- Main Skills Section -->
-    <div class="skills-container">
-        
-        <!-- Excel Card -->
-        <div class="skill-card">
-            <h2><span>📊</span> Excel</h2>
-            <ul class="skill-list">
-                <li>Data Analysis & Reporting</li>
-                <li>Data Cleaning & Data Formatting</li>
-                <li>Advanced Formulas (VLOOKUP, XLOOKUP, INDEX+MATCH)</li>
-                <li>Conditional Formatting for Insights</li>
-                <li>Pivot Tables & Pivot Charts</li>
-                <li>Data Validation & Error Handling</li>
-                <li>Text Functions, Date & Time Functions</li>
-                <li>Dashboard Creation in Excel</li>
-                <li>Sorting, Filtering & Data Analysis Tools</li>
-                <li>Importing & Managing Large Datasets</li>
-            </ul>
+    <div class="journey-container">
+
+        <!-- STEP 1: SPREADSHEETS -->
+        <div class="journey-step">
+            <i class="fa-solid fa-file-excel step-icon"></i>
+            <span class="step-title">Spreadsheets</span>
+            <span class="step-subtitle">(Excel & Google Sheets)</span>
+            
+            <div class="content-card">
+                <!-- Using one of your Excel project images as a placeholder -->
+                <img src="Road Accident Dashboard.jpg" alt="Excel Visualization">
+            </div>
+
+            <span class="step-desc-title">Data Cleaning & Exploratory Analysis</span>
+            <p class="step-desc-text">
+                I use advanced formulas (VLOOKUP, INDEX+MATCH), Pivot Tables, and Power Query to clean messy datasets and perform quick EDA.
+            </p>
         </div>
 
-        <!-- SQL Card -->
-        <div class="skill-card">
-            <h2><span>🗄️</span> SQL</h2>
-            <ul class="skill-list">
-                <li>Writing Complex SELECT Queries</li>
-                <li>WHERE, ORDER BY, GROUP BY, HAVING</li>
-                <li>SQL Joins: INNER, LEFT, RIGHT, FULL</li>
-                <li>Subqueries & Nested Queries</li>
-                <li>Aggregate Functions (SUM, COUNT, AVG)</li>
-                <li>Window Functions (ROW_NUMBER, RANK)</li>
-                <li>Common Table Expressions (CTEs)</li>
-                <li>Data Cleaning & Transformation using SQL</li>
-                <li>Database Design Basics & Normalization</li>
-            </ul>
+        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+        <!-- STEP 2: SQL (Highlighted Glow) -->
+        <div class="journey-step active-glow">
+            <i class="fa-solid fa-database step-icon"></i>
+            <span class="step-title">SQL</span>
+            <span class="step-subtitle">(Structured Query Language)</span>
+            
+            <div class="content-card">
+                <!-- Mini view of SQL code -->
+                <img src="AmazonSQL.png" alt="SQL Querying">
+            </div>
+
+            <span class="step-desc-title">Database Querying & Transformation</span>
+            <p class="step-desc-text">
+                My engine for large datasets. I write complex queries with JOINS, CTEs, and Window Functions (RANK, LAG) to extract exact business data.
+            </p>
         </div>
 
-        <!-- Power BI Card -->
-        <div class="skill-card">
-            <h2><span>📈</span> Power BI</h2>
-            <ul class="skill-list">
-                <li>Data Import from Multiple Sources</li>
-                <li>Data Modeling & Relationships</li>
-                <li>DAX Basics (CALCULATE, FILTER, SUMX)</li>
-                <li>Interactive Dashboards & Reports</li>
-                <li>KPI Cards & Business Metrics</li>
-                <li>Slicers, Filters & Drill-Through</li>
-                <li>Time Intelligence Functions</li>
-                <li>Power Query (Cleaning & Transformation)</li>
-                <li>Publishing & Sharing Reports</li>
-            </ul>
+        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+        <!-- STEP 3: POWER BI -->
+        <div class="journey-step">
+            <i class="fa-solid fa-chart-line step-icon"></i>
+            <span class="step-title">Power BI</span>
+            <span class="step-subtitle">(The Storyteller)</span>
+            
+            <div class="content-card">
+                <!-- Using your Power BI project image -->
+                <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Power BI Dashboard">
+            </div>
+
+            <span class="step-desc-title">Visualization & Business Intelligence</span>
+            <p class="step-desc-text">
+                Transforming processed data into interactive dashboards using DAX for custom measures and creating compelling data stories.
+            </p>
+        </div>
+
+        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+        <!-- STEP 4: FINAL INSIGHTS -->
+        <div class="journey-step">
+            <i class="fa-solid fa-lightbulb step-icon"></i>
+            <span class="step-title">Final Insights</span>
+            <span class="step-subtitle">(Driving Business Value)</span>
+            
+            <div class="content-card" style="border-style: dashed; background: transparent;">
+                <img src="Khurram Insights.jpeg" alt="Actionable Insights" style="filter: brightness(1.2);">
+            </div>
+
+            <span class="step-desc-title">Delivering Actionable Value</span>
+            <p class="step-desc-text">
+                Synthesizing all steps to provide clear recommendations and strategic insights that empower organizations to grow.
+            </p>
         </div>
 
     </div>
+
+    <!-- Logo Footer -->
+    <img src="Khurram Insights.jpeg" alt="Brand Logo" class="footer-logo">
 
 </body>
 </html>
