@@ -14,7 +14,7 @@
             background-color: #f8f9fa; color: #333;
         }
 
-        /* Navbar with Brand Logo */
+        /* Navbar Styling */
         nav { 
             background: #1a0b2e; padding: 10px 30px; 
             display: flex; justify-content: space-between; align-items: center;
@@ -25,7 +25,7 @@
         nav .nav-links a { color: #d1b3ff; text-decoration: none; margin-left: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
         nav .nav-links a:hover { color: #fff; }
 
-        /* Header Section (Purple Gradient) */
+        /* Header Section */
         .contact-header {
             background: linear-gradient(135deg, #4b0082, #1a0b2e);
             color: white; text-align: center; padding: 70px 20px 110px;
@@ -35,18 +35,18 @@
 
         /* Main Grid Layout */
         .main-container {
-            max-width: 1100px; margin: -70px auto 60px;
+            max-width: 1150px; margin: -70px auto 60px;
             display: flex; gap: 40px; padding: 0 20px;
             align-items: flex-start;
         }
 
         /* LEFT SIDE: Social Link Cards */
-        .contact-methods { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        .contact-methods { flex: 1; display: flex; flex-direction: column; gap: 15px; }
         
         .method-card {
             background: linear-gradient(135deg, #301a4d, #1a0b2e);
-            border-radius: 15px; padding: 22px;
-            display: flex; align-items: center; gap: 20px;
+            border-radius: 15px; padding: 18px;
+            display: flex; align-items: center; gap: 15px;
             text-decoration: none; color: white;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             transition: 0.4s ease;
@@ -56,14 +56,21 @@
 
         .icon-box {
             background: rgba(255, 255, 255, 0.1);
-            width: 65px; height: 65px; border-radius: 12px;
+            width: 60px; height: 60px; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; color: #d1b3ff;
+            font-size: 1.8rem;
         }
-        .method-info strong { display: block; font-size: 0.85rem; color: #d1b3ff; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 1px; }
-        .method-info span { font-size: 1.05rem; font-weight: 600; }
 
-        /* RIGHT SIDE: White Contact Form Card */
+        /* Original Brand Colors for Icons */
+        .icon-linkedin { color: #0A66C2; }
+        .icon-email { color: #EA4335; }
+        .icon-whatsapp { color: #25D366; }
+        .icon-github { color: #ffffff; }
+
+        .method-info strong { display: block; font-size: 0.8rem; color: #d1b3ff; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 1px; }
+        .method-info span { font-size: 0.95rem; font-weight: 600; }
+
+        /* RIGHT SIDE: Contact Form Card */
         .contact-form-card {
             flex: 1.2; background: white; border-radius: 20px; padding: 45px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
@@ -78,7 +85,6 @@
         }
         .form-group input:focus, .form-group textarea:focus { border-color: #4b0082; outline: none; background: #fff; box-shadow: 0 0 10px rgba(75,0,130,0.1); }
 
-        /* Form Button */
         .send-btn {
             width: 100%; background: linear-gradient(90deg, #4b0082, #1a0b2e);
             color: white; border: none; padding: 16px; border-radius: 12px;
@@ -87,21 +93,17 @@
         }
         .send-btn:hover { letter-spacing: 3px; box-shadow: 0 8px 20px rgba(75,0,130,0.4); transform: translateY(-2px); }
 
-        /* Footer Note */
         .bottom-note { text-align: center; font-size: 0.9rem; color: #777; margin-top: 40px; font-weight: 700; padding-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Mobile Responsive Settings */
         @media (max-width: 900px) {
             .main-container { flex-direction: column; margin-top: 20px; }
-            .contact-header { padding-bottom: 50px; }
-            .contact-header h1 { font-size: 2.2rem; }
             .contact-form-card { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Professional Navbar -->
+    <!-- Navbar with Khurram Insights Logo -->
     <nav>
         <a href="index.html"><img src="Khurram Insights.jpeg" alt="Logo" class="logo-img"></a>
         <div class="nav-links">
@@ -110,11 +112,11 @@
             <a href="projects.html">Projects</a>
             <a href="skills.html">Skills</a>
             <a href="certifications.html">Certifications</a>
-            <a href="contact.html" style="color:#fff;">Contact</a>
+            <a href="contact.html" style="color:#fff; border-bottom: 2px solid #d1b3ff;">Contact</a>
         </div>
     </nav>
 
-    <!-- Page Header -->
+    <!-- Header Section -->
     <header class="contact-header">
         <h1>Get In Touch</h1>
         <p>I am actively seeking opportunities to apply my data skills and collaborate on impactful projects. Let's grow together!</p>
@@ -122,11 +124,11 @@
 
     <main class="main-container">
         
-        <!-- Social Connection Cards (Left Side) -->
+        <!-- Social Connection Cards with Colorful Icons -->
         <div class="contact-methods">
             
             <a href="mailto:khurramnaveed4545@gmail.com" class="method-card">
-                <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="icon-box"><i class="fa-solid fa-envelope icon-email"></i></div>
                 <div class="method-info">
                     <strong>Email Address</strong>
                     <span>khurramnaveed4545@gmail.com</span>
@@ -134,58 +136,56 @@
             </a>
 
             <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank" class="method-card">
-                <div class="icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="icon-box"><i class="fa-brands fa-linkedin-in icon-linkedin"></i></div>
                 <div class="method-info">
                     <strong>LinkedIn Profile</strong>
-                    <span>Connect professionally</span>
+                    <span>Professional Network</span>
+                </div>
+            </a>
+
+            <a href="https://wa.me/923407209828" target="_blank" class="method-card">
+                <div class="icon-box"><i class="fa-brands fa-whatsapp icon-whatsapp"></i></div>
+                <div class="method-info">
+                    <strong>WhatsApp</strong>
+                    <span>+92 340 7209828</span>
                 </div>
             </a>
 
             <a href="https://github.com/Khurramnaveed3233/Projects" target="_blank" class="method-card">
-                <div class="icon-box"><i class="fa-brands fa-github"></i></div>
+                <div class="icon-box"><i class="fa-brands fa-github icon-github"></i></div>
                 <div class="method-info">
                     <strong>GitHub Portfolio</strong>
-                    <span>View all repositories</span>
+                    <span>Technical Repositories</span>
                 </div>
             </a>
 
         </div>
 
-        <!-- Fully Working Contact Form (Right Side) -->
+        <!-- Fully Working Contact Form -->
         <div class="contact-form-card">
-            <!-- Connected to your Formspree ID: mlggaawd -->
             <form action="https://formspree.io/f/mlggaawd" method="POST">
-                
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="full_name" placeholder="Enter your name" required>
                 </div>
-
                 <div class="form-group">
                     <label>Email Address</label>
                     <input type="email" name="email" placeholder="Enter your email" required>
                 </div>
-
                 <div class="form-group">
                     <label>Subject</label>
                     <input type="text" name="subject" placeholder="What is this regarding?" required>
                 </div>
-
                 <div class="form-group">
                     <label>Message Details</label>
                     <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
                 </div>
-
-                <!-- Anti-Spam Hidden Field (Optional but good) -->
-                <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
-
                 <button type="submit" class="send-btn">Send Message</button>
             </form>
         </div>
 
     </main>
 
-    <!-- Role Availability Note -->
     <div class="bottom-note">
         Open to Remote Data Analyst & BI Roles
     </div>
