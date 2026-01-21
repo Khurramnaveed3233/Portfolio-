@@ -7,140 +7,145 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Global Styles - Image Inspired Theme */
+        /* Global Styles - Deep Purple Theme */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
-            background-color: #0b0e14; /* Deep Dark Background */
+            background-color: #0d0415; /* Matching About Page background */
             color: #ffffff;
             overflow-x: hidden;
         }
         
+        /* Consistent Purple Navbar */
         nav { 
-            background: #12161f; padding: 15px 0; text-align: center; 
+            background: #1a0b2e; padding: 18px 0; text-align: center; 
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        nav a { color: #00d2ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         nav a:hover { color: #fff; }
 
+        /* Purple Hero Header */
         .header-section {
             text-align: center; padding: 60px 20px;
-            background: radial-gradient(circle at center, #1a2a44 0%, #0b0e14 100%);
+            background: linear-gradient(135deg, #4b0082, #2b004e);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        .header-section h1 { 
-            font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; 
-            font-weight: 800; color: #ffffff;
-        }
-        .header-section p { color: #00d2ff; font-weight: 600; margin-top: 10px; }
+        .header-section h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; font-weight: 800; font-family: 'Times New Roman', serif; }
+        .header-section p { color: #d1b3ff; font-weight: 600; margin-top: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        .underline { width: 60px; height: 4px; background: #ffffff; margin: 15px auto; border-radius: 10px; }
 
-        /* Main Flex Container for the Journey Flow */
+        /* Main Lifecycle Flow Container */
         .lifecycle-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            gap: 20px;
-            max-width: 1600px;
-            margin: 40px auto 100px;
-            padding: 0 40px;
+            gap: 15px;
+            max-width: 1700px;
+            margin: 50px auto 100px;
+            padding: 0 20px;
         }
 
-        /* The Blocks (Excel, SQL, Power BI) */
+        /* The Columns - Glassmorphism style with Purple Borders */
         .flow-column {
             flex: 1;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
+            border: 1px solid rgba(209, 179, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px 15px;
             text-align: center;
-            position: relative;
-            min-width: 300px;
-        }
-
-        /* Active Glow Effect for SQL (matching the image) */
-        .flow-column.active-step {
-            border: 2px solid #00d2ff;
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
-            background: rgba(0, 210, 255, 0.05);
-        }
-
-        /* Icons & Headings */
-        .step-icon { font-size: 2.5rem; margin-bottom: 15px; color: #00d2ff; }
-        .step-title { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-        .step-subtitle { font-size: 0.85rem; color: #888; margin-bottom: 25px; }
-
-        /* Individual Project Cards inside Columns */
-        .project-card {
-            background: #161b22;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 20px;
-            text-align: left;
-            border: 1px solid #30363d;
+            min-width: 280px;
             transition: 0.3s;
         }
-        .project-card:hover { border-color: #00d2ff; transform: scale(1.02); }
 
-        .project-name { font-size: 0.9rem; font-weight: 700; color: #ffffff; display: block; margin-bottom: 8px; }
+        /* ACTIVE STEP - PURPLE GLOW (Matching SQL Step in image) */
+        .flow-column.active-step {
+            border: 2px solid #d1b3ff;
+            box-shadow: 0 0 30px rgba(123, 31, 162, 0.4);
+            background: rgba(123, 31, 162, 0.05);
+        }
+
+        .step-icon { font-size: 2.5rem; margin-bottom: 15px; color: #d1b3ff; }
+        .step-title { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; color: #fff; }
+        .step-subtitle { font-size: 0.8rem; color: #aaa; margin-bottom: 30px; display: block; }
+
+        /* Project Cards */
+        .project-card {
+            background: #1a0b2e;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            border: 1px solid #301a4d;
+            transition: 0.3s;
+        }
+        .project-card:hover { 
+            border-color: #d1b3ff; 
+            transform: translateY(-5px); 
+            box-shadow: 0 5px 15px rgba(209, 179, 255, 0.2);
+        }
+
+        .project-name { font-size: 0.9rem; font-weight: 700; color: #ffffff; display: block; margin-bottom: 10px; line-height: 1.4; }
         
         .img-box { 
-            width: 100%; border-radius: 5px; overflow: hidden; cursor: pointer; position: relative;
+            width: 100%; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; border: 1px solid #2b004e;
         }
-        .img-box img { width: 100%; height: auto; display: block; }
+        .img-box img { width: 100%; height: auto; display: block; transition: 0.4s; }
         .img-box:after {
-            content: "🔍 VIEW"; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 210, 255, 0.3); color: white; display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: 0.3s; font-weight: bold; font-size: 0.7rem;
+            content: "🔍 PREVIEW"; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(75, 0, 130, 0.5); color: white; display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s; font-weight: bold; font-size: 0.75rem;
         }
         .img-box:hover:after { opacity: 1; }
 
-        .sql-meta { font-size: 0.75rem; color: #aaa; margin-top: 10px; line-height: 1.4; }
-        .sql-meta b { color: #00d2ff; }
+        .sql-meta { font-size: 0.75rem; color: #bbb; margin-top: 12px; line-height: 1.5; border-top: 1px solid #301a4d; padding-top: 10px; }
+        .sql-meta b { color: #d1b3ff; }
 
-        /* Connecting Arrows (Desktop Only) */
-        .arrow {
-            display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #00d2ff; padding-top: 150px;
-        }
+        /* Connecting Arrows */
+        .arrow { display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #d1b3ff; padding-top: 180px; opacity: 0.6; }
 
-        /* Modal Preview */
+        /* Zoom Modal (Purple Styling) */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column;
+            background: rgba(13, 4, 21, 0.98); justify-content: center; align-items: center; flex-direction: column;
         }
-        .modal-content { max-width: 90%; max-height: 80%; border: 2px solid #00d2ff; border-radius: 10px; animation: zoom 0.3s; }
-        @keyframes zoom { from {transform:scale(0.5)} to {transform:scale(1)} }
-        .close-btn { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; cursor: pointer; }
+        .modal-content { max-width: 90%; max-height: 85%; border: 3px solid #d1b3ff; border-radius: 10px; animation: zoom 0.3s; }
+        @keyframes zoom { from {transform:scale(0.8)} to {transform:scale(1)} }
+        .close-btn { position: absolute; top: 25px; right: 45px; color: #fff; font-size: 45px; cursor: pointer; }
 
-        @media (max-width: 1100px) {
+        /* Mobile View Fixes */
+        @media (max-width: 1250px) {
             .lifecycle-container { flex-direction: column; align-items: center; }
             .arrow { display: none; }
-            .flow-column { width: 90%; }
+            .flow-column { width: 95%; margin-bottom: 40px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Professional Navbar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="projects.html" style="color:#fff">Projects</a>
+        <a href="projects.html" style="color:#fff; border-bottom: 2px solid #d1b3ff;">Projects</a>
         <a href="skills.html">Skills</a>
         <a href="certifications.html">Certifications</a>
         <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- Header Section -->
     <header class="header-section">
-        <h1>My Analytics Skills Journey</h1>
-        <p>FROM RAW DATA TO ACTIONABLE INSIGHTS</p>
+        <h1>My Analytics Journey Flow</h1>
+        <p>From Raw Data to Business Intelligence</p>
         <div class="underline"></div>
     </header>
 
     <div class="lifecycle-container">
 
-        <!-- STEP 1: SPREADSHEETS -->
+        <!-- STEP 1: SPREADSHEETS (EXCEL) -->
         <div class="flow-column">
-            <i class="fa-solid fa-file-excel step-icon" style="color: #21a366;"></i>
+            <i class="fa-solid fa-file-excel step-icon"></i>
             <div class="step-title">Spreadsheets</div>
-            <div class="step-subtitle">(Excel & Google Sheets)</div>
+            <span class="step-subtitle">Data Cleaning & Advanced Formulas</span>
             
             <div class="project-card">
                 <span class="project-name">Road Accident Dashboard</span>
@@ -154,69 +159,100 @@
                 <span class="project-name">Coffee Sales Dashboard</span>
                 <div class="img-box" onclick="openModal('Coffee Sales Dashboard.jpg')"><img src="Coffee Sales Dashboard.jpg"></div>
             </div>
+            <div class="project-card">
+                <span class="project-name">CRM Dashboard in Excel</span>
+                <div class="img-box" onclick="openModal('CRM Dahboard in Excel.jpg')"><img src="CRM Dahboard in Excel.jpg"></div>
+            </div>
+            <div class="project-card">
+                <span class="project-name">Ecommerce Sales Analysis</span>
+                <div class="img-box" onclick="openModal('ECOMMERCE SALES ANALYSIS.jpg')"><img src="ECOMMERCE SALES ANALYSIS.jpg"></div>
+            </div>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="arrow"><i class="fa-solid fa-angles-right"></i></div>
 
-        <!-- STEP 2: SQL (ACTIVE GLOW) -->
+        <!-- STEP 2: SQL (ACTIVE GLOW - PURPLE) -->
         <div class="flow-column active-step">
             <i class="fa-solid fa-database step-icon"></i>
-            <div class="step-title">SQL</div>
-            <div class="step-subtitle">(Querying & Transformation)</div>
+            <div class="step-title">SQL Database</div>
+            <span class="step-subtitle">Complex Querying & Transformation</span>
             
             <div class="project-card">
-                <span class="project-name">Amazon E-Commerce SQL</span>
+                <span class="project-name">Amazon E-Commerce Analysis</span>
                 <div class="img-box" onclick="openModal('AmazonSQL.png')"><img src="AmazonSQL.png"></div>
                 <div class="sql-meta"><b>Insights:</b> Pareto trends & LTV Analysis.</div>
             </div>
             <div class="project-card">
-                <span class="project-name">Ola NZ Performance</span>
+                <span class="project-name">Ola NZ Performance Strategy</span>
                 <div class="img-box" onclick="openModal('ola_sql.jpg')"><img src="ola_sql.jpg"></div>
                 <div class="sql-meta"><b>Impact:</b> NZD 3.1M+ Revenue Opportunity.</div>
             </div>
+            <div class="project-card">
+                <span class="project-name">TCS Logistics Karachi Hub</span>
+                <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics – Karachi Branch.jpg')"><img src="SQL Analytics for TCS Logistics – Karachi Branch.jpg"></div>
+                <div class="sql-meta"><b>Result:</b> 20% improvement in delivery flow.</div>
+            </div>
+            <div class="project-card">
+                <span class="project-name">Kap's Cafe Sales Intelligence</span>
+                <div class="img-box" onclick="openModal('Kap’s Café – SQL Analytics Project.jpg')"><img src="Kap’s Café – SQL Analytics Project.jpg"></div>
+                <div class="sql-meta"><b>Method:</b> Window Functions for Growth.</div>
+            </div>
+            <div class="project-card">
+                <span class="project-name">Airbnb Pakistan 2025 Market</span>
+                <div class="img-box" onclick="openModal('Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg')"><img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg"></div>
+                <div class="sql-meta"><b>Finding:</b> 30% revenue gap identified.</div>
+            </div>
+            <div class="project-card">
+                <span class="project-name">Spotify Data Analysis</span>
+                <div class="img-box" onclick="openModal('Spotify-Data-Analysis-using-SQL.jpg')"><img src="Spotify-Data-Analysis-using-SQL.jpg"></div>
+                <div class="sql-meta"><b>Objective:</b> Artist & Engagement metrics.</div>
+            </div>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="arrow"><i class="fa-solid fa-angles-right"></i></div>
 
         <!-- STEP 3: POWER BI -->
         <div class="flow-column">
-            <i class="fa-solid fa-chart-line step-icon" style="color: #f2c811;"></i>
+            <i class="fa-solid fa-chart-line step-icon"></i>
             <div class="step-title">Power BI</div>
-            <div class="step-subtitle">(The Data Storyteller)</div>
+            <span class="step-subtitle">Data Storytelling & Visualization</span>
             
-            <div class="project-card">
-                <span class="project-name">Amazon Sales BI</span>
-                <div class="img-box" onclick="openModal('AmazonPowerBI.png')"><img src="AmazonPowerBI.png"></div>
-            </div>
-            <div class="project-card">
-                <span class="project-name">HR Analytics Dashboard</span>
-                <div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg')"><img src="HR Analytics Dashboard.jpg"></div>
-            </div>
-            <div class="project-card">
-                <span class="project-name">Samsung Sales Analysis</span>
-                <div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg')"><img src="Samsung Pakistan Sales Analysis Dashboard.jpg"></div>
-            </div>
+            <div class="project-card"><span class="project-name">Amazon Sales BI</span><div class="img-box" onclick="openModal('AmazonPowerBI.png')"><img src="AmazonPowerBI.png"></div></div>
+            <div class="project-card"><span class="project-name">Bhatti Property Management</span><div class="img-box" onclick="openModal('Bhatti Property Managment Dashboard.jpg')"><img src="Bhatti Property Managment Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Survey Analysis Dashboard</span><div class="img-box" onclick="openModal('Data Professional Survey Analysis Dashboard.jpg')"><img src="Data Professional Survey Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Electronics Sales</span><div class="img-box" onclick="openModal('Electronics Sales Dashboard.jpg')"><img src="Electronics Sales Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Financial Sales Analysis</span><div class="img-box" onclick="openModal('Financial Sales Analysis Dashboard.jpg')"><img src="Financial Sales Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">HR Analytics Dashboard</span><div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg')"><img src="HR Analytics Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Jazz Telecom Data</span><div class="img-box" onclick="openModal('Jazz Telecom Data Analysis Dashboard.jpg')"><img src="Jazz Telecom Data Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">TrendMart Sales Dashboard</span><div class="img-box" onclick="openModal('TrendMart Sales Analysis Dashboard.jpg')"><img src="TrendMart Sales Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Xmart Sales Dashboard</span><div class="img-box" onclick="openModal('Xmart sales Dashboard.jpg')"><img src="Xmart sales Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Samsung Pakistan Sales</span><div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg')"><img src="Samsung Pakistan Sales Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">Bank Customer Churn</span><div class="img-box" onclick="openModal('Bank Customer Churn Analysis Dashboard.jpg')"><img src="Bank Customer Churn Analysis Dashboard.jpg"></div></div>
+            <div class="project-card"><span class="project-name">I Point Sales Dashboard</span><div class="img-box" onclick="openModal('I Point Sales Dashboard.jpg')"><img src="I Point Sales Dashboard.jpg"></div></div>
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="arrow"><i class="fa-solid fa-angles-right"></i></div>
 
         <!-- STEP 4: FINAL INSIGHTS -->
         <div class="flow-column">
-            <i class="fa-solid fa-lightbulb step-icon" style="color: #ffaa00;"></i>
-            <div class="step-title">Final Insights</div>
-            <div class="step-subtitle">(Delivering Actionable Value)</div>
+            <i class="fa-solid fa-award step-icon"></i>
+            <div class="step-title">Decisive Action</div>
+            <span class="step-subtitle">Business Value Delivery</span>
             
-            <div class="project-card" style="border-style: dashed; opacity: 0.8;">
-                <p style="font-size: 0.8rem; color: #00d2ff; text-align: center;">
-                    Transforming raw data into clear recommendations for business stakeholders and driving decisive action.
+            <div class="project-card" style="border: 2px dashed #4b0082; text-align: center; background: transparent;">
+                <p style="font-size: 0.85rem; color: #d1b3ff; font-weight: 600; line-height: 1.6;">
+                    Providing clear, data-driven recommendations that empower organizations to make impactful strategic decisions.
                 </p>
-                <div class="img-box"><img src="Khurram Insights.jpeg" style="filter: grayscale(1);"></div>
+                <div class="img-box" style="margin-top: 25px; border: none; background: none;">
+                    <img src="Khurram Insights.jpeg" alt="Brand Logo" style="filter: brightness(1.1) drop-shadow(0 0 10px rgba(209, 179, 255, 0.3));">
+                </div>
+                <p style="font-size: 0.7rem; color: #888; margin-top: 20px;">Driving growth through precision analytics.</p>
             </div>
         </div>
 
     </div>
 
-    <!-- Modal Popup -->
+    <!-- Zoom Preview Modal -->
     <div id="imgModal" class="modal" onclick="this.style.display='none'">
         <span class="close-btn">&times;</span>
         <img class="modal-content" id="modalImg">
