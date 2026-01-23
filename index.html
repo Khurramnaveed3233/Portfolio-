@@ -4,226 +4,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khurram Naveed | Data Analyst Portfolio</title>
-    <!-- Font Awesome for Professional Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Khurram Naveed | Data-Driven Portfolio</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Reset */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Poppins', sans-serif; 
-            background-color: #ffffff; 
-            scroll-behavior: smooth;
+        /* Global Styles */
+        :root {
+            --primary-purple: #4b0082;
+            --deep-purple: #2b004e;
+            --nav-bg: #1a0b2e;
+            --accent-purple: #d1b3ff;
+            --glow: rgba(209, 179, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #1a0b2e;
             overflow-x: hidden;
         }
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #4b0082, #2b004e);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        /* 1. Social Icons Styling */
-        .social-icons {
-            margin-bottom: 30px;
-        }
-        .social-icons a {
-            color: #d1b3ff;
-            font-size: 1.8rem;
-            margin: 0 15px;
-            transition: 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .social-icons a:hover {
-            color: #ffffff;
-            transform: scale(1.2);
-        }
-
-        .hero-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin: 10px 0;
-            letter-spacing: -1px;
-        }
-
-        /* Roles Animation (Typing SVG) */
-        .typing-container {
-            margin-bottom: 40px;
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #5100a0, #25004d);
+            padding: 80px 10% 100px 10%;
             display: flex;
-            justify-content: center;
-        }
-
-        /* 2. Split Content Layout */
-        .split-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
             align-items: center;
             justify-content: space-between;
-            text-align: left;
-            gap: 40px;
-        }
-
-        /* 3. Floating Quote Animation (LEFT SIDE) */
-        .quote-column {
-            flex: 1.2;
-            padding: 20px;
-            /* Floating Animation */
-            animation: floatText 4s ease-in-out infinite;
-        }
-
-        @keyframes floatText {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .quote-text {
-            font-size: 1.7rem;
-            font-style: italic;
-            line-height: 1.5;
-            color: #e0d1ff;
-            position: relative;
-            padding-left: 30px;
-            border-left: 4px solid #d1b3ff;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .attribution {
-            margin-top: 20px;
-            font-size: 1.3rem;
             color: #ffffff;
+            min-height: 450px;
+        }
+
+        /* Faint Candlestick Graph Pattern Watermark */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 80 L10 40 M10 60 L15 60 M30 70 L30 20 M30 45 L35 45 M50 90 L50 50 M50 70 L55 70 M70 60 L70 10 M70 35 L75 35 M90 85 L90 45 M90 65 L95 65' stroke='white' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+            background-size: 400px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            z-index: 2;
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-style: italic;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            max-width: 600px;
+        }
+
+        .author {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 15px;
             display: block;
         }
 
-        .author-name {
-            font-family: 'Dancing Script', cursive;
-            font-weight: bold;
-            font-size: 2rem;
-            color: #d1b3ff;
-            margin-left: 10px;
+        /* Decorative Flourish Line below author */
+        .flourish-line {
+            width: 250px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20'%3E%3Cpath d='M0 10 Q 50 0, 100 10 T 200 10 T 300 10' stroke='white' fill='transparent' stroke-width='1'/%3E%3Cpath d='M0 12 L40 12 L50 8 L60 12' stroke='white' fill='transparent'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.6;
         }
 
-        /* Right Side: Profile Image */
-        .image-column {
+        .hero-image {
             flex: 0.8;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 30px;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
+        /* Circular Profile Image with Glowing Frame */
+        .img-frame {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 12px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            justify-content: center;
+            box-shadow: 0 0 40px var(--glow), inset 0 0 20px var(--glow);
         }
 
         .profile-pic {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 3px solid #4b0082;
-            transition: 0.4s ease;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-purple);
         }
 
-        /* Navigation Bar */
-        nav { 
-            background-color: #1a0b2e; 
-            padding: 18px 0; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #301a4d;
         }
-        nav a { 
-            color: #d1b3ff; 
-            text-decoration: none; 
-            margin: 0 18px; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-weight: 700;
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 8px 15px;
             transition: 0.3s;
         }
-        nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
 
-        /* Responsive Mobile Layout */
-        @media (max-width: 900px) {
-            .split-container { flex-direction: column; text-align: center; }
-            .quote-text { padding-left: 10px; font-size: 1.3rem; border-left: none; }
-            .hero-header h1 { font-size: 2.5rem; }
-            .profile-pic { max-width: 250px; }
+        nav a:hover { color: #fff; }
+
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        /* --- LOWER WHITE SECTION --- */
+        .main-section {
+            padding: 80px 10%;
+            text-align: center;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        /* Circuit/Network Lines Watermark */
+        .main-section::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L40 20 L60 40 L100 40 M120 10 L120 50 L150 80 M200 150 L170 150 L150 130' stroke='%234b0082' fill='none' stroke-width='1'/%3E%3Ccircle cx='100' cy='40' r='3' fill='%234b0082'/%3E%3Ccircle cx='150' cy='80' r='3' fill='%234b0082'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .main-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a0b2e;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-purple);
+            margin: 15px auto 30px;
+            border-radius: 2px;
+        }
+
+        .description {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding: 50px 5%; }
+            .hero-content { margin-bottom: 40px; }
+            .flourish-line { margin: 0 auto; }
+            .quote { font-size: 1.6rem; }
+            .img-frame { width: 250px; height: 250px; }
+            .profile-pic { width: 220px; height: 220px; }
+            nav ul { flex-wrap: wrap; gap: 10px; }
+            .main-section h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        
-        <!-- Social Icons with Instagram -->
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/khurram_insights/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:khurramnaveed4545@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="quote">
+                "Data is the new oil. It’s valuable, but if unrefined it cannot really be used."
+            </h1>
+            <span class="author">— Clive Humby</span>
+            <div class="flourish-line"></div>
         </div>
 
-        <div class="hero-header">
-            <h1>Khurram Naveed</h1>
-            <!-- Rotating Roles (Typing SVG) -->
-            <div class="typing-container">
-                <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=E0B0FF&center=true&vCenter=true&width=650&lines=Junior+Data+Analyst+%7C+Business+Intelligence;SQL+%7C+Power+BI+%7C+Excel+Analytics;Turning+Data+into+Actionable+Insights;Open+to+Remote+Data+Analyst+Roles" alt="Typing SVG" />
+        <div class="hero-image">
+            <div class="img-frame">
+                <!-- Aap is URL ko apni image se replace kar sakte hain: khurram.jpg -->
+                <img src="https://via.placeholder.com/260/2b004e/ffffff?text=Khurram+Naveed" alt="Khurram Naveed" class="profile-pic">
             </div>
-        </div>
-
-        <!-- Split Content Layout -->
-        <div class="split-container">
-            
-            <!-- Left Side: ANIMATED QUOTE -->
-            <div class="quote-column">
-                <div class="quote-text">
-                    "Data is the new oil. It’s valuable, but if unrefined it cannot really be used."
-                </div>
-                <div class="attribution">
-                    — <span class="author-name">Clive Humby</span>
-                </div>
-            </div>
-
-            <!-- Right Side: Profile Image Area -->
-            <div class="image-column">
-                <img src="khurram.jpg" alt="Khurram Naveed" class="profile-pic">
-            </div>
-
         </div>
     </section>
 
-    <!-- Navigation Menu -->
+    <!-- NAVIGATION BAR -->
     <nav>
-        <a href="index.html" style="color:white; border-bottom: 2px solid #d1b3ff;">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="skills.html">Skills</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="contact.html">Contact</a>
+        <ul>
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="certifications.html">CERTIFICATIONS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
     </nav>
 
-    <!-- Page Content Preview -->
-    <div style="text-align: center; padding: 80px 20px;">
-        <h2 style="color: #1a0b2e; font-size: 2.2rem; font-family: 'Playfair Display', serif;">Data-Driven Problem Solver</h2>
-        <div style="width: 60px; height: 4px; background: #4b0082; margin: 20px auto; border-radius: 10px;"></div>
-        <p style="max-width: 800px; margin: 20px auto; line-height: 1.8; color: #555; font-size: 1.1rem;">
-            I specialize in uncovering trends and optimizing business performance through 
-            data modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to see data in action.
+    <!-- LOWER CONTENT SECTION -->
+    <section class="main-section">
+        <h2>Data-Driven Problem Solver</h2>
+        <div class="divider"></div>
+        <p class="description">
+            I specialize in uncovering trends and optimizing business performance through data 
+            modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to 
+            see data in action.
         </p>
-    </div>
+    </section>
 
 </body>
 </html>
