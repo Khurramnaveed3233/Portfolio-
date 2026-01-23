@@ -4,24 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khurram Naveed | Data-Driven Portfolio</title>
+    <title>Khurram Naveed | Data Portfolio</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
-        /* Global Styles */
-        :root {
-            --primary-purple: #4b0082;
-            --deep-purple: #2b004e;
-            --nav-bg: #1a0b2e;
-            --accent-purple: #d1b3ff;
-            --glow: rgba(209, 179, 255, 0.4);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -30,176 +21,132 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION --- */
+        /* 1. HERO SECTION WITH GRAPH WATERMARK */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, #5100a0, #25004d);
-            padding: 80px 10% 100px 10%;
+            background: linear-gradient(135deg, #5c00a3, #2b004e);
+            padding: 80px 10% 120px 10%;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            color: #ffffff;
-            min-height: 450px;
+            min-height: 500px;
         }
 
-        /* Faint Candlestick Graph Pattern Watermark */
+        /* Faint Graph/Candlestick Background Pattern */
         .hero::before {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
             opacity: 0.1;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 80 L10 40 M10 60 L15 60 M30 70 L30 20 M30 45 L35 45 M50 90 L50 50 M50 70 L55 70 M70 60 L70 10 M70 35 L75 35 M90 85 L90 45 M90 65 L95 65' stroke='white' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-            background-size: 400px;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 150 L10 100 M10 120 L15 120 M40 160 L40 80 M40 110 L45 110 M70 140 L70 60 M70 90 L75 90 M100 180 L100 120 M100 150 L105 150 M130 130 L130 40 M130 80 L135 80 M160 170 L160 90 M160 130 L165 130' stroke='white' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-size: 500px;
             pointer-events: none;
         }
 
-        .hero-content {
-            flex: 1.2;
-            z-index: 2;
+        /* Social Icons Top Banner */
+        .social-links {
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            z-index: 10;
         }
+        .social-links a {
+            color: #d1b3ff; font-size: 1.5rem; margin-right: 20px; transition: 0.3s;
+        }
+        .social-links a:hover { color: white; transform: scale(1.1); }
 
-        .quote {
+        /* Left Side: Quote */
+        .quote-container { flex: 1.2; z-index: 2; }
+        .quote-text {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             font-style: italic;
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 10px;
-            max-width: 600px;
+            color: #e0d1ff;
         }
-
-        .author {
-            font-size: 1.4rem;
-            font-weight: 300;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* Decorative Flourish Line below author */
+        .author { font-size: 1.3rem; font-weight: 300; display: block; margin-bottom: 15px; }
+        
+        /* The Flourish Line Design under Quote */
         .flourish-line {
-            width: 250px;
-            height: 20px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20'%3E%3Cpath d='M0 10 Q 50 0, 100 10 T 200 10 T 300 10' stroke='white' fill='transparent' stroke-width='1'/%3E%3Cpath d='M0 12 L40 12 L50 8 L60 12' stroke='white' fill='transparent'/%3E%3C/svg%3E");
+            width: 280px; height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 30'%3E%3Cpath d='M0 15 Q 50 0, 100 15 T 200 15 T 300 15' stroke='white' fill='transparent' stroke-width='1' opacity='0.6'/%3E%3Cpath d='M0 18 L50 18 L60 12 L70 18' stroke='white' fill='transparent'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            opacity: 0.6;
         }
 
-        .hero-image {
-            flex: 0.8;
-            display: flex;
-            justify-content: flex-end;
-            z-index: 2;
-        }
-
-        /* Circular Profile Image with Glowing Frame */
-        .img-frame {
-            width: 300px;
-            height: 300px;
+        /* Right Side: Glowing Image (Exact as Sample) */
+        .image-container { flex: 0.8; display: flex; justify-content: flex-end; z-index: 2; }
+        .img-outer-ring {
+            width: 320px; height: 320px;
             border-radius: 50%;
             border: 12px solid rgba(255, 255, 255, 0.1);
             background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 40px var(--glow), inset 0 0 20px var(--glow);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 60px rgba(209, 179, 255, 0.4);
         }
-
-        .profile-pic {
-            width: 260px;
-            height: 260px;
+        .profile-img {
+            width: 275px; height: 275px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent-purple);
+            border: 5px solid #d1b3ff;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
 
-        /* --- NAVIGATION --- */
+        /* 2. STICKY NAVIGATION */
         nav {
-            background-color: var(--nav-bg);
-            padding: 12px 0;
+            background-color: #1a0b2e;
+            padding: 18px 0;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #301a4d;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid #301a4d;
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-        }
-
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
         nav a {
-            color: var(--accent-purple);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 8px 15px;
-            transition: 0.3s;
+            color: #d1b3ff; text-decoration: none; font-size: 0.85rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            transition: 0.3s; padding: 5px 10px;
         }
+        nav a:hover { color: white; }
+        nav a.active { background: rgba(255,255,255,0.1); border-radius: 4px; color: white; }
 
-        nav a:hover { color: #fff; }
-
-        nav a.active {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border-radius: 4px;
-        }
-
-        /* --- LOWER WHITE SECTION --- */
-        .main-section {
-            padding: 80px 10%;
+        /* 3. WHITE SECTION WITH CIRCUIT WATERMARK */
+        .main-content {
+            padding: 100px 10%;
             text-align: center;
             position: relative;
             background-color: #ffffff;
         }
 
-        /* Circuit/Network Lines Watermark */
-        .main-section::after {
+        /* Technical Circuit Lines Watermark */
+        .main-content::after {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L40 20 L60 40 L100 40 M120 10 L120 50 L150 80 M200 150 L170 150 L150 130' stroke='%234b0082' fill='none' stroke-width='1'/%3E%3Ccircle cx='100' cy='40' r='3' fill='%234b0082'/%3E%3Ccircle cx='150' cy='80' r='3' fill='%234b0082'/%3E%3C/svg%3E");
+            opacity: 0.06;
+            background-image: url("data:image/svg+xml,%3Csvg width='300' height='300' viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 L100 50 L130 80 L200 80 M220 20 L220 100 L250 130 M300 200 L250 200 L230 180' stroke='%234b0082' fill='none' stroke-width='1.5'/%3E%3Ccircle cx='200' cy='80' r='4' fill='%234b0082'/%3E%3Ccircle cx='250' cy='130' r='4' fill='%234b0082'/%3E%3C/svg%3E");
             pointer-events: none;
         }
 
-        .main-section h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #1a0b2e;
-            margin-bottom: 10px;
+        .main-content h2 {
+            font-size: 2.8rem; font-weight: 800; color: #1a0b2e; margin-bottom: 15px;
         }
-
-        .divider {
-            width: 50px;
-            height: 4px;
-            background-color: var(--primary-purple);
-            margin: 15px auto 30px;
-            border-radius: 2px;
-        }
-
+        .divider { width: 50px; height: 4px; background: #4b0082; margin: 0 auto 35px; border-radius: 2px; }
         .description {
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.8;
-            font-weight: 400;
+            max-width: 800px; margin: 0 auto; line-height: 1.8;
+            font-size: 1.15rem; color: #555;
         }
 
-        /* Responsive Settings */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding: 50px 5%; }
-            .hero-content { margin-bottom: 40px; }
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .quote-container { margin-bottom: 50px; }
             .flourish-line { margin: 0 auto; }
-            .quote { font-size: 1.6rem; }
-            .img-frame { width: 250px; height: 250px; }
-            .profile-pic { width: 220px; height: 220px; }
-            nav ul { flex-wrap: wrap; gap: 10px; }
-            .main-section h2 { font-size: 2rem; }
+            .image-container { justify-content: center; }
+            .img-outer-ring { width: 260px; height: 260px; }
+            .profile-img { width: 220px; height: 220px; }
+            nav ul { gap: 15px; flex-wrap: wrap; }
+            .main-content h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -207,41 +154,47 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="quote">
-                "Data is the new oil. It’s valuable, but if unrefined it cannot really be used."
-            </h1>
+        <!-- Top Social Icons -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/khurram-naveed-0083851aa/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Khurramnaveed3233/Portfolio" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/khurram_insights/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:khurramnaveed4545@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="quote-container">
+            <h1 class="quote">"Data is the new oil. It’s valuable, but if unrefined it cannot really be used."</h1>
             <span class="author">— Clive Humby</span>
             <div class="flourish-line"></div>
         </div>
 
-        <div class="hero-image">
-            <div class="img-frame">
-                <!-- Aap is URL ko apni image se replace kar sakte hain: khurram.jpg -->
-                <img src="https://via.placeholder.com/260/2b004e/ffffff?text=Khurram+Naveed" alt="Khurram Naveed" class="profile-pic">
+        <div class="image-container">
+            <div class="img-outer-ring">
+                <!-- Using your uploaded image: khurram.jpg -->
+                <img src="khurram.jpg" alt="Khurram Naveed" class="profile-img">
             </div>
         </div>
     </section>
 
-    <!-- NAVIGATION BAR -->
+    <!-- NAVIGATION -->
     <nav>
         <ul>
-            <li><a href="index.html" class="active">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="projects.html">PROJECTS</a></li>
-            <li><a href="skills.html">SKILLS</a></li>
-            <li><a href="certifications.html">CERTIFICATIONS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- LOWER CONTENT SECTION -->
-    <section class="main-section">
+    <!-- WHITE SECTION -->
+    <section class="main-content">
         <h2>Data-Driven Problem Solver</h2>
         <div class="divider"></div>
         <p class="description">
-            I specialize in uncovering trends and optimizing business performance through data 
-            modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to 
+            I specialize in uncovering trends and optimizing business performance through 
+            data modeling, SQL diagnostics, and interactive visualization. Explore my technical projects to 
             see data in action.
         </p>
     </section>
