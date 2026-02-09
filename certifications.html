@@ -95,7 +95,7 @@
             overflow: hidden;
             border: 1px solid #f0f0f0;
             margin-bottom: 15px;
-            cursor: pointer; /* Hath ka icon taake pata chale clickable hai */
+            cursor: pointer; 
             position: relative;
         }
         .cert-img-box:after {
@@ -150,7 +150,7 @@
             max-height: 80%;
             border: 4px solid white;
             border-radius: 10px;
-            cursor: zoom-in; /* Indicates full-res click */
+            cursor: zoom-in;
             animation: zoomIn 0.3s;
         }
 
@@ -174,13 +174,6 @@
             cursor: pointer;
         }
 
-        .instruction {
-            color: #888;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
-        /* Responsive Settings */
         @media (max-width: 1100px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 650px) {
             .cert-grid { grid-template-columns: 1fr; }
@@ -208,7 +201,16 @@
     <div class="container">
         <div class="cert-grid">
 
-            <!-- 1. Introduction to Data Science -->
+            <!-- 1. Power Query Training Masterclass (NEW) -->
+            <div class="cert-card">
+                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.jpg', 'Power Query Training Masterclass')">
+                    <img src="Power%20Query%20Training%20Masterclass%20Certificate.jpg">
+                </div>
+                <div class="cert-title">Power Query Training Masterclass Certificate</div>
+                <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
+            </div>
+
+            <!-- 2. Introduction to Data Science -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Introduction to Data Science – Cisco')">
                     <img src="DataScience.jpg">
@@ -217,7 +219,7 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 2. Cisco C++ Essentials -->
+            <!-- 3. Cisco C++ Essentials -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++ Essentials')">
                     <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg">
@@ -226,7 +228,7 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 3. Google BI -->
+            <!-- 4. Google BI -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google Data Analytics & BI')">
                     <img src="google_bi.jpg">
@@ -235,7 +237,7 @@
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 4. Google Pro -->
+            <!-- 5. Google Pro -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Data Analytics Professional')">
                     <img src="google_pro.jpg">
@@ -244,7 +246,7 @@
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 5. Power BI PwC -->
+            <!-- 6. Power BI PwC -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'Power BI Training - PwC')">
                     <img src="Power%20Bi%20by%20PwC.jpg">
@@ -253,7 +255,7 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 6. Google AI Essentials -->
+            <!-- 7. Google AI Essentials -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI Essentials')">
                     <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg">
@@ -262,7 +264,7 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 7. Cisco Data Analytics -->
+            <!-- 8. Cisco Data Analytics -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('cisco.jpg', 'CISCO Data Analytics')">
                     <img src="cisco.jpg">
@@ -271,7 +273,7 @@
                 <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 8. JPMorgan Chase -->
+            <!-- 9. JPMorgan Chase -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan Chase Virtual Experience')">
                     <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg">
@@ -280,16 +282,16 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 9. HP Life -->
+            <!-- 10. HP Life -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('hplife.jpg', 'Diploma in Data Analytics - HP Life')">
                     <img src="hplife.jpg">
                 </div>
-                <div class="cert-title">Diploma in Data Analytics - HP Life</div>
+                <div class="cert-title">Diploma in Data Analytics - HP Life Foundation</div>
                 <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 10. NSW -->
+            <!-- 11. NSW -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW Data Analytics Certificate')">
                     <img src="nsw.jpg">
@@ -298,7 +300,7 @@
                 <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 11. DigiSkills -->
+            <!-- 12. DigiSkills -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills Data Analytics & BI')">
                     <img src="digiskills.jpg">
@@ -315,10 +317,8 @@
         <span class="close-btn">&times;</span>
         <img class="modal-content" id="fullImg" onclick="openFullRes(event)">
         <div id="caption" class="modal-caption"></div>
-        <p class="instruction">(Click image again for full resolution | Click outside to close)</p>
     </div>
 
-    <!-- JAVASCRIPT FOR MODAL LOGIC -->
     <script>
         function openModal(src, title) {
             document.getElementById("imgModal").style.display = "flex";
@@ -326,14 +326,11 @@
             document.getElementById("caption").innerHTML = title;
         }
 
-        function closeModal() {
-            document.getElementById("imgModal").style.display = "none";
-        }
+        function closeModal() { document.getElementById("imgModal").style.display = "none"; }
 
         function openFullRes(event) {
-            event.stopPropagation(); // Prevents modal from closing when clicking the image
-            const imgSrc = document.getElementById("fullImg").src;
-            window.open(imgSrc, '_blank'); // Opens raw image in new tab
+            event.stopPropagation();
+            window.open(document.getElementById("fullImg").src, '_blank');
         }
     </script>
 
