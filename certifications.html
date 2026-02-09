@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +87,7 @@
             -webkit-box-orient: vertical;
         }
 
-        /* Clickable Thumbnail */
+        /* Thumbnail Container */
         .cert-img-box {
             width: 100%;
             height: 180px; 
@@ -143,7 +144,6 @@
             align-items: center;
             flex-direction: column;
         }
-
         .modal-content {
             max-width: 85%;
             max-height: 80%;
@@ -152,24 +152,9 @@
             cursor: zoom-in;
             animation: zoomIn 0.3s;
         }
-
         @keyframes zoomIn { from {transform: scale(0.7)} to {transform: scale(1)} }
-
-        .modal-caption {
-            color: #d1b3ff;
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px; right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        .modal-caption { color: #d1b3ff; margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
+        .close-btn { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
         @media (max-width: 1100px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 650px) {
@@ -197,16 +182,16 @@
     <div class="container">
         <div class="cert-grid">
 
-            <!-- 1. Power Query Masterclass (Fixed URL Encoding) -->
+            <!-- 1. Power Query Masterclass (FIXED FILENAME TYPO) -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.png', 'Power Query Masterclass')">
-                    <img src="Power%20Query%20Training%20Masterclass%20Certificate.png" alt="Power Query Certificate">
+                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Cetificate.png', 'Power Query Masterclass')">
+                    <img src="Power%20Query%20Training%20Masterclass%20Cetificate.png" alt="Power Query Certificate">
                 </div>
                 <div class="cert-title">Power Query Training Masterclass Certificate</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 2. Introduction to Data Science -->
+            <!-- Baki certificates niche... -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Intro to Data Science')">
                     <img src="DataScience.jpg">
@@ -215,7 +200,6 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 3. Cisco C++ Essentials -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++')">
                     <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg">
@@ -224,7 +208,6 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 4. Google BI -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google BI')">
                     <img src="google_bi.jpg">
@@ -233,7 +216,6 @@
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 5. Google Pro -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Pro')">
                     <img src="google_pro.jpg">
@@ -242,7 +224,6 @@
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 6. Power BI PwC -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'PwC Training')">
                     <img src="Power%20Bi%20by%20PwC.jpg">
@@ -251,7 +232,6 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 7. Google AI Essentials -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI')">
                     <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg">
@@ -260,7 +240,6 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 8. Cisco Analytics -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('cisco.jpg', 'Cisco Analytics')">
                     <img src="cisco.jpg">
@@ -269,7 +248,6 @@
                 <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 9. JPMorgan Chase -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan')">
                     <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg">
@@ -278,7 +256,6 @@
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 10. HP Life -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('hplife.jpg', 'HP Life')">
                     <img src="hplife.jpg">
@@ -287,7 +264,6 @@
                 <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 11. NSW -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW')">
                     <img src="nsw.jpg">
@@ -296,7 +272,6 @@
                 <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 12. DigiSkills -->
             <div class="cert-card">
                 <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills')">
                     <img src="digiskills.jpg">
@@ -327,6 +302,5 @@
             window.open(document.getElementById("fullImg").src, '_blank');
         }
     </script>
-
 </body>
 </html>
