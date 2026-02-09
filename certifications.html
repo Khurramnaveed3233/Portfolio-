@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,7 +132,7 @@
         }
         .btn-view:hover { background: #000; }
 
-        /* Modal Preview */
+        /* Modal Overlay */
         .modal {
             display: none; 
             position: fixed; 
@@ -154,9 +153,7 @@
             animation: zoomIn 0.3s;
         }
 
-        @keyframes zoomIn {
-            from {transform: scale(0.7)} to {transform: scale(1)}
-        }
+        @keyframes zoomIn { from {transform: scale(0.7)} to {transform: scale(1)} }
 
         .modal-caption {
             color: #d1b3ff;
@@ -200,9 +197,9 @@
     <div class="container">
         <div class="cert-grid">
 
-            <!-- 1. Power Query Training Masterclass (Corrected to .png) -->
+            <!-- 1. Power Query Masterclass (Fixed URL Encoding) -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.png', 'Power Query Training Masterclass')">
+                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.png', 'Power Query Masterclass')">
                     <img src="Power%20Query%20Training%20Masterclass%20Certificate.png" alt="Power Query Certificate">
                 </div>
                 <div class="cert-title">Power Query Training Masterclass Certificate</div>
@@ -211,7 +208,7 @@
 
             <!-- 2. Introduction to Data Science -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Introduction to Data Science – Cisco')">
+                <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Intro to Data Science')">
                     <img src="DataScience.jpg">
                 </div>
                 <div class="cert-title">Introduction to Data Science – Cisco</div>
@@ -220,7 +217,7 @@
 
             <!-- 3. Cisco C++ Essentials -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++ Essentials')">
+                <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++')">
                     <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg">
                 </div>
                 <div class="cert-title">Cisco C++ Essentials Certificate</div>
@@ -229,7 +226,7 @@
 
             <!-- 4. Google BI -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google Data Analytics & BI')">
+                <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google BI')">
                     <img src="google_bi.jpg">
                 </div>
                 <div class="cert-title">Google Data Analytics & BI</div>
@@ -238,7 +235,7 @@
 
             <!-- 5. Google Pro -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Data Analytics Professional')">
+                <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Pro')">
                     <img src="google_pro.jpg">
                 </div>
                 <div class="cert-title">Google Data Analytics Professional</div>
@@ -247,7 +244,7 @@
 
             <!-- 6. Power BI PwC -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'Power BI Training - PwC')">
+                <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'PwC Training')">
                     <img src="Power%20Bi%20by%20PwC.jpg">
                 </div>
                 <div class="cert-title">Power BI Corporate Training - PwC</div>
@@ -256,16 +253,16 @@
 
             <!-- 7. Google AI Essentials -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI Essentials')">
+                <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI')">
                     <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg">
                 </div>
                 <div class="cert-title">Google AI Essentials Professional</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- 8. Cisco Data Analytics -->
+            <!-- 8. Cisco Analytics -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('cisco.jpg', 'CISCO Data Analytics')">
+                <div class="cert-img-box" onclick="openModal('cisco.jpg', 'Cisco Analytics')">
                     <img src="cisco.jpg">
                 </div>
                 <div class="cert-title">CISCO Data Analytics Essentials</div>
@@ -274,7 +271,7 @@
 
             <!-- 9. JPMorgan Chase -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan Chase Virtual Experience')">
+                <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan')">
                     <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg">
                 </div>
                 <div class="cert-title">JPMorgan Chase Virtual Experience</div>
@@ -283,7 +280,7 @@
 
             <!-- 10. HP Life -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('hplife.jpg', 'Diploma in Data Analytics - HP Life')">
+                <div class="cert-img-box" onclick="openModal('hplife.jpg', 'HP Life')">
                     <img src="hplife.jpg">
                 </div>
                 <div class="cert-title">Diploma in Data Analytics - HP Life</div>
@@ -292,7 +289,7 @@
 
             <!-- 11. NSW -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW Data Analytics Certificate')">
+                <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW')">
                     <img src="nsw.jpg">
                 </div>
                 <div class="cert-title">NSW Data Analytics Certificate</div>
@@ -301,10 +298,10 @@
 
             <!-- 12. DigiSkills -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills Data Analytics & BI')">
+                <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills')">
                     <img src="digiskills.jpg">
                 </div>
-                <div class="cert-title">DigiSkills Data Analytics & BI Certificate</div>
+                <div class="cert-title">DigiSkills Data Analytics & BI</div>
                 <a href="https://github.com/Khurramnaveed3233/DigiSkills_-Data-Analytics-and-Business-Intelligence-Certificate/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
