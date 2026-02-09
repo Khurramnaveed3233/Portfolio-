@@ -87,7 +87,7 @@
             -webkit-box-orient: vertical;
         }
 
-        /* Clickable Image Thumbnail */
+        /* Clickable Thumbnail */
         .cert-img-box {
             width: 100%;
             height: 180px; 
@@ -133,7 +133,7 @@
         }
         .btn-view:hover { background: #000; }
 
-        /* --- POP-UP MODAL STYLING --- */
+        /* Modal Preview */
         .modal {
             display: none; 
             position: fixed; 
@@ -183,7 +183,6 @@
 </head>
 <body>
 
-    <!-- Professional Navigation -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -201,10 +200,10 @@
     <div class="container">
         <div class="cert-grid">
 
-            <!-- 1. Power Query Training Masterclass (NEW) -->
+            <!-- 1. Power Query Training Masterclass (Corrected to .png) -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.jpg', 'Power Query Training Masterclass')">
-                    <img src="Power%20Query%20Training%20Masterclass%20Certificate.jpg">
+                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Certificate.png', 'Power Query Training Masterclass')">
+                    <img src="Power%20Query%20Training%20Masterclass%20Certificate.png" alt="Power Query Certificate">
                 </div>
                 <div class="cert-title">Power Query Training Masterclass Certificate</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
@@ -233,7 +232,7 @@
                 <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google Data Analytics & BI')">
                     <img src="google_bi.jpg">
                 </div>
-                <div class="cert-title">Google Data Analytics & Business Intelligence</div>
+                <div class="cert-title">Google Data Analytics & BI</div>
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
@@ -242,7 +241,7 @@
                 <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Data Analytics Professional')">
                     <img src="google_pro.jpg">
                 </div>
-                <div class="cert-title">Google Data Analytics Professional Certificate</div>
+                <div class="cert-title">Google Data Analytics Professional</div>
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
@@ -287,7 +286,7 @@
                 <div class="cert-img-box" onclick="openModal('hplife.jpg', 'Diploma in Data Analytics - HP Life')">
                     <img src="hplife.jpg">
                 </div>
-                <div class="cert-title">Diploma in Data Analytics - HP Life Foundation</div>
+                <div class="cert-title">Diploma in Data Analytics - HP Life</div>
                 <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
@@ -325,9 +324,7 @@
             document.getElementById("fullImg").src = src;
             document.getElementById("caption").innerHTML = title;
         }
-
         function closeModal() { document.getElementById("imgModal").style.display = "none"; }
-
         function openFullRes(event) {
             event.stopPropagation();
             window.open(document.getElementById("fullImg").src, '_blank');
