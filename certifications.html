@@ -9,158 +9,80 @@
         /* Global Styles */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            background-color: #f4f4f9; 
-            color: #333;
+            margin: 0; background-color: #f4f4f9; color: #333;
         }
         
         /* Navigation Bar */
         nav { 
-            background: #1a0b2e; 
-            padding: 18px 0; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background: #1a0b2e; padding: 18px 0; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         nav a { 
-            color: #d1b3ff; 
-            text-decoration: none; 
-            margin: 0 15px; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            font-weight: 700;
-            letter-spacing: 1px;
+            color: #d1b3ff; text-decoration: none; margin: 0 15px; 
+            font-size: 0.85rem; text-transform: uppercase; font-weight: 700;
         }
         nav a:hover { color: #fff; }
 
         .header-section {
             background: linear-gradient(135deg, #4b0082, #2b004e);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 40px;
+            color: white; text-align: center; padding: 60px 20px; margin-bottom: 40px;
         }
         .header-section h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; }
         .underline { width: 60px; height: 4px; background: #d1b3ff; margin: 15px auto; border-radius: 10px; }
 
-        .container { 
-            max-width: 1400px; 
-            margin: 0 auto 80px; 
-            padding: 0 20px; 
-        }
+        .container { max-width: 1400px; margin: 0 auto 80px; padding: 0 20px; }
 
+        /* Grid Layout: 4 items per row */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
         }
 
-        /* Card Style */
         .cert-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            transition: 0.3s;
+            background: #ffffff; border-radius: 12px; padding: 15px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s;
         }
-        .cert-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #4b0082;
-        }
+        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
         .cert-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #1a0b2e;
-            margin-bottom: 12px;
-            height: 40px; 
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            font-size: 0.9rem; font-weight: 700; color: #1a0b2e;
+            margin-bottom: 12px; height: 40px; overflow: hidden;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
         }
 
-        /* Thumbnail Container */
         .cert-img-box {
-            width: 100%;
-            height: 180px; 
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #f0f0f0;
-            margin-bottom: 15px;
-            cursor: pointer; 
-            position: relative;
+            width: 100%; height: 180px; border-radius: 6px; overflow: hidden;
+            border: 1px solid #f0f0f0; margin-bottom: 15px; cursor: pointer; position: relative;
         }
         .cert-img-box:after {
-            content: "🔍 View";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(75, 0, 130, 0.4);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.3s;
-            font-weight: bold;
+            content: "🔍 View"; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(75, 0, 130, 0.4); color: white; display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.3s; font-weight: bold;
         }
         .cert-img-box:hover:after { opacity: 1; }
-
-        .cert-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
+        .cert-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .btn-view {
             background: linear-gradient(135deg, #4b0082, #2b004e);
-            color: white;
-            text-decoration: none;
-            padding: 8px;
-            text-align: center;
-            border-radius: 5px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            transition: 0.3s;
+            color: white; text-decoration: none; padding: 8px; text-align: center;
+            border-radius: 5px; font-size: 0.7rem; font-weight: bold; transition: 0.3s;
         }
         .btn-view:hover { background: #000; }
 
-        /* Modal Overlay */
+        /* Zoom Pop-up Modal */
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9); 
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column;
         }
-        .modal-content {
-            max-width: 85%;
-            max-height: 80%;
-            border: 4px solid white;
-            border-radius: 10px;
-            cursor: zoom-in;
-            animation: zoomIn 0.3s;
-        }
+        .modal-content { max-width: 85%; max-height: 80%; border: 4px solid white; border-radius: 10px; animation: zoomIn 0.3s; }
         @keyframes zoomIn { from {transform: scale(0.7)} to {transform: scale(1)} }
         .modal-caption { color: #d1b3ff; margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
-        .close-btn { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .close-btn { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; cursor: pointer; }
 
         @media (max-width: 1100px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 650px) {
-            .cert-grid { grid-template-columns: 1fr; }
-            .header-section h1 { font-size: 2.2rem; }
-        }
+        @media (max-width: 650px) { .cert-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -182,98 +104,108 @@
     <div class="container">
         <div class="cert-grid">
 
-            <!-- 1. Power Query Masterclass (FIXED FILENAME TYPO) -->
+            <!-- 1. Power Query Training (REnamed to power_query.png) -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Query%20Training%20Masterclass%20Cetificate.png', 'Power Query Masterclass')">
-                    <img src="Power%20Query%20Training%20Masterclass%20Cetificate.png" alt="Power Query Certificate">
+                <div class="cert-img-box" onclick="openModal('power_query.png', 'Power Query Training Masterclass Certificate')">
+                    <img src="power_query.png" alt="Power Query Certificate">
                 </div>
                 <div class="cert-title">Power Query Training Masterclass Certificate</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
-            <!-- Baki certificates niche... -->
+            <!-- 2. Introduction to Data Science -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Intro to Data Science')">
+                <div class="cert-img-box" onclick="openModal('DataScience.jpg', 'Introduction to Data Science')">
                     <img src="DataScience.jpg">
                 </div>
                 <div class="cert-title">Introduction to Data Science – Cisco</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 3. Cisco C++ Essentials -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++')">
+                <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg', 'Cisco C++ Essentials')">
                     <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg">
                 </div>
                 <div class="cert-title">Cisco C++ Essentials Certificate</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 4. Google Data Analytics & BI -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google BI')">
+                <div class="cert-img-box" onclick="openModal('google_bi.jpg', 'Google Data Analytics & BI')">
                     <img src="google_bi.jpg">
                 </div>
-                <div class="cert-title">Google Data Analytics & BI</div>
+                <div class="cert-title">Google Data Analytics & Business Intelligence</div>
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 5. Google Professional -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Pro')">
+                <div class="cert-img-box" onclick="openModal('google_pro.jpg', 'Google Data Analytics Professional')">
                     <img src="google_pro.jpg">
                 </div>
-                <div class="cert-title">Google Data Analytics Professional</div>
+                <div class="cert-title">Google Data Analytics Professional Certificate</div>
                 <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 6. Power BI PwC -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'PwC Training')">
+                <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg', 'Power BI PwC')">
                     <img src="Power%20Bi%20by%20PwC.jpg">
                 </div>
                 <div class="cert-title">Power BI Corporate Training - PwC</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 7. Google AI Essentials -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI')">
+                <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg', 'Google AI Essentials')">
                     <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg">
                 </div>
                 <div class="cert-title">Google AI Essentials Professional</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 8. Cisco Data Analytics -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('cisco.jpg', 'Cisco Analytics')">
+                <div class="cert-img-box" onclick="openModal('cisco.jpg', 'Cisco Data Analytics')">
                     <img src="cisco.jpg">
                 </div>
                 <div class="cert-title">CISCO Data Analytics Essentials</div>
                 <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 9. JPMorgan Chase -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan')">
+                <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg', 'JPMorgan Chase')">
                     <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg">
                 </div>
                 <div class="cert-title">JPMorgan Chase Virtual Experience</div>
                 <a href="#" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 10. HP Life -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('hplife.jpg', 'HP Life')">
+                <div class="cert-img-box" onclick="openModal('hplife.jpg', 'HP Life Diploma')">
                     <img src="hplife.jpg">
                 </div>
                 <div class="cert-title">Diploma in Data Analytics - HP Life</div>
                 <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 11. NSW -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW')">
+                <div class="cert-img-box" onclick="openModal('nsw.jpg', 'NSW Certificate')">
                     <img src="nsw.jpg">
                 </div>
                 <div class="cert-title">NSW Data Analytics Certificate</div>
                 <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="btn-view" target="_blank">Verify GitHub</a>
             </div>
 
+            <!-- 12. DigiSkills -->
             <div class="cert-card">
-                <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills')">
+                <div class="cert-img-box" onclick="openModal('digiskills.jpg', 'DigiSkills BI')">
                     <img src="digiskills.jpg">
                 </div>
                 <div class="cert-title">DigiSkills Data Analytics & BI</div>
@@ -283,10 +215,10 @@
         </div>
     </div>
 
-    <!-- MODAL OVERLAY -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
+    <!-- MODAL -->
+    <div id="imgModal" class="modal" onclick="this.style.display='none'">
         <span class="close-btn">&times;</span>
-        <img class="modal-content" id="fullImg" onclick="openFullRes(event)">
+        <img class="modal-content" id="fullImg">
         <div id="caption" class="modal-caption"></div>
     </div>
 
@@ -295,11 +227,6 @@
             document.getElementById("imgModal").style.display = "flex";
             document.getElementById("fullImg").src = src;
             document.getElementById("caption").innerHTML = title;
-        }
-        function closeModal() { document.getElementById("imgModal").style.display = "none"; }
-        function openFullRes(event) {
-            event.stopPropagation();
-            window.open(document.getElementById("fullImg").src, '_blank');
         }
     </script>
 </body>
