@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -15,7 +14,6 @@
             color: #ffffff;
             overflow-x: hidden;
         }
-
         nav {
             background: #1a0b2e;
             padding: 18px 0;
@@ -36,7 +34,6 @@
         }
         nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
         nav a.active { color: #fff; border-bottom: 2px solid #d1b3ff; }
-
         .header-section {
             text-align: center;
             padding: 60px 20px;
@@ -56,7 +53,6 @@
             margin: 15px auto;
             border-radius: 10px;
         }
-
         .main-projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -66,7 +62,6 @@
             padding: 0 20px;
             align-items: flex-start;
         }
-
         .column-header {
             text-align: center;
             font-size: 1.2rem;
@@ -78,7 +73,6 @@
             border-bottom: 2px solid rgba(209,179,255,0.2);
             padding-bottom: 10px;
         }
-
         .project-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(209,179,255,0.2);
@@ -94,7 +88,6 @@
             box-shadow: 0 0 30px rgba(123,31,162,0.4);
             background: rgba(123,31,162,0.06);
         }
-
         .card-top-title {
             font-size: 0.75rem;
             font-weight: 700;
@@ -104,7 +97,6 @@
             margin-bottom: 15px;
             display: block;
         }
-
         .img-box {
             width: 100%;
             border-radius: 12px;
@@ -139,7 +131,6 @@
             letter-spacing: 1px;
         }
         .img-box:hover::after { opacity: 1; }
-
         .project-details h3 {
             font-size: 1rem;
             margin: 10px 0 8px;
@@ -156,7 +147,6 @@
             min-height: 80px;
             text-align: left;
         }
-
         .btn-case-study {
             display: inline-block;
             padding: 10px 28px;
@@ -175,7 +165,6 @@
             color: #1a0b2e;
             box-shadow: 0 0 15px rgba(209,179,255,0.4);
         }
-
         .modal {
             display: none;
             position: fixed;
@@ -218,7 +207,6 @@
             text-align: center;
             letter-spacing: 1px;
         }
-
         @media (max-width: 1200px) { .main-projects-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 768px)  { .main-projects-grid { grid-template-columns: 1fr; } .header-section h1 { font-size: 1.4rem; } }
     </style>
@@ -509,10 +497,11 @@
             </div>
         </div>
 
+        <!-- KAP'S CAFE — image set by JavaScript because filename has special characters -->
         <div class="project-card">
             <span class="card-top-title">Growth</span>
-            <div class="img-box" onclick="openModal('Kap%27s%20Caf%C3%A9%20%E2%80%93%20SQL%20Analytics%20Project.jpg','Kaps Cafe Analysis')">
-                <img src="Kap%27s%20Caf%C3%A9%20%E2%80%93%20SQL%20Analytics%20Project.jpg" alt="Kaps Cafe Analysis">
+            <div class="img-box" id="kapsBox">
+                <img id="kapsImg" src="" alt="Kaps Cafe Analysis" style="width:100%;height:200px;object-fit:cover;display:block;">
             </div>
             <div class="project-details">
                 <h3>Kap's Cafe Analysis</h3>
@@ -556,6 +545,22 @@
 </div>
 
 <script>
+    (function() {
+        var fname = [];
+        fname.push("Kap");
+        fname.push("\u2019");
+        fname.push("s Caf");
+        fname.push("\u00e9");
+        fname.push(" ");
+        fname.push("\u2013");
+        fname.push(" SQL Analytics Project.jpg");
+        var fullName = fname.join("");
+        document.getElementById("kapsImg").src = fullName;
+        document.getElementById("kapsBox").addEventListener("click", function() {
+            openModal(fullName, "Kap's Cafe Analysis");
+        });
+    })();
+
     function openModal(src, caption) {
         document.getElementById("modalImg").src = src;
         document.getElementById("modalImg").alt = caption || "";
