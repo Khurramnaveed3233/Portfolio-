@@ -4,222 +4,567 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills Journey | Khurram Insights</title>
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Global Styles */
-        body, html { 
-            margin: 0; padding: 0; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0d0415; /* Matching Premium Dark Theme */
-            color: #ffffff;
+        :root {
+            --bg:        #07030f;
+            --surface:   #0f0720;
+            --border:    rgba(209,179,255,0.12);
+            --accent:    #c084fc;
+            --accent2:   #7c3aed;
+            --gold:      #F2C811;
+            --green:     #22c55e;
+            --white:     #f0e8ff;
+            --muted:     #8b7aa0;
+            --nav-bg:    #1a0b2e;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--white);
             overflow-x: hidden;
         }
 
-        /* Navbar Styling */
-        nav { 
-            background: #1a0b2e; padding: 18px 0; text-align: center; 
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        nav a { color: #d1b3ff; text-decoration: none; margin: 0 15px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
-        nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
-
-        /* Header Section */
-        .journey-header {
-            text-align: center; padding: 60px 20px;
-            background: radial-gradient(circle at center, #2b004e 0%, #0d0415 100%);
-        }
-        .journey-header h1 { 
-            font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; 
-            font-weight: 800; font-family: 'Times New Roman', serif;
-        }
-        .journey-header p { color: #d1b3ff; font-weight: 600; margin-top: 10px; font-size: 0.9rem; }
-        .underline { width: 60px; height: 4px; background: #ffffff; margin: 15px auto; border-radius: 10px; }
-
-        /* Main Journey Container */
-        .journey-flow {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            max-width: 1450px;
-            margin: 40px auto 100px;
-            padding: 0 20px;
-            gap: 10px;
+        /* ── ANIMATED GRID BACKGROUND ── */
+        body::before {
+            content:'';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* Step Card Styling */
-        .step-card {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(209, 179, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px 20px;
+        /* ── FLOATING ORB ── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.18); top:-100px; right:-100px; }
+        .orb-2 { width:400px; height:400px; background:rgba(192,132,252,0.10); bottom:0; left:-80px; }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top:0; z-index:1000;
+            background: rgba(26,11,46,0.85);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
             text-align: center;
+        }
+        nav a {
+            color: #d1b3ff; text-decoration:none; margin:0 16px;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
+            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
+            transition:color 0.2s;
+        }
+        nav a:hover, nav a.active { color:#fff; }
+        nav a.active { border-bottom: 2px solid var(--accent); padding-bottom:2px; }
+
+        /* ── HERO HEADER ── */
+        .page-header {
             position: relative;
-            transition: 0.4s ease;
+            z-index: 1;
+            text-align: center;
+            padding: 90px 20px 60px;
+        }
+        .eyebrow {
+            display: inline-flex; align-items:center; gap:8px;
+            font-size:0.72rem; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color: var(--accent);
+            border:1px solid rgba(192,132,252,0.3);
+            padding: 6px 18px; border-radius:50px;
+            margin-bottom: 22px;
+            background: rgba(192,132,252,0.06);
+        }
+        .eyebrow span { width:6px; height:6px; background:var(--accent); border-radius:50%; display:inline-block; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .page-header h1 {
+            font-family:'Syne', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight:800;
+            line-height: 1.1;
+            letter-spacing:-1px;
+            color:#fff;
+        }
+        .page-header h1 em {
+            font-style:normal;
+            background: linear-gradient(90deg, #c084fc, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p {
+            margin-top:16px;
+            color: var(--muted);
+            font-size:1rem;
+            max-width:480px;
+            margin-left:auto;
+            margin-right:auto;
+            line-height:1.7;
         }
 
-        /* Highlighted Step (SQL Glow - Matching image) */
-        .step-card.active-glow {
-            border: 2px solid #d1b3ff;
-            box-shadow: 0 0 30px rgba(123, 31, 162, 0.5);
-            background: rgba(123, 31, 162, 0.08);
-        }
-
-        /* ICON STYLING (Colorful Logos) */
-        .step-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        
-        .icon-excel { color: #217346; filter: drop-shadow(0 0 10px rgba(33, 115, 70, 0.3)); } /* Official Excel Green */
-        .icon-sql { color: #ffffff; } /* SQL White */
-        .icon-powerbi { color: #F2C811; filter: drop-shadow(0 0 10px rgba(242, 200, 17, 0.3)); } /* Official Power BI Yellow */
-        .icon-insights { color: #d1b3ff; }
-
-        .step-title { font-size: 1rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
-        .step-subtitle { font-size: 0.75rem; color: #aaa; margin-bottom: 25px; display: block; }
-
-        /* Visual Content Box (Mockup view) */
-        .visual-box {
-            background: #161b22;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 25px;
-            border: 1px solid #301a4d;
-            height: 140px;
+        /* ── PROGRESS PIPELINE (horizontal numbers) ── */
+        .pipeline {
             display: flex;
-            align-items: center;
             justify-content: center;
-            overflow: hidden;
+            align-items: center;
+            gap: 0;
+            margin: 48px auto 0;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
         }
-        .visual-box img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            opacity: 0.8;
+        .pip-step {
+            display:flex; flex-direction:column; align-items:center;
+            gap:8px; flex:1; cursor:pointer;
+            transition: opacity 0.3s;
+        }
+        .pip-num {
+            width:44px; height:44px; border-radius:50%;
+            border:2px solid var(--border);
+            display:flex; align-items:center; justify-content:center;
+            font-family:'Syne',sans-serif; font-weight:800;
+            font-size:0.9rem; color:var(--muted);
+            background: var(--surface);
             transition: 0.3s;
+            position: relative; z-index:2;
         }
-        .visual-box:hover img { opacity: 1; transform: scale(1.05); }
-
-        /* Description Area */
-        .desc-title { font-size: 0.9rem; font-weight: 700; color: #d1b3ff; margin-bottom: 12px; display: block; }
-        .desc-text { font-size: 0.85rem; color: #bbbbbb; line-height: 1.6; }
-
-        /* Flow Arrow Styling */
-        .flow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d1b3ff;
-            font-size: 1.5rem;
-            padding-top: 180px;
-            opacity: 0.6;
+        .pip-step.active .pip-num {
+            border-color: var(--accent);
+            background: rgba(192,132,252,0.15);
+            color:#fff;
+            box-shadow: 0 0 20px rgba(192,132,252,0.4);
+        }
+        .pip-label {
+            font-size:0.7rem; font-weight:600; text-transform:uppercase;
+            letter-spacing:1px; color:var(--muted);
+            transition: color 0.3s;
+        }
+        .pip-step.active .pip-label { color: var(--accent); }
+        .pip-line {
+            flex:1; height:1px;
+            background: linear-gradient(90deg, var(--accent2), transparent);
+            opacity:0.3;
+            margin-bottom:22px;
         }
 
-        /* Brand Footer Logo */
-        .footer-logo { height: 40px; margin: 40px auto; display: block; opacity: 0.7; }
+        /* ── SKILL CARDS GRID ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 70px auto 0;
+            padding: 0 5% 100px;
+            position: relative; z-index:1;
+        }
 
-        /* Responsive Fixes */
-        @media (max-width: 1150px) {
-            .journey-flow { flex-direction: column; align-items: center; }
-            .flow-arrow { display: none; }
-            .step-card { width: 95%; margin-bottom: 30px; }
+        /* Card 3 spans full width */
+        .skill-card:nth-child(3) { grid-column: 1 / -1; }
+
+        .skill-card {
+            background: rgba(15,7,32,0.6);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+            cursor: default;
+            backdrop-filter: blur(10px);
+        }
+        .skill-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity:0;
+            transition: opacity 0.35s;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(192,132,252,0.35);
+            box-shadow: 0 24px 60px rgba(124,58,237,0.2);
+        }
+        .skill-card:hover::before { opacity:1; }
+
+        /* Card accent corner glow */
+        .skill-card .corner-glow {
+            position:absolute; top:-60px; right:-60px;
+            width:160px; height:160px; border-radius:50%;
+            opacity:0; transition: opacity 0.4s;
+        }
+        .skill-card:hover .corner-glow { opacity:1; }
+        .card-excel .corner-glow  { background: radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%); }
+        .card-sql .corner-glow    { background: radial-gradient(circle, rgba(192,132,252,0.15), transparent 70%); }
+        .card-pbi .corner-glow    { background: radial-gradient(circle, rgba(242,200,17,0.15), transparent 70%); }
+        .card-insights .corner-glow { background: radial-gradient(circle, rgba(192,132,252,0.15), transparent 70%); }
+
+        /* Card inner layout */
+        .card-top {
+            display:flex; align-items:flex-start; justify-content:space-between;
+            margin-bottom: 28px;
+        }
+        .card-icon-wrap {
+            width:56px; height:56px; border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.6rem;
+        }
+        .card-excel .card-icon-wrap  { background:rgba(34,197,94,0.12); color:var(--green); }
+        .card-sql .card-icon-wrap    { background:rgba(192,132,252,0.12); color:var(--accent); }
+        .card-pbi .card-icon-wrap    { background:rgba(242,200,17,0.12); color:var(--gold); }
+        .card-insights .card-icon-wrap { background:rgba(192,132,252,0.12); color:var(--accent); }
+
+        .card-badge {
+            font-size:0.65rem; font-weight:700; letter-spacing:1.5px;
+            text-transform:uppercase; padding:4px 12px; border-radius:50px;
+            border:1px solid; white-space:nowrap;
+        }
+        .badge-excel    { color:var(--green); border-color:rgba(34,197,94,0.3); background:rgba(34,197,94,0.06); }
+        .badge-sql      { color:var(--accent); border-color:rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-pbi      { color:var(--gold); border-color:rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
+        .badge-insights { color:var(--accent); border-color:rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+
+        .card-title {
+            font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800;
+            color:#fff; margin-bottom:6px;
+        }
+        .card-subtitle { font-size:0.78rem; color:var(--muted); margin-bottom:18px; }
+
+        .card-desc { font-size:0.88rem; color:#a89bb8; line-height:1.75; margin-bottom:28px; }
+
+        /* Skill tags */
+        .tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+        .tag {
+            font-size:0.72rem; font-weight:600; padding:5px 13px;
+            border-radius:50px; border:1px solid var(--border);
+            color:#c4b5d4; background:rgba(255,255,255,0.03);
+            letter-spacing:0.3px;
+        }
+
+        /* Skill bars */
+        .skill-bars { display:flex; flex-direction:column; gap:12px; }
+        .bar-row { display:flex; align-items:center; gap:12px; }
+        .bar-label { font-size:0.75rem; color:var(--muted); width:120px; flex-shrink:0; }
+        .bar-track {
+            flex:1; height:5px; background:rgba(255,255,255,0.07);
+            border-radius:10px; overflow:hidden;
+        }
+        .bar-fill {
+            height:100%; border-radius:10px;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: barGrow 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        .bar-fill.green  { background: linear-gradient(90deg, #16a34a, #4ade80); }
+        .bar-fill.purple { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+        .bar-fill.gold   { background: linear-gradient(90deg, #b45309, #F2C811); }
+
+        @keyframes barGrow { to { transform: scaleX(1); } }
+        .bar-fill[style*="0.5s"] { animation-delay:0.1s; }
+        .bar-fill[style*="0.7s"] { animation-delay:0.2s; }
+        .bar-fill[style*="0.9s"] { animation-delay:0.3s; }
+        .bar-fill[style*="1.1s"] { animation-delay:0.4s; }
+
+        /* Preview image in card */
+        .card-preview {
+            border-radius:12px; overflow:hidden;
+            border:1px solid var(--border);
+            margin-bottom:28px;
+            height: 160px;
+        }
+        .card-preview img {
+            width:100%; height:100%; object-fit:cover;
+            opacity:0.75; transition:0.4s;
+        }
+        .skill-card:hover .card-preview img { opacity:1; transform:scale(1.03); }
+
+        /* Full-width card inner grid */
+        .pbi-inner {
+            display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;
+        }
+
+        /* ── FINAL INSIGHTS CARD ── */
+        .insights-flow {
+            display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:20px;
+        }
+        .insight-step {
+            background:rgba(255,255,255,0.03);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:20px 16px;
+            text-align:center;
+            transition:0.3s;
+        }
+        .insight-step:hover { border-color:rgba(192,132,252,0.35); background:rgba(192,132,252,0.05); }
+        .insight-step i { font-size:1.4rem; color:var(--accent); margin-bottom:12px; display:block; }
+        .insight-step h4 { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:#fff; margin-bottom:6px; }
+        .insight-step p  { font-size:0.75rem; color:var(--muted); line-height:1.5; }
+
+        /* ── FOOTER BRAND ── */
+        .footer-brand {
+            text-align:center; padding:40px 20px;
+            border-top:1px solid var(--border);
+            position:relative; z-index:1;
+        }
+        .footer-brand img { height:36px; opacity:0.5; }
+
+        /* ── FADE-IN ANIMATION ── */
+        .skill-card {
+            opacity:0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .skill-card:nth-child(1) { animation-delay:0.1s; }
+        .skill-card:nth-child(2) { animation-delay:0.25s; }
+        .skill-card:nth-child(3) { animation-delay:0.4s; }
+        .skill-card:nth-child(4) { animation-delay:0.55s; }
+
+        @keyframes fadeUp {
+            to { opacity:1; transform:translateY(0); }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:900px) {
+            .skills-grid { grid-template-columns:1fr; }
+            .skill-card:nth-child(3) { grid-column:auto; }
+            .pbi-inner { grid-template-columns:1fr; }
+            .insights-flow { grid-template-columns:1fr; }
+            nav a { margin:0 8px; font-size:0.72rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Professional Navbar -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- NAV -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
-        <a href="skills.html" style="color:#fff; border-bottom: 2px solid #d1b3ff;">Skills</a>
+        <a href="skills.html" class="active">Skills</a>
         <a href="certifications.html">Certifications</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Page Header -->
-    <header class="journey-header">
-        <h1>My Analytics Skills Journey</h1>
-        <p>FROM RAW DATA TO DECISIVE ACTION</p>
-        <div class="underline"></div>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="eyebrow"><span></span> Technical Expertise</div>
+        <h1>Analytics Skills<br><em>That Drive Results</em></h1>
+        <p>From raw data wrangling to executive-ready dashboards — a full-stack analytics pipeline built over 1.5+ years of hands-on projects.</p>
+
+        <!-- Pipeline Steps -->
+        <div class="pipeline">
+            <div class="pip-step active">
+                <div class="pip-num">01</div>
+                <div class="pip-label">Excel</div>
+            </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">02</div>
+                <div class="pip-label">SQL</div>
+            </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">03</div>
+                <div class="pip-label">Power BI</div>
+            </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">04</div>
+                <div class="pip-label">Insights</div>
+            </div>
+        </div>
     </header>
 
-    <main class="journey-flow">
+    <!-- SKILLS GRID -->
+    <section class="skills-grid">
 
-        <!-- STEP 1: SPREADSHEETS -->
-        <div class="step-card">
-            <i class="fa-solid fa-file-excel step-icon icon-excel"></i>
-            <span class="step-title">Spreadsheets</span>
-            <span class="step-subtitle">(Excel & Google Sheets)</span>
-            
-            <div class="visual-box">
-                <img src="Road Accident Dashboard.jpg" alt="Excel View">
+        <!-- ── CARD 1: EXCEL ── -->
+        <div class="skill-card card-excel">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-file-excel"></i></div>
+                <span class="card-badge badge-excel">Step 01</span>
+            </div>
+            <h2 class="card-title">Spreadsheets</h2>
+            <p class="card-subtitle">Excel &amp; Google Sheets</p>
+
+            <div class="card-preview">
+                <img src="Road Accident Dashboard.jpg" alt="Excel Dashboard">
             </div>
 
-            <span class="desc-title">Data Cleaning & EDA</span>
-            <p class="desc-text">
-                Leveraging advanced formulas (XLOOKUP, INDEX+MATCH), Pivot Tables, and Power Query to transform messy raw data into clean, structured datasets.
+            <p class="card-desc">
+                Transforming messy raw data into clean, structured datasets using advanced formulas, Pivot Tables, and Power Query — the foundation of any reliable analytics pipeline.
             </p>
-        </div>
 
-        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
-
-        <!-- STEP 2: SQL (GLOWING ACTIVE STEP) -->
-        <div class="step-card active-glow">
-            <i class="fa-solid fa-database step-icon icon-sql"></i>
-            <span class="step-title">SQL</span>
-            <span class="step-subtitle">(Structured Query Language)</span>
-            
-            <div class="visual-box">
-                <img src="AmazonSQL.png" alt="SQL Code View">
+            <div class="tags">
+                <span class="tag">XLOOKUP</span>
+                <span class="tag">INDEX+MATCH</span>
+                <span class="tag">Pivot Tables</span>
+                <span class="tag">Power Query</span>
+                <span class="tag">Data Cleaning</span>
+                <span class="tag">EDA</span>
             </div>
 
-            <span class="desc-title">Database Querying & Management</span>
-            <p class="desc-text">
-                Writing complex queries with multi-joins, CTEs, and Window Functions (RANK, LEAD/LAG) to extract and manipulate large-scale business data.
-            </p>
+            <div class="skill-bars">
+                <div class="bar-row">
+                    <span class="bar-label">Data Cleaning</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:92%; animation-delay:0.5s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Advanced Formulas</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:88%; animation-delay:0.7s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Power Query</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:80%; animation-delay:0.9s"></div></div>
+                </div>
+            </div>
         </div>
 
-        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
+        <!-- ── CARD 2: SQL ── -->
+        <div class="skill-card card-sql">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-database"></i></div>
+                <span class="card-badge badge-sql">Step 02</span>
+            </div>
+            <h2 class="card-title">SQL</h2>
+            <p class="card-subtitle">Structured Query Language · SQL Server</p>
 
-        <!-- STEP 3: POWER BI -->
-        <div class="step-card">
-            <i class="fa-solid fa-chart-pie step-icon icon-powerbi"></i>
-            <span class="step-title">Power BI</span>
-            <span class="step-subtitle">(The Storyteller)</span>
-            
-            <div class="visual-box">
-                <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Power BI Dashboard">
+            <div class="card-preview">
+                <img src="AmazonSQL.png" alt="SQL Code">
             </div>
 
-            <span class="desc-title">Visualization & BI</span>
-            <p class="desc-text">
-                Developing interactive dashboards using DAX for custom measures and creating compelling data stories that reveal hidden trends.
+            <p class="card-desc">
+                Writing complex queries — multi-table joins, CTEs, Window Functions (RANK, LEAD/LAG), and Stored Procedures — to extract, transform, and diagnose large-scale business data.
             </p>
-        </div>
 
-        <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
-
-        <!-- STEP 4: FINAL INSIGHTS -->
-        <div class="step-card">
-            <i class="fa-solid fa-gem step-icon icon-insights"></i>
-            <span class="step-title">Final Insights</span>
-            <span class="step-subtitle">(Delivering Actionable Value)</span>
-            
-            <div class="visual-box" style="border-style: dashed; background: transparent;">
-                <img src="Khurram Insights.jpeg" alt="Final Insights" style="filter: brightness(1.2);">
+            <div class="tags">
+                <span class="tag">CTEs</span>
+                <span class="tag">Window Functions</span>
+                <span class="tag">Joins</span>
+                <span class="tag">Stored Procedures</span>
+                <span class="tag">Subqueries</span>
+                <span class="tag">SQL Server</span>
             </div>
 
-            <span class="desc-title">Decisive Action</span>
-            <p class="desc-text">
-                Synthesizing analytics from all stages to provide clear, strategic recommendations that drive organizational growth and efficiency.
-            </p>
+            <div class="skill-bars">
+                <div class="bar-row">
+                    <span class="bar-label">Query Writing</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:87%; animation-delay:0.5s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Window Functions</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:82%; animation-delay:0.7s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Stored Procedures</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:75%; animation-delay:0.9s"></div></div>
+                </div>
+            </div>
         </div>
 
-    </main>
+        <!-- ── CARD 3: POWER BI (full width) ── -->
+        <div class="skill-card card-pbi">
+            <div class="corner-glow"></div>
+            <div class="pbi-inner">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon-wrap"><i class="fa-solid fa-chart-pie"></i></div>
+                        <span class="card-badge badge-pbi">Step 03</span>
+                    </div>
+                    <h2 class="card-title">Power BI</h2>
+                    <p class="card-subtitle">Business Intelligence &amp; Data Storytelling</p>
+                    <p class="card-desc">
+                        Developing executive-ready interactive dashboards with DAX measures, drill-throughs, and compelling data stories that turn raw numbers into decisive business action.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">DAX</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">Drill-through</span>
+                        <span class="tag">KPI Cards</span>
+                        <span class="tag">Slicers</span>
+                        <span class="tag">Relationships</span>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="bar-row">
+                            <span class="bar-label">DAX Formulas</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:83%; animation-delay:0.5s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Dashboard Design</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:90%; animation-delay:0.7s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Data Modeling</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:78%; animation-delay:0.9s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Storytelling</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:88%; animation-delay:1.1s"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-preview" style="height:100%; min-height:280px; margin-bottom:0;">
+                    <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Power BI Dashboard" style="height:100%;">
+                </div>
+            </div>
+        </div>
 
-    <!-- Branding Footer -->
-    <img src="Khurram Insights.jpeg" alt="Logo" class="footer-logo">
+        <!-- ── CARD 4: FINAL INSIGHTS ── -->
+        <div class="skill-card card-insights" style="grid-column: 1 / -1;">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-gem"></i></div>
+                <span class="card-badge badge-insights">Step 04</span>
+            </div>
+            <h2 class="card-title">Final Insights</h2>
+            <p class="card-subtitle">Delivering Actionable Value to Stakeholders</p>
+            <p class="card-desc" style="max-width:700px;">
+                Synthesizing outputs across all analytics stages into clear, strategic recommendations — bridging the gap between raw data and the business decisions that drive real growth.
+            </p>
+
+            <div class="insights-flow">
+                <div class="insight-step">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h4>Identify Patterns</h4>
+                    <p>Surface hidden trends across large datasets using statistical reasoning and domain context.</p>
+                </div>
+                <div class="insight-step">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h4>Communicate Clearly</h4>
+                    <p>Translate complex findings into concise, jargon-free narratives for non-technical stakeholders.</p>
+                </div>
+                <div class="insight-step">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h4>Drive Action</h4>
+                    <p>Deliver data-backed recommendations that are measurable, practical, and tied to business goals.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer-brand">
+        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+    </div>
 
 </body>
 </html>
