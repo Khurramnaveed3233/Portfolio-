@@ -15,7 +15,6 @@
             --accent2: #7c3aed;
             --white:   #f0e8ff;
             --muted:   #8b7aa0;
-            --nav-bg:  #1a0b2e;
         }
 
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -28,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* Grid background */
         body::before {
             content:'';
             position:fixed; inset:0;
@@ -39,15 +37,11 @@
             pointer-events:none; z-index:0;
         }
 
-        /* Orbs */
-        .orb {
-            position:fixed; border-radius:50%;
-            filter:blur(130px); pointer-events:none; z-index:0;
-        }
+        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
         .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
         .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
 
-        /* ── NAV ── */
+        /* NAV */
         nav {
             position:sticky; top:0; z-index:1000;
             background:rgba(26,11,46,0.88);
@@ -64,7 +58,7 @@
         nav a:hover { color:#fff; }
         nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
 
-        /* ── HEADER ── */
+        /* HEADER */
         .page-header {
             position:relative; z-index:1;
             text-align:center; padding:90px 20px 60px;
@@ -97,10 +91,9 @@
         }
         .page-header p {
             margin-top:16px; color:var(--muted); font-size:1rem;
-            max-width:480px; margin-left:auto; margin-right:auto; line-height:1.7;
+            max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
         }
 
-        /* Stat strip */
         .stat-strip {
             display:flex; justify-content:center; gap:48px;
             margin-top:44px; flex-wrap:wrap;
@@ -113,7 +106,7 @@
         }
         .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 
-        /* ── FILTER TABS ── */
+        /* FILTER TABS */
         .filter-row {
             display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
             padding:0 5%; margin-bottom:36px; position:relative; z-index:1;
@@ -132,7 +125,7 @@
             color:#fff;
         }
 
-        /* ── CERT GRID ── */
+        /* CERT GRID */
         .cert-grid {
             display:grid;
             grid-template-columns:repeat(4, 1fr);
@@ -143,7 +136,7 @@
             position:relative; z-index:1;
         }
 
-        /* ── CERT CARD ── */
+        /* CERT CARD */
         .cert-card {
             background:rgba(15,7,32,0.7);
             border:1px solid var(--border);
@@ -167,7 +160,6 @@
 
         @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 
-        /* Stagger */
         .cert-card:nth-child(1)  { animation-delay:0.05s; }
         .cert-card:nth-child(2)  { animation-delay:0.10s; }
         .cert-card:nth-child(3)  { animation-delay:0.15s; }
@@ -182,7 +174,6 @@
         .cert-card:nth-child(12) { animation-delay:0.60s; }
         .cert-card:nth-child(13) { animation-delay:0.65s; }
 
-        /* Image box */
         .cert-img-box {
             width:100%; height:170px; overflow:hidden;
             position:relative; cursor:pointer;
@@ -194,8 +185,6 @@
             opacity:0.82;
         }
         .cert-card:hover .cert-img-box img { transform:scale(1.06); opacity:1; }
-
-        /* Hover overlay */
         .cert-img-box .overlay {
             position:absolute; inset:0;
             background:rgba(76,0,130,0.55);
@@ -206,53 +195,64 @@
         }
         .cert-img-box:hover .overlay { opacity:1; }
 
-        /* Card body */
         .cert-body {
             padding:16px 18px 18px;
             display:flex; flex-direction:column; flex:1; gap:12px;
         }
 
-        /* Issuer badge */
+        /* Issuer badges */
         .issuer-badge {
             display:inline-flex; align-items:center; gap:6px;
             font-size:0.65rem; font-weight:700; letter-spacing:1.2px;
             text-transform:uppercase; padding:3px 10px; border-radius:50px;
             width:fit-content;
         }
-        .badge-google  { color:#4ade80; border:1px solid rgba(74,222,128,0.3); background:rgba(74,222,128,0.06); }
-        .badge-cisco   { color:#38bdf8; border:1px solid rgba(56,189,248,0.3); background:rgba(56,189,248,0.06); }
-        .badge-pwc     { color:#fb923c; border:1px solid rgba(251,146,60,0.3); background:rgba(251,146,60,0.06); }
-        .badge-jpmorgan{ color:#F2C811; border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
-        .badge-hp      { color:#c084fc; border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
-        .badge-nsw     { color:#e879f9; border:1px solid rgba(232,121,249,0.3); background:rgba(232,121,249,0.06); }
-        .badge-digi    { color:#34d399; border:1px solid rgba(52,211,153,0.3); background:rgba(52,211,153,0.06); }
-        .badge-other   { color:#94a3b8; border:1px solid rgba(148,163,184,0.3); background:rgba(148,163,184,0.06); }
+        .badge-google   { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
+        .badge-cisco    { color:#38bdf8; border:1px solid rgba(56,189,248,0.3);  background:rgba(56,189,248,0.06); }
+        .badge-pwc      { color:#fb923c; border:1px solid rgba(251,146,60,0.3);  background:rgba(251,146,60,0.06); }
+        .badge-jpmorgan { color:#F2C811; border:1px solid rgba(242,200,17,0.3);  background:rgba(242,200,17,0.06); }
+        .badge-hp       { color:#c084fc; border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-nsw      { color:#e879f9; border:1px solid rgba(232,121,249,0.3); background:rgba(232,121,249,0.06); }
+        .badge-digi     { color:#34d399; border:1px solid rgba(52,211,153,0.3);  background:rgba(52,211,153,0.06); }
+        .badge-other    { color:#94a3b8; border:1px solid rgba(148,163,184,0.3); background:rgba(148,163,184,0.06); }
 
         .cert-title {
             font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700;
-            color:#fff; line-height:1.4;
+            color:#fff; line-height:1.4; flex:1;
         }
 
+        /* Verify button — live (green tint) */
         .btn-verify {
             display:inline-flex; align-items:center; gap:6px;
-            background:rgba(192,132,252,0.1);
-            border:1px solid rgba(192,132,252,0.25);
-            color:var(--accent); text-decoration:none;
+            background:rgba(74,222,128,0.08);
+            border:1px solid rgba(74,222,128,0.3);
+            color:#4ade80; text-decoration:none;
             padding:8px 16px; border-radius:8px;
             font-size:0.72rem; font-weight:700;
             letter-spacing:0.5px; text-transform:uppercase;
             transition:0.25s; margin-top:auto;
         }
         .btn-verify:hover {
-            background:rgba(192,132,252,0.2);
-            border-color:rgba(192,132,252,0.5);
+            background:rgba(74,222,128,0.18);
+            border-color:rgba(74,222,128,0.6);
             color:#fff;
-        }
-        .btn-verify.disabled {
-            opacity:0.35; pointer-events:none; cursor:not-allowed;
+            transform:translateY(-1px);
         }
 
-        /* ── MODAL (same logic, new look) ── */
+        /* No link — greyed out */
+        .btn-no-link {
+            display:inline-flex; align-items:center; gap:6px;
+            background:rgba(255,255,255,0.03);
+            border:1px solid rgba(255,255,255,0.08);
+            color:var(--muted);
+            padding:8px 16px; border-radius:8px;
+            font-size:0.72rem; font-weight:700;
+            letter-spacing:0.5px; text-transform:uppercase;
+            margin-top:auto; opacity:0.45;
+            pointer-events:none; cursor:not-allowed;
+        }
+
+        /* MODAL */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
             background:rgba(0,0,0,0.92);
@@ -268,15 +268,15 @@
             box-shadow:0 0 80px rgba(124,58,237,0.4);
             animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
         }
-        @keyframes zoomIn { from{transform:scale(0.75); opacity:0} to{transform:scale(1); opacity:1} }
+        @keyframes zoomIn { from{transform:scale(0.75);opacity:0} to{transform:scale(1);opacity:1} }
         .modal-caption {
             color:var(--accent); margin-top:18px;
             font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:700;
-            letter-spacing:0.5px;
+            letter-spacing:0.5px; text-align:center;
         }
         .modal-close {
             position:absolute; top:18px; right:28px;
-            color:#fff; font-size:2.2rem; cursor:pointer;
+            color:#fff; font-size:1.4rem; cursor:pointer;
             background:rgba(255,255,255,0.07); border:none;
             width:44px; height:44px; border-radius:50%;
             display:flex; align-items:center; justify-content:center;
@@ -284,7 +284,7 @@
         }
         .modal-close:hover { background:rgba(255,255,255,0.15); }
 
-        /* ── FOOTER ── */
+        /* FOOTER */
         .footer-brand {
             text-align:center; padding:36px 20px;
             border-top:1px solid var(--border);
@@ -292,271 +292,265 @@
         }
         .footer-brand img { height:34px; opacity:0.45; }
 
-        /* ── RESPONSIVE ── */
+        /* RESPONSIVE */
         @media (max-width:1100px) { .cert-grid { grid-template-columns:repeat(3,1fr); } }
         @media (max-width:800px)  { .cert-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:500px)  { .cert-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
+        @media (max-width:500px)  {
+            .cert-grid { grid-template-columns:1fr; }
+            nav a { margin:0 8px; font-size:0.7rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-    <!-- NAV -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="skills.html">Skills</a>
-        <a href="certifications.html" class="active">Certifications</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<!-- NAV -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="certifications.html" class="active">Certifications</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-    <!-- HEADER -->
-    <header class="page-header">
-        <div class="eyebrow"><span></span> Verified Credentials</div>
-        <h1>Professional<br><em>Certifications</em></h1>
-        <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
+<!-- HEADER -->
+<header class="page-header">
+    <div class="eyebrow"><span></span> Verified Credentials</div>
+    <h1>Professional<br><em>Certifications</em></h1>
+    <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
+    <div class="stat-strip">
+        <div class="stat-item"><div class="stat-num">13</div><div class="stat-label">Certificates</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Issuers</div></div>
+        <div class="stat-item"><div class="stat-num">1.5+</div><div class="stat-label">Years Learning</div></div>
+    </div>
+</header>
 
-        <div class="stat-strip">
-            <div class="stat-item">
-                <div class="stat-num">13</div>
-                <div class="stat-label">Certificates</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num">7</div>
-                <div class="stat-label">Issuers</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num">1.5+</div>
-                <div class="stat-label">Years Learning</div>
-            </div>
+<!-- FILTER TABS -->
+<div class="filter-row">
+    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('google',this)">Google</button>
+    <button class="filter-btn" onclick="filterCards('cisco',this)">Cisco</button>
+    <button class="filter-btn" onclick="filterCards('pwc',this)">PwC</button>
+    <button class="filter-btn" onclick="filterCards('jpmorgan',this)">JPMorgan</button>
+    <button class="filter-btn" onclick="filterCards('digi',this)">DigiSkills</button>
+    <button class="filter-btn" onclick="filterCards('other',this)">Other</button>
+</div>
+
+<!-- CERT GRID -->
+<div class="cert-grid">
+
+    <!-- 1. Power Query -->
+    <div class="cert-card" data-cat="other">
+        <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
+            <img src="power_query.png" alt="Power Query">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-    </header>
-
-    <!-- FILTER TABS -->
-    <div class="filter-row">
-        <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
-        <button class="filter-btn" onclick="filterCards('google', this)">Google</button>
-        <button class="filter-btn" onclick="filterCards('cisco', this)">Cisco</button>
-        <button class="filter-btn" onclick="filterCards('pwc', this)">PwC</button>
-        <button class="filter-btn" onclick="filterCards('jpmorgan', this)">JPMorgan</button>
-        <button class="filter-btn" onclick="filterCards('digi', this)">DigiSkills</button>
-        <button class="filter-btn" onclick="filterCards('other', this)">Other</button>
+        <div class="cert-body">
+            <span class="issuer-badge badge-other">Masterclass</span>
+            <div class="cert-title">Power Query Training Masterclass Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
     </div>
 
-    <!-- CERT GRID -->
-    <div class="cert-grid" id="certGrid">
-
-        <!-- 1. Power Query -->
-        <div class="cert-card" data-cat="other">
-            <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
-                <img src="power_query.png" alt="Power Query Certificate">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-other">Masterclass</span>
-                <div class="cert-title">Power Query Training Masterclass Certificate</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
+    <!-- 2. Cisco Data Science -->
+    <div class="cert-card" data-cat="cisco">
+        <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
+            <img src="DataScience.jpg" alt="Data Science Cisco">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-
-        <!-- 2. Data Science Cisco -->
-        <div class="cert-card" data-cat="cisco">
-            <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
-                <img src="DataScience.jpg" alt="Data Science Cisco">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-cisco">Cisco</span>
-                <div class="cert-title">Introduction to Data Science – Cisco</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">Introduction to Data Science – Cisco</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
-
-        <!-- 3. Cisco C++ -->
-        <div class="cert-card" data-cat="cisco">
-            <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
-                <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-cisco">Cisco</span>
-                <div class="cert-title">Cisco C++ Essentials Certificate</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 4. Google BI -->
-        <div class="cert-card" data-cat="google">
-            <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Data Analytics & Business Intelligence')">
-                <img src="google_bi.jpg" alt="Google BI">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-google">Google</span>
-                <div class="cert-title">Google Data Analytics & Business Intelligence</div>
-                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-and-Business-Intelligence-/edit/main/README.md" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 5. Google Professional -->
-        <div class="cert-card" data-cat="google">
-            <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
-                <img src="google_pro.jpg" alt="Google Professional">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-google">Google</span>
-                <div class="cert-title">Google Data Analytics Professional Certificate</div>
-                <a href="https://github.com/Khurramnaveed3233/Google-Data-Analytics-Professional-Certificate-" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 6. PwC Power BI -->
-        <div class="cert-card" data-cat="pwc">
-            <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
-                <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-pwc">PwC</span>
-                <div class="cert-title">Power BI Corporate Training – PwC</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 7. Google AI -->
-        <div class="cert-card" data-cat="google">
-            <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
-                <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-google">Google</span>
-                <div class="cert-title">Google AI Essentials Professional</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 8. Cisco Data Analytics -->
-        <div class="cert-card" data-cat="cisco">
-            <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
-                <img src="cisco.jpg" alt="Cisco Data Analytics">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-cisco">Cisco</span>
-                <div class="cert-title">CISCO Data Analytics Essentials</div>
-                <a href="https://github.com/Khurramnaveed3233/Cisco-Data-Analytics-Cerificate/blob/main/README.md" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 9. JPMorgan -->
-        <div class="cert-card" data-cat="jpmorgan">
-            <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
-                <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
-                <div class="cert-title">JPMorgan Chase Virtual Experience</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 10. HP Life -->
-        <div class="cert-card" data-cat="other">
-            <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
-                <img src="hplife.jpg" alt="HP Life">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-hp">HP Life</span>
-                <div class="cert-title">Diploma in Data Analytics – HP Life</div>
-                <a href="https://github.com/Khurramnaveed3233/Diploma-in-Data-Analytics-from-HP-Life-Foundation/blob/main/README.md" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 11. NSW -->
-        <div class="cert-card" data-cat="other">
-            <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
-                <img src="nsw.jpg" alt="NSW">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-nsw">NSW</span>
-                <div class="cert-title">NSW Data Analytics Certificate</div>
-                <a href="https://github.com/Khurramnaveed3233/NSW-Data-Analytics-Certificate/edit/main/README.md" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 12. DigiSkills -->
-        <div class="cert-card" data-cat="digi">
-            <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
-                <img src="digiskills.jpg" alt="DigiSkills">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-digi">DigiSkills</span>
-                <div class="cert-title">DigiSkills Data Analytics & BI</div>
-                <a href="https://github.com/Khurramnaveed3233/DigiSkills_-Data-Analytics-and-Business-Intelligence-Certificate/blob/main/README.md" class="btn-verify" target="_blank"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
-        <!-- 13. DigiSkills New -->
-        <div class="cert-card" data-cat="digi">
-            <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills New Certificate')">
-                <img src="DigiSkills New.jpg" alt="DigiSkills New">
-                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-            </div>
-            <div class="cert-body">
-                <span class="issuer-badge badge-digi">DigiSkills</span>
-                <div class="cert-title">DigiSkills New Certificate</div>
-                <a href="#" class="btn-verify disabled"><i class="fa-brands fa-github"></i> Verify</a>
-            </div>
-        </div>
-
     </div>
 
-    <!-- MODAL -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-        <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-        <img class="modal-img" id="fullImg" onclick="event.stopPropagation()">
-        <div id="caption" class="modal-caption"></div>
+    <!-- 3. Cisco C++ -->
+    <div class="cert-card" data-cat="cisco">
+        <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
+            <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">Cisco C++ Essentials Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer-brand">
-        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+    <!-- 4. Google BI ✅ LIVE -->
+    <div class="cert-card" data-cat="google">
+        <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Business Intelligence Professional Certificate')">
+            <img src="google_bi.jpg" alt="Google BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google Business Intelligence Professional Certificate</div>
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/VAMXR2JKSJVP" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+            </a>
+        </div>
     </div>
 
-    <script>
-        function openModal(src, title) {
-            const modal = document.getElementById('imgModal');
-            document.getElementById('fullImg').src = src;
-            document.getElementById('caption').innerHTML = title;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- 5. Google Data Analytics ✅ LIVE -->
+    <div class="cert-card" data-cat="google">
+        <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
+            <img src="google_pro.jpg" alt="Google Data Analytics">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google Data Analytics Professional Certificate</div>
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/H948EJL58NAZ" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+            </a>
+        </div>
+    </div>
 
-        function closeModal() {
-            document.getElementById('imgModal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
+    <!-- 6. PwC Power BI -->
+    <div class="cert-card" data-cat="pwc">
+        <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
+            <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-pwc">PwC</span>
+            <div class="cert-title">Power BI Corporate Training – PwC</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
 
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    <!-- 7. Google AI -->
+    <div class="cert-card" data-cat="google">
+        <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
+            <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google AI Essentials Professional</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
 
-        function filterCards(cat, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.cert-card').forEach(card => {
-                const match = cat === 'all' || card.dataset.cat === cat;
-                card.style.display = match ? 'flex' : 'none';
-            });
-        }
-    </script>
+    <!-- 8. Cisco Data Analytics -->
+    <div class="cert-card" data-cat="cisco">
+        <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
+            <img src="cisco.jpg" alt="Cisco Data Analytics">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">CISCO Data Analytics Essentials</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
+    <!-- 9. JPMorgan -->
+    <div class="cert-card" data-cat="jpmorgan">
+        <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
+            <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
+            <div class="cert-title">JPMorgan Chase Virtual Experience</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
+    <!-- 10. HP Life -->
+    <div class="cert-card" data-cat="other">
+        <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
+            <img src="hplife.jpg" alt="HP Life">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-hp">HP Life</span>
+            <div class="cert-title">Diploma in Data Analytics – HP Life</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
+    <!-- 11. NSW -->
+    <div class="cert-card" data-cat="other">
+        <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
+            <img src="nsw.jpg" alt="NSW">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-nsw">NSW</span>
+            <div class="cert-title">NSW Data Analytics Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
+    <!-- 12. DigiSkills Old -->
+    <div class="cert-card" data-cat="digi">
+        <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
+            <img src="digiskills.jpg" alt="DigiSkills">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-digi">DigiSkills</span>
+            <div class="cert-title">DigiSkills Data Analytics & BI</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
+    <!-- 13. DigiSkills New ✅ LIVE -->
+    <div class="cert-card" data-cat="digi">
+        <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills Data Analytics & Business Intelligence – DSTP 3.0')">
+            <img src="DigiSkills New.jpg" alt="DigiSkills New">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-digi">DigiSkills</span>
+            <div class="cert-title">DigiSkills Data Analytics & Business Intelligence – DSTP 3.0</div>
+            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <img class="modal-img" id="fullImg" onclick="event.stopPropagation()">
+    <div id="caption" class="modal-caption"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-brand">
+    <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+</div>
+
+<script>
+    function openModal(src, title) {
+        document.getElementById('fullImg').src = src;
+        document.getElementById('caption').innerHTML = title;
+        document.getElementById('imgModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        document.getElementById('imgModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    function filterCards(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.cert-card').forEach(card => {
+            card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+        });
+    }
+</script>
 
 </body>
 </html>
