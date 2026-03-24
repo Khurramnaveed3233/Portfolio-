@@ -3,216 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Portfolio | Khurram Insights</title>
+    <title>Projects | Khurram Insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        *, *::before, *::after { box-sizing: border-box; }
+        :root {
+            --bg:      #07030f;
+            --surface: #0f0720;
+            --border:  rgba(209,179,255,0.12);
+            --accent:  #c084fc;
+            --accent2: #7c3aed;
+            --white:   #f0e8ff;
+            --muted:   #8b7aa0;
+            --green:   #22c55e;
+            --gold:    #F2C811;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #0d0415;
-            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--white);
             overflow-x: hidden;
         }
+
+        body::before {
+            content:'';
+            position:fixed; inset:0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+            background-size:60px 60px;
+            pointer-events:none; z-index:0;
+        }
+
+        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
+        .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
+
+        /* ── NAV ── */
         nav {
-            background: #1a0b2e;
-            padding: 18px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position:sticky; top:0; z-index:1000;
+            background:rgba(26,11,46,0.88);
+            backdrop-filter:blur(18px);
+            border-bottom:1px solid var(--border);
+            padding:16px 0; text-align:center;
         }
         nav a {
-            color: #d1b3ff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            transition: 0.3s;
+            color:#d1b3ff; text-decoration:none; margin:0 16px;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
+            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
+            transition:color 0.2s;
         }
-        nav a:hover { color: #fff; border-bottom: 2px solid #d1b3ff; }
-        nav a.active { color: #fff; border-bottom: 2px solid #d1b3ff; }
-        .header-section {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #4b0082, #2b004e);
+        nav a:hover { color:#fff; }
+        nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+
+        /* ── HEADER ── */
+        .page-header {
+            position:relative; z-index:1;
+            text-align:center; padding:90px 20px 60px;
         }
-        .header-section h1 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-            font-weight: 800;
-            font-family: 'Times New Roman', serif;
+        .eyebrow {
+            display:inline-flex; align-items:center; gap:8px;
+            font-size:0.72rem; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent);
+            border:1px solid rgba(192,132,252,0.3);
+            padding:6px 18px; border-radius:50px;
+            margin-bottom:22px;
+            background:rgba(192,132,252,0.06);
         }
-        .underline {
-            width: 60px; height: 4px;
-            background: #ffffff;
-            margin: 15px auto;
-            border-radius: 10px;
+        .eyebrow span {
+            width:6px; height:6px; background:var(--accent);
+            border-radius:50%; animation:blink 2s infinite; display:inline-block;
         }
-        .main-projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 25px;
-            max-width: 1600px;
-            margin: 50px auto 100px;
-            padding: 0 20px;
-            align-items: flex-start;
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .page-header h1 {
+            font-family:'Syne',sans-serif;
+            font-size:clamp(2.2rem,5vw,3.8rem);
+            font-weight:800; letter-spacing:-1px; color:#fff; line-height:1.1;
         }
-        .column-header {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #d1b3ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid rgba(209,179,255,0.2);
-            padding-bottom: 10px;
+        .page-header h1 em {
+            font-style:normal;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
         }
+        .page-header p {
+            margin-top:16px; color:var(--muted); font-size:1rem;
+            max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
+        }
+
+        /* Stat strip */
+        .stat-strip {
+            display:flex; justify-content:center; gap:48px;
+            margin-top:44px; flex-wrap:wrap;
+        }
+        .stat-item { text-align:center; }
+        .stat-num {
+            font-family:'Syne',sans-serif; font-size:2rem; font-weight:800;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        }
+        .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+
+        /* ── FILTER TABS ── */
+        .filter-row {
+            display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+            padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
+        }
+        .filter-btn {
+            font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
+            letter-spacing:1px; text-transform:uppercase;
+            padding:8px 22px; border-radius:50px; cursor:pointer;
+            border:1px solid var(--border);
+            background:rgba(255,255,255,0.03); color:var(--muted);
+            transition:0.25s; outline:none; display:flex; align-items:center; gap:7px;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background:rgba(192,132,252,0.12);
+            border-color:rgba(192,132,252,0.4); color:#fff;
+        }
+        .filter-btn.excel.active   { border-color:rgba(34,197,94,0.5);  background:rgba(34,197,94,0.08);  color:#4ade80; }
+        .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
+        .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
+
+        /* ── PROJECTS GRID ── */
+        .projects-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+            max-width:1500px;
+            margin:0 auto 100px;
+            padding:0 5%;
+            position:relative; z-index:1;
+        }
+
+        /* ── PROJECT CARD ── */
         .project-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(209,179,255,0.2);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            margin-bottom: 30px;
-            transition: 0.4s ease;
+            background:rgba(15,7,32,0.7);
+            border:1px solid var(--border);
+            border-radius:20px; overflow:hidden;
+            display:flex; flex-direction:column;
+            transition:transform 0.35s ease, border-color 0.35s, box-shadow 0.35s;
+            opacity:0; transform:translateY(24px);
+            animation:fadeUp 0.5s ease forwards;
+            backdrop-filter:blur(10px);
+            position:relative;
         }
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #d1b3ff;
-            box-shadow: 0 0 30px rgba(123,31,162,0.4);
-            background: rgba(123,31,162,0.06);
+        .project-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:1px;
+            background:linear-gradient(90deg,transparent,var(--accent),transparent);
+            opacity:0; transition:opacity 0.35s;
         }
-        .card-top-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #d1b3ff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
-        }
+        .project-card:hover { transform:translateY(-7px); border-color:rgba(192,132,252,0.38); box-shadow:0 22px 55px rgba(124,58,237,0.2); }
+        .project-card:hover::before { opacity:1; }
+
+        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+        /* stagger */
+        .project-card:nth-child(1)  { animation-delay:.05s }
+        .project-card:nth-child(2)  { animation-delay:.10s }
+        .project-card:nth-child(3)  { animation-delay:.15s }
+        .project-card:nth-child(4)  { animation-delay:.20s }
+        .project-card:nth-child(5)  { animation-delay:.25s }
+        .project-card:nth-child(6)  { animation-delay:.30s }
+        .project-card:nth-child(7)  { animation-delay:.35s }
+        .project-card:nth-child(8)  { animation-delay:.40s }
+        .project-card:nth-child(9)  { animation-delay:.45s }
+        .project-card:nth-child(10) { animation-delay:.50s }
+        .project-card:nth-child(11) { animation-delay:.55s }
+        .project-card:nth-child(12) { animation-delay:.60s }
+        .project-card:nth-child(13) { animation-delay:.65s }
+        .project-card:nth-child(14) { animation-delay:.70s }
+        .project-card:nth-child(15) { animation-delay:.75s }
+        .project-card:nth-child(16) { animation-delay:.80s }
+        .project-card:nth-child(17) { animation-delay:.85s }
+        .project-card:nth-child(18) { animation-delay:.90s }
+        .project-card:nth-child(19) { animation-delay:.95s }
+        .project-card:nth-child(20) { animation-delay:1.0s }
+        .project-card:nth-child(21) { animation-delay:1.05s }
+        .project-card:nth-child(22) { animation-delay:1.10s }
+        .project-card:nth-child(23) { animation-delay:1.15s }
+        .project-card:nth-child(24) { animation-delay:1.20s }
+
+        /* Image box */
         .img-box {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border: 1px solid #301a4d;
-            cursor: pointer;
-            position: relative;
+            width:100%; height:190px; overflow:hidden;
+            position:relative; cursor:pointer; background:#0a0418;
         }
         .img-box img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
+            width:100%; height:100%; object-fit:cover;
+            transition:transform 0.4s, opacity 0.3s; opacity:0.82;
         }
-        .img-box:hover img { transform: scale(1.04); }
-        .img-box::after {
-            content: "CLICK TO PREVIEW";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(75,0,130,0.6);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.3s;
-            font-weight: bold;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
+        .project-card:hover .img-box img { transform:scale(1.06); opacity:1; }
+        .img-box .overlay {
+            position:absolute; inset:0;
+            background:rgba(76,0,130,0.55);
+            display:flex; align-items:center; justify-content:center;
+            opacity:0; transition:0.3s;
+            font-family:'Syne',sans-serif; font-size:0.75rem;
+            font-weight:700; letter-spacing:1px; color:#fff; gap:7px;
         }
-        .img-box:hover::after { opacity: 1; }
-        .project-details h3 {
-            font-size: 1rem;
-            margin: 10px 0 8px;
-            color: #ffffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .img-box:hover .overlay { opacity:1; }
+
+        /* Card body */
+        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
+
+        /* Type badge */
+        .type-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
+            text-transform:uppercase; padding:3px 10px; border-radius:50px;
+            width:fit-content;
         }
-        .project-details p {
-            font-size: 0.82rem;
-            color: #c0a8e8;
-            line-height: 1.65;
-            margin-bottom: 20px;
-            min-height: 80px;
-            text-align: left;
+        .badge-excel { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
+        .badge-pbi   { color:var(--gold); border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
+        .badge-sql   { color:var(--accent); border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+
+        .card-category {
+            font-size:0.65rem; font-weight:700; color:var(--muted);
+            text-transform:uppercase; letter-spacing:1.5px;
         }
-        .btn-case-study {
-            display: inline-block;
-            padding: 10px 28px;
-            border: 1.5px solid #d1b3ff;
-            color: #d1b3ff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+
+        .card-title {
+            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800;
+            color:#fff; line-height:1.3;
         }
-        .btn-case-study:hover {
-            background: #d1b3ff;
-            color: #1a0b2e;
-            box-shadow: 0 0 15px rgba(209,179,255,0.4);
+
+        .card-desc {
+            font-size:0.82rem; color:#a89bb8; line-height:1.72;
+            flex:1;
         }
+
+        /* Tool tags */
+        .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+        .tool-tag {
+            font-size:0.65rem; font-weight:600; padding:3px 10px;
+            border-radius:50px; border:1px solid var(--border);
+            color:#c4b5d4; background:rgba(255,255,255,0.03);
+        }
+
+        /* GitHub button */
+        .btn-github {
+            display:inline-flex; align-items:center; gap:7px;
+            background:rgba(255,255,255,0.05);
+            border:1px solid var(--border);
+            color:var(--white); text-decoration:none;
+            padding:9px 18px; border-radius:8px;
+            font-size:0.72rem; font-weight:700;
+            letter-spacing:0.5px; text-transform:uppercase;
+            transition:0.25s; margin-top:auto;
+        }
+        .btn-github:hover {
+            background:rgba(192,132,252,0.12);
+            border-color:rgba(192,132,252,0.4); color:#fff;
+            transform:translateY(-1px);
+        }
+
+        /* ── MODAL ── */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(13,4,21,0.97);
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
+            display:none; position:fixed; z-index:2000; inset:0;
+            background:rgba(0,0,0,0.93);
+            backdrop-filter:blur(14px);
+            justify-content:center; align-items:center; flex-direction:column; padding:20px;
         }
-        .modal.active { display: flex; }
+        .modal.open { display:flex; }
         .modal-img {
-            max-width: 90%;
-            max-height: 80vh;
-            border: 3px solid #d1b3ff;
-            border-radius: 12px;
-            animation: zoomIn 0.3s ease;
+            max-width:88vw; max-height:78vh;
+            border:2px solid rgba(192,132,252,0.4); border-radius:14px;
+            box-shadow:0 0 80px rgba(124,58,237,0.4);
+            animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
         }
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to   { transform: scale(1);   opacity: 1; }
+        @keyframes zoomIn { from{transform:scale(0.75);opacity:0} to{transform:scale(1);opacity:1} }
+        .modal-caption {
+            color:var(--accent); margin-top:16px;
+            font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700;
+            letter-spacing:0.5px; text-align:center;
         }
         .modal-close {
-            position: fixed;
-            top: 20px; right: 35px;
-            color: #fff;
-            font-size: 42px;
-            cursor: pointer;
-            line-height: 1;
-            transition: color 0.2s;
+            position:absolute; top:18px; right:28px; color:#fff;
+            background:rgba(255,255,255,0.07); border:none;
+            width:44px; height:44px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.4rem; cursor:pointer; transition:background 0.2s;
         }
-        .modal-close:hover { color: #d1b3ff; }
-        .modal-caption {
-            color: #d1b3ff;
-            margin-top: 14px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-align: center;
-            letter-spacing: 1px;
+        .modal-close:hover { background:rgba(255,255,255,0.15); }
+
+        /* ── FOOTER ── */
+        .footer-brand {
+            text-align:center; padding:36px 20px;
+            border-top:1px solid var(--border);
+            position:relative; z-index:1;
         }
-        @media (max-width: 1200px) { .main-projects-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px)  { .main-projects-grid { grid-template-columns: 1fr; } .header-section h1 { font-size: 1.4rem; } }
+        .footer-brand img { height:34px; opacity:0.45; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
+        @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
     </style>
 </head>
 <body>
 
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -222,360 +320,440 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<header class="header-section">
-    <h1>MY PROJECTS PORTFOLIO: REAL-WORLD SOLUTIONS</h1>
-    <div class="underline"></div>
+<!-- HEADER -->
+<header class="page-header">
+    <div class="eyebrow"><span></span> Real-World Solutions</div>
+    <h1>Projects<br><em>Portfolio</em></h1>
+    <p>24+ end-to-end analytics projects spanning Excel, Power BI and SQL — each solving a real business problem with measurable outcomes.</p>
+    <div class="stat-strip">
+        <div class="stat-item"><div class="stat-num">24+</div><div class="stat-label">Projects</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Tools</div></div>
+        <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Industries</div></div>
+    </div>
 </header>
 
-<div class="main-projects-grid">
+<!-- FILTER TABS -->
+<div class="filter-row">
+    <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
+    <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
+    <button class="filter-btn pbi"   onclick="filterProjects('pbi',this)"><i class="fa-solid fa-chart-pie"></i> Power BI</button>
+    <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
+</div>
 
-    <!-- LEFT COLUMN — EXCEL -->
-    <div class="column">
-        <div class="column-header">Excel Analysis</div>
+<!-- PROJECTS GRID -->
+<div class="projects-grid" id="projectsGrid">
 
-        <div class="project-card">
-            <span class="card-top-title">Road Safety</span>
-            <div class="img-box" onclick="openModal('Road Accident Dashboard.jpg','Road Accident Dashboard')">
-                <img src="Road Accident Dashboard.jpg" alt="Road Accident Dashboard">
-            </div>
-            <div class="project-details">
-                <h3>Road Accident Dashboard</h3>
-                <p>Analyzed 417,883 road casualties across vehicle type, road conditions and location. Cars responsible for 79.8% of all accidents (333K), single carriageway roads highest risk zone at 390K casualties, urban areas dominating over rural at 255K. YoY trend and surface-condition breakdown included. Tool: Excel, Pivot Tables and Slicers.</p>
-                <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+    <!-- ══════════════ EXCEL ══════════════ -->
+
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Road Accident Dashboard.jpg','Road Accident Dashboard')">
+            <img src="Road Accident Dashboard.jpg" alt="Road Accident Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Operations</span>
-            <div class="img-box" onclick="openModal('Call Centre Data Analysis Excel Project.jpg','Call Centre Analysis')">
-                <img src="Call Centre Data Analysis Excel Project.jpg" alt="Call Centre Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Call Centre Analysis</h3>
-                <p>Analyzed 532 call-centre interactions totalling Rs.96K revenue. Male callers deliver 3x higher ticket size than female callers. Top agent F05 identified for script replication across team. Uncovered Rs.18K daily revenue opportunity through gender-specific upsell flow redesign. Tools: Excel + SQL.</p>
-                <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Road Safety</span>
+            <div class="card-title">Road Accident Dashboard</div>
+            <p class="card-desc">Analyzed 417,883 road casualties across vehicle type, road conditions and location. Cars responsible for 79.8% of all accidents (333K), single carriageway roads highest risk zone at 390K casualties, urban areas dominating over rural at 255K.</p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span><span class="tool-tag">Slicers</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Sales</span>
-            <div class="img-box" onclick="openModal('Coffee Sales Dashboard.jpg','Coffee Sales Dashboard')">
-                <img src="Coffee Sales Dashboard.jpg" alt="Coffee Sales Dashboard">
-            </div>
-            <div class="project-details">
-                <h3>Coffee Sales Dashboard</h3>
-                <p>Analyzed coffee sales across 3 countries from 2019 to 2022. USA leads with ~750 units, top 5 customers drive disproportionate revenue, seasonal peaks in late 2019 and mid-2021 identified for inventory planning. Loyalty card impact and roast-type performance breakdown included. Tool: Excel, Dynamic Charts and Pivot Tables.</p>
-                <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">CRM</span>
-            <div class="img-box" onclick="openModal('CRM Dahboard in Excel.jpg','CRM Dashboard')">
-                <img src="CRM Dahboard in Excel.jpg" alt="CRM Dashboard">
-            </div>
-            <div class="project-details">
-                <h3>CRM Dashboard</h3>
-                <p>Built a CRM sales pipeline dashboard for SoftTech tracking leads, deal stages and conversion rates across the full sales funnel. Identified pipeline bottlenecks, visualized rep-level performance, and enabled data-driven sales coaching decisions. Tool: Google Sheets with automated formulas and dynamic charts.</p>
-                <a href="https://github.com/Khurramnaveed3233/CRM-Sales-Dashboard-for-SoftTech-in-Google-Sheet" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">E-Commerce</span>
-            <div class="img-box" onclick="openModal('ECOMMERCE SALES ANALYSIS.jpg','Ecommerce Sales Analysis')">
-                <img src="ECOMMERCE SALES ANALYSIS.jpg" alt="Ecommerce Sales Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Ecommerce Sales Analysis</h3>
-                <p>Analyzed e-commerce performance tracking $484K total sales and 20.6% YoY growth across 1,993 orders. Technology leads profit but margins are under pressure as profit grows slower than revenue. Phones top-selling product, Central and West US regions dominate. Furniture pricing flagged for review. Tools: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/ECOMMERCE-SALES-ANALYSIS." class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
     </div>
 
-    <!-- CENTER COLUMN — POWER BI -->
-    <div class="column">
-        <div class="column-header">Power BI Business Intelligence</div>
-
-        <div class="project-card">
-            <span class="card-top-title">Global Security</span>
-            <div class="img-box" onclick="openModal('Global terrorism Analysis Dashboard.jpg','Global Terrorism Analysis')">
-                <img src="Global terrorism Analysis Dashboard.jpg" alt="Global Terrorism Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Global Terrorism Analysis</h3>
-                <p>Analyzed 96,000+ terrorism records spanning 1970 to 2017. Taliban, ISIS and Boko Haram identified as deadliest groups. South Asia is the highest-risk region, 2017 the peak year, and explosives the dominant weapon. Dashboard supports data-driven counter-terrorism and resource allocation decisions. Tools: SQL Server + Power BI.</p>
-                <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Call Centre Data Analysis Excel Project.jpg','Call Centre Analysis')">
+            <img src="Call Centre Data Analysis Excel Project.jpg" alt="Call Centre Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Executive</span>
-            <div class="img-box" onclick="openModal('AmazonPowerBI.png','Amazon Sales BI')">
-                <img src="AmazonPowerBI.png" alt="Amazon Sales BI">
-            </div>
-            <div class="project-details">
-                <h3>Amazon Sales BI</h3>
-                <p>Executive-level dashboard analyzing $1.2M revenue across 5,400+ orders. Electronics top category, Wireless Headphones number 1 product, 12% MoM revenue and profit growth. North America contributes 60%+ of total sales. Profit margin dip of 2.8% flagged for cost-control review. Tools: SQL Server + Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Operations</span>
+            <div class="card-title">Call Centre Analysis</div>
+            <p class="card-desc">Analyzed 532 call-centre interactions totalling Rs.96K revenue. Male callers deliver 3x higher ticket size. Top agent F05 identified for script replication. Uncovered Rs.18K daily revenue opportunity through gender-specific upsell flow redesign.</p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Real Estate</span>
-            <div class="img-box" onclick="openModal('Bhatti Property Managment Dashboard.jpg','Bhatti Real Estate')">
-                <img src="Bhatti Property Managment Dashboard.jpg" alt="Bhatti Real Estate">
-            </div>
-            <div class="project-details">
-                <h3>Bhatti Real Estate</h3>
-                <p>Property inventory dashboard for Bhatti Real Estate: 52% properties are renovated, 0.75% are ultra-premium waterfront, 76% are 3-4 bedroom family homes. Renovation ROI matrix, lifecycle planning and dynamic pricing strategy for underserved buyer segments fully included. Tools: Power BI, DAX and Power Query with Star Schema.</p>
-                <a href="https://github.com/Khurramnaveed3233/Property-Management-Dashboard" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Survey</span>
-            <div class="img-box" onclick="openModal('Data Professional Survey Analysis Dashboard.jpg','Data Survey Breakdown')">
-                <img src="Data Professional Survey Analysis Dashboard.jpg" alt="Data Survey Breakdown">
-            </div>
-            <div class="project-details">
-                <h3>Data Survey Breakdown</h3>
-                <p>Analyzed 630 data professionals globally. Python is number 1 skill across all roles, Data Scientists earn highest salaries, gender pay gap clearly identified. Avg work-life balance score 5.74/10 and salary satisfaction 5.61/10 highlight industry-wide improvement opportunities for organizations and HR teams. Tools: SQL Server + Power BI.</p>
-                <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Tech</span>
-            <div class="img-box" onclick="openModal('Electronics Sales Dashboard.jpg','Electronics Sales')">
-                <img src="Electronics Sales Dashboard.jpg" alt="Electronics Sales">
-            </div>
-            <div class="project-details">
-                <h3>Electronics Sales</h3>
-                <p>Electronics retailer sales dashboard: December peak at $67K revenue, top salesperson Nancy drove $104K in total, North region leads at $142K. Credit cards account for 60% of all payments. Seasonal promotion timing and regional resource allocation recommendations provided. Tools: Power BI + DAX + Power Query.</p>
-                <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Finance</span>
-            <div class="img-box" onclick="openModal('Financial Sales Analysis Dashboard.jpg','Financial Sales Report')">
-                <img src="Financial Sales Analysis Dashboard.jpg" alt="Financial Sales Report">
-            </div>
-            <div class="project-details">
-                <h3>Financial Sales Report</h3>
-                <p>Analyzed $128M gross sales across product segments and geographies for 2013 to 2014. Paseo is the top profit product at $5M (28% of total profit). Velo discount share of 28% identified as a margin risk. Top 3 segments dominate revenue while bottom segments are flagged for pricing review. Tools: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">HR</span>
-            <div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg','HR Workforce Analysis')">
-                <img src="HR Analytics Dashboard.jpg" alt="HR Workforce Analysis">
-            </div>
-            <div class="project-details">
-                <h3>HR Workforce Analysis</h3>
-                <p>Analyzed 16% org-wide attrition. Life Sciences department at 39% turnover costing Rs.2.8 Cr annually. Overtime workers and bottom-quartile salaries are top churn drivers. Female R&D representation only 6%. Recommended interventions projected to save Rs.3.1 Cr per year with clear 12-month OKRs. Tools: Power BI + SQL + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/HR-Talent-Analytics-CodeNest-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Telecom</span>
-            <div class="img-box" onclick="openModal('Jazz Telecom Data Analysis Dashboard.jpg','Jazz Telecom Analysis')">
-                <img src="Jazz Telecom Data Analysis Dashboard.jpg" alt="Jazz Telecom Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Jazz Telecom Analysis</h3>
-                <p>SQL analysis of Jazz Pakistan: postpaid users show higher ARPU, data demand is overtaking voice calls, early churn signals detected via CTEs and DATEDIFF logic. 12 business questions answered covering revenue, retention and plan optimization strategy. Tools: SQL Server + Power BI using Window Functions and CTEs.</p>
-                <a href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Retail</span>
-            <div class="img-box" onclick="openModal('TrendMart Sales Analysis Dashboard.jpg','TrendMart Sales')">
-                <img src="TrendMart Sales Analysis Dashboard.jpg" alt="TrendMart Sales">
-            </div>
-            <div class="project-details">
-                <h3>TrendMart Sales</h3>
-                <p>TrendMart retail dashboard with Rs.912K total sales. Electronics leads all categories, Adults at 53% are the largest customer segment. Peak revenue months Feb, Mar and Dec identified. Age and gender profitability breakdown, hourly sales heatmap and top 5 customer analysis fully included. Tools: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/TrendMart-Sales-Analysis-Dashboard-in-PowerBI" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Executive Overview</span>
-            <div class="img-box" onclick="openModal('Xmart sales Dashboard.jpg','X-Mart Sales')">
-                <img src="Xmart sales Dashboard.jpg" alt="X-Mart Sales">
-            </div>
-            <div class="project-details">
-                <h3>X-Mart Sales</h3>
-                <p>X-Mart 3-year sales analysis for 2020 to 2022: $99M total revenue and $23M profit across 5,095 transactions. Intel (19%), Samsung (16%) and Dell (14%) are the top brands. Monitors and GPUs drive highest revenue. Regional city performance and supervisor-level KPI comparison included. Tools: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Regional</span>
-            <div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg','Samsung Pakistan')">
-                <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Samsung Pakistan">
-            </div>
-            <div class="project-details">
-                <h3>Samsung Pakistan</h3>
-                <p>End-to-end SQL case study for Samsung Pakistan nationwide retail network across 3 sales channels. Karachi is the top revenue city, Experience Stores lead all channels, and distributor stores consistently miss targets. 7-table normalized relational model with full ER diagram included. Tools: SQL Server + Power BI using CTEs and Window Functions.</p>
-                <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Churn</span>
-            <div class="img-box" onclick="openModal('Bank Customer Churn Analysis Dashboard.jpg','Bank Churn Analysis')">
-                <img src="Bank Customer Churn Analysis Dashboard.jpg" alt="Bank Churn Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Bank Churn Analysis</h3>
-                <p>Analyzed 2,037 churned bank customers across demographics, geography and product usage. Age group 31-40 at highest risk with ~50% churn rate. Product 4 at 69% churn rate, France and Spain are top churn regions. Account balance level and credit score impact on attrition fully mapped with targeted retention recommendations. Tools: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Inventory</span>
-            <div class="img-box" onclick="openModal('I Point Sales Dashboard.jpg','I-Point Performance')">
-                <img src="I Point Sales Dashboard.jpg" alt="I-Point Performance">
-            </div>
-            <div class="project-details">
-                <h3>I-Point Performance</h3>
-                <p>I-Point 4-year analysis from 2011 to 2014: revenue grew 304% to $2.30M but 34% avg discount is squeezing margins. Corporate segment is the most profitable despite lower volume. West region leads at 19% margin. Discount guardrail strategy and full 90-day action plan recommended. Tool: Power BI + DAX.</p>
-                <a href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
-        </div>
-
     </div>
 
-    <!-- RIGHT COLUMN — SQL -->
-    <div class="column">
-        <div class="column-header">SQL Data Engineering</div>
-
-        <div class="project-card">
-            <span class="card-top-title">Optimizing</span>
-            <div class="img-box" onclick="openModal('AmazonSQL.png','Amazon SQL Analysis')">
-                <img src="AmazonSQL.png" alt="Amazon SQL Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Amazon SQL Analysis</h3>
-                <p>Designed and analyzed an Amazon-style e-commerce database using advanced SQL. Extracted Pareto trends, identified high-value customer segments, product profitability leaders and seasonal revenue patterns. Full ER diagram and relational schema included alongside executive Power BI dashboard. Tools: SQL Server using CTEs, Window Functions, Subqueries and Joins.</p>
-                <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Coffee Sales Dashboard.jpg','Coffee Sales Dashboard')">
+            <img src="Coffee Sales Dashboard.jpg" alt="Coffee Sales Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Diagnostics</span>
-            <div class="img-box" onclick="openModal('ola_sql.jpg','Ola NZ SQL Analysis')">
-                <img src="ola_sql.jpg" alt="Ola NZ SQL Analysis">
-            </div>
-            <div class="project-details">
-                <h3>Ola NZ SQL Analysis</h3>
-                <p>Ola New Zealand ride-hailing SQL analysis: Wellington at 18% cancellation rate which is double the city average. EVs generate highest fare per km, Gold-tier customers are top revenue segment. Hamilton flagged for high driver idle time. NZD 3.1M+ incremental revenue projected from SQL-driven strategy recommendations. Tools: SQL Server + Power BI.</p>
-                <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Sales</span>
+            <div class="card-title">Coffee Sales Dashboard</div>
+            <p class="card-desc">Analyzed coffee sales across 3 countries from 2019 to 2022. USA leads with ~750 units, top 5 customers drive disproportionate revenue, seasonal peaks in late 2019 and mid-2021 identified for inventory planning.</p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Dynamic Charts</span><span class="tool-tag">Pivot Tables</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
+    </div>
 
-        <div class="project-card">
-            <span class="card-top-title">Supply Chain</span>
-            <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics - Karachi Branch.jpg','TCS Logistics Karachi')">
-                <img src="SQL Analytics for TCS Logistics – Karachi Branch.jpg" alt="TCS Logistics Karachi">
-            </div>
-            <div class="project-details">
-                <h3>TCS Logistics Karachi</h3>
-                <p>SQL diagnostic for TCS Karachi Branch: avg delivery at 58hrs vs 48hr SLA target, Bank payment return rate at 31.25%, and 27% COD payments are pending settlement. 6 critical operational problems solved using CTEs, CASE WHEN and Window Functions. Projected 20% improvement in on-time delivery rate. Tool: SQL Server.</p>
-                <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('CRM Dahboard in Excel.jpg','CRM Dashboard')">
+            <img src="CRM Dahboard in Excel.jpg" alt="CRM Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
-
-        <!-- KAP'S CAFE — image set by JavaScript because filename has special characters -->
-        <div class="project-card">
-            <span class="card-top-title">Growth</span>
-            <div class="img-box" id="kapsBox">
-                <img id="kapsImg" src="" alt="Kaps Cafe Analysis" style="width:100%;height:200px;object-fit:cover;display:block;">
-            </div>
-            <div class="project-details">
-                <h3>Kap's Cafe Analysis</h3>
-                <p>SQL analytics for Kap's Cafe: MoM revenue, order volume and quantity trends tracked via LAG Window Functions. Key finding: revenue stayed stable during low-order months, revealing a premium pricing effect. Seasonal demand spikes identified for smarter inventory and promotional planning. Tool: SQL Server using Window Functions and Aggregations.</p>
-                <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">CRM</span>
+            <div class="card-title">CRM Dashboard</div>
+            <p class="card-desc">Built a CRM sales pipeline dashboard for SoftTech tracking leads, deal stages and conversion rates across the full sales funnel. Identified pipeline bottlenecks and enabled data-driven sales coaching decisions.</p>
+            <div class="tool-tags"><span class="tool-tag">Google Sheets</span><span class="tool-tag">Formulas</span><span class="tool-tag">Dynamic Charts</span></div>
+            <a href="https://github.com/Khurramnaveed3233/CRM-Sales-Dashboard-for-SoftTech-in-Google-Sheet" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
+    </div>
 
-        <div class="project-card">
-            <span class="card-top-title">Market Simulation</span>
-            <div class="img-box" onclick="openModal('Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg','Airbnb Pakistan 2025')">
-                <img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg" alt="Airbnb Pakistan 2025">
-            </div>
-            <div class="project-details">
-                <h3>Airbnb Pakistan 2025</h3>
-                <p>Simulated and analyzed Airbnb Pakistan market across 10 cities using pure SQL with no BI tools. Stay_4 Karachi is top revenue listing at PKR 147K, Lahore leads guest satisfaction at 4.2/5, Murree quality gap identified. Top 3 listings drive 63% of total revenue. Tools: SQL Server using CTEs, RANK Window Function and Joins.</p>
-                <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('ECOMMERCE SALES ANALYSIS.jpg','Ecommerce Sales Analysis')">
+            <img src="ECOMMERCE SALES ANALYSIS.jpg" alt="Ecommerce Sales Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
-
-        <div class="project-card">
-            <span class="card-top-title">Engagement</span>
-            <div class="img-box" onclick="openModal('Spotify-Data-Analysis-using-SQL.jpg','Spotify Engagement')">
-                <img src="Spotify-Data-Analysis-using-SQL.jpg" alt="Spotify Engagement">
-            </div>
-            <div class="project-details">
-                <h3>Spotify Engagement</h3>
-                <p>Analyzed Spotify dataset covering tracks, albums and artists using multi-level SQL from simple aggregations to advanced window functions. Identified tracks with 1B+ streams, found official video tracks correlate with higher engagement, ranked top 3 artists per city via RANK Window Function. Dataset normalized for query optimization. Tool: SQL Server.</p>
-                <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="btn-case-study" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>&nbsp; View on GitHub</a>
-            </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">E-Commerce</span>
+            <div class="card-title">Ecommerce Sales Analysis</div>
+            <p class="card-desc">Analyzed $484K total sales and 20.6% YoY growth across 1,993 orders. Technology leads profit but margins are under pressure. Phones top-selling product, Central and West US regions dominate.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/ECOMMERCE-SALES-ANALYSIS." class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
+    </div>
 
+    <!-- ══════════════ POWER BI ══════════════ -->
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Global terrorism Analysis Dashboard.jpg','Global Terrorism Analysis')">
+            <img src="Global terrorism Analysis Dashboard.jpg" alt="Global Terrorism Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Global Security</span>
+            <div class="card-title">Global Terrorism Analysis</div>
+            <p class="card-desc">Analyzed 96,000+ terrorism records spanning 1970–2017. Taliban, ISIS and Boko Haram identified as deadliest groups. South Asia is the highest-risk region, 2017 the peak year, explosives the dominant weapon.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('AmazonPowerBI.png','Amazon Sales BI')">
+            <img src="AmazonPowerBI.png" alt="Amazon Sales BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Executive</span>
+            <div class="card-title">Amazon Sales BI</div>
+            <p class="card-desc">Executive dashboard analyzing $1.2M revenue across 5,400+ orders. Electronics top category, Wireless Headphones #1 product, 12% MoM growth. North America contributes 60%+ of total sales.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Bhatti Property Managment Dashboard.jpg','Bhatti Real Estate')">
+            <img src="Bhatti Property Managment Dashboard.jpg" alt="Bhatti Real Estate">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Real Estate</span>
+            <div class="card-title">Bhatti Real Estate</div>
+            <p class="card-desc">52% properties are renovated, 0.75% are ultra-premium waterfront, 76% are 3-4 bedroom family homes. Renovation ROI matrix, lifecycle planning and dynamic pricing strategy for underserved buyer segments included.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Property-Management-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Data Professional Survey Analysis Dashboard.jpg','Data Survey Breakdown')">
+            <img src="Data Professional Survey Analysis Dashboard.jpg" alt="Data Survey Breakdown">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Survey</span>
+            <div class="card-title">Data Survey Breakdown</div>
+            <p class="card-desc">Analyzed 630 data professionals globally. Python is #1 skill across all roles. Data Scientists earn highest salaries, gender pay gap clearly identified. Avg work-life balance score 5.74/10.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Electronics Sales Dashboard.jpg','Electronics Sales')">
+            <img src="Electronics Sales Dashboard.jpg" alt="Electronics Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Tech</span>
+            <div class="card-title">Electronics Sales</div>
+            <p class="card-desc">December peak at $67K revenue, top salesperson Nancy drove $104K in total, North region leads at $142K. Credit cards account for 60% of all payments. Seasonal promotion timing recommendations provided.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Financial Sales Analysis Dashboard.jpg','Financial Sales Report')">
+            <img src="Financial Sales Analysis Dashboard.jpg" alt="Financial Sales Report">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Finance</span>
+            <div class="card-title">Financial Sales Report</div>
+            <p class="card-desc">Analyzed $128M gross sales across product segments and geographies 2013–2014. Paseo is top profit product at $5M (28% of total profit). Velo discount share of 28% identified as a margin risk.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg','HR Workforce Analysis')">
+            <img src="HR Analytics Dashboard.jpg" alt="HR Workforce Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">HR</span>
+            <div class="card-title">HR Workforce Analysis</div>
+            <p class="card-desc">Analyzed 16% org-wide attrition. Life Sciences at 39% turnover costing Rs.2.8 Cr annually. Overtime workers and bottom-quartile salaries are top churn drivers. Interventions projected to save Rs.3.1 Cr per year.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/HR-Talent-Analytics-CodeNest-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Jazz Telecom Data Analysis Dashboard.jpg','Jazz Telecom Analysis')">
+            <img src="Jazz Telecom Data Analysis Dashboard.jpg" alt="Jazz Telecom Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Telecom</span>
+            <div class="card-title">Jazz Telecom Analysis</div>
+            <p class="card-desc">Postpaid users show higher ARPU, data demand overtaking voice calls, early churn signals detected via CTEs and DATEDIFF logic. 12 business questions answered covering revenue, retention and plan optimization.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('TrendMart Sales Analysis Dashboard.jpg','TrendMart Sales')">
+            <img src="TrendMart Sales Analysis Dashboard.jpg" alt="TrendMart Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Retail</span>
+            <div class="card-title">TrendMart Sales</div>
+            <p class="card-desc">Rs.912K total sales. Electronics leads all categories, Adults 53% largest customer segment. Peak revenue months Feb, Mar and Dec identified. Age/gender profitability breakdown and hourly sales heatmap included.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/TrendMart-Sales-Analysis-Dashboard-in-PowerBI" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Xmart sales Dashboard.jpg','X-Mart Sales')">
+            <img src="Xmart sales Dashboard.jpg" alt="X-Mart Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Executive Overview</span>
+            <div class="card-title">X-Mart Sales</div>
+            <p class="card-desc">3-year analysis 2020–2022: $99M total revenue and $23M profit across 5,095 transactions. Intel (19%), Samsung (16%) and Dell (14%) top brands. Monitors and GPUs drive highest revenue.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg','Samsung Pakistan')">
+            <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Samsung Pakistan">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Regional</span>
+            <div class="card-title">Samsung Pakistan</div>
+            <p class="card-desc">Nationwide retail analysis across 3 sales channels. Karachi top revenue city, Experience Stores lead all channels, distributor stores consistently miss targets. 7-table normalized relational model with full ER diagram.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Bank Customer Churn Analysis Dashboard.jpg','Bank Churn Analysis')">
+            <img src="Bank Customer Churn Analysis Dashboard.jpg" alt="Bank Churn Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Churn</span>
+            <div class="card-title">Bank Churn Analysis</div>
+            <p class="card-desc">Analyzed 2,037 churned bank customers. Age group 31-40 at highest risk with ~50% churn rate. Product 4 at 69% churn rate. France and Spain are top churn regions. Targeted retention recommendations included.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('I Point Sales Dashboard.jpg','I-Point Performance')">
+            <img src="I Point Sales Dashboard.jpg" alt="I-Point Performance">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Inventory</span>
+            <div class="card-title">I-Point Performance</div>
+            <p class="card-desc">4-year analysis 2011–2014: revenue grew 304% to $2.30M but 34% avg discount is squeezing margins. Corporate segment most profitable despite lower volume. West region leads at 19% margin.</p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- ══════════════ SQL ══════════════ -->
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('AmazonSQL.png','Amazon SQL Analysis')">
+            <img src="AmazonSQL.png" alt="Amazon SQL Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Optimizing</span>
+            <div class="card-title">Amazon SQL Analysis</div>
+            <p class="card-desc">Designed and analyzed an Amazon-style e-commerce database. Extracted Pareto trends, high-value customer segments, product profitability leaders and seasonal revenue patterns. Full ER diagram and relational schema included.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">Window Functions</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('ola_sql.jpg','Ola NZ SQL Analysis')">
+            <img src="ola_sql.jpg" alt="Ola NZ SQL Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Diagnostics</span>
+            <div class="card-title">Ola NZ SQL Analysis</div>
+            <p class="card-desc">Wellington at 18% cancellation rate — double city average. EVs generate highest fare per km, Gold-tier customers are top revenue segment. NZD 3.1M+ incremental revenue projected from SQL-driven strategy recommendations.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg','TCS Logistics Karachi')">
+            <img src="SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg" alt="TCS Logistics Karachi">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Supply Chain</span>
+            <div class="card-title">TCS Logistics Karachi</div>
+            <p class="card-desc">Avg delivery at 58hrs vs 48hr SLA target. Bank payment return rate at 31.25%, 27% COD payments pending settlement. 6 critical operational problems solved. Projected 20% improvement in on-time delivery rate.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">CASE WHEN</span></div>
+            <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql" id="kapsCard">
+        <div class="img-box" id="kapsBox">
+            <img id="kapsImg" src="" alt="Kap's Cafe Analysis" style="width:100%;height:190px;object-fit:cover;display:block;opacity:0.82;">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Growth</span>
+            <div class="card-title">Kap's Café Analysis</div>
+            <p class="card-desc">MoM revenue, order volume and quantity trends tracked via LAG Window Functions. Revenue stayed stable during low-order months, revealing a premium pricing effect. Seasonal demand spikes identified for smarter inventory planning.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span><span class="tool-tag">Aggregations</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg','Airbnb Pakistan 2025')">
+            <img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg" alt="Airbnb Pakistan 2025">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Market Simulation</span>
+            <div class="card-title">Airbnb Pakistan 2025</div>
+            <p class="card-desc">Simulated Airbnb Pakistan market across 10 cities using pure SQL. Stay_4 Karachi top revenue listing at PKR 147K, Lahore leads guest satisfaction at 4.2/5. Top 3 listings drive 63% of total revenue.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">RANK</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('Spotify-Data-Analysis-using-SQL.jpg','Spotify Engagement')">
+            <img src="Spotify-Data-Analysis-using-SQL.jpg" alt="Spotify Engagement">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Engagement</span>
+            <div class="card-title">Spotify Engagement</div>
+            <p class="card-desc">Analyzed Spotify dataset covering tracks, albums and artists. Identified tracks with 1B+ streams, official video tracks correlate with higher engagement. Top 3 artists per city ranked via RANK Window Function.</p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span><span class="tool-tag">Joins</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
     </div>
 
 </div>
 
-<div id="imgModal" class="modal">
-    <span class="modal-close" id="modalCloseBtn">&times;</span>
-    <img class="modal-img" id="modalImg" src="" alt="">
+<!-- MODAL -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <img class="modal-img" id="modalImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="modal-caption" id="modalCaption"></div>
 </div>
 
+<!-- FOOTER -->
+<div class="footer-brand">
+    <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+</div>
+
 <script>
+    // Kap's Café — special characters in filename
     (function() {
-        var fname = [];
-        fname.push("Kap");
-        fname.push("\u2019");
-        fname.push("s Caf");
-        fname.push("\u00e9");
-        fname.push(" ");
-        fname.push("\u2013");
-        fname.push(" SQL Analytics Project.jpg");
-        var fullName = fname.join("");
-        document.getElementById("kapsImg").src = fullName;
+        var fname = "Kap\u2019s Caf\u00e9 \u2013 SQL Analytics Project.jpg";
+        document.getElementById("kapsImg").src = fname;
         document.getElementById("kapsBox").addEventListener("click", function() {
-            openModal(fullName, "Kap's Cafe Analysis");
+            openModal(fname, "Kap's Café Analysis");
         });
     })();
 
     function openModal(src, caption) {
         document.getElementById("modalImg").src = src;
-        document.getElementById("modalImg").alt = caption || "";
         document.getElementById("modalCaption").textContent = caption || "";
-        document.getElementById("imgModal").classList.add("active");
+        document.getElementById("imgModal").classList.add("open");
+        document.body.style.overflow = "hidden";
     }
-    document.getElementById("modalCloseBtn").addEventListener("click", function() {
-        document.getElementById("imgModal").classList.remove("active");
-    });
-    document.getElementById("imgModal").addEventListener("click", function(e) {
-        if (e.target === this) { this.classList.remove("active"); }
-    });
+    function closeModal() {
+        document.getElementById("imgModal").classList.remove("open");
+        document.body.style.overflow = "";
+    }
     document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape") { document.getElementById("imgModal").classList.remove("active"); }
+        if (e.key === "Escape") closeModal();
     });
+
+    function filterProjects(cat, btn) {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.querySelectorAll(".project-card").forEach(card => {
+            card.style.display = (cat === "all" || card.dataset.cat === cat) ? "flex" : "none";
+        });
+    }
 </script>
 
 </body>
