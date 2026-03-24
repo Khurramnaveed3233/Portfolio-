@@ -4,209 +4,397 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Khurram Insights</title>
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
     <style>
-        /* Global Reset */
-        body, html { 
-            margin: 0; padding: 0; 
-            font-family: 'Poppins', sans-serif; 
-            background-color: #0d0415; 
-            color: #ffffff;
+        :root {
+            --bg:      #07030f;
+            --surface: #0f0720;
+            --border:  rgba(209,179,255,0.12);
+            --accent:  #c084fc;
+            --accent2: #7c3aed;
+            --white:   #f0e8ff;
+            --muted:   #8b7aa0;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--white);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Navbar Styling */
-        .navbar {
-            background-color: #1a0b2e;
-            padding: 10px 0;
-            position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        /* Grid background */
+        body::before {
+            content:'';
+            position:fixed; inset:0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events:none; z-index:0;
         }
-        .nav-container {
-            max-width: 1400px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 30px;
-        }
-        .site-logo { height: 55px; width: auto; transition: 0.3s; }
-        .site-logo:hover { transform: scale(1.05); }
-        .nav-links a { color: #d1b3ff; text-decoration: none; margin-left: 25px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; }
-        .nav-links a:hover { color: #fff; }
 
-        /* Main Section Styling */
+        /* Orbs */
+        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+        .orb-1 { width:550px; height:550px; background:rgba(124,58,237,0.16); top:-100px; right:-120px; }
+        .orb-2 { width:380px; height:380px; background:rgba(192,132,252,0.08); bottom:0; left:-80px; }
+        .orb-3 { width:300px; height:300px; background:rgba(124,58,237,0.08); top:50%; left:40%; }
+
+        /* ── NAV ── */
+        nav {
+            position:sticky; top:0; z-index:1000;
+            background:rgba(26,11,46,0.88);
+            backdrop-filter:blur(18px);
+            border-bottom:1px solid var(--border);
+            padding:14px 5%;
+            display:flex; justify-content:space-between; align-items:center;
+        }
+        .logo-img { height:44px; width:auto; border-radius:8px; transition:0.3s; }
+        .logo-img:hover { transform:scale(1.05); }
+        .nav-links a {
+            color:#d1b3ff; text-decoration:none; margin-left:22px;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
+            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
+            transition:color 0.2s;
+        }
+        .nav-links a:hover { color:#fff; }
+        .nav-links a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+
+        /* ── MAIN ABOUT SECTION ── */
         .about-section {
-            padding: 100px 20px;
-            background: radial-gradient(circle at top right, #2b004e, #0d0415);
-            display: flex; justify-content: center; align-items: center;
+            position:relative; z-index:1;
+            padding: 100px 5% 110px;
+            display:flex; justify-content:center; align-items:center;
         }
 
         .about-container {
-            max-width: 1200px;
-            display: flex; align-items: center; gap: 80px;
+            max-width:1200px; width:100%;
+            display:flex; align-items:center; gap:80px;
         }
 
-        /* Left Side: Image & Blue Signature */
-        .image-side { flex: 1; text-align: center; }
-        .profile-wrapper {
-            position: relative; display: inline-block;
+        /* ── LEFT: Image Side ── */
+        .image-side {
+            flex:1; display:flex; flex-direction:column;
+            align-items:center; gap:0;
+            position:relative;
         }
+
+        /* Decorative ring behind image */
+        .img-ring-wrap {
+            position:relative; display:inline-block;
+            margin-bottom:20px;
+        }
+        .img-ring-wrap::before {
+            content:'';
+            position:absolute; inset:-14px;
+            border-radius:50%;
+            border:1px solid rgba(192,132,252,0.2);
+        }
+        .img-ring-wrap::after {
+            content:'';
+            position:absolute; inset:-28px;
+            border-radius:50%;
+            border:1px solid rgba(192,132,252,0.08);
+        }
+
         .profile-img {
-            width: 350px; height: 350px; border-radius: 50%;
-            object-fit: cover; border: 8px solid #1a0b2e;
-            box-shadow: 0 0 50px rgba(75, 0, 130, 0.5);
-            margin-bottom: 25px;
+            width:320px; height:320px; border-radius:50%;
+            object-fit:cover;
+            border:6px solid rgba(192,132,252,0.3);
+            box-shadow: 0 0 60px rgba(124,58,237,0.4), 0 0 120px rgba(124,58,237,0.15);
+            display:block;
+            position:relative; z-index:1;
         }
-        
-        /* Blue Signature Image Styling */
+
         .signature-img {
-            width: 250px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            /* Filter to make blue ink pop on dark background */
-            filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 5px rgba(0, 210, 255, 0.3));
-            opacity: 0.95;
-            transition: 0.3s ease;
+            width:220px; height:auto; display:block;
+            filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 8px rgba(192,132,252,0.4));
+            opacity:0.9; transition:0.3s;
         }
-        .signature-img:hover { transform: scale(1.05); opacity: 1; }
+        .signature-img:hover { transform:scale(1.04); opacity:1; }
 
-        /* Right Side: Content */
-        .content-side { flex: 1.5; }
-        .top-tag { color: #d1b3ff; font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .main-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 10px 0; line-height: 1.2; color: #ffffff; }
-        .desc-text { font-size: 1.05rem; color: #cccccc; line-height: 1.8; margin-bottom: 35px; text-align: justify; }
+        /* Floating badges */
+        .float-badge {
+            position:absolute;
+            background:rgba(15,7,32,0.85);
+            border:1px solid var(--border);
+            border-radius:12px; padding:10px 14px;
+            backdrop-filter:blur(10px);
+            display:flex; align-items:center; gap:8px;
+            z-index:2;
+            animation:floatUp 3s ease-in-out infinite;
+        }
+        .float-badge.badge-projects {
+            top:20px; left:-20px;
+            animation-delay:0s;
+        }
+        .float-badge.badge-exp {
+            bottom:80px; right:-24px;
+            animation-delay:1.5s;
+        }
+        @keyframes floatUp {
+            0%,100% { transform:translateY(0); }
+            50%      { transform:translateY(-8px); }
+        }
+        .float-badge i { color:var(--accent); font-size:1rem; }
+        .float-badge-num {
+            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; color:#fff;
+        }
+        .float-badge-label {
+            font-size:0.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;
+        }
 
-        /* Stats Grid */
+        /* ── RIGHT: Content Side ── */
+        .content-side { flex:1.4; }
+
+        .eyebrow {
+            display:inline-flex; align-items:center; gap:8px;
+            font-size:0.72rem; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent);
+            border:1px solid rgba(192,132,252,0.3);
+            padding:6px 18px; border-radius:50px;
+            margin-bottom:22px;
+            background:rgba(192,132,252,0.06);
+        }
+        .eyebrow span {
+            width:6px; height:6px; background:var(--accent);
+            border-radius:50%; display:inline-block;
+            animation:blink 2s infinite;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .main-title {
+            font-family:'Syne',sans-serif;
+            font-size:clamp(2.2rem, 4vw, 3.4rem);
+            font-weight:800; line-height:1.1; letter-spacing:-1px;
+            color:#fff; margin-bottom:24px;
+        }
+        .main-title em {
+            font-style:normal;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        }
+
+        .desc-text {
+            font-size:1rem; color:#a89bb8; line-height:1.85;
+            margin-bottom:38px;
+        }
+
+        /* Tool chips */
+        .tools-row {
+            display:flex; flex-wrap:wrap; gap:8px; margin-bottom:38px;
+        }
+        .tool-chip {
+            font-size:0.72rem; font-weight:600; padding:6px 14px;
+            border-radius:50px; border:1px solid var(--border);
+            color:#c4b5d4; background:rgba(255,255,255,0.03);
+            letter-spacing:0.3px; transition:0.2s;
+        }
+        .tool-chip:hover { border-color:rgba(192,132,252,0.4); color:#fff; background:rgba(192,132,252,0.07); }
+
+        /* Stats */
         .stats-grid {
-            display: flex; gap: 40px; margin-bottom: 45px;
+            display:flex; gap:28px; margin-bottom:42px; flex-wrap:wrap;
         }
-        .stat-item { display: flex; align-items: center; gap: 15px; }
-        .stat-item i { font-size: 2.2rem; color: #d1b3ff; opacity: 0.9; }
-        .stat-info h3 { font-size: 1.8rem; margin: 0; color: #ffffff; font-weight: 700; }
-        .stat-info p { font-size: 0.75rem; color: #d1b3ff; margin: 0; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .stat-card {
+            background:rgba(15,7,32,0.7);
+            border:1px solid var(--border);
+            border-radius:16px; padding:18px 22px;
+            flex:1; min-width:110px;
+            text-align:center;
+            backdrop-filter:blur(10px);
+            transition:border-color 0.3s, transform 0.3s;
+        }
+        .stat-card:hover { border-color:rgba(192,132,252,0.35); transform:translateY(-3px); }
+        .stat-card i { font-size:1.3rem; color:var(--accent); margin-bottom:10px; display:block; }
+        .stat-num {
+            font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            display:block; line-height:1;
+        }
+        .stat-label {
+            font-size:0.68rem; color:var(--muted); text-transform:uppercase;
+            letter-spacing:1px; margin-top:5px; display:block;
+        }
 
         /* CTA Buttons */
-        .btn-group { display: flex; gap: 20px; }
-        .btn {
-            padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700;
-            font-size: 0.9rem; transition: 0.3s; text-transform: uppercase;
-            display: inline-flex; align-items: center; gap: 10px;
-        }
+        .btn-group { display:flex; gap:14px; flex-wrap:wrap; }
+
         .btn-resume {
-            background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: #fff;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            display:inline-flex; align-items:center; gap:8px;
+            padding:13px 28px; border-radius:10px;
+            background:linear-gradient(90deg,#7c3aed,#c084fc);
+            color:#fff; text-decoration:none;
+            font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:800;
+            letter-spacing:1px; text-transform:uppercase;
+            transition:transform 0.25s, box-shadow 0.25s;
         }
-        .btn-resume:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); }
-        
+        .btn-resume:hover {
+            transform:translateY(-2px);
+            box-shadow:0 12px 30px rgba(124,58,237,0.45);
+        }
+
         .btn-connect {
-            border: 2px solid #ffffff; color: #fff;
+            display:inline-flex; align-items:center; gap:8px;
+            padding:13px 28px; border-radius:10px;
+            border:1.5px solid rgba(192,132,252,0.4);
+            color:var(--accent); text-decoration:none;
+            font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700;
+            letter-spacing:1px; text-transform:uppercase;
+            background:rgba(192,132,252,0.06);
+            transition:0.25s;
         }
-        .btn-connect:hover { background: #fff; color: #1a0b2e; }
+        .btn-connect:hover {
+            background:rgba(192,132,252,0.15);
+            border-color:rgba(192,132,252,0.7);
+            color:#fff; transform:translateY(-2px);
+        }
 
-        /* Footer Styling */
+        /* ── FOOTER ── */
         .site-footer {
-            background-color: #1a0b2e; color: #d1b3ff; padding: 50px 20px;
-            text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+            position:relative; z-index:1;
+            background:rgba(26,11,46,0.6);
+            border-top:1px solid var(--border);
+            text-align:center; padding:40px 20px;
+            backdrop-filter:blur(10px);
         }
-        .footer-logo { height: 45px; margin-bottom: 20px; opacity: 0.9; }
-        .copyright { font-size: 0.85rem; color: #888; }
+        .footer-logo { height:38px; margin-bottom:14px; opacity:0.5; display:block; margin-left:auto; margin-right:auto; }
+        .copyright { font-size:0.78rem; color:var(--muted); }
 
-        /* Mobile View Fixes */
-        @media (max-width: 1024px) {
-            .about-container { flex-direction: column; text-align: center; gap: 50px; }
-            .stats-grid { justify-content: center; flex-wrap: wrap; }
-            .btn-group { justify-content: center; }
-            .main-title { font-size: 2.8rem; }
-            .profile-img { width: 280px; height: 280px; }
-            .signature-img { width: 200px; }
-            .desc-text { text-align: center; }
+        /* ── RESPONSIVE ── */
+        @media (max-width:1024px) {
+            .about-container { flex-direction:column; text-align:center; gap:60px; }
+            .btn-group { justify-content:center; }
+            .stats-grid { justify-content:center; }
+            .tools-row { justify-content:center; }
+            .float-badge.badge-projects { left:10px; top:10px; }
+            .float-badge.badge-exp { right:10px; bottom:100px; }
+            .profile-img { width:270px; height:270px; }
+        }
+        @media (max-width:600px) {
+            .nav-links a { margin-left:10px; font-size:0.7rem; }
+            .logo-img { height:36px; }
+            .float-badge { display:none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Professional Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html"><img src="Khurram Insights.jpeg" alt="Khurram Insights Logo" class="site-logo"></a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" style="color:#fff;">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="skills.html">Skills</a>
-                <a href="certifications.html">Certifications</a>
-                <a href="contact.html">Contact</a>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html"><img src="Khurram Insights.jpeg" alt="Logo" class="logo-img"></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- MAIN ABOUT SECTION -->
+<section class="about-section">
+    <div class="about-container">
+
+        <!-- LEFT: Image -->
+        <div class="image-side">
+            <div class="img-ring-wrap">
+                <img src="KhurramImage.jpeg" alt="Khurram Naveed" class="profile-img">
+
+                <!-- Floating badge: Projects -->
+                <div class="float-badge badge-projects">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <div>
+                        <div class="float-badge-num">30+</div>
+                        <div class="float-badge-label">Projects</div>
+                    </div>
+                </div>
+
+                <!-- Floating badge: Experience -->
+                <div class="float-badge badge-exp">
+                    <i class="fa-regular fa-clock"></i>
+                    <div>
+                        <div class="float-badge-num">1.5+</div>
+                        <div class="float-badge-label">Yrs Exp</div>
+                    </div>
+                </div>
             </div>
+
+            <img src="Sig.png" alt="Khurram Naveed Signature" class="signature-img">
         </div>
-    </nav>
 
-    <!-- Main About Section Content -->
-    <section class="about-section">
-        <div class="about-container">
-            
-            <!-- Left Side: Profile Pic & Signature -->
-            <div class="image-side">
-                <div class="profile-wrapper">
-                    <img src="KhurramImage.jpeg" alt="Khurram Naveed Profile" class="profile-img">
-                </div>
-                <!-- Your Blue Signature Image -->
-                <img src="Sig.png" alt="Khurram Naveed Signature" class="signature-img">
+        <!-- RIGHT: Content -->
+        <div class="content-side">
+
+            <div class="eyebrow"><span></span> About Me · The Data Storyteller</div>
+
+            <h1 class="main-title">Turning Data into<br><em>Decisive Action</em></h1>
+
+            <p class="desc-text">
+                I'm a passionate Data Analyst dedicated to uncovering the stories hidden within complex datasets. With a strong foundation in the entire analytics lifecycle — from wrangling raw data in Excel and SQL to crafting compelling visualizations in Power BI — I bridge the gap between technical data and strategic business goals. My mission is to empower organizations with clear, actionable insights that drive real growth.
+            </p>
+
+            <!-- Tool chips -->
+            <div class="tools-row">
+                <span class="tool-chip">Microsoft Excel</span>
+                <span class="tool-chip">SQL Server</span>
+                <span class="tool-chip">Power BI</span>
+                <span class="tool-chip">DAX</span>
+                <span class="tool-chip">Power Query</span>
+                <span class="tool-chip">Google Sheets</span>
+                <span class="tool-chip">Data Modeling</span>
+                <span class="tool-chip">EDA</span>
             </div>
 
-            <!-- Right Side: Textual Content & Stats -->
-            <div class="content-side">
-                <span class="top-tag">ABOUT ME: THE DATA STORYTELLER</span>
-                <h1 class="main-title">Turning Data into Decisive Action</h1>
-                
-                <p class="desc-text">
-                    I'm a passionate Data Analyst dedicated to uncovering the stories hidden within complex datasets. With a strong foundation in the entire analytics lifecycle—from wrangling raw data in Excel and SQL to crafting compelling visualizations in Power BI—I bridge the gap between technical data and strategic business goals. My mission is to empower organizations with clear, actionable insights that drive growth.
-                </p>
-
-                <!-- Achievement Statistics -->
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <i class="fa-regular fa-clock"></i>
-                        <div class="stat-info">
-                            <h3>1.5+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <div class="stat-info">
-                            <h3>30+</h3>
-                            <p>Projects Delivered</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <div class="stat-info">
-                            <h3>100%</h3>
-                            <p>Satisfaction</p>
-                        </div>
-                    </div>
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fa-regular fa-clock"></i>
+                    <span class="stat-num">1.5+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
-
-                <!-- Call to Action Buttons -->
-                <div class="btn-group">
-                    <!-- Link to your uploaded Resume PDF -->
-                    <a href="KhurramResume.pdf" download class="btn btn-resume">
-                        <i class="fa-solid fa-download"></i> Download Resume
-                    </a>
-                    <a href="contact.html" class="btn btn-connect">Let's Connect</a>
+                <div class="stat-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span class="stat-num">30+</span>
+                    <span class="stat-label">Projects</span>
                 </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span class="stat-num">13</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="btn-group">
+                <a href="KhurramResume.pdf" download class="btn-resume">
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </a>
+                <a href="contact.html" class="btn-connect">
+                    <i class="fa-solid fa-paper-plane"></i> Let's Connect
+                </a>
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Brand Consistent Footer -->
-    <footer class="site-footer">
-        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo" class="footer-logo">
-        <p class="copyright">&copy; 2025 Khurram Insights. All rights reserved.</p>
-    </footer>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo" class="footer-logo">
+    <p class="copyright">&copy; 2025 Khurram Insights. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
