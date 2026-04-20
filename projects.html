@@ -95,6 +95,7 @@
             max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
         }
 
+        /* Stat strip */
         .stat-strip {
             display:flex; justify-content:center; gap:48px;
             margin-top:44px; flex-wrap:wrap;
@@ -107,6 +108,7 @@
         }
         .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 
+        /* ── FILTER TABS ── */
         .filter-row {
             display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
             padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
@@ -127,6 +129,7 @@
         .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
         .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
 
+        /* ── PROJECTS GRID ── */
         .projects-grid {
             display:grid;
             grid-template-columns:repeat(3,1fr);
@@ -137,6 +140,7 @@
             position:relative; z-index:1;
         }
 
+        /* ── PROJECT CARD ── */
         .project-card {
             background:rgba(15,7,32,0.7);
             border:1px solid var(--border);
@@ -159,32 +163,10 @@
 
         @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 
-        .project-card:nth-child(1)  { animation-delay:.05s }
-        .project-card:nth-child(2)  { animation-delay:.10s }
-        .project-card:nth-child(3)  { animation-delay:.15s }
-        .project-card:nth-child(4)  { animation-delay:.20s }
-        .project-card:nth-child(5)  { animation-delay:.25s }
-        .project-card:nth-child(6)  { animation-delay:.30s }
-        .project-card:nth-child(7)  { animation-delay:.35s }
-        .project-card:nth-child(8)  { animation-delay:.40s }
-        .project-card:nth-child(9)  { animation-delay:.45s }
-        .project-card:nth-child(10) { animation-delay:.50s }
-        .project-card:nth-child(11) { animation-delay:.55s }
-        .project-card:nth-child(12) { animation-delay:.60s }
-        .project-card:nth-child(13) { animation-delay:.65s }
-        .project-card:nth-child(14) { animation-delay:.70s }
-        .project-card:nth-child(15) { animation-delay:.75s }
-        .project-card:nth-child(16) { animation-delay:.80s }
-        .project-card:nth-child(17) { animation-delay:.85s }
-        .project-card:nth-child(18) { animation-delay:.90s }
-        .project-card:nth-child(19) { animation-delay:.95s }
-        .project-card:nth-child(20) { animation-delay:1.0s }
-        .project-card:nth-child(21) { animation-delay:1.05s }
-        .project-card:nth-child(22) { animation-delay:1.10s }
-        .project-card:nth-child(23) { animation-delay:1.15s }
-        .project-card:nth-child(24) { animation-delay:1.20s }
-        .project-card:nth-child(25) { animation-delay:1.25s }
+        /* stagger */
+        .project-card:nth-child(n)  { animation-delay:.05s }
 
+        /* Image box */
         .img-box {
             width:100%; height:190px; overflow:hidden;
             position:relative; cursor:pointer; background:#0a0418;
@@ -204,8 +186,10 @@
         }
         .img-box:hover .overlay { opacity:1; }
 
+        /* Card body */
         .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
 
+        /* Type badge */
         .type-badge {
             display:inline-flex; align-items:center; gap:6px;
             font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
@@ -216,10 +200,22 @@
         .badge-pbi   { color:var(--gold); border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
         .badge-sql   { color:var(--accent); border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
 
-        .card-category { font-size:0.65rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px; }
-        .card-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; color:#fff; line-height:1.3; }
-        .card-desc { font-size:0.82rem; color:#a89bb8; line-height:1.72; flex:1; }
+        .card-category {
+            font-size:0.65rem; font-weight:700; color:var(--muted);
+            text-transform:uppercase; letter-spacing:1.5px;
+        }
 
+        .card-title {
+            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800;
+            color:#fff; line-height:1.3;
+        }
+
+        .card-desc {
+            font-size:0.82rem; color:#a89bb8; line-height:1.72;
+            flex:1;
+        }
+
+        /* Tool tags */
         .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
         .tool-tag {
             font-size:0.65rem; font-weight:600; padding:3px 10px;
@@ -227,6 +223,7 @@
             color:#c4b5d4; background:rgba(255,255,255,0.03);
         }
 
+        /* GitHub button */
         .btn-github {
             display:inline-flex; align-items:center; gap:7px;
             background:rgba(255,255,255,0.05);
@@ -243,6 +240,7 @@
             transform:translateY(-1px);
         }
 
+        /* ── MODAL ── */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
             background:rgba(0,0,0,0.93);
@@ -271,6 +269,7 @@
         }
         .modal-close:hover { background:rgba(255,255,255,0.15); }
 
+        /* ── FOOTER ── */
         .footer-brand {
             text-align:center; padding:36px 20px;
             border-top:1px solid var(--border);
@@ -278,6 +277,7 @@
         }
         .footer-brand img { height:34px; opacity:0.45; }
 
+        /* ── RESPONSIVE ── */
         @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
         @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
     </style>
@@ -287,6 +287,7 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -296,6 +297,7 @@
     <a href="contact.html">Contact</a>
 </nav>
 
+<!-- HEADER -->
 <header class="page-header">
     <div class="eyebrow"><span></span> Real-World Solutions</div>
     <h1>Projects<br><em>Portfolio</em></h1>
@@ -307,6 +309,7 @@
     </div>
 </header>
 
+<!-- FILTER TABS -->
 <div class="filter-row">
     <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
     <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
@@ -314,6 +317,7 @@
     <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
 </div>
 
+<!-- PROJECTS GRID -->
 <div class="projects-grid" id="projectsGrid">
 
     <!-- ══════════════ EXCEL ══════════════ -->
@@ -395,19 +399,24 @@
 
     <!-- ══════════════ POWER BI ══════════════ -->
 
-    <!-- ══ PAKISTAN E-COMMERCE — NEW ══ -->
+    <!-- NEW PROJECT: Pakistan E-Commerce Analytics -->
     <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Ecommerce Dashboard.jpg','Pakistan E-Commerce Analytics 2022-2024')">
-            <img src="Ecommerce Dashboard.jpg" alt="Pakistan E-Commerce Analytics">
+        <div class="img-box" onclick="openModal('Ecommerce Dashboard.png','Pakistan E-Commerce Analytics Dashboard')">
+            <img src="Ecommerce Dashboard.png" alt="Pakistan E-Commerce Analytics Dashboard">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
         <div class="card-body">
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">E-Commerce · Pakistan</span>
-            <div class="card-title">Pakistan E-Commerce Analytics 2022–2024</div>
-            <p class="card-desc">End-to-end analytics on PKR 1.21M revenue across 7 cities. Karachi #1 city, Electronics drives 64% revenue, 87.15% YoY growth. 3-month revenue forecast with 95% confidence interval. 18 DAX measures + 5-table SQL schema.</p>
-            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Forecasting</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Pakistan-E-Commerce-Analytics-2022-2024" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+            <span class="card-category">E-Commerce</span>
+            <div class="card-title">Pakistan E-Commerce Analytics (2022–2024)</div>
+            <p class="card-desc">Analyzed PKR 1.21M revenue across 7 cities. Discovered Electronics drives 64% revenue but at lower margins. Strategic recommendations to expand into Lahore & Faisalabad to capture untapped middle-class markets.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">SQL Server</span>
+                <span class="tool-tag">DAX</span>
+                <span class="tool-tag">Forecasting</span>
+            </div>
+            <a href="https://github.com/Khurramnaveed3233/Pakistan-ECommerce-Analytics-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
@@ -639,8 +648,8 @@
     </div>
 
     <div class="project-card" data-cat="sql">
-        <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics &#8211; Karachi Branch.jpg','TCS Logistics Karachi')">
-            <img src="SQL Analytics for TCS Logistics &#8211; Karachi Branch.jpg" alt="TCS Logistics Karachi">
+        <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg','TCS Logistics Karachi')">
+            <img src="SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg" alt="TCS Logistics Karachi">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
         </div>
         <div class="card-body">
@@ -700,23 +709,29 @@
 
 </div>
 
+<!-- MODAL -->
 <div id="imgModal" class="modal" onclick="closeModal()">
     <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
     <img class="modal-img" id="modalImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="modal-caption" id="modalCaption"></div>
 </div>
 
+<!-- FOOTER -->
 <div class="footer-brand">
     <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
 </div>
 
 <script>
+    // Kap's Café — special characters in filename
     (function() {
         var fname = "Kap\u2019s Caf\u00e9 \u2013 SQL Analytics Project.jpg";
-        document.getElementById("kapsImg").src = fname;
-        document.getElementById("kapsBox").addEventListener("click", function() {
-            openModal(fname, "Kap's Café Analysis");
-        });
+        var kapsImg = document.getElementById("kapsImg");
+        if (kapsImg) {
+            kapsImg.src = fname;
+            document.getElementById("kapsBox").addEventListener("click", function() {
+                openModal(fname, "Kap's Café Analysis");
+            });
+        }
     })();
 
     function openModal(src, caption) {
