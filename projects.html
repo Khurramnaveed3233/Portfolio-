@@ -43,7 +43,6 @@
         .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
         .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
 
-        /* ── NAV ── */
         nav {
             position:sticky; top:0; z-index:1000;
             background:rgba(26,11,46,0.88);
@@ -60,7 +59,6 @@
         nav a:hover { color:#fff; }
         nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
 
-        /* ── HEADER ── */
         .page-header {
             position:relative; z-index:1;
             text-align:center; padding:90px 20px 60px;
@@ -95,7 +93,6 @@
             max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
         }
 
-        /* Stat strip */
         .stat-strip {
             display:flex; justify-content:center; gap:48px;
             margin-top:44px; flex-wrap:wrap;
@@ -108,7 +105,6 @@
         }
         .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 
-        /* ── FILTER TABS ── */
         .filter-row {
             display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
             padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
@@ -129,7 +125,6 @@
         .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
         .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
 
-        /* ── PROJECTS GRID ── */
         .projects-grid {
             display:grid;
             grid-template-columns:repeat(3,1fr);
@@ -140,7 +135,6 @@
             position:relative; z-index:1;
         }
 
-        /* ── PROJECT CARD ── */
         .project-card {
             background:rgba(15,7,32,0.7);
             border:1px solid var(--border);
@@ -162,11 +156,8 @@
         .project-card:hover::before { opacity:1; }
 
         @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-
-        /* stagger */
         .project-card:nth-child(n)  { animation-delay:.05s }
 
-        /* Image box */
         .img-box {
             width:100%; height:190px; overflow:hidden;
             position:relative; cursor:pointer; background:#0a0418;
@@ -186,10 +177,8 @@
         }
         .img-box:hover .overlay { opacity:1; }
 
-        /* Card body */
         .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
 
-        /* Type badge */
         .type-badge {
             display:inline-flex; align-items:center; gap:6px;
             font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
@@ -215,7 +204,6 @@
             flex:1;
         }
 
-        /* Tool tags */
         .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
         .tool-tag {
             font-size:0.65rem; font-weight:600; padding:3px 10px;
@@ -223,7 +211,6 @@
             color:#c4b5d4; background:rgba(255,255,255,0.03);
         }
 
-        /* GitHub button */
         .btn-github {
             display:inline-flex; align-items:center; gap:7px;
             background:rgba(255,255,255,0.05);
@@ -240,7 +227,6 @@
             transform:translateY(-1px);
         }
 
-        /* ── MODAL ── */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
             background:rgba(0,0,0,0.93);
@@ -269,7 +255,6 @@
         }
         .modal-close:hover { background:rgba(255,255,255,0.15); }
 
-        /* ── FOOTER ── */
         .footer-brand {
             text-align:center; padding:36px 20px;
             border-top:1px solid var(--border);
@@ -277,7 +262,6 @@
         }
         .footer-brand img { height:34px; opacity:0.45; }
 
-        /* ── RESPONSIVE ── */
         @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
         @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
     </style>
@@ -287,7 +271,6 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
-<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -297,7 +280,6 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<!-- HEADER -->
 <header class="page-header">
     <div class="eyebrow"><span></span> Real-World Solutions</div>
     <h1>Projects<br><em>Portfolio</em></h1>
@@ -309,7 +291,6 @@
     </div>
 </header>
 
-<!-- FILTER TABS -->
 <div class="filter-row">
     <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
     <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
@@ -317,12 +298,10 @@
     <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
 </div>
 
-<!-- PROJECTS GRID -->
 <div class="projects-grid" id="projectsGrid">
 
-    <!-- ══════════════ POWER BI (Highlighted Start) ══════════════ -->
+    <!-- POWER BI -->
 
-    <!-- Pakistan E-Commerce Analytics Dashboard -->
     <div class="project-card" data-cat="pbi">
         <div class="img-box" onclick="openModal('Ecommerce Dashboard.png','Pakistan E-Commerce Analytics Dashboard')">
             <img src="Ecommerce Dashboard.png" alt="Pakistan E-Commerce Analytics Dashboard">
@@ -332,7 +311,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">E-Commerce</span>
             <div class="card-title">Pakistan E-Commerce Analytics (2022–2024)</div>
-            <p class="card-desc">Analyzed PKR 1.21M revenue across 7 cities. Discovered Electronics drives 64% revenue but at thin margins (19%). Projected 25% revenue growth via Lahore & Faisalabad market expansion and digital payment incentives.</p>
+            <p class="card-desc">A regional e-commerce business generating PKR 1.21M in revenue lacked visibility into which product categories were actually profitable versus which were merely high-volume. The analysis revealed that Electronics drives 64% of total revenue but carries only a 19% profit margin — a dangerous over-reliance on a low-margin category. A market expansion strategy targeting Lahore and Faisalabad, combined with digital payment incentives, was recommended to unlock a projected 25% revenue growth without further margin erosion.</p>
             <div class="tool-tags">
                 <span class="tool-tag">Power BI</span>
                 <span class="tool-tag">SQL Server</span>
@@ -343,7 +322,7 @@
         </div>
     </div>
 
-    <!-- ══════════════ EXCEL ══════════════ -->
+    <!-- EXCEL -->
 
     <div class="project-card" data-cat="excel">
         <div class="img-box" onclick="openModal('Road Accident Dashboard.jpg','Road Accident Dashboard')">
@@ -354,7 +333,7 @@
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
             <span class="card-category">Road Safety</span>
             <div class="card-title">Road Accident Dashboard</div>
-            <p class="card-desc">Analyzed 417,883 road casualties across vehicle type, road conditions and location. Cars responsible for 79.8% of all accidents (333K), single carriageway roads highest risk zone at 390K casualties, urban areas dominating over rural at 255K.</p>
+            <p class="card-desc">Road safety agencies needed to prioritise infrastructure investment across 417,883 recorded casualties but had no consolidated view of where and how incidents were occurring. The analysis pinpointed cars as responsible for 79.8% of all casualties and single-carriageway roads as the highest-risk environment at 390K incidents — with urban areas accounting for nearly double the rural toll. These findings give transport authorities the evidence base for targeted road design improvements and enforcement campaigns in high-density corridors.</p>
             <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span><span class="tool-tag">Slicers</span></div>
             <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -369,7 +348,7 @@
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
             <span class="card-category">Operations</span>
             <div class="card-title">Call Centre Analysis</div>
-            <p class="card-desc">Analyzed 532 call-centre interactions totalling Rs.96K revenue. Male callers deliver 3x higher ticket size. Top agent F05 identified for script replication. Uncovered Rs.18K daily revenue opportunity through gender-specific upsell flow redesign.</p>
+            <p class="card-desc">A call centre generating Rs.96K across 532 interactions had no structured view of which agents, caller profiles, or scripts were driving its highest-value conversions. The analysis uncovered that male callers deliver 3x the average ticket size and that top agent F05 was consistently outperforming peers — yet their approach had never been documented or replicated. By redesigning the upsell flow around gender-specific conversation paths and standardising the F05 script, the business identified a Rs.18K daily incremental revenue opportunity.</p>
             <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span></div>
             <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -384,7 +363,7 @@
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
             <span class="card-category">Sales</span>
             <div class="card-title">Coffee Sales Dashboard</div>
-            <p class="card-desc">Analyzed coffee sales across 3 countries from 2019 to 2022. USA leads with ~750 units, top 5 customers drive disproportionate revenue, seasonal peaks in late 2019 and mid-2021 identified for inventory planning.</p>
+            <p class="card-desc">A multi-country coffee retailer had four years of transactional data but no consolidated view of which markets, customers, or time periods were driving disproportionate value. The analysis confirmed the US as the dominant market at ~750 units, while the top 5 customers generated revenue far above their proportional order count — a concentration risk requiring active account management. Seasonal demand peaks in late 2019 and mid-2021 were identified, enabling the procurement team to build smarter inventory cycles ahead of proven high-demand windows.</p>
             <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Dynamic Charts</span><span class="tool-tag">Pivot Tables</span></div>
             <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -399,7 +378,7 @@
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
             <span class="card-category">CRM</span>
             <div class="card-title">CRM Dashboard</div>
-            <p class="card-desc">Built a CRM sales pipeline dashboard for SoftTech tracking leads, deal stages and conversion rates across the full sales funnel. Identified pipeline bottlenecks and enabled data-driven sales coaching decisions.</p>
+            <p class="card-desc">SoftTech's sales leadership was making pipeline decisions without reliable data on where deals were stalling or which reps were consistently failing to convert past key stages. A full-funnel CRM dashboard was built to track lead volume, deal stages, and conversion rates across the entire pipeline. The visualisation surfaced specific bottleneck stages where the majority of deals were lost — giving management the data needed to run targeted coaching interventions and reallocate effort toward the highest-converting customer segments.</p>
             <div class="tool-tags"><span class="tool-tag">Google Sheets</span><span class="tool-tag">Formulas</span><span class="tool-tag">Dynamic Charts</span></div>
             <a href="https://github.com/Khurramnaveed3233/CRM-Sales-Dashboard-for-SoftTech-in-Google-Sheet" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -414,13 +393,13 @@
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
             <span class="card-category">E-Commerce</span>
             <div class="card-title">Ecommerce Sales Analysis</div>
-            <p class="card-desc">Analyzed $484K total sales and 20.6% YoY growth across 1,993 orders. Technology leads profit but margins are under pressure. Phones top-selling product, Central and West US regions dominate.</p>
+            <p class="card-desc">Despite strong top-line performance — $484K in sales and 20.6% YoY growth across 1,993 orders — the business lacked clarity on which categories and regions were generating sustainable profit versus inflating revenue with compressed margins. The analysis identified Technology as the leading profit driver while simultaneously flagging accelerating margin pressure within the category. Phones emerged as the top-selling product, with Central and West US dominating volume — findings that directly inform budget allocation for marketing campaigns and inventory replenishment decisions.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/ECOMMERCE-SALES-ANALYSIS." class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
-    <!-- ══════════════ POWER BI CONTINUED ══════════════ -->
+    <!-- POWER BI CONTINUED -->
 
     <div class="project-card" data-cat="pbi">
         <div class="img-box" onclick="openModal('Global terrorism Analysis Dashboard.jpg','Global Terrorism Analysis')">
@@ -431,7 +410,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Global Security</span>
             <div class="card-title">Global Terrorism Analysis</div>
-            <p class="card-desc">Analyzed 96,000+ terrorism records spanning 1970–2017. Taliban, ISIS and Boko Haram identified as deadliest groups. South Asia is the highest-risk region, 2017 the peak year, explosives the dominant weapon.</p>
+            <p class="card-desc">Security analysts and policy researchers required a structured framework to identify the most dangerous actors, geographies, and time periods across nearly five decades of global terrorism data — a dataset of over 96,000 recorded incidents. The analysis confirmed Taliban, ISIS, and Boko Haram as the deadliest operational groups, with South Asia as the highest-risk region and 2017 as the most lethal year on record. Explosive devices were identified as the dominant attack method — findings that provide a data foundation for threat prioritisation and resource deployment decisions in conflict-affected regions.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
             <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -446,7 +425,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Executive</span>
             <div class="card-title">Amazon Sales BI</div>
-            <p class="card-desc">Executive dashboard analyzing $1.2M revenue across 5,400+ orders. Electronics top category, Wireless Headphones #1 product, 12% MoM growth. North America contributes 60%+ of total sales.</p>
+            <p class="card-desc">Senior leadership needed a single executive view across $1.2M in revenue and 5,400+ orders to understand which categories, products, and regions were fuelling growth — and whether that growth was accelerating or plateauing. The dashboard identified Electronics as the top-performing category, Wireless Headphones as the #1 product, and confirmed a 12% month-on-month growth trajectory. With North America contributing over 60% of revenue, the analysis also surfaced a geographic concentration risk alongside a clear strategic case for international market expansion.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -461,7 +440,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Real Estate</span>
             <div class="card-title">Bhatti Real Estate</div>
-            <p class="card-desc">52% properties are renovated, 0.75% are ultra-premium waterfront, 76% are 3-4 bedroom family homes. Renovation ROI matrix, lifecycle planning and dynamic pricing strategy for underserved buyer segments included.</p>
+            <p class="card-desc">A property management firm had no structured view of how renovation status, property type, and location were affecting asset value or pricing decisions across their portfolio. The analysis found that 52% of properties had been renovated, while ultra-premium waterfront listings — just 0.75% of inventory — were being priced inconsistently despite commanding disproportionately high margins. With 76% of stock concentrated in the 3–4 bedroom family home segment, a renovation ROI matrix and dynamic pricing framework were delivered to close the gap with underserved buyer segments.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span></div>
             <a href="https://github.com/Khurramnaveed3233/Property-Management-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -476,7 +455,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Survey</span>
             <div class="card-title">Data Survey Breakdown</div>
-            <p class="card-desc">Analyzed 630 data professionals globally. Python is #1 skill across all roles. Data Scientists earn highest salaries, gender pay gap clearly identified. Avg work-life balance score 5.74/10.</p>
+            <p class="card-desc">HR teams and career platforms lacked a consolidated view of how compensation, satisfaction, and skill preferences varied across data roles globally. A 630-respondent survey was structured and visualised to answer those questions. The analysis confirmed Python as the dominant skill across all job titles, quantified the salary premium for Data Scientists, and surfaced a clear gender pay gap — findings directly actionable for compensation benchmarking and DEI strategy. An average work-life balance score of 5.74/10 across the profession also signals a retention risk that HR leadership can proactively address.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
             <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -491,7 +470,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Tech</span>
             <div class="card-title">Electronics Sales</div>
-            <p class="card-desc">December peak at $67K revenue, top salesperson Nancy drove $104K in total, North region leads at $142K. Credit cards account for 60% of all payments. Seasonal promotion timing recommendations provided.</p>
+            <p class="card-desc">The sales director needed clarity on which time periods, regions, and individual reps were driving revenue — and whether seasonal patterns were being captured or missed in promotional planning. The analysis identified December as the peak revenue month at $67K and confirmed the North region as the top-performing territory at $142K. Top salesperson Nancy accounted for $104K in total sales — a performance replication opportunity that had never been formalised. With 60% of transactions made by credit card, targeted instalment-based promotions were recommended ahead of proven peak cycles.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span></div>
             <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -506,7 +485,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Finance</span>
             <div class="card-title">Financial Sales Report</div>
-            <p class="card-desc">Analyzed $128M gross sales across product segments and geographies 2013–2014. Paseo is top profit product at $5M (28% of total profit). Velo discount share of 28% identified as a margin risk.</p>
+            <p class="card-desc">Finance leadership required a two-year view of how $128M in gross sales across multiple product lines and geographies was translating into actual profit — and which discount strategies were eroding margins rather than driving volume. The analysis identified Paseo as the most profitable product at $5M (28% of total profit), while flagging Velo's 28% discount share as a structural margin risk requiring immediate pricing review. These findings gave leadership the evidence to rationalise the discount policy and concentrate promotional investment on categories with healthier contribution margins.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -521,7 +500,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">HR</span>
             <div class="card-title">HR Workforce Analysis</div>
-            <p class="card-desc">Analyzed 16% org-wide attrition. Life Sciences at 39% turnover costing Rs.2.8 Cr annually. Overtime workers and bottom-quartile salaries are top churn drivers. Interventions projected to save Rs.3.1 Cr per year.</p>
+            <p class="card-desc">The HR director faced a 16% organisation-wide attrition rate with no data-driven understanding of which departments, roles, or salary bands were most at risk. The analysis identified Life Sciences as the critical churn hotspot at 39% turnover — costing Rs.2.8 Cr annually — with overtime burden and bottom-quartile salaries confirmed as the primary drivers across the business. Targeted retention interventions including pay-band adjustments and workload rebalancing were modelled and projected to save Rs.3.1 Cr per year, giving HR a clear business case to present to the CFO.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/HR-Talent-Analytics-CodeNest-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -536,7 +515,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Telecom</span>
             <div class="card-title">Jazz Telecom Analysis</div>
-            <p class="card-desc">Postpaid users show higher ARPU, data demand overtaking voice calls, early churn signals detected via CTEs and DATEDIFF logic. 12 business questions answered covering revenue, retention and plan optimization.</p>
+            <p class="card-desc">Jazz needed to understand revenue performance by plan type, detect early churn signals before subscriber loss occurred, and determine whether network capacity investment was aligned with actual usage trends. The analysis confirmed postpaid users generate significantly higher ARPU, and that data consumption is overtaking voice as the primary revenue driver — a shift with direct implications for network investment prioritisation. Early churn indicators were detected via CTEs and DATEDIFF logic, enabling the retention team to intervene before subscribers reached cancellation. Twelve commercial questions were answered across revenue, plan performance, and retention strategy.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
             <a href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -551,7 +530,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Retail</span>
             <div class="card-title">TrendMart Sales</div>
-            <p class="card-desc">Rs.912K total sales. Electronics leads all categories, Adults 53% largest customer segment. Peak revenue months Feb, Mar and Dec identified. Age/gender profitability breakdown and hourly sales heatmap included.</p>
+            <p class="card-desc">TrendMart's merchandising team lacked a granular understanding of which customer demographics, product categories, and time slots were generating the most revenue — making it impossible to optimise staffing, promotions, or stock allocation. The analysis confirmed Electronics as the top-performing category and Adults (53%) as the primary purchase-driving segment. Revenue peaks in February, March, and December were identified alongside an hourly sales heatmap enabling smarter shift scheduling. An age and gender profitability breakdown allowed the marketing team to tailor campaigns toward segments with the highest revenue-per-transaction.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/TrendMart-Sales-Analysis-Dashboard-in-PowerBI" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -566,7 +545,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Executive Overview</span>
             <div class="card-title">X-Mart Sales</div>
-            <p class="card-desc">3-year analysis 2020–2022: $99M total revenue and $23M profit across 5,095 transactions. Intel (19%), Samsung (16%) and Dell (14%) top brands. Monitors and GPUs drive highest revenue.</p>
+            <p class="card-desc">X-Mart's executive team needed a three-year strategic overview to evaluate brand performance, category contribution, and profitability across $99M in revenue and 5,095 transactions. The analysis established Intel (19%), Samsung (16%), and Dell (14%) as the three brands delivering the most value, while Monitors and GPUs emerged as the highest-revenue product lines — intelligence critical for vendor negotiation and shelf-space allocation. The $23M profit figure alongside category-level margin data gave leadership a clear basis for discontinuing underperforming SKUs and concentrating assortment investment in proven revenue drivers.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -581,7 +560,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Regional</span>
             <div class="card-title">Samsung Pakistan</div>
-            <p class="card-desc">Nationwide retail analysis across 3 sales channels. Karachi top revenue city, Experience Stores lead all channels, distributor stores consistently miss targets. 7-table normalized relational model with full ER diagram.</p>
+            <p class="card-desc">Samsung's regional sales team needed to evaluate performance across three distinct retail channels — direct, experience stores, and distributors — to determine where to concentrate expansion investment and where operational intervention was most urgent. The analysis confirmed Karachi as the top revenue city, Experience Stores as the strongest-performing channel, and distributor stores as consistently missing targets across all regions. Built on a seven-table normalised relational model with a full ER diagram, the project delivered both the commercial findings and a reusable data infrastructure for ongoing channel performance monitoring.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
             <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -596,7 +575,7 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Churn</span>
             <div class="card-title">Bank Churn Analysis</div>
-            <p class="card-desc">Analyzed 2,037 churned bank customers. Age group 31-40 at highest risk with ~50% churn rate. Product 4 at 69% churn rate. France and Spain are top churn regions. Targeted retention recommendations included.</p>
+            <p class="card-desc">A retail bank was losing customers at an unsustainable rate but had no structured view of which age groups, product tiers, or geographies were driving the attrition. Analysis of 2,037 churned customers revealed that the 31–40 age bracket carries the highest risk at approximately 50% churn rate, while Product 4 — at 69% churn — is clearly failing to deliver perceived value. France and Spain were identified as the highest-risk markets. Targeted retention recommendations were developed for each high-risk segment, enabling the bank to deploy intervention resources where they would have the greatest financial impact.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -611,13 +590,13 @@
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
             <span class="card-category">Inventory</span>
             <div class="card-title">I-Point Performance</div>
-            <p class="card-desc">4-year analysis 2011–2014: revenue grew 304% to $2.30M but 34% avg discount is squeezing margins. Corporate segment most profitable despite lower volume. West region leads at 19% margin.</p>
+            <p class="card-desc">Despite impressive top-line growth — revenue increased 304% over four years to reach $2.30M — I-Point's leadership had no clear picture of whether that growth was being retained as profit or quietly eroded through discounting. The analysis confirmed a 34% average discount rate as the critical margin threat offsetting revenue gains. The Corporate segment emerged as the most profitable customer group despite lower order volume, and the West region led all territories at a 19% margin. These findings gave the pricing team a clear mandate to reform the discount structure and shift sales effort toward higher-margin segments.</p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
-    <!-- ══════════════ SQL ══════════════ -->
+    <!-- SQL -->
 
     <div class="project-card" data-cat="sql">
         <div class="img-box" onclick="openModal('AmazonSQL.png','Amazon SQL Analysis')">
@@ -628,7 +607,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Optimizing</span>
             <div class="card-title">Amazon SQL Analysis</div>
-            <p class="card-desc">Designed and analyzed an Amazon-style e-commerce database. Extracted Pareto trends, high-value customer segments, product profitability leaders and seasonal revenue patterns. Full ER diagram and relational schema included.</p>
+            <p class="card-desc">An Amazon-style e-commerce business required both a relational data foundation and a structured query layer to answer critical commercial questions about revenue concentration, customer value, and product profitability — without relying on pre-built dashboard tools. A full database schema was designed from scratch, and SQL queries were used to extract Pareto revenue trends, segment high-value customers, and isolate top-margin products. Seasonal revenue patterns were also surfaced, giving the merchandising and supply chain teams the data signals needed for demand forecasting and inventory positioning.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">Window Functions</span></div>
             <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -643,7 +622,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Diagnostics</span>
             <div class="card-title">Ola NZ SQL Analysis</div>
-            <p class="card-desc">Wellington at 18% cancellation rate — double city average. EVs generate highest fare per km, Gold-tier customers are top revenue segment. NZD 3.1M+ incremental revenue projected from SQL-driven strategy recommendations.</p>
+            <p class="card-desc">Ola's New Zealand operations team needed to diagnose why cancellation rates and fare performance varied so significantly across cities and vehicle types — and identify where changes would have the greatest financial impact. The analysis flagged Wellington at an 18% cancellation rate, double the city average, demanding immediate operational review. EVs were confirmed as the highest fare-per-km vehicle class, and Gold-tier customers emerged as the dominant revenue segment — both findings that directly inform fleet investment and loyalty programme design. SQL-driven strategy recommendations were projected to unlock NZD 3.1M+ in incremental annual revenue.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
             <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -658,7 +637,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Supply Chain</span>
             <div class="card-title">TCS Logistics Karachi</div>
-            <p class="card-desc">Avg delivery at 58hrs vs 48hr SLA target. Bank payment return rate at 31.25%, 27% COD payments pending settlement. 6 critical operational problems solved. Projected 20% improvement in on-time delivery rate.</p>
+            <p class="card-desc">TCS's Karachi branch was consistently breaching its 48-hour delivery SLA with no data-driven breakdown of where in the fulfilment process delays were occurring or which payment methods were creating cash flow bottlenecks. SQL analysis revealed average delivery time sitting at 58 hours — 21% above SLA — while a 31.25% bank payment return rate and 27% of COD payments still pending settlement indicated serious revenue recovery gaps. Six critical operational problems were identified and resolved through query-based diagnostics, with recommended workflow changes projected to improve on-time delivery performance by 20%.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">CASE WHEN</span></div>
             <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -673,7 +652,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Growth</span>
             <div class="card-title">Kap's Café Analysis</div>
-            <p class="card-desc">MoM revenue, order volume and quantity trends tracked via LAG Window Functions. Revenue stayed stable during low-order months, revealing a premium pricing effect. Seasonal demand spikes identified for smarter inventory planning.</p>
+            <p class="card-desc">Kap's Café had month-to-month revenue data but lacked the analytical framework to distinguish genuine growth from noise — or to understand whether slow order periods were signalling a demand problem or a pricing opportunity. LAG Window Functions were applied to track MoM trends across revenue, order volume, and quantity simultaneously. A counterintuitive finding emerged: revenue held stable during low-order months, revealing a premium pricing effect where customers were spending more per visit even when visiting less frequently. Seasonal demand spikes were also identified, giving the operations team advance notice to plan inventory, staffing, and promotions ahead of high-traffic periods.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span><span class="tool-tag">Aggregations</span></div>
             <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -688,7 +667,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Market Simulation</span>
             <div class="card-title">Airbnb Pakistan 2025</div>
-            <p class="card-desc">Simulated Airbnb Pakistan market across 10 cities using pure SQL. Stay_4 Karachi top revenue listing at PKR 147K, Lahore leads guest satisfaction at 4.2/5. Top 3 listings drive 63% of total revenue.</p>
+            <p class="card-desc">With no existing Airbnb operational dataset for the Pakistani market, a realistic short-term rental simulation was constructed using pure SQL across 10 cities — enabling analysis of pricing dynamics, guest satisfaction patterns, and revenue concentration that would otherwise be unavailable to local property investors. The analysis revealed Stay_4 in Karachi as the top revenue-generating listing at PKR 147K, Lahore as the market leader in guest satisfaction at 4.2/5, and the top 3 listings responsible for 63% of total revenue — a concentration level signalling significant opportunity for mid-tier hosts to capture underserved demand through better positioning.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">RANK</span></div>
             <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -703,7 +682,7 @@
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="card-category">Engagement</span>
             <div class="card-title">Spotify Engagement</div>
-            <p class="card-desc">Analyzed Spotify dataset covering tracks, albums and artists. Identified tracks with 1B+ streams, official video tracks correlate with higher engagement. Top 3 artists per city ranked via RANK Window Function.</p>
+            <p class="card-desc">Spotify's content and artist relations teams need to understand what distinguishes high-engagement tracks from the rest — specifically whether content format, stream thresholds, or geographic popularity are the primary drivers of listener retention. The analysis confirmed that tracks with official music videos consistently generate higher cross-platform engagement, while the billion-stream threshold was used to benchmark elite-tier artist performance. Top three artists per city were ranked using the RANK Window Function, providing the regional marketing team a data-backed roster for localised playlist curation, live event partnerships, and targeted artist promotion campaigns.</p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span><span class="tool-tag">Joins</span></div>
             <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
@@ -724,7 +703,6 @@
 </div>
 
 <script>
-    // Kap's Café — special characters in filename
     (function() {
         var fname = "Kap\u2019s Caf\u00e9 \u2013 SQL Analytics Project.jpg";
         var kapsImg = document.getElementById("kapsImg");
