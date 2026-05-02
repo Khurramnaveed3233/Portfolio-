@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khurram Naveed | Data Portfolio</title>
+<title>Khurram Naveed | Data Analyst Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -44,13 +44,21 @@ body {
 
 /* TEXT */
 .quote-container { flex:1.2; }
+
 .quote-text {
     font-family:'Playfair Display',serif;
-    font-size:2.2rem;
-    font-style:italic;
-    color:#e0d1ff;
+    font-size:2.4rem;
+    font-weight:700;
+    line-height:1.3;
+    color:#ffffff;
 }
-.author { font-size:1.3rem; margin:10px 0; }
+
+.author {
+    font-size:1.05rem;
+    margin:15px 0;
+    color:#d1b3ff;
+    line-height:1.5;
+}
 
 .otw-badge {
     display:inline-flex;
@@ -60,18 +68,26 @@ body {
     border:1px solid rgba(209,179,255,0.5);
     border-radius:50px;
     padding:8px 18px;
-    margin:15px 0;
+    margin:10px 0;
 }
+
 .otw-dot {
     width:9px;height:9px;
     background:#4ade80;
     border-radius:50%;
 }
 
+.quick-stats {
+    margin:12px 0;
+    font-size:0.95rem;
+    color:#d1b3ff;
+}
+
 .cta-row {
     display:flex;
     gap:14px;
     flex-wrap:wrap;
+    margin-top:10px;
 }
 
 .btn-primary {
@@ -97,6 +113,7 @@ body {
     display:flex;
     justify-content:flex-end;
 }
+
 .img-outer-ring {
     width:320px;height:320px;
     border-radius:50%;
@@ -105,6 +122,7 @@ body {
     align-items:center;
     justify-content:center;
 }
+
 .profile-img {
     width:275px;height:275px;
     border-radius:50%;
@@ -116,26 +134,23 @@ nav {
     background:#1a0b2e;
     padding:18px 0;
 }
+
 nav ul {
     list-style:none;
     display:flex;
     justify-content:center;
     gap:30px;
 }
+
 nav a {
     color:#d1b3ff;
     text-decoration:none;
     font-weight:700;
 }
+
 nav a:hover { color:#fff; }
 
-/* CONTENT */
-.main-content {
-    padding:100px 10%;
-    text-align:center;
-}
-
-/* ✅ MOBILE FIX */
+/* MOBILE */
 @media (max-width:768px){
 
 .hero {
@@ -163,7 +178,11 @@ nav a:hover { color:#fff; }
 }
 
 .quote-text {
-    font-size:1.5rem;
+    font-size:1.6rem;
+}
+
+.author {
+    font-size:0.95rem;
 }
 
 nav ul {
@@ -191,18 +210,35 @@ nav ul {
 </div>
 
 <div class="quote-container">
-    <h1 class="quote-text">"Data is the new oil."</h1>
-    <span class="author">— Clive Humby</span>
 
+    <!-- 🔥 HEADLINE -->
+    <h1 class="quote-text">
+        Turning Raw Data into <br> Business Decisions
+    </h1>
+
+    <!-- 💡 SUBTEXT -->
+    <p class="author">
+        Aspiring Data Analyst skilled in SQL, Excel & Power BI — 
+        focused on solving real business problems using data.
+    </p>
+
+    <!-- 🟢 BADGE -->
     <div class="otw-badge">
         <span class="otw-dot"></span>
-        Open to Work — Junior Data Analyst Roles
+        Open to Work — Junior Data Analyst
     </div>
 
-    <div class="cta-row">
-        <a href="contact.html" class="btn-primary">Hire Me</a>
-        <a href="projects.html" class="btn-outline">View Work</a>
+    <!-- 📊 QUICK STATS -->
+    <div class="quick-stats">
+        📊 3+ Projects | 🛠 SQL • Excel • Power BI | 📈 Sales & Customer Insights
     </div>
+
+    <!-- 🎯 BUTTONS -->
+    <div class="cta-row">
+        <a href="projects.html" class="btn-primary">View Projects</a>
+        <a href="contact.html" class="btn-outline">Hire Me</a>
+    </div>
+
 </div>
 
 <div class="image-container">
@@ -223,10 +259,6 @@ nav ul {
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
-
-<section class="main-content">
-<h2>Data-Driven Problem Solver</h2>
-</section>
 
 </body>
 </html>
