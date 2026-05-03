@@ -129,6 +129,37 @@ body {
     object-fit:cover;
 }
 
+/* 🔥 VALUE SECTION */
+.value-section {
+    position:relative;
+    background:#fff;
+    height:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.value-text {
+    font-size:1.3rem;
+    font-weight:600;
+    text-align:center;
+    background:linear-gradient(90deg,#5c00a3,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    opacity:0;
+    transform:translateY(20px);
+    animation:floatFade 2s ease forwards;
+}
+
+@keyframes floatFade {
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 /* NAV */
 nav {
     background:#1a0b2e;
@@ -194,6 +225,11 @@ nav ul {
     justify-content:center;
 }
 
+.value-text {
+    font-size:1rem;
+    padding:0 15px;
+}
+
 }
 </style>
 </head>
@@ -211,33 +247,28 @@ nav ul {
 
 <div class="quote-container">
 
-    <!-- 🔥 HEADLINE -->
-    <h1 class="quote-text">
-        Turning Raw Data into <br> Business Decisions
-    </h1>
+<h1 class="quote-text">
+    Turning Raw Data into <br> Business Decisions
+</h1>
 
-    <!-- 💡 SUBTEXT -->
-    <p class="author">
-        Aspiring Data Analyst skilled in SQL, Excel & Power BI — 
-        focused on solving real business problems using data.
-    </p>
+<p class="author">
+    Aspiring Data Analyst skilled in SQL, Excel & Power BI — 
+    focused on solving real business problems using data.
+</p>
 
-    <!-- 🟢 BADGE -->
-    <div class="otw-badge">
-        <span class="otw-dot"></span>
-        Open to Work — Junior Data Analyst
-    </div>
+<div class="otw-badge">
+    <span class="otw-dot"></span>
+    Open to Work — Junior Data Analyst
+</div>
 
-    <!-- 📊 QUICK STATS -->
-    <div class="quick-stats">
-        📊 3+ Projects | 🛠 SQL • Excel • Power BI | 📈 Sales & Customer Insights
-    </div>
+<div class="quick-stats">
+    📊 3+ Projects | 🛠 SQL • Excel • Power BI | 📈 Sales & Customer Insights
+</div>
 
-    <!-- 🎯 BUTTONS -->
-    <div class="cta-row">
-        <a href="projects.html" class="btn-primary">View Projects</a>
-        <a href="contact.html" class="btn-outline">Hire Me</a>
-    </div>
+<div class="cta-row">
+    <a href="projects.html" class="btn-primary">View Projects</a>
+    <a href="contact.html" class="btn-outline">Hire Me</a>
+</div>
 
 </div>
 
@@ -247,6 +278,13 @@ nav ul {
     </div>
 </div>
 
+</section>
+
+<!-- 🔥 VALUE SECTION -->
+<section class="value-section">
+    <p class="value-text">
+        I transform raw data into clear, actionable insights that help businesses make smarter decisions and grow.
+    </p>
 </section>
 
 <nav>
