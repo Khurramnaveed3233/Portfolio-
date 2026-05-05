@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -227,7 +228,6 @@
             transform:translateY(-1px);
         }
 
-        /* FIX: FULL SIZE MODAL STYLES */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
             background:rgba(0,0,0,0.95);
@@ -236,11 +236,11 @@
         }
         .modal.open { display:flex; }
         .modal-img {
-            max-width:95vw; /* Almost full screen width */
-            max-height:85vh; /* Large height */
+            max-width:95vw;
+            max-height:85vh;
             width: auto;
             height: auto;
-            object-fit: contain; /* Prevents cropping */
+            object-fit: contain;
             border:2px solid rgba(192,132,252,0.4); border-radius:14px;
             box-shadow:0 0 80px rgba(124,58,237,0.4);
             animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
@@ -316,9 +316,9 @@
             <span class="card-category">Supply Chain & Logistics</span>
             <div class="card-title">End-to-End-Data-Analytics-Case-Study-NexaDistrib</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance harming brand reputation[cite: 2].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive 33-point reliability gap vs Gold-tier[cite: 2].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan projected to reduce stockouts by 50% and storage costs by 15%[cite: 2].
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance[cite: 2].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive reliability gap[cite: 2].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan to reduce stockouts by 50%[cite: 2].
             </p>
             <div class="tool-tags">
                 <span class="tool-tag">SQL Server</span>
@@ -330,7 +330,7 @@
         </div>
     </div>
 
-    <!-- ═══════════ OTHER PROJECTS ═══════════ -->
+    <!-- ═══════════ POWER BI PROJECTS ═══════════ -->
     <div class="project-card" data-cat="pbi">
         <div class="img-box" onclick="openModal('Ecommerce Dashboard.png','Pakistan E-Commerce Analytics Dashboard')">
             <img src="Ecommerce Dashboard.png" alt="Pakistan E-Commerce Analytics Dashboard">
@@ -341,56 +341,157 @@
             <span class="card-category">E-Commerce</span>
             <div class="card-title">Pakistan E-Commerce Analytics (2022–2024)</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> A PKR 1.21M e-commerce business was scaling revenue with no visibility into category profitability.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Electronics drives 64% revenue but only 19% margin. Over-reliance on low-profit categories erodes growth.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Identified expansion opportunities in Lahore & Faisalabad projected to unlock 25% revenue growth.
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Scaling revenue with no visibility into which categories were actually profitable[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Electronics drives 64% of revenue but at only 19% margin[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Digital payment incentives projected to unlock 25% revenue growth[cite: 1].
             </p>
-            <div class="tool-tags">
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">SQL Server</span>
-                <span class="tool-tag">DAX</span>
-            </div>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/Pakistan-E-Commerce-Analytics-Dashboard-2022-2024-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
-    <!-- [Note: All other cards follow the same structure...] -->
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Global terrorism Analysis Dashboard.jpg','Global Terrorism Analysis')">
+            <img src="Global terrorism Analysis Dashboard.jpg" alt="Global Terrorism Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Security</span>
+            <div class="card-title">Global Terrorism Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need for a structured framework to identify dangerous actors across 96,000+ incidents[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Explosives are the dominant attack method; 2017 is the peak year[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Produced threat intelligence map for security resource deployment[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- ═══════════ EXCEL PROJECTS ═══════════ -->
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Road Accident Dashboard.jpg','Road Accident Dashboard')">
+            <img src="Road Accident Dashboard.jpg" alt="Road Accident Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Safety</span>
+            <div class="card-title">Road Accident Dashboard</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No data-driven framework to prioritise infrastructure spend[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Cars caused 79.8% of incidents. Single-carriageways are highest-risk[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Risk map to direct enforcement and redesign investment[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Coffee Sales Dashboard.jpg','Coffee Sales Dashboard')">
+            <img src="Coffee Sales Dashboard.jpg" alt="Coffee Sales Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Sales</span>
+            <div class="card-title">Coffee Sales Dashboard</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Identify which markets and seasons drive disproportionate revenue[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> USA leads at ~750 units. Top 5 customers generate revenue far above order share[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Enabled smarter inventory planning and active retention management[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Dynamic Charts</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- ═══════════ SQL PROJECTS ═══════════ -->
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('ola_sql.jpg','Ola NZ SQL Analysis')">
+            <img src="ola_sql.jpg" alt="Ola NZ SQL Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Diagnostics</span>
+            <div class="card-title">Ola NZ SQL Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Diagnose cancellation rates and fare performance variance[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Wellington's cancellation rate is 18%—double the city average[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Projected to unlock NZD 3.1M+ in incremental annual revenue[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg','TCS Logistics Karachi')">
+            <img src="SQL Analytics for TCS Logistics \u2013 Karachi Branch.jpg" alt="TCS Logistics Karachi">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Logistics</span>
+            <div class="card-title">TCS Logistics Karachi</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Breaching 48-hour SLA with no data-driven breakdown of delays[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Avg delivery: 58 hrs (21% above SLA). Bank return rate: 31.25%[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Recommendations projected to improve on-time delivery by 20%[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CASE WHEN</span></div>
+            <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- [Note: All other original cards should be here, tagged with data-cat="pbi", "excel", or "sql"] -->
 
 </div>
 
-<!-- MODAL SECTION (Fixed for Full View) -->
 <div id="imgModal" class="modal" onclick="closeModal()">
     <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
     <img class="modal-img" id="modalImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="modal-caption" id="modalCaption"></div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer-brand">
     <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
 </div>
 
 <script>
-    // Project Filtering Logic
     function filterProjects(cat, btn) {
+        // Update active button state
         document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-        document.querySelectorAll(".project-card").forEach(card => {
-            var cats = card.dataset.cat.split(" ");
-            card.style.display = (cat === "all" || cats.includes(cat)) ? "flex" : "none";
+
+        const cards = document.querySelectorAll(".project-card");
+        
+        cards.forEach(card => {
+            // Get categories from the card (some have multiple)
+            const cardCats = card.getAttribute("data-cat").split(" ");
+            
+            if (cat === "all") {
+                card.style.display = "flex";
+            } else if (cardCats.includes(cat)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
         });
     }
 
-    // Modal Full Size Logic
     function openModal(src, caption) {
         const modalImg = document.getElementById("modalImg");
         const modalCaption = document.getElementById("modalCaption");
         const modal = document.getElementById("imgModal");
 
-        modalImg.src = src; // Sets the high-res image source
+        modalImg.src = src;
         modalCaption.textContent = caption || "";
         modal.classList.add("open");
-        document.body.style.overflow = "hidden"; // Prevent background scrolling
+        document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
@@ -398,7 +499,6 @@
         document.body.style.overflow = "";
     }
 
-    // Close on Escape key
     document.addEventListener("keydown", function(e) {
         if (e.key === "Escape") closeModal();
     });
