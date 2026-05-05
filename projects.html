@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,6 +227,7 @@
             transform:translateY(-1px);
         }
 
+        /* FULL SIZE MODAL STYLES */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
             background:rgba(0,0,0,0.95);
@@ -317,8 +317,8 @@
             <div class="card-title">End-to-End-Data-Analytics-Case-Study-NexaDistrib</div>
             <p class="card-desc">
                 <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance[cite: 2].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive reliability gap[cite: 2].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan to reduce stockouts by 50%[cite: 2].
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive 33-point reliability gap vs Gold-tier[cite: 2].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan projected to reduce stockouts by 50% and storage costs by 15%[cite: 2].
             </p>
             <div class="tool-tags">
                 <span class="tool-tag">SQL Server</span>
@@ -341,11 +341,11 @@
             <span class="card-category">E-Commerce</span>
             <div class="card-title">Pakistan E-Commerce Analytics (2022–2024)</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Scaling revenue with no visibility into which categories were actually profitable[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> PKR 1.21M e-commerce business scaling with no category-level profit visibility[cite: 1].<br><br>
                 <strong style="color:#e2d4f0;">📊 Finding:</strong> Electronics drives 64% of revenue but at only 19% margin[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Digital payment incentives projected to unlock 25% revenue growth[cite: 1].
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Projected to unlock 25% revenue growth without margin erosion[cite: 1].
             </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span><span class="tool-tag">DAX</span></div>
             <a href="https://github.com/Khurramnaveed3233/Pakistan-E-Commerce-Analytics-Dashboard-2022-2024-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
@@ -357,15 +357,243 @@
         </div>
         <div class="card-body">
             <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Security</span>
+            <span class="card-category">Global Security</span>
             <div class="card-title">Global Terrorism Analysis</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need for a structured framework to identify dangerous actors across 96,000+ incidents[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Explosives are the dominant attack method; 2017 is the peak year[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Produced threat intelligence map for security resource deployment[cite: 1].
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need for a framework to identify dangerous regions across 96,000+ incidents[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Taliban, ISIS & Boko Haram are deadliest. 2017 was the peak year[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Evidence-based security resource deployment map[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('AmazonPowerBI.png','Amazon Sales BI')">
+            <img src="AmazonPowerBI.png" alt="Amazon Sales BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Executive</span>
+            <div class="card-title">Amazon Sales BI</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No executive view of $1.2M revenue across 5,400+ orders to monitor growth quality[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Wireless Headphones is the #1 product. 12% MoM growth confirmed[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Built executive data layer to drive category investment decisions[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Bhatti Property Managment Dashboard.jpg','Bhatti Real Estate')">
+            <img src="Bhatti Property Managment Dashboard.jpg" alt="Bhatti Real Estate">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Real Estate</span>
+            <div class="card-title">Bhatti Real Estate</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Pricing inconsistency driven by unknown renovation status effects[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Ultra-premium waterfront units were being underpriced despite high margins[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Delivered ROI matrix and dynamic pricing framework[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">Power Query</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Property-Management-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Data Professional Survey Analysis Dashboard.jpg','Data Survey Breakdown')">
+            <img src="Data Professional Survey Analysis Dashboard.jpg" alt="Data Survey Breakdown">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Survey</span>
+            <div class="card-title">Data Survey Breakdown</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> HR teams lacked benchmark for salary levels and skill demand globally[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Python is #1 skill. Avg work-life balance is 5.74/10—a retention risk[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Enabled data-backed compensation benchmarking[cite: 1].
             </p>
             <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+            <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Electronics Sales Dashboard.jpg','Electronics Sales')">
+            <img src="Electronics Sales Dashboard.jpg" alt="Electronics Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Tech</span>
+            <div class="card-title">Electronics Sales</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Reactive rather than strategic promotion planning[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> December peaks at $67K. North region leads at $142K revenue[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Launched promotions ahead of confirmed peaks[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">Power Query</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Financial Sales Analysis Dashboard.jpg','Financial Sales Report')">
+            <img src="Financial Sales Analysis Dashboard.jpg" alt="Financial Sales Report">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Finance</span>
+            <div class="card-title">Financial Sales Report</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Discount strategies inflating gross sales but eroding real profit[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Paseo product drives $5M profit (28% of total)[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Reformed discount policy to protect bottom-line growth[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg','HR Workforce Analysis')">
+            <img src="HR Analytics Dashboard.jpg" alt="HR Workforce Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">HR</span>
+            <div class="card-title">HR Workforce Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> 16% संगठन-व्यापी attrition with no visibility into root causes[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Life Sciences attrition: 39% costing Rs.2.8 Cr/year[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Modelled interventions projected to save Rs.3.1 Cr annually[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/HR-Talent-Analytics-CodeNest-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Jazz Telecom Data Analysis Dashboard.jpg','Jazz Telecom Analysis')">
+            <img src="Jazz Telecom Data Analysis Dashboard.jpg" alt="Jazz Telecom Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Telecom</span>
+            <div class="card-title">Jazz Telecom Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need to detect early churn signals and align network investment[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Early churn indicators detected via CTEs before cancellation[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Re-prioritised capital investment toward data infrastructure[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('TrendMart Sales Analysis Dashboard.jpg','TrendMart Sales')">
+            <img src="TrendMart Sales Analysis Dashboard.jpg" alt="TrendMart Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Retail</span>
+            <div class="card-title">TrendMart Sales</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No data on customer spending windows to optimise staffing[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Revenue peaks in Feb, Mar & Dec. Adults (53%) are top spenders[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Optimised shift scheduling based on sales-window windows[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/TrendMart-Sales-Analysis-Dashboard-in-PowerBI" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Xmart sales Dashboard.jpg','X-Mart Sales')">
+            <img src="Xmart sales Dashboard.jpg" alt="X-Mart Sales">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Executive</span>
+            <div class="card-title">X-Mart Sales</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need a 3-year strategic view of $99M revenue to guide investment[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Samsung (16%) and Dell (14%) are highest-value brands[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Case for discontinuing underperforming SKUs built[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg','Samsung Pakistan')">
+            <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Samsung Pakistan">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Regional</span>
+            <div class="card-title">Samsung Pakistan</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Regional sales team had no channel-level performance data[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Karachi leads. Distributor stores miss targets consistently[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Delivered channel strategy on a 7-table normalised data model[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('Bank Customer Churn Analysis Dashboard.jpg','Bank Churn Analysis')">
+            <img src="Bank Customer Churn Analysis Dashboard.jpg" alt="Bank Churn Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Churn</span>
+            <div class="card-title">Bank Churn Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Retail bank losing customers with no demographics view of attrition[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Product 4: 69% churn—clearly failing its users[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Prioritised retention spend by segment to maximise recovery[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('I Point Sales Dashboard.jpg','I-Point Performance')">
+            <img src="I Point Sales Dashboard.jpg" alt="I-Point Performance">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Inventory</span>
+            <div class="card-title">I-Point Performance</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> 304% revenue growth but leadership blind to margin erosion[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> 34% avg discount rate is the primary margin threat[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Reformed discount structure to align growth with profit[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
+            <a href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
@@ -377,15 +605,34 @@
         </div>
         <div class="card-body">
             <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">Safety</span>
+            <span class="card-category">Road Safety</span>
             <div class="card-title">Road Accident Dashboard</div>
             <p class="card-desc">
                 <strong style="color:#e2d4f0;">🔴 Problem:</strong> No data-driven framework to prioritise infrastructure spend[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Cars caused 79.8% of incidents. Single-carriageways are highest-risk[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Single-carriageway roads account for 390K casualties[cite: 1].<br><br>
                 <strong style="color:#e2d4f0;">✅ Impact:</strong> Risk map to direct enforcement and redesign investment[cite: 1].
             </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span></div>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span><span class="tool-tag">Slicers</span></div>
             <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('Call Centre Data Analysis Excel Project.jpg','Call Centre Analysis')">
+            <img src="Call Centre Data Analysis Excel Project.jpg" alt="Call Centre Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">Operations</span>
+            <div class="card-title">Call Centre Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No view of which segments were driving high-value conversions[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top agent F05 consistently outperformed peers[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Identified Rs.18K daily revenue opportunity via playbook[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
@@ -399,16 +646,73 @@
             <span class="card-category">Sales</span>
             <div class="card-title">Coffee Sales Dashboard</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Identify which markets and seasons drive disproportionate revenue[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> USA leads at ~750 units. Top 5 customers generate revenue far above order share[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Enabled smarter inventory planning and active retention management[cite: 1].
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Mult-country retailer with no view of revenue drivers[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 5 customers generate revenue far above order share[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Flagged top accounts for active retention management[cite: 1].
             </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Dynamic Charts</span></div>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span></div>
             <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('CRM Dahboard in Excel.jpg','CRM Dashboard')">
+            <img src="CRM Dahboard in Excel.jpg" alt="CRM Dashboard">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">CRM</span>
+            <div class="card-title">CRM Dashboard</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Leadership making pipeline decisions blind without data[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Mid-funnel stages accounted for majority of lost deals[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Pinpointed bottlenecks for targeted coaching[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Google Sheets</span><span class="tool-tag">Formulas</span></div>
+            <a href="https://github.com/Khurramnaveed3233/CRM-Sales-Dashboard-for-SoftTech-in-Google-Sheet" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="excel">
+        <div class="img-box" onclick="openModal('ECOMMERCE SALES ANALYSIS.jpg','Ecommerce Sales Analysis')">
+            <img src="ECOMMERCE SALES ANALYSIS.jpg" alt="Ecommerce Sales Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
+            <span class="card-category">E-Commerce</span>
+            <div class="card-title">Ecommerce Sales Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> $484K sales masked compressed margins with no clarity[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Phones are the #1 product. Technology leads profit[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Redirected budget toward highest-margin product lines[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Power BI</span></div>
+            <a href="https://github.com/Khurramnaveed3233/ECOMMERCE-SALES-ANALYSIS." class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
     <!-- ═══════════ SQL PROJECTS ═══════════ -->
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('AmazonSQL.png','Amazon SQL Analysis')">
+            <img src="AmazonSQL.png" alt="Amazon SQL Analysis">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Optimizing</span>
+            <div class="card-title">Amazon SQL Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need pure SQL approach for commercial questions[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Pareto trends confirmed top-customer revenue concentration[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Framework for segmentation and demand forecasting[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">Window Functions</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
     <div class="project-card" data-cat="sql">
         <div class="img-box" onclick="openModal('ola_sql.jpg','Ola NZ SQL Analysis')">
             <img src="ola_sql.jpg" alt="Ola NZ SQL Analysis">
@@ -419,9 +723,9 @@
             <span class="card-category">Diagnostics</span>
             <div class="card-title">Ola NZ SQL Analysis</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Diagnose cancellation rates and fare performance variance[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Wellington's cancellation rate is 18%—double the city average[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Projected to unlock NZD 3.1M+ in incremental annual revenue[cite: 1].
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Operations need to diagnose city-level cancellation rates[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Wellington's cancellation rate is 18%—double the average[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Projected to unlock NZD 3.1M+ annual revenue[cite: 1].
             </p>
             <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span></div>
             <a href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
@@ -435,47 +739,109 @@
         </div>
         <div class="card-body">
             <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
-            <span class="card-category">Logistics</span>
+            <span class="card-category">Supply Chain</span>
             <div class="card-title">TCS Logistics Karachi</div>
             <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Breaching 48-hour SLA with no data-driven breakdown of delays[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Avg delivery: 58 hrs (21% above SLA). Bank return rate: 31.25%[cite: 1].<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Recommendations projected to improve on-time delivery by 20%[cite: 1].
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> TCS Karachi breaching 48-hour SLA with no delay view[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Avg delivery: 58 hrs. Bank return rate: 31.25%[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Improvement of on-time delivery by 20% projected[cite: 1].
             </p>
-            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CASE WHEN</span></div>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">CASE WHEN</span></div>
             <a href="https://github.com/Khurramnaveed3233/SQL-Analytics-for-TCS-Logistics-Karachi-Branch-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
         </div>
     </div>
 
-    <!-- [Note: All other original cards should be here, tagged with data-cat="pbi", "excel", or "sql"] -->
+    <div class="project-card" data-cat="sql" id="kapsCard">
+        <div class="img-box" id="kapsBox">
+            <img id="kapsImg" src="" alt="Kap's Cafe Analysis" style="width:100%;height:190px;object-fit:cover;display:block;opacity:0.82;">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Growth</span>
+            <div class="card-title">Kap's Café Analysis</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Monthly revenue stable but demand windows were reactive[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Customers spend more per visit during low-order months[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Operations team now plans staffing ahead of spikes[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg','Airbnb Pakistan 2025')">
+            <img src="Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project.jpg" alt="Airbnb Pakistan 2025">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Market Simulation</span>
+            <div class="card-title">Airbnb Pakistan 2025</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No local dataset exists for property investor pricing[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 3 listings drive 63% of total Karachi revenue[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Identified gap for mid-tier host positioning strategy[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">CTEs</span><span class="tool-tag">RANK</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Airbnb-Pakistan-2025-A-SQL-Powered-Business-Insights-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card" data-cat="sql">
+        <div class="img-box" onclick="openModal('Spotify-Data-Analysis-using-SQL.jpg','Spotify Engagement')">
+            <img src="Spotify-Data-Analysis-using-SQL.jpg" alt="Spotify Engagement">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="card-category">Engagement</span>
+            <div class="card-title">Spotify Engagement</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need to know what format drives listener retention[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Tracks with official videos drive higher cross-platform engagement[cite: 1].<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Data-backed roster for localised playlist curation[cite: 1].
+            </p>
+            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Window Functions</span></div>
+            <a href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
 
 </div>
 
+<!-- MODAL -->
 <div id="imgModal" class="modal" onclick="closeModal()">
     <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
     <img class="modal-img" id="modalImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="modal-caption" id="modalCaption"></div>
 </div>
 
+<!-- FOOTER -->
 <div class="footer-brand">
     <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
 </div>
 
 <script>
+    (function() {
+        var fname = "Kap\u2019s Caf\u00e9 \u2013 SQL Analytics Project.jpg";
+        var kapsImg = document.getElementById("kapsImg");
+        if (kapsImg) {
+            kapsImg.src = fname;
+            document.getElementById("kapsBox").addEventListener("click", function() {
+                openModal(fname, "Kap's Café Analysis");
+            });
+        }
+    })();
+
     function filterProjects(cat, btn) {
-        // Update active button state
         document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
         const cards = document.querySelectorAll(".project-card");
-        
         cards.forEach(card => {
-            // Get categories from the card (some have multiple)
             const cardCats = card.getAttribute("data-cat").split(" ");
-            
-            if (cat === "all") {
-                card.style.display = "flex";
-            } else if (cardCats.includes(cat)) {
+            if (cat === "all" || cardCats.includes(cat)) {
                 card.style.display = "flex";
             } else {
                 card.style.display = "none";
@@ -484,13 +850,9 @@
     }
 
     function openModal(src, caption) {
-        const modalImg = document.getElementById("modalImg");
-        const modalCaption = document.getElementById("modalCaption");
-        const modal = document.getElementById("imgModal");
-
-        modalImg.src = src;
-        modalCaption.textContent = caption || "";
-        modal.classList.add("open");
+        document.getElementById("modalImg").src = src;
+        document.getElementById("modalCaption").textContent = caption || "";
+        document.getElementById("imgModal").classList.add("open");
         document.body.style.overflow = "hidden";
     }
 
