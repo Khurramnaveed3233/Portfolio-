@@ -1,47 +1,193 @@
 <!-- ===================================================== -->
-<!-- WORLD-CLASS DATA ANALYST SKILLS SECTION -->
-<!-- Replace ONLY old pipeline section with this -->
+<!-- FIXES + PREMIUM IMPROVEMENTS -->
+<!-- Add/Replace these parts in existing code -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
+<!-- 1. NAVBAR FIX -->
+<!-- Put this ABOVE analytics-section -->
+<!-- ===================================================== -->
+
+<nav class="premium-nav">
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+
+</nav>
+
+<style>
+
+/* ===================================================== */
+/* PREMIUM NAVBAR */
+/* ===================================================== */
+
+.premium-nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 34px;
+
+    padding: 22px 30px;
+
+    backdrop-filter: blur(18px);
+
+    background: rgba(10,5,20,0.78);
+
+    border-bottom: 1px solid rgba(192,132,252,0.08);
+}
+
+.premium-nav a {
+
+    position: relative;
+
+    text-decoration: none;
+
+    color: #bca8d7;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: 0.35s ease;
+}
+
+.premium-nav a:hover,
+.premium-nav a.active {
+
+    color: #fff;
+}
+
+.premium-nav a::after {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0%;
+    height: 2px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        90deg,
+        #c084fc,
+        #7c3aed
+    );
+
+    transition: 0.35s ease;
+}
+
+.premium-nav a:hover::after,
+.premium-nav a.active::after {
+
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    .premium-nav {
+
+        gap: 14px;
+
+        flex-wrap: wrap;
+
+        padding: 18px;
+    }
+
+    .premium-nav a {
+
+        font-size: 0.7rem;
+    }
+}
+
+</style>
+
+<!-- ===================================================== -->
+<!-- 2. LOGO FIXES -->
+<!-- Replace ONLY card-icon divs -->
+<!-- ===================================================== -->
+
+<!-- EXCEL ICON -->
+
+<div class="card-icon excel-icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2019_present.svg" alt="Excel Logo">
+</div>
+
+<!-- SQL ICON -->
+
+<div class="card-icon sql-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="SQL Logo">
+</div>
+
+<!-- POWER BI ICON -->
+
+<div class="card-icon pbi-icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo">
+</div>
+
+<!-- INSIGHTS ICON -->
+
+<div class="card-icon insights-icon">
+    <i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<!-- ===================================================== -->
+<!-- 3. REPLACE OLD .card-icon CSS WITH THIS -->
 <!-- ===================================================== -->
 
 <style>
 
 /* ===================================================== */
-/* ELITE ANALYTICS SECTION */
+/* PREMIUM ICON DESIGN */
 /* ===================================================== */
 
-.analytics-section {
+.card-icon {
+
+    width: 95px;
+    height: 95px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 30px;
 
     position: relative;
 
-    max-width: 1350px;
-
-    margin: 90px auto 0;
-
-    padding: 90px 60px;
-
-    border-radius: 40px;
-
     overflow: hidden;
 
-    background:
-        linear-gradient(
-            135deg,
-            #12071f 0%,
-            #1a0b2e 45%,
-            #090312 100%
-        );
+    border: 1px solid rgba(255,255,255,0.08);
 
-    border: 1px solid rgba(192,132,252,0.12);
+    backdrop-filter: blur(18px);
 
-    box-shadow:
-        0 0 80px rgba(124,58,237,0.12),
-        inset 0 0 40px rgba(255,255,255,0.02);
-
+    transition: 0.4s ease;
 }
 
-/* glowing mesh background */
+/* glow effect */
 
-.analytics-section::before {
+.card-icon::before {
 
     content: '';
 
@@ -50,585 +196,175 @@
     inset: 0;
 
     background:
-        radial-gradient(circle at 20% 20%, rgba(192,132,252,0.12), transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(124,58,237,0.12), transparent 25%),
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            transparent
+        );
 
-    background-size:
-        auto,
-        auto,
-        50px 50px,
-        50px 50px;
-
-    pointer-events: none;
+    opacity: 0;
+    transition: 0.4s;
 }
 
-/* ===================================================== */
-/* HEADER */
-/* ===================================================== */
+.analytics-card:hover .card-icon::before {
 
-.analytics-header {
+    opacity: 1;
+}
 
-    text-align: center;
+/* logos */
+
+.card-icon img {
+
+    width: 46px;
+    height: 46px;
+
+    object-fit: contain;
 
     position: relative;
 
     z-index: 2;
-
-    margin-bottom: 80px;
 }
 
-.analytics-badge {
+/* insights icon */
 
-    display: inline-flex;
+.insights-icon i {
 
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 10px 22px;
-
-    border-radius: 999px;
-
-    background: rgba(192,132,252,0.08);
-
-    border: 1px solid rgba(192,132,252,0.18);
-
-    margin-bottom: 28px;
-
-    color: #d7c4f5;
-
-    font-size: 0.78rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-.analytics-badge span {
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #c084fc;
-
-    box-shadow:
-        0 0 10px #c084fc,
-        0 0 20px #c084fc;
-}
-
-.analytics-header h2 {
-
-    font-family: 'Syne', sans-serif;
-
-    font-size: 3.3rem;
-
-    line-height: 1.1;
-
-    font-weight: 800;
+    font-size: 2.3rem;
 
     color: #fff;
 
-    margin-bottom: 22px;
-}
-
-.analytics-header h2 em {
-
-    font-style: normal;
-
-    background: linear-gradient(
-        90deg,
-        #c084fc,
-        #7c3aed
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.analytics-header p {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    color: #9d8fb1;
-
-    line-height: 1.9;
-
-    font-size: 1.02rem;
-}
-
-/* ===================================================== */
-/* STATS ROW */
-/* ===================================================== */
-
-.analytics-stats {
-
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 22px;
-
-    margin-bottom: 70px;
-
     position: relative;
 
     z-index: 2;
 }
 
-.stat-card {
+/* excel */
 
-    padding: 28px;
-
-    border-radius: 24px;
+.excel-icon {
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.04),
-            rgba(255,255,255,0.015)
+            rgba(34,197,94,0.28),
+            rgba(34,197,94,0.08)
         );
 
-    border: 1px solid rgba(192,132,252,0.1);
-
-    backdrop-filter: blur(16px);
-
-    transition: 0.35s ease;
+    box-shadow:
+        0 0 35px rgba(34,197,94,0.18);
 }
 
-.stat-card:hover {
+/* sql */
 
-    transform: translateY(-8px);
+.sql-icon {
 
-    border-color: rgba(192,132,252,0.35);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(192,132,252,0.28),
+            rgba(124,58,237,0.08)
+        );
 
     box-shadow:
-        0 20px 50px rgba(124,58,237,0.18);
+        0 0 35px rgba(192,132,252,0.18);
 }
 
-.stat-card h3 {
+/* power bi */
 
-    font-family: 'Syne', sans-serif;
+.pbi-icon {
 
-    font-size: 2rem;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(242,200,17,0.28),
+            rgba(242,200,17,0.08)
+        );
 
-    color: #fff;
-
-    margin-bottom: 10px;
+    box-shadow:
+        0 0 35px rgba(242,200,17,0.18);
 }
 
-.stat-card p {
+/* insights */
 
-    color: #9f8fb3;
+.insights-icon {
 
-    font-size: 0.88rem;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(192,132,252,0.28),
+            rgba(124,58,237,0.08)
+        );
 
-    line-height: 1.6;
+    box-shadow:
+        0 0 35px rgba(192,132,252,0.18);
+}
+
+/* hover */
+
+.analytics-card:hover .card-icon {
+
+    transform: translateY(-6px) scale(1.04);
+
+    border-color: rgba(255,255,255,0.18);
 }
 
 /* ===================================================== */
-/* SKILLS GRID */
-/* ===================================================== */
-
-.analytics-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 28px;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-/* ===================================================== */
-/* SKILL CARD */
+/* EXTRA ELEGANCE */
 /* ===================================================== */
 
 .analytics-card {
 
-    position: relative;
+    min-height: 100%;
+}
 
-    overflow: hidden;
+.analytics-card h3 {
 
-    padding: 38px;
-
-    border-radius: 32px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid rgba(192,132,252,0.12);
-
-    backdrop-filter: blur(18px);
-
-    transition: all 0.4s ease;
+    letter-spacing: -0.5px;
 }
 
 .analytics-card:hover {
 
-    transform: translateY(-12px);
-
-    border-color: rgba(192,132,252,0.4);
+    transform: translateY(-14px);
 
     box-shadow:
-        0 30px 80px rgba(124,58,237,0.22);
+        0 35px 90px rgba(124,58,237,0.25);
 }
 
-/* glow corner */
+/* animated border glow */
 
-.analytics-card::before {
+.analytics-card::after {
 
     content: '';
 
     position: absolute;
 
-    width: 220px;
-    height: 220px;
+    inset: 0;
 
-    border-radius: 50%;
+    border-radius: inherit;
 
-    top: -100px;
-    right: -100px;
+    padding: 1px;
 
     background:
-        radial-gradient(circle,
-            rgba(192,132,252,0.16),
-            transparent 70%);
+        linear-gradient(
+            135deg,
+            rgba(192,132,252,0.4),
+            transparent,
+            transparent
+        );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
 
     opacity: 0;
 
     transition: 0.4s;
 }
 
-.analytics-card:hover::before {
+.analytics-card:hover::after {
 
     opacity: 1;
 }
 
-/* icon */
-
-.card-icon {
-
-    width: 82px;
-    height: 82px;
-
-    border-radius: 24px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 28px;
-
-    font-size: 2rem;
-
-    color: #fff;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(192,132,252,0.28),
-            rgba(124,58,237,0.12)
-        );
-
-    border: 1px solid rgba(192,132,252,0.22);
-
-    box-shadow:
-        0 0 25px rgba(192,132,252,0.18);
-}
-
-/* titles */
-
-.analytics-card h3 {
-
-    font-family: 'Syne', sans-serif;
-
-    font-size: 1.6rem;
-
-    color: #fff;
-
-    margin-bottom: 12px;
-}
-
-.analytics-card h4 {
-
-    color: #c084fc;
-
-    font-size: 0.82rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 20px;
-}
-
-.analytics-card p {
-
-    color: #a99cb9;
-
-    line-height: 1.9;
-
-    font-size: 0.92rem;
-
-    margin-bottom: 26px;
-}
-
-/* skill tags */
-
-.skill-tags {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-}
-
-.skill-tags span {
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    background: rgba(255,255,255,0.04);
-
-    border: 1px solid rgba(192,132,252,0.1);
-
-    color: #d9caec;
-
-    font-size: 0.75rem;
-
-    font-weight: 600;
-}
-
-/* ===================================================== */
-/* RESPONSIVE */
-/* ===================================================== */
-
-@media (max-width: 1000px) {
-
-    .analytics-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .analytics-stats {
-
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .analytics-header h2 {
-
-        font-size: 2.4rem;
-    }
-}
-
-@media (max-width: 700px) {
-
-    .analytics-section {
-
-        padding: 70px 24px;
-    }
-
-    .analytics-stats {
-
-        grid-template-columns: 1fr;
-    }
-
-    .analytics-header h2 {
-
-        font-size: 2rem;
-    }
-}
-
 </style>
-
-<!-- ===================================================== -->
-<!-- HTML -->
-<!-- ===================================================== -->
-
-<section class="analytics-section">
-
-    <!-- HEADER -->
-
-    <div class="analytics-header">
-
-        <div class="analytics-badge">
-            <span></span>
-            Analytics Workflow Expertise
-        </div>
-
-        <h2>
-            Transforming Raw Data Into <br>
-            <em>Business Intelligence</em>
-        </h2>
-
-        <p>
-            A modern analytics workflow built around data cleaning, SQL querying,
-            dashboard storytelling, and actionable business insights —
-            designed to solve real-world business problems through data.
-        </p>
-
-    </div>
-
-    <!-- STATS -->
-
-    <div class="analytics-stats">
-
-        <div class="stat-card">
-            <h3>10+</h3>
-            <p>Hands-on analytics projects built using real business datasets.</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>5+</h3>
-            <p>Interactive dashboards created in Power BI & Excel.</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>1.5+</h3>
-            <p>Years of continuous learning in analytics and BI tools.</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>100%</h3>
-            <p>Focused on data-driven decision making and storytelling.</p>
-        </div>
-
-    </div>
-
-    <!-- GRID -->
-
-    <div class="analytics-grid">
-
-        <!-- EXCEL -->
-
-        <div class="analytics-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-file-excel"></i>
-            </div>
-
-            <h4>Step 01 · Data Cleaning</h4>
-
-            <h3>Excel & Spreadsheets</h3>
-
-            <p>
-                Cleaning messy datasets, transforming raw business data,
-                creating Pivot Tables, and performing exploratory data analysis
-                using advanced Excel functions and Power Query.
-            </p>
-
-            <div class="skill-tags">
-                <span>XLOOKUP</span>
-                <span>Pivot Tables</span>
-                <span>Power Query</span>
-                <span>Data Cleaning</span>
-                <span>EDA</span>
-            </div>
-
-        </div>
-
-        <!-- SQL -->
-
-        <div class="analytics-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-database"></i>
-            </div>
-
-            <h4>Step 02 · Data Querying</h4>
-
-            <h3>SQL & Databases</h3>
-
-            <p>
-                Writing optimized SQL queries using joins, subqueries,
-                CTEs, Window Functions, and Stored Procedures
-                to extract insights from relational databases.
-            </p>
-
-            <div class="skill-tags">
-                <span>CTEs</span>
-                <span>Window Functions</span>
-                <span>Joins</span>
-                <span>Stored Procedures</span>
-                <span>SQL Server</span>
-            </div>
-
-        </div>
-
-        <!-- POWER BI -->
-
-        <div class="analytics-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-chart-column"></i>
-            </div>
-
-            <h4>Step 03 · Visualization</h4>
-
-            <h3>Power BI Dashboards</h3>
-
-            <p>
-                Designing interactive dashboards with KPI cards,
-                DAX calculations, drill-through reports,
-                and storytelling visuals for executive decision making.
-            </p>
-
-            <div class="skill-tags">
-                <span>DAX</span>
-                <span>KPI Cards</span>
-                <span>Data Modeling</span>
-                <span>Drill Through</span>
-                <span>Storytelling</span>
-            </div>
-
-        </div>
-
-        <!-- INSIGHTS -->
-
-        <div class="analytics-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-lightbulb"></i>
-            </div>
-
-            <h4>Step 04 · Business Insights</h4>
-
-            <h3>Strategic Thinking</h3>
-
-            <p>
-                Turning analytics outputs into actionable business insights,
-                identifying growth opportunities, improving KPIs,
-                and communicating findings clearly to stakeholders.
-            </p>
-
-            <div class="skill-tags">
-                <span>Problem Solving</span>
-                <span>Decision Making</span>
-                <span>KPI Analysis</span>
-                <span>Communication</span>
-                <span>Business Thinking</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
