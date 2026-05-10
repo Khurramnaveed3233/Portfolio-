@@ -1,422 +1,634 @@
-<!-- ========================= -->
-<!-- PREMIUM ANALYTICS PIPELINE -->
+<!-- ===================================================== -->
+<!-- WORLD-CLASS DATA ANALYST SKILLS SECTION -->
 <!-- Replace ONLY old pipeline section with this -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
 <style>
 
-/* ───────────────────────────── */
-/* PREMIUM ANALYTICS PIPELINE */
-/* ───────────────────────────── */
+/* ===================================================== */
+/* ELITE ANALYTICS SECTION */
+/* ===================================================== */
 
-.pipeline {
+.analytics-section {
+
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding: 60px 30px;
-    z-index: 2;
-    gap: 20px;
-}
 
-/* glowing animated line */
-.pipeline::before {
-    content: '';
-    position: absolute;
-    top: 105px;
-    left: 8%;
-    width: 84%;
-    height: 4px;
+    max-width: 1350px;
 
-    background: linear-gradient(
-        90deg,
-        rgba(124,58,237,0.15),
-        rgba(192,132,252,1),
-        rgba(124,58,237,0.15)
-    );
+    margin: 90px auto 0;
 
-    border-radius: 50px;
+    padding: 90px 60px;
+
+    border-radius: 40px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #12071f 0%,
+            #1a0b2e 45%,
+            #090312 100%
+        );
+
+    border: 1px solid rgba(192,132,252,0.12);
 
     box-shadow:
-        0 0 20px rgba(192,132,252,0.5),
-        0 0 40px rgba(124,58,237,0.35);
+        0 0 80px rgba(124,58,237,0.12),
+        inset 0 0 40px rgba(255,255,255,0.02);
 
-    z-index: 0;
 }
 
-/* floating dashboard glow */
-.pipeline::after {
+/* glowing mesh background */
+
+.analytics-section::before {
+
     content: '';
+
     position: absolute;
+
     inset: 0;
 
     background:
-        radial-gradient(circle at 15% 30%, rgba(192,132,252,0.12), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(124,58,237,0.12), transparent 20%),
-        radial-gradient(circle at 60% 20%, rgba(255,255,255,0.04), transparent 18%);
+        radial-gradient(circle at 20% 20%, rgba(192,132,252,0.12), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(124,58,237,0.12), transparent 25%),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size:
+        auto,
+        auto,
+        50px 50px,
+        50px 50px;
 
     pointer-events: none;
 }
 
-/* pipeline step */
-.pip-step {
+/* ===================================================== */
+/* HEADER */
+/* ===================================================== */
+
+.analytics-header {
+
+    text-align: center;
+
     position: relative;
+
     z-index: 2;
 
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.analytics-badge {
+
+    display: inline-flex;
+
     align-items: center;
 
-    width: 210px;
+    gap: 10px;
 
-    transition: transform 0.35s ease;
+    padding: 10px 22px;
+
+    border-radius: 999px;
+
+    background: rgba(192,132,252,0.08);
+
+    border: 1px solid rgba(192,132,252,0.18);
+
+    margin-bottom: 28px;
+
+    color: #d7c4f5;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
-.pip-step:hover {
-    transform: translateY(-12px);
-}
+.analytics-badge span {
 
-/* big glowing node */
-.pip-num {
-    width: 110px;
-    height: 110px;
+    width: 8px;
+    height: 8px;
+
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(192,132,252,0.22),
-            rgba(124,58,237,0.08)
-        );
-
-    border: 2px solid rgba(192,132,252,0.4);
-
-    backdrop-filter: blur(20px);
+    background: #c084fc;
 
     box-shadow:
-        0 0 30px rgba(192,132,252,0.2),
-        inset 0 0 25px rgba(255,255,255,0.05);
-
-    transition: all 0.35s ease;
+        0 0 10px #c084fc,
+        0 0 20px #c084fc;
 }
 
-.pip-num i {
-    font-size: 2.3rem;
-    color: #fff;
-}
-
-.pip-step:hover .pip-num {
-
-    transform: scale(1.08);
-
-    border-color: rgba(192,132,252,0.8);
-
-    box-shadow:
-        0 0 40px rgba(192,132,252,0.7),
-        0 0 80px rgba(124,58,237,0.45),
-        inset 0 0 30px rgba(255,255,255,0.08);
-}
-
-/* glowing pulse ring */
-.pip-num::before {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border-radius: 50%;
-
-    border: 1px solid rgba(192,132,252,0.15);
-
-    animation: pulseRing 3s infinite;
-}
-
-@keyframes pulseRing {
-
-    0% {
-        transform: scale(0.95);
-        opacity: 0.5;
-    }
-
-    70% {
-        transform: scale(1.08);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1.12);
-        opacity: 0;
-    }
-}
-
-/* labels */
-.pip-label {
-
-    margin-top: 22px;
+.analytics-header h2 {
 
     font-family: 'Syne', sans-serif;
-    font-size: 1rem;
+
+    font-size: 3.3rem;
+
+    line-height: 1.1;
+
     font-weight: 800;
 
     color: #fff;
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    text-align: center;
+    margin-bottom: 22px;
 }
 
-/* descriptions */
-.pip-desc {
+.analytics-header h2 em {
 
-    margin-top: 10px;
+    font-style: normal;
 
-    font-size: 0.82rem;
-    line-height: 1.7;
+    background: linear-gradient(
+        90deg,
+        #c084fc,
+        #7c3aed
+    );
 
-    color: var(--muted);
-
-    text-align: center;
-
-    max-width: 190px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* floating mini KPI card */
-.pip-mini {
+.analytics-header p {
 
-    position: absolute;
+    max-width: 760px;
 
-    top: -20px;
-    right: -12px;
+    margin: auto;
 
-    padding: 7px 12px;
+    color: #9d8fb1;
 
-    border-radius: 14px;
+    line-height: 1.9;
 
-    background: rgba(15,7,32,0.92);
+    font-size: 1.02rem;
+}
 
-    border: 1px solid rgba(192,132,252,0.22);
+/* ===================================================== */
+/* STATS ROW */
+/* ===================================================== */
 
-    backdrop-filter: blur(14px);
+.analytics-stats {
 
-    font-size: 0.65rem;
-    font-weight: 700;
+    display: grid;
 
-    color: #d8c8f2;
+    grid-template-columns: repeat(4,1fr);
 
-    letter-spacing: 0.5px;
+    gap: 22px;
+
+    margin-bottom: 70px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.stat-card {
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid rgba(192,132,252,0.1);
+
+    backdrop-filter: blur(16px);
+
+    transition: 0.35s ease;
+}
+
+.stat-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(192,132,252,0.35);
 
     box-shadow:
-        0 0 20px rgba(192,132,252,0.12);
+        0 20px 50px rgba(124,58,237,0.18);
 }
 
-/* floating KPI widgets */
-.pipeline-widget {
-
-    position: absolute;
-
-    background: rgba(15,7,32,0.72);
-
-    border: 1px solid rgba(192,132,252,0.15);
-
-    backdrop-filter: blur(14px);
-
-    border-radius: 18px;
-
-    padding: 14px 18px;
-
-    box-shadow:
-        0 0 30px rgba(124,58,237,0.12);
-
-    z-index: 1;
-}
-
-.widget-1 {
-    top: 0;
-    left: 0;
-}
-
-.widget-2 {
-    bottom: 10px;
-    right: 0;
-}
-
-.pipeline-widget h4 {
-
-    font-size: 0.72rem;
-
-    color: var(--muted);
-
-    margin-bottom: 6px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-.pipeline-widget strong {
-
-    font-size: 1.4rem;
+.stat-card h3 {
 
     font-family: 'Syne', sans-serif;
 
+    font-size: 2rem;
+
     color: #fff;
+
+    margin-bottom: 10px;
 }
 
-/* responsive */
+.stat-card p {
+
+    color: #9f8fb3;
+
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+}
+
+/* ===================================================== */
+/* SKILLS GRID */
+/* ===================================================== */
+
+.analytics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 28px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* ===================================================== */
+/* SKILL CARD */
+/* ===================================================== */
+
+.analytics-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 38px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid rgba(192,132,252,0.12);
+
+    backdrop-filter: blur(18px);
+
+    transition: all 0.4s ease;
+}
+
+.analytics-card:hover {
+
+    transform: translateY(-12px);
+
+    border-color: rgba(192,132,252,0.4);
+
+    box-shadow:
+        0 30px 80px rgba(124,58,237,0.22);
+}
+
+/* glow corner */
+
+.analytics-card::before {
+
+    content: '';
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    top: -100px;
+    right: -100px;
+
+    background:
+        radial-gradient(circle,
+            rgba(192,132,252,0.16),
+            transparent 70%);
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+.analytics-card:hover::before {
+
+    opacity: 1;
+}
+
+/* icon */
+
+.card-icon {
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    font-size: 2rem;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(192,132,252,0.28),
+            rgba(124,58,237,0.12)
+        );
+
+    border: 1px solid rgba(192,132,252,0.22);
+
+    box-shadow:
+        0 0 25px rgba(192,132,252,0.18);
+}
+
+/* titles */
+
+.analytics-card h3 {
+
+    font-family: 'Syne', sans-serif;
+
+    font-size: 1.6rem;
+
+    color: #fff;
+
+    margin-bottom: 12px;
+}
+
+.analytics-card h4 {
+
+    color: #c084fc;
+
+    font-size: 0.82rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.analytics-card p {
+
+    color: #a99cb9;
+
+    line-height: 1.9;
+
+    font-size: 0.92rem;
+
+    margin-bottom: 26px;
+}
+
+/* skill tags */
+
+.skill-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.skill-tags span {
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(192,132,252,0.1);
+
+    color: #d9caec;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
 
 @media (max-width: 1000px) {
 
-    .pipeline {
+    .analytics-grid {
 
-        flex-direction: column;
-        align-items: center;
-
-        gap: 70px;
-
-        padding: 20px;
+        grid-template-columns: 1fr;
     }
 
-    .pipeline::before {
+    .analytics-stats {
 
-        width: 4px;
-        height: 85%;
-
-        top: 7%;
-        left: 50%;
-
-        transform: translateX(-50%);
+        grid-template-columns: repeat(2,1fr);
     }
 
-    .pip-step {
-        width: 100%;
+    .analytics-header h2 {
+
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .analytics-section {
+
+        padding: 70px 24px;
     }
 
-    .pipeline-widget {
-        display: none;
+    .analytics-stats {
+
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-header h2 {
+
+        font-size: 2rem;
     }
 }
 
 </style>
 
-<!-- ========================= -->
+<!-- ===================================================== -->
 <!-- HTML -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<div class="pipeline">
+<section class="analytics-section">
 
-    <!-- floating widgets -->
+    <!-- HEADER -->
 
-    <div class="pipeline-widget widget-1">
-        <h4>Projects Built</h4>
-        <strong>10+</strong>
+    <div class="analytics-header">
+
+        <div class="analytics-badge">
+            <span></span>
+            Analytics Workflow Expertise
+        </div>
+
+        <h2>
+            Transforming Raw Data Into <br>
+            <em>Business Intelligence</em>
+        </h2>
+
+        <p>
+            A modern analytics workflow built around data cleaning, SQL querying,
+            dashboard storytelling, and actionable business insights —
+            designed to solve real-world business problems through data.
+        </p>
+
     </div>
 
-    <div class="pipeline-widget widget-2">
-        <h4>Dashboards</h4>
-        <strong>5+</strong>
+    <!-- STATS -->
+
+    <div class="analytics-stats">
+
+        <div class="stat-card">
+            <h3>10+</h3>
+            <p>Hands-on analytics projects built using real business datasets.</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>5+</h3>
+            <p>Interactive dashboards created in Power BI & Excel.</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>1.5+</h3>
+            <p>Years of continuous learning in analytics and BI tools.</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>100%</h3>
+            <p>Focused on data-driven decision making and storytelling.</p>
+        </div>
+
     </div>
 
-    <!-- STEP 1 -->
+    <!-- GRID -->
 
-    <div class="pip-step">
+    <div class="analytics-grid">
 
-        <div class="pip-num">
+        <!-- EXCEL -->
 
-            <i class="fa-solid fa-database"></i>
+        <div class="analytics-card">
 
-            <div class="pip-mini">
-                Raw Data
+            <div class="card-icon">
+                <i class="fa-solid fa-file-excel"></i>
+            </div>
+
+            <h4>Step 01 · Data Cleaning</h4>
+
+            <h3>Excel & Spreadsheets</h3>
+
+            <p>
+                Cleaning messy datasets, transforming raw business data,
+                creating Pivot Tables, and performing exploratory data analysis
+                using advanced Excel functions and Power Query.
+            </p>
+
+            <div class="skill-tags">
+                <span>XLOOKUP</span>
+                <span>Pivot Tables</span>
+                <span>Power Query</span>
+                <span>Data Cleaning</span>
+                <span>EDA</span>
             </div>
 
         </div>
 
-        <div class="pip-label">
-            Data Collection
+        <!-- SQL -->
+
+        <div class="analytics-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h4>Step 02 · Data Querying</h4>
+
+            <h3>SQL & Databases</h3>
+
+            <p>
+                Writing optimized SQL queries using joins, subqueries,
+                CTEs, Window Functions, and Stored Procedures
+                to extract insights from relational databases.
+            </p>
+
+            <div class="skill-tags">
+                <span>CTEs</span>
+                <span>Window Functions</span>
+                <span>Joins</span>
+                <span>Stored Procedures</span>
+                <span>SQL Server</span>
+            </div>
+
         </div>
 
-        <div class="pip-desc">
-            Gathering raw business data from multiple structured and unstructured sources.
+        <!-- POWER BI -->
+
+        <div class="analytics-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <h4>Step 03 · Visualization</h4>
+
+            <h3>Power BI Dashboards</h3>
+
+            <p>
+                Designing interactive dashboards with KPI cards,
+                DAX calculations, drill-through reports,
+                and storytelling visuals for executive decision making.
+            </p>
+
+            <div class="skill-tags">
+                <span>DAX</span>
+                <span>KPI Cards</span>
+                <span>Data Modeling</span>
+                <span>Drill Through</span>
+                <span>Storytelling</span>
+            </div>
+
+        </div>
+
+        <!-- INSIGHTS -->
+
+        <div class="analytics-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <h4>Step 04 · Business Insights</h4>
+
+            <h3>Strategic Thinking</h3>
+
+            <p>
+                Turning analytics outputs into actionable business insights,
+                identifying growth opportunities, improving KPIs,
+                and communicating findings clearly to stakeholders.
+            </p>
+
+            <div class="skill-tags">
+                <span>Problem Solving</span>
+                <span>Decision Making</span>
+                <span>KPI Analysis</span>
+                <span>Communication</span>
+                <span>Business Thinking</span>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- STEP 2 -->
-
-    <div class="pip-step">
-
-        <div class="pip-num">
-            <i class="fa-solid fa-file-excel"></i>
-        </div>
-
-        <div class="pip-label">
-            Excel
-        </div>
-
-        <div class="pip-desc">
-            Cleaning, transforming, and organizing messy datasets using formulas and Power Query.
-        </div>
-
-    </div>
-
-    <!-- STEP 3 -->
-
-    <div class="pip-step">
-
-        <div class="pip-num">
-            <i class="fa-solid fa-code"></i>
-        </div>
-
-        <div class="pip-label">
-            SQL
-        </div>
-
-        <div class="pip-desc">
-            Querying databases with joins, CTEs, Window Functions, and business logic.
-        </div>
-
-    </div>
-
-    <!-- STEP 4 -->
-
-    <div class="pip-step">
-
-        <div class="pip-num">
-            <i class="fa-solid fa-chart-column"></i>
-        </div>
-
-        <div class="pip-label">
-            Power BI
-        </div>
-
-        <div class="pip-desc">
-            Building executive dashboards and KPI-focused visual analytics experiences.
-        </div>
-
-    </div>
-
-    <!-- STEP 5 -->
-
-    <div class="pip-step">
-
-        <div class="pip-num">
-            <i class="fa-solid fa-lightbulb"></i>
-        </div>
-
-        <div class="pip-label">
-            Business Insights
-        </div>
-
-        <div class="pip-desc">
-            Turning data into strategic decisions that drive measurable business growth.
-        </div>
-
-    </div>
-
-</div>
+</section>
