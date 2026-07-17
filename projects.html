@@ -1,277 +1,275 @@
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Khurram Insights</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --bg:       #07030f;
-            --surface: #0f0720;
-            --border:  rgba(209,179,255,0.12);
-            --accent:  #c084fc;
-            --accent2: #7c3aed;
-            --white:   #f0e8ff;
-            --muted:   #8b7aa0;
-            --green:   #22c55e;
-            --gold:    #F2C811;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Khurram Insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --bg:       #07030f;
+            --surface: #0f0720;
+            --border:  rgba(209,179,255,0.12);
+            --accent:  #c084fc;
+            --accent2: #7c3aed;
+            --white:   #f0e8ff;
+            --muted:   #8b7aa0;
+            --green:   #22c55e;
+            --gold:    #F2C811;
+        }
 
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--white);
-            overflow-x: hidden;
-        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
 
-        body::before {
-            content:'';
-            position:fixed; inset:0;
-            background-image:
-                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
-            background-size:60px 60px;
-            pointer-events:none; z-index:0;
-        }
+        body::before {
+            content:'';
+            position:fixed; inset:0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+            background-size:60px 60px;
+            pointer-events:none; z-index:0;
+        }
 
-        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
-        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
-        .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
+        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
+        .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
 
-        nav {
-            position:sticky; top:0; z-index:1000;
-            background:rgba(26,11,46,0.88);
-            backdrop-filter:blur(18px);
-            border-bottom:1px solid var(--border);
-            padding:16px 0; text-align:center;
-        }
-        nav a {
-            color:#d1b3ff; text-decoration:none; margin:0 16px;
-            font-family:'Syne',sans-serif; font-size:0.78rem;
-            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
-            transition:color 0.2s;
-        }
-        nav a:hover { color:#fff; }
-        nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+        nav {
+            position:sticky; top:0; z-index:1000;
+            background:rgba(26,11,46,0.88);
+            backdrop-filter:blur(18px);
+            border-bottom:1px solid var(--border);
+            padding:16px 0; text-align:center;
+        }
+        nav a {
+            color:#d1b3ff; text-decoration:none; margin:0 16px;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
+            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
+            transition:color 0.2s;
+        }
+        nav a:hover { color:#fff; }
+        nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
 
-        .page-header {
-            position:relative; z-index:1;
-            text-align:center; padding:90px 20px 60px;
-        }
-        .eyebrow {
-            display:inline-flex; align-items:center; gap:8px;
-            font-size:0.72rem; font-weight:700; letter-spacing:3px;
-            text-transform:uppercase; color:var(--accent);
-            border:1px solid rgba(192,132,252,0.3);
-            padding:6px 18px; border-radius:50px;
-            margin-bottom:22px;
-            background:rgba(192,132,252,0.06);
-        }
-        .eyebrow span {
-            width:6px; height:6px; background:var(--accent);
-            border-radius:50%; animation:blink 2s infinite; display:inline-block;
-        }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .page-header {
+            position:relative; z-index:1;
+            text-align:center; padding:90px 20px 60px;
+        }
+        .eyebrow {
+            display:inline-flex; align-items:center; gap:8px;
+            font-size:0.72rem; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent);
+            border:1px solid rgba(192,132,252,0.3);
+            padding:6px 18px; border-radius:50px;
+            margin-bottom:22px;
+            background:rgba(192,132,252,0.06);
+        }
+        .eyebrow span {
+            width:6px; height:6px; background:var(--accent);
+            border-radius:50%; animation:blink 2s infinite; display:inline-block;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-        .page-header h1 {
-            font-family:'Syne',sans-serif;
-            font-size:clamp(2.2rem,5vw,3.8rem);
-            font-weight:800; letter-spacing:-1px; color:#fff; line-height:1.1;
-        }
-        .page-header h1 em {
-            font-style:normal;
-            background:linear-gradient(90deg,#c084fc,#7c3aed);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
-        .page-header p {
-            margin-top:16px; color:var(--muted); font-size:1rem;
-            max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
-        }
+        .page-header h1 {
+            font-family:'Syne',sans-serif;
+            font-size:clamp(2.2rem,5vw,3.8rem);
+            font-weight:800; letter-spacing:-1px; color:#fff; line-height:1.1;
+        }
+        .page-header h1 em {
+            font-style:normal;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        }
+        .page-header p {
+            margin-top:16px; color:var(--muted); font-size:1rem;
+            max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
+        }
 
-        .stat-strip {
-            display:flex; justify-content:center; gap:48px;
-            margin-top:44px; flex-wrap:wrap;
-        }
-        .stat-item { text-align:center; }
-        .stat-num {
-            font-family:'Syne',sans-serif; font-size:2rem; font-weight:800;
-            background:linear-gradient(90deg,#c084fc,#7c3aed);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
-        .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+        .stat-strip {
+            display:flex; justify-content:center; gap:48px;
+            margin-top:44px; flex-wrap:wrap;
+        }
+        .stat-item { text-align:center; }
+        .stat-num {
+            font-family:'Syne',sans-serif; font-size:2rem; font-weight:800;
+            background:linear-gradient(90deg,#c084fc,#7c3aed);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        }
+        .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 
-        .filter-row {
-            display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-            padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
-        }
-        .filter-btn {
-            font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
-            letter-spacing:1px; text-transform:uppercase;
-            padding:8px 22px; border-radius:50px; cursor:pointer;
-            border:1px solid var(--border);
-            background:rgba(255,255,255,0.03); color:var(--muted);
-            transition:0.25s; outline:none; display:flex; align-items:center; gap:7px;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background:rgba(192,132,252,0.12);
-            border-color:rgba(192,132,252,0.4); color:#fff;
-        }
-        .filter-btn.excel.active   { border-color:rgba(34,197,94,0.5);  background:rgba(34,197,94,0.08);  color:#4ade80; }
-        .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
-        .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
+        .filter-row {
+            display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+            padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
+        }
+        .filter-btn {
+            font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
+            letter-spacing:1px; text-transform:uppercase;
+            padding:8px 22px; border-radius:50px; cursor:pointer;
+            border:1px solid var(--border);
+            background:rgba(255,255,255,0.03); color:var(--muted);
+            transition:0.25s; outline:none; display:flex; align-items:center; gap:7px;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background:rgba(192,132,252,0.12);
+            border-color:rgba(192,132,252,0.4); color:#fff;
+        }
+        .filter-btn.excel.active   { border-color:rgba(34,197,94,0.5);  background:rgba(34,197,94,0.08);  color:#4ade80; }
+        .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
+        .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
 
-        .projects-grid {
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:24px;
-            max-width:1500px;
-            margin:0 auto 100px;
-            padding:0 5%;
-            position:relative; z-index:1;
-        }
+        .projects-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+            max-width:1500px;
+            margin:0 auto 100px;
+            padding:0 5%;
+            position:relative; z-index:1;
+        }
 
-        .project-card {
-            background:rgba(15,7,32,0.7);
-            border:1px solid var(--border);
-            border-radius:20px; overflow:hidden;
-            display:flex; flex-direction:column;
-            transition:transform 0.35s ease, border-color 0.35s, box-shadow 0.35s;
-            opacity:0; transform:translateY(24px);
-            animation:fadeUp 0.5s ease forwards;
-            backdrop-filter:blur(10px);
-            position:relative;
-        }
-        .project-card::before {
-            content:'';
-            position:absolute; top:0; left:0; right:0; height:1px;
-            background:linear-gradient(90deg,transparent,var(--accent),transparent);
-            opacity:0; transition:opacity 0.35s;
-        }
-        .project-card:hover { transform:translateY(-7px); border-color:rgba(192,132,252,0.38); box-shadow:0 22px 55px rgba(124,58,237,0.2); }
-        .project-card:hover::before { opacity:1; }
+        .project-card {
+            background:rgba(15,7,32,0.7);
+            border:1px solid var(--border);
+            border-radius:20px; overflow:hidden;
+            display:flex; flex-direction:column;
+            transition:transform 0.35s ease, border-color 0.35s, box-shadow 0.35s;
+            opacity:0; transform:translateY(24px);
+            animation:fadeUp 0.5s ease forwards;
+            backdrop-filter:blur(10px);
+            position:relative;
+        }
+        .project-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:1px;
+            background:linear-gradient(90deg,transparent,var(--accent),transparent);
+            opacity:0; transition:opacity 0.35s;
+        }
+        .project-card:hover { transform:translateY(-7px); border-color:rgba(192,132,252,0.38); box-shadow:0 22px 55px rgba(124,58,237,0.2); }
+        .project-card:hover::before { opacity:1; }
 
-        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-        .project-card:nth-child(n)  { animation-delay:.05s }
+        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+        .project-card:nth-child(n)  { animation-delay:.05s }
 
-        .img-box {
-            width:100%; height:190px; overflow:hidden;
-            position:relative; cursor:pointer; background:#0a0418;
-        }
-        .img-box img {
-            width:100%; height:100%; object-fit:cover;
-            transition:transform 0.4s, opacity 0.3s; opacity:0.82;
-        }
-        .project-card:hover .img-box img { transform:scale(1.06); opacity:1; }
-        .img-box .overlay {
-            position:absolute; inset:0;
-            background:rgba(76,0,130,0.55);
-            display:flex; align-items:center; justify-content:center;
-            opacity:0; transition:0.3s;
-            font-family:'Syne',sans-serif; font-size:0.75rem;
-            font-weight:700; letter-spacing:1px; color:#fff; gap:7px;
-        }
-        .img-box:hover .overlay { opacity:1; }
+        .img-box {
+            width:100%; height:190px; overflow:hidden;
+            position:relative; cursor:pointer; background:#0a0418;
+        }
+        .img-box img {
+            width:100%; height:100%; object-fit:cover;
+            transition:transform 0.4s, opacity 0.3s; opacity:0.82;
+        }
+        .project-card:hover .img-box img { transform:scale(1.06); opacity:1; }
+        .img-box .overlay {
+            position:absolute; inset:0;
+            background:rgba(76,0,130,0.55);
+            display:flex; align-items:center; justify-content:center;
+            opacity:0; transition:0.3s;
+            font-family:'Syne',sans-serif; font-size:0.75rem;
+            font-weight:700; letter-spacing:1px; color:#fff; gap:7px;
+        }
+        .img-box:hover .overlay { opacity:1; }
 
-        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
+        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
 
-        .type-badge {
-            display:inline-flex; align-items:center; gap:6px;
-            font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
-            text-transform:uppercase; padding:3px 10px; border-radius:50px;
-            width:fit-content;
-        }
-        .badge-excel { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
-        .badge-pbi   { color:var(--gold); border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
-        .badge-sql   { color:var(--accent); border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .type-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
+            text-transform:uppercase; padding:3px 10px; border-radius:50px;
+            width:fit-content;
+        }
+        .badge-excel { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
+        .badge-pbi   { color:var(--gold); border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
+        .badge-sql   { color:var(--accent); border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
 
-        .card-category {
-            font-size:0.65rem; font-weight:700; color:var(--muted);
-            text-transform:uppercase; letter-spacing:1.5px;
-        }
+        .card-category {
+            font-size:0.65rem; font-weight:700; color:var(--muted);
+            text-transform:uppercase; letter-spacing:1.5px;
+        }
 
-        .card-title {
-            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800;
-            color:#fff; line-height:1.3;
-        }
+        .card-title {
+            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800;
+            color:#fff; line-height:1.3;
+        }
 
-        .card-desc {
-            font-size:0.82rem; color:#a89bb8; line-height:1.72;
-            flex:1;
-        }
+        .card-desc {
+            font-size:0.82rem; color:#a89bb8; line-height:1.72;
+            flex:1;
+        }
 
-        .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-        .tool-tag {
-            font-size:0.65rem; font-weight:600; padding:3px 10px;
-            border-radius:50px; border:1px solid var(--border);
-            color:#c4b5d4; background:rgba(255,255,255,0.03);
-        }
+        .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+        .tool-tag {
+            font-size:0.65rem; font-weight:600; padding:3px 10px;
+            border-radius:50px; border:1px solid var(--border);
+            color:#c4b5d4; background:rgba(255,255,255,0.03);
+        }
 
-        .btn-github {
-            display:inline-flex; align-items:center; gap:7px;
-            background:rgba(255,255,255,0.05);
-            border:1px solid var(--border);
-            color:var(--white); text-decoration:none;
-            padding:9px 18px; border-radius:8px;
-            font-size:0.72rem; font-weight:700;
-            letter-spacing:0.5px; text-transform:uppercase;
-            transition:0.25s; margin-top:auto;
-        }
-        .btn-github:hover {
-            background:rgba(192,132,252,0.12);
-            border-color:rgba(192,132,252,0.4); color:#fff;
-            transform:translateY(-1px);
-        }
+        .btn-github {
+            display:inline-flex; align-items:center; gap:7px;
+            background:rgba(255,255,255,0.05);
+            border:1px solid var(--border);
+            color:var(--white); text-decoration:none;
+            padding:9px 18px; border-radius:8px;
+            font-size:0.72rem; font-weight:700;
+            letter-spacing:0.5px; text-transform:uppercase;
+            transition:0.25s; margin-top:auto;
+        }
+        .btn-github:hover {
+            background:rgba(192,132,252,0.12);
+            border-color:rgba(192,132,252,0.4); color:#fff;
+            transform:translateY(-1px);
+        }
 
-        /* FULL SIZE MODAL STYLES */
-        .modal {
-            display:none; position:fixed; z-index:2000; inset:0;
-            background:rgba(0,0,0,0.95);
-            backdrop-filter:blur(14px);
-            justify-content:center; align-items:center; flex-direction:column; padding:20px;
-        }
-        .modal.open { display:flex; }
-        .modal-img {
-            max-width:95vw;
-            max-height:85vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border:2px solid rgba(192,132,252,0.4); border-radius:14px;
-            box-shadow:0 0 80px rgba(124,58,237,0.4);
-            animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
-        }
-        @keyframes zoomIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
-        .modal-caption {
-            color:var(--accent); margin-top:20px;
-            font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;
-            letter-spacing:0.5px; text-align:center;
-        }
-        .modal-close {
-            position:absolute; top:20px; right:30px; color:#fff;
-            background:rgba(255,255,255,0.07); border:none;
-            width:44px; height:44px; border-radius:50%;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1.4rem; cursor:pointer; transition:background 0.2s;
-        }
-        .modal-close:hover { background:rgba(255,255,255,0.15); }
+        /* FULL SIZE MODAL STYLES */
+        .modal {
+            display:none; position:fixed; z-index:2000; inset:0;
+            background:rgba(0,0,0,0.95);
+            backdrop-filter:blur(14px);
+            justify-content:center; align-items:center; flex-direction:column; padding:20px;
+        }
+        .modal.open { display:flex; }
+        .modal-img {
+            max-width:95vw;
+            max-height:85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border:2px solid rgba(192,132,252,0.4); border-radius:14px;
+            box-shadow:0 0 80px rgba(124,58,237,0.4);
+            animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        @keyframes zoomIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
+        .modal-caption {
+            color:var(--accent); margin-top:20px;
+            font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;
+            letter-spacing:0.5px; text-align:center;
+        }
+        .modal-close {
+            position:absolute; top:20px; right:30px; color:#fff;
+            background:rgba(255,255,255,0.07); border:none;
+            width:44px; height:44px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.4rem; cursor:pointer; transition:background 0.2s;
+        }
+        .modal-close:hover { background:rgba(255,255,255,0.15); }
 
-        .footer-brand {
-            text-align:center; padding:36px 20px;
-            border-top:1px solid var(--border);
-            position:relative; z-index:1;
-        }
-        .footer-brand img { height:34px; opacity:0.45; }
+        .footer-brand {
+            text-align:center; padding:36px 20px;
+            border-top:1px solid var(--border);
+            position:relative; z-index:1;
+        }
+        .footer-brand img { height:34px; opacity:0.45; }
 
-        @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
-    </style>
+        @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
+        @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
+    </style>
 </head>
 <body>
 
@@ -279,115 +277,113 @@
 <div class="orb orb-2"></div>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="certifications.html">Certifications</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
 <header class="page-header">
-    <div class="eyebrow"><span></span> Real-World Solutions</div>
-    <h1>Projects<br><em>Portfolio</em></h1>
-    <p>25+ end-to-end analytics projects spanning Excel, Power BI and SQL — each solving a real business problem with measurable outcomes.</p>
-    <div class="stat-strip">
-        <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Projects</div></div>
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Tools</div></div>
-        <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Industries</div></div>
-    </div>
+    <div class="eyebrow"><span></span> Real-World Solutions</div>
+    <h1>Projects<br><em>Portfolio</em></h1>
+    <p>25+ end-to-end analytics projects spanning Excel, Power BI and SQL — each solving a real business problem with measurable outcomes.</p>
+    <div class="stat-strip">
+        <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Projects</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Tools</div></div>
+        <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Industries</div></div>
+    </div>
 </header>
 
 <div class="filter-row">
-    <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
-    <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
-    <button class="filter-btn pbi"   onclick="filterProjects('pbi',this)"><i class="fa-solid fa-chart-pie"></i> Power BI</button>
-    <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
+    <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
+    <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
+    <button class="filter-btn pbi"   onclick="filterProjects('pbi',this)"><i class="fa-solid fa-chart-pie"></i> Power BI</button>
+    <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
 </div>
 
 <div class="projects-grid" id="projectsGrid">
 
-    <!-- ═══════════ NEW: STYLO PAKISTAN ═══════════ -->
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('stylo dashboard.png','STYLO PAKISTAN - Retail Analytics Dashboard')">
-            <img src="stylo dashboard.png" alt="STYLO PAKISTAN">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Retail Analytics</span>
-            <div class="card-title">STYLO PAKISTAN</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Managing complex retail operations across multiple provinces with a need for high-level executive insights into sales, product performance, and store efficiency.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Comprehensive analysis covering Executive Overview, Product Performance, and Store Performance, highlighting key trends and regional metrics.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Centralized dashboard providing actionable intelligence to drive decision-making and optimize retail operations.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">Retail Analytics</span>
-                <span class="tool-tag">Executive Reporting</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/Stylo-Retail-Operations-Dashboard-Power-BI-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
+    <!-- ═══════════ NEW: STYLO PAKISTAN ═══════════ -->
+    <div class="project-card" data-cat="pbi">
+        <div class="img-box" onclick="openModal('stylo dashboard.png','STYLO PAKISTAN - Retail Analytics Dashboard')">
+            <img src="stylo dashboard.png" alt="STYLO PAKISTAN">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+            <span class="card-category">Retail Analytics</span>
+            <div class="card-title">STYLO PAKISTAN</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Managing complex retail operations across multiple provinces with a need for high-level executive insights into sales, product performance, and store efficiency.<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Comprehensive analysis covering Executive Overview, Product Performance, and Store Performance, highlighting key trends and regional metrics.<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Centralized dashboard providing actionable intelligence to drive decision-making and optimize retail operations.
+            </p>
+            <div class="tool-tags">
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">Retail Analytics</span>
+                <span class="tool-tag">Executive Reporting</span>
+            </div>
+            <a href="https://github.com/Khurramnaveed3233/Stylo-Retail-Operations-Dashboard-Power-BI-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
 
-    <!-- ═══════════ TOP FEATURED: NEXADISTRIB CASE STUDY ═══════════ -->
-    <div class="project-card" data-cat="pbi sql">
-        <div class="img-box" onclick="openModal('Thumbnail dashboard.png','End-to-End-Data-Analytics-Case-Study-NexaDistrib')">
-            <img src="Thumbnail dashboard.png" alt="End-to-End-Data-Analytics-Case-Study-NexaDistrib">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI + SQL</span>
-            <span class="card-category">Supply Chain & Logistics</span>
-            <div class="card-title">End-to-End-Data-Analytics-Case-Study-NexaDistrib</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive 33-point reliability gap vs Gold-tier.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan projected to reduce stockouts by 50% and storage costs by 15%.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">SQL Server</span>
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">CTEs</span>
-                <span class="tool-tag">DAX</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/End-to-End-Data-Analytics-Case-Study-NexaDistrib-International" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-    
-    <!-- (Baaki projects aapke original code se yahan aayenge) -->
+    <!-- ═══════════ TOP FEATURED: NEXADISTRIB CASE STUDY ═══════════ -->
+    <div class="project-card" data-cat="pbi sql">
+        <div class="img-box" onclick="openModal('Thumbnail dashboard.png','End-to-End-Data-Analytics-Case-Study-NexaDistrib')">
+            <img src="Thumbnail dashboard.png" alt="End-to-End-Data-Analytics-Case-Study-NexaDistrib">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+        </div>
+        <div class="card-body">
+            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI + SQL</span>
+            <span class="card-category">Supply Chain & Logistics</span>
+            <div class="card-title">End-to-End-Data-Analytics-Case-Study-NexaDistrib</div>
+            <p class="card-desc">
+                <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance.<br><br>
+                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive 33-point reliability gap vs Gold-tier.<br><br>
+                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan projected to reduce stockouts by 50% and storage costs by 15%.
+            </p>
+            <div class="tool-tags">
+                <span class="tool-tag">SQL Server</span>
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">CTEs</span>
+                <span class="tool-tag">DAX</span>
+            </div>
+            <a href="https://github.com/Khurramnaveed3233/End-to-End-Data-Analytics-Case-Study-NexaDistrib-International" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+    </div>
+    
+    <!-- (Baaki projects aapke original code se yahan aayenge) -->
 
 </div>
 
 <script>
-    function openModal(src, caption) {
-        document.getElementById('modalImg').src = src;
-        document.getElementById('modalCaption').textContent = caption;
-        document.getElementById('imgModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-        document.getElementById('imgModal').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    function openModal(src, caption) {
+        document.getElementById('modalImg').src = src;
+        document.getElementById('modalCaption').textContent = caption;
+        document.getElementById('imgModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        document.getElementById('imgModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    function filterProjects(cat, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.project-card').forEach(card => {
-            const cats = card.dataset.cat || '';
-            if (cat === 'all' || cats.includes(cat)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
+    function filterProjects(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.project-card').forEach(card => {
+            const cats = card.dataset.cat || '';
+            if (cat === 'all' || cats.includes(cat)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
 </script>
 
 </body>
 </html>
-
-```
