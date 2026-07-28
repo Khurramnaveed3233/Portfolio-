@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Khurram Insights</title>
+    <title>Certifications | Khurram Naveed</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -15,8 +15,6 @@
             --accent2: #7c3aed;
             --white:   #f0e8ff;
             --muted:   #8b7aa0;
-            --green:   #22c55e;
-            --gold:    #F2C811;
         }
 
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -35,7 +33,7 @@
             background-image:
                 linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
-            background-size:60px 60px;
+            background-size: 60px 60px;
             pointer-events:none; z-index:0;
         }
 
@@ -43,6 +41,7 @@
         .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
         .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
 
+        /* NAV */
         nav {
             position:sticky; top:0; z-index:1000;
             background:rgba(26,11,46,0.88);
@@ -59,6 +58,7 @@
         nav a:hover { color:#fff; }
         nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
 
+        /* HEADER */
         .page-header {
             position:relative; z-index:1;
             text-align:center; padding:90px 20px 60px;
@@ -74,13 +74,14 @@
         }
         .eyebrow span {
             width:6px; height:6px; background:var(--accent);
-            border-radius:50%; animation:blink 2s infinite; display:inline-block;
+            border-radius:50%; display:inline-block;
+            animation:blink 2s infinite;
         }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
         .page-header h1 {
             font-family:'Syne',sans-serif;
-            font-size:clamp(2.2rem,5vw,3.8rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight:800; letter-spacing:-1px; color:#fff; line-height:1.1;
         }
         .page-header h1 em {
@@ -105,158 +106,168 @@
         }
         .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 
+        /* FILTER TABS */
         .filter-row {
             display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-            padding:0 5%; margin-bottom:40px; position:relative; z-index:1;
+            padding:0 5%; margin-bottom:36px; position:relative; z-index:1;
         }
         .filter-btn {
             font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
             letter-spacing:1px; text-transform:uppercase;
-            padding:8px 22px; border-radius:50px; cursor:pointer;
+            padding:8px 20px; border-radius:50px; cursor:pointer;
             border:1px solid var(--border);
             background:rgba(255,255,255,0.03); color:var(--muted);
-            transition:0.25s; outline:none; display:flex; align-items:center; gap:7px;
+            transition:0.25s; outline:none;
         }
         .filter-btn:hover, .filter-btn.active {
             background:rgba(192,132,252,0.12);
-            border-color:rgba(192,132,252,0.4); color:#fff;
+            border-color:rgba(192,132,252,0.4);
+            color:#fff;
         }
-        .filter-btn.excel.active   { border-color:rgba(34,197,94,0.5);  background:rgba(34,197,94,0.08);  color:#4ade80; }
-        .filter-btn.pbi.active     { border-color:rgba(242,200,17,0.5); background:rgba(242,200,17,0.08); color:var(--gold); }
-        .filter-btn.sql.active     { border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.08);color:var(--accent); }
 
-        .projects-grid {
+        /* CERT GRID */
+        .cert-grid {
             display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:24px;
-            max-width:1500px;
+            grid-template-columns:repeat(4, 1fr);
+            gap:22px;
+            max-width:1400px;
             margin:0 auto 100px;
             padding:0 5%;
             position:relative; z-index:1;
         }
 
-        .project-card {
+        /* CERT CARD */
+        .cert-card {
             background:rgba(15,7,32,0.7);
             border:1px solid var(--border);
-            border-radius:20px; overflow:hidden;
+            border-radius:20px;
+            overflow:hidden;
             display:flex; flex-direction:column;
-            transition:transform 0.35s ease, border-color 0.35s, box-shadow 0.35s;
+            transition:transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
             opacity:0; transform:translateY(24px);
             animation:fadeUp 0.5s ease forwards;
             backdrop-filter:blur(10px);
             position:relative;
         }
-        .project-card::before {
+        .cert-card::before {
             content:'';
             position:absolute; top:0; left:0; right:0; height:1px;
-            background:linear-gradient(90deg,transparent,var(--accent),transparent);
+            background:linear-gradient(90deg, transparent, var(--accent), transparent);
             opacity:0; transition:opacity 0.35s;
         }
-        .project-card:hover { transform:translateY(-7px); border-color:rgba(192,132,252,0.38); box-shadow:0 22px 55px rgba(124,58,237,0.2); }
-        .project-card:hover::before { opacity:1; }
+        .cert-card:hover { transform:translateY(-6px); border-color:rgba(192,132,252,0.38); box-shadow:0 20px 50px rgba(124,58,237,0.2); }
+        .cert-card:hover::before { opacity:1; }
 
         @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-        .project-card:nth-child(n)  { animation-delay:.05s }
 
-        .img-box {
-            width:100%; height:190px; overflow:hidden;
-            position:relative; cursor:pointer; background:#0a0418;
+        /* Animation delays for cards */
+        .cert-card:nth-child(n) { animation-delay: calc(0.05s * var(--i, 1)); }
+
+        .cert-img-box {
+            width:100%; height:170px; overflow:hidden;
+            position:relative; cursor:pointer;
+            background:#0a0418;
         }
-        .img-box img {
+        .cert-img-box img {
             width:100%; height:100%; object-fit:cover;
-            transition:transform 0.4s, opacity 0.3s; opacity:0.82;
+            transition:transform 0.4s ease, opacity 0.3s;
+            opacity:0.82;
         }
-        .project-card:hover .img-box img { transform:scale(1.06); opacity:1; }
-        .img-box .overlay {
+        .cert-card:hover .cert-img-box img { transform:scale(1.06); opacity:1; }
+        .cert-img-box .overlay {
             position:absolute; inset:0;
             background:rgba(76,0,130,0.55);
             display:flex; align-items:center; justify-content:center;
             opacity:0; transition:0.3s;
-            font-family:'Syne',sans-serif; font-size:0.75rem;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
             font-weight:700; letter-spacing:1px; color:#fff; gap:7px;
         }
-        .img-box:hover .overlay { opacity:1; }
+        .cert-img-box:hover .overlay { opacity:1; }
 
-        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px; }
+        .cert-body {
+            padding:16px 18px 18px;
+            display:flex; flex-direction:column; flex:1; gap:12px;
+        }
 
-        .type-badge {
+        /* Issuer badges */
+        .issuer-badge {
             display:inline-flex; align-items:center; gap:6px;
-            font-size:0.63rem; font-weight:700; letter-spacing:1.5px;
+            font-size:0.65rem; font-weight:700; letter-spacing:1.2px;
             text-transform:uppercase; padding:3px 10px; border-radius:50px;
             width:fit-content;
         }
-        .badge-excel { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
-        .badge-pbi   { color:var(--gold); border:1px solid rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
-        .badge-sql   { color:var(--accent); border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-google   { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
+        .badge-cisco    { color:#38bdf8; border:1px solid rgba(56,189,248,0.3);  background:rgba(56,189,248,0.06); }
+        .badge-pwc      { color:#fb923c; border:1px solid rgba(251,146,60,0.3);  background:rgba(251,146,60,0.06); }
+        .badge-jpmorgan { color:#F2C811; border:1px solid rgba(242,200,17,0.3);  background:rgba(242,200,17,0.06); }
+        .badge-hp       { color:#c084fc; border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-nsw      { color:#e879f9; border:1px solid rgba(232,121,249,0.3); background:rgba(232,121,249,0.06); }
+        .badge-digi     { color:#34d399; border:1px solid rgba(52,211,153,0.3);  background:rgba(52,211,153,0.06); }
+        .badge-other    { color:#94a3b8; border:1px solid rgba(148,163,184,0.3); background:rgba(148,163,184,0.06); }
 
-        .card-category {
-            font-size:0.65rem; font-weight:700; color:var(--muted);
-            text-transform:uppercase; letter-spacing:1.5px;
+        .cert-title {
+            font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700;
+            color:#fff; line-height:1.4; flex:1;
         }
 
-        .card-title {
-            font-family:'Syne',sans-serif; font-size:1rem; font-weight:800;
-            color:#fff; line-height:1.3;
-        }
-
-        .card-desc {
-            font-size:0.82rem; color:#a89bb8; line-height:1.72;
-            flex:1;
-        }
-
-        .tool-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-        .tool-tag {
-            font-size:0.65rem; font-weight:600; padding:3px 10px;
-            border-radius:50px; border:1px solid var(--border);
-            color:#c4b5d4; background:rgba(255,255,255,0.03);
-        }
-
-        .btn-github {
-            display:inline-flex; align-items:center; gap:7px;
-            background:rgba(255,255,255,0.05);
-            border:1px solid var(--border);
-            color:var(--white); text-decoration:none;
-            padding:9px 18px; border-radius:8px;
+        .btn-verify {
+            display:inline-flex; align-items:center; gap:6px;
+            background:rgba(74,222,128,0.08);
+            border:1px solid rgba(74,222,128,0.3);
+            color:#4ade80; text-decoration:none;
+            padding:8px 16px; border-radius:8px;
             font-size:0.72rem; font-weight:700;
             letter-spacing:0.5px; text-transform:uppercase;
             transition:0.25s; margin-top:auto;
         }
-        .btn-github:hover {
-            background:rgba(192,132,252,0.12);
-            border-color:rgba(192,132,252,0.4); color:#fff;
+        .btn-verify:hover {
+            background:rgba(74,222,128,0.18);
+            border-color:rgba(74,222,128,0.6);
+            color:#fff;
             transform:translateY(-1px);
         }
 
-        /* FULL SIZE MODAL STYLES */
+        .btn-no-link {
+            display:inline-flex; align-items:center; gap:6px;
+            background:rgba(255,255,255,0.03);
+            border:1px solid rgba(255,255,255,0.08);
+            color:var(--muted);
+            padding:8px 16px; border-radius:8px;
+            font-size:0.72rem; font-weight:700;
+            letter-spacing:0.5px; text-transform:uppercase;
+            margin-top:auto; opacity:0.45;
+            pointer-events:none; cursor:not-allowed;
+        }
+
+        /* MODAL */
         .modal {
             display:none; position:fixed; z-index:2000; inset:0;
-            background:rgba(0,0,0,0.95);
-            backdrop-filter:blur(14px);
-            justify-content:center; align-items:center; flex-direction:column; padding:20px;
+            background:rgba(0,0,0,0.92);
+            backdrop-filter:blur(12px);
+            justify-content:center; align-items:center; flex-direction:column;
+            padding:20px;
         }
         .modal.open { display:flex; }
         .modal-img {
-            max-width:95vw;
-            max-height:85vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border:2px solid rgba(192,132,252,0.4); border-radius:14px;
+            max-width:88vw; max-height:78vh;
+            border:2px solid rgba(192,132,252,0.4);
+            border-radius:14px;
             box-shadow:0 0 80px rgba(124,58,237,0.4);
             animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
         }
-        @keyframes zoomIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
+        @keyframes zoomIn { from{transform:scale(0.75);opacity:0} to{transform:scale(1);opacity:1} }
         .modal-caption {
-            color:var(--accent); margin-top:20px;
-            font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;
+            color:var(--accent); margin-top:18px;
+            font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:700;
             letter-spacing:0.5px; text-align:center;
         }
         .modal-close {
-            position:absolute; top:20px; right:30px; color:#fff;
+            position:absolute; top:18px; right:28px;
+            color:#fff; font-size:1.4rem; cursor:pointer;
             background:rgba(255,255,255,0.07); border:none;
             width:44px; height:44px; border-radius:50%;
             display:flex; align-items:center; justify-content:center;
-            font-size:1.4rem; cursor:pointer; transition:background 0.2s;
+            transition:background 0.2s;
         }
         .modal-close:hover { background:rgba(255,255,255,0.15); }
 
@@ -267,8 +278,13 @@
         }
         .footer-brand img { height:34px; opacity:0.45; }
 
-        @media (max-width:1200px) { .projects-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:700px)  { .projects-grid { grid-template-columns:1fr; } nav a { margin:0 8px; font-size:0.7rem; } }
+        /* RESPONSIVE */
+        @media (max-width:1100px) { .cert-grid { grid-template-columns:repeat(3,1fr); } }
+        @media (max-width:800px)  { .cert-grid { grid-template-columns:repeat(2,1fr); } }
+        @media (max-width:500px)  {
+            .cert-grid { grid-template-columns:1fr; }
+            nav a { margin:0 8px; font-size:0.7rem; }
+        }
     </style>
 </head>
 <body>
@@ -276,553 +292,263 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="projects.html" class="active">Projects</a>
+    <a href="projects.html">Projects</a>
     <a href="skills.html">Skills</a>
-    <a href="certifications.html">Certifications</a>
+    <a href="certifications.html" class="active">Certifications</a>
     <a href="contact.html">Contact</a>
 </nav>
 
+<!-- HEADER -->
 <header class="page-header">
-    <div class="eyebrow"><span></span> Real-World Solutions</div>
-    <h1>Projects<br><em>Portfolio</em></h1>
-    <p>25+ end-to-end analytics projects spanning Excel, Power BI and SQL — each solving a real business problem with measurable outcomes.</p>
+    <div class="eyebrow"><span></span> Verified Credentials</div>
+    <h1>Professional<br><em>Certifications</em></h1>
+    <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
     <div class="stat-strip">
-        <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Projects</div></div>
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Tools</div></div>
-        <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Industries</div></div>
+        <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Certificates</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Issuers</div></div>
+        <div class="stat-item"><div class="stat-num">1.5+</div><div class="stat-label">Years Learning</div></div>
     </div>
 </header>
 
+<!-- FILTER TABS -->
 <div class="filter-row">
-    <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
-    <button class="filter-btn excel" onclick="filterProjects('excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button>
-    <button class="filter-btn pbi"   onclick="filterProjects('pbi',this)"><i class="fa-solid fa-chart-pie"></i> Power BI</button>
-    <button class="filter-btn sql"   onclick="filterProjects('sql',this)"><i class="fa-solid fa-database"></i> SQL</button>
+    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('google',this)">Google</button>
+    <button class="filter-btn" onclick="filterCards('cisco',this)">Cisco</button>
+    <button class="filter-btn" onclick="filterCards('pwc',this)">PwC</button>
+    <button class="filter-btn" onclick="filterCards('jpmorgan',this)">JPMorgan</button>
+    <button class="filter-btn" onclick="filterCards('digi',this)">DigiSkills</button>
+    <button class="filter-btn" onclick="filterCards('other',this)">Other</button>
 </div>
 
-<div class="projects-grid" id="projectsGrid">
+<!-- CERT GRID -->
+<div class="cert-grid">
 
-    <!-- ═══════════ TOP FEATURED: NEXADISTRIB CASE STUDY ═══════════ -->
-    <div class="project-card" data-cat="pbi sql">
-        <div class="img-box" onclick="openModal('Thumbnail dashboard.png','End-to-End-Data-Analytics-Case-Study-NexaDistrib')">
-            <img src="Thumbnail dashboard.png" alt="End-to-End-Data-Analytics-Case-Study-NexaDistrib">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- NEW: Critical Thinking in the AI Era -->
+    <div class="cert-card" data-cat="other" style="--i:1">
+        <div class="cert-img-box" onclick="openModal('Critical Thinking in the AI Era.jpg','Critical Thinking in the AI Era')">
+            <img src="Critical Thinking in the AI Era.jpg" alt="Critical Thinking AI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI + SQL</span>
-            <span class="card-category">Supply Chain & Logistics</span>
-            <div class="card-title">End-to-End-Data-Analytics-Case-Study-NexaDistrib</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> NexaDistrib faced multi-tier supply chain inefficiencies, including 18% stockout risk and poor carrier performance.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 10% of customers drive 48% of revenue. TCS Courier on-time delivery was only 62.1%, and Bronze-tier suppliers showed a massive 33-point reliability gap vs Gold-tier.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Developed SQL triggers for automated reordering and a warehouse balancing plan projected to reduce stockouts by 50% and storage costs by 15%.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">SQL Server</span>
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">CTEs</span>
-                <span class="tool-tag">DAX</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/End-to-End-Data-Analytics-Case-Study-NexaDistrib-International" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-other">AI & Logic</span>
+            <div class="cert-title">Critical Thinking in the AI Era</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal(\'stylo dashboard.png\',\'STYLO PAKISTAN Retail Operations Dashboard\')">
-            <img src="stylo dashboard.png" alt="STYLO PAKISTAN Retail Operations Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 1. Power Query -->
+    <div class="cert-card" data-cat="other" style="--i:2">
+        <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
+            <img src="power_query.png" alt="Power Query">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Retail Analytics</span>
-            <div class="card-title">STYLO PAKISTAN Retail Operations Dashboard</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Retail operations generated thousands of daily transactions across multiple stores, products, cities, and sales channels without a centralized reporting solution, making it difficult to monitor KPIs, identify trends, and support executive decision-making.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Designed an end-to-end Power BI solution featuring <strong>Executive Overview</strong>, <strong>Store Performance</strong>, and <strong>Product Performance</strong> dashboards analyzing:
-                <ul>
-                    <li>286M Sales</li>
-                    <li>132.93M Profit</li>
-                    <li>47% Profit Margin</li>
-                    <li>26K Orders</li>
-                    <li>250 Products</li>
-                    <li>60 Stores</li>
-                </ul>
-                Implemented Star Schema modeling, Power Query ETL, 20+ DAX measures, KPI reporting, drill-down analysis, and interactive cross-filtering to uncover performance across stores, provinces, cities, product categories, and sales channels.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Delivered an executive-ready Business Intelligence platform enabling management to monitor business performance, compare store and product profitability, identify operational trends, and make faster data-driven retail decisions through interactive dashboards and KPI reporting.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">Power Query</span>
-                <span class="tool-tag">DAX</span>
-                <span class="tool-tag">Star Schema</span>
-                <span class="tool-tag">Data Modeling</span>
-                <span class="tool-tag">Retail Analytics</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/Stylo-Retail-Operations-Dashboard-Power-BI-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-other">Masterclass</span>
+            <div class="cert-title">Power Query Training Masterclass Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <!-- ═══════════ POWER BI PROJECTS ═══════════ -->
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Ecommerce Dashboard.png','Pakistan E-Commerce Analytics Dashboard')">
-            <img src="Ecommerce Dashboard.png" alt="Pakistan E-Commerce Analytics Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 2. Cisco Data Science -->
+    <div class="cert-card" data-cat="cisco" style="--i:3">
+        <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
+            <img src="DataScience.jpg" alt="Data Science Cisco">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">E-Commerce</span>
-            <div class="card-title">Pakistan E-Commerce Analytics (2022–2024)</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> PKR 1.21M e-commerce business scaling with no category-level profit visibility.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Electronics drives 64% of revenue but at only 19% margin.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Projected to unlock 25% revenue growth without margin erosion.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Pakistan-E-Commerce-Analytics-Dashboard-2022-2024-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">Introduction to Data Science – Cisco</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Global terrorism Analysis Dashboard.jpg','Global Terrorism Analysis')">
-            <img src="Global terrorism Analysis Dashboard.jpg" alt="Global Terrorism Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 3. Cisco C++ -->
+    <div class="cert-card" data-cat="cisco" style="--i:4">
+        <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
+            <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Global Security</span>
-            <div class="card-title">Global Terrorism Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need for a framework to identify dangerous regions across 96,000+ incidents.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Taliban, ISIS & Boko Haram are deadliest. 2017 was the peak year.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Evidence-based security resource deployment map.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">Cisco C++ Essentials Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('AmazonPowerBI.png','Amazon Sales BI')">
-            <img src="AmazonPowerBI.png" alt="Amazon Sales BI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 4. Google BI -->
+    <div class="cert-card" data-cat="google" style="--i:5">
+        <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Business Intelligence Professional Certificate')">
+            <img src="google_bi.jpg" alt="Google BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Executive</span>
-            <div class="card-title">Amazon Sales BI</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No executive view of $1.2M revenue across 5,400+ orders to monitor growth quality.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Wireless Headphones is the #1 product. 12% MoM growth confirmed.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Built executive data layer to drive category investment decisions.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google Business Intelligence Professional Certificate</div>
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/VAMXR2JKSJVP" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+            </a>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Bhatti Property Managment Dashboard.jpg','Bhatti Real Estate')">
-            <img src="Bhatti Property Managment Dashboard.jpg" alt="Bhatti Real Estate">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 5. Google Data Analytics -->
+    <div class="cert-card" data-cat="google" style="--i:6">
+        <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
+            <img src="google_pro.jpg" alt="Google Data Analytics">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Real Estate</span>
-            <div class="card-title">Bhatti Real Estate</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Pricing inconsistency driven by unknown renovation status effects.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Ultra-premium waterfront units were being underpriced despite high margins.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Delivered ROI matrix and dynamic pricing framework.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">Power Query</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Property-Management-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google Data Analytics Professional Certificate</div>
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/H948EJL58NAZ" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+            </a>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Data Professional Survey Analysis Dashboard.jpg','Data Survey Breakdown')">
-            <img src="Data Professional Survey Analysis Dashboard.jpg" alt="Data Survey Breakdown">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 6. PwC Power BI -->
+    <div class="cert-card" data-cat="pwc" style="--i:7">
+        <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
+            <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Survey</span>
-            <div class="card-title">Data Survey Breakdown</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> HR teams lacked benchmark for salary levels and skill demand globally.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Python is #1 skill. Avg work-life balance is 5.74/10—a retention risk.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Enabled data-backed compensation benchmarking.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL Server</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Data-Professionals-Survey-Breakdown" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-pwc">PwC</span>
+            <div class="cert-title">Power BI Corporate Training – PwC</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Electronics Sales Dashboard.jpg','Electronics Sales')">
-            <img src="Electronics Sales Dashboard.jpg" alt="Electronics Sales">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 7. Google AI -->
+    <div class="cert-card" data-cat="google" style="--i:8">
+        <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
+            <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Tech</span>
-            <div class="card-title">Electronics Sales</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Reactive rather than strategic promotion planning.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> December peaks at $67K. North region leads at $142K revenue.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Launched promotions ahead of confirmed peaks.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">Power Query</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Electronics-Sales-Analysis-Dahboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-google">Google</span>
+            <div class="cert-title">Google AI Essentials Professional</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Financial Sales Analysis Dashboard.jpg','Financial Sales Report')">
-            <img src="Financial Sales Analysis Dashboard.jpg" alt="Financial Sales Report">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 8. Cisco Data Analytics -->
+    <div class="cert-card" data-cat="cisco" style="--i:9">
+        <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
+            <img src="cisco.jpg" alt="Cisco Data Analytics">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Finance</span>
-            <div class="card-title">Financial Sales Report</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Discount strategies inflating gross sales but eroding real profit.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Paseo product drives $5M profit (28% of total).<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Reformed discount policy to protect bottom-line growth.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Financial-Sales-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-cisco">Cisco</span>
+            <div class="cert-title">CISCO Data Analytics Essentials</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('HR Analytics Dashboard.jpg','HR Workforce Analysis')">
-            <img src="HR Analytics Dashboard.jpg" alt="HR Workforce Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 9. JPMorgan -->
+    <div class="cert-card" data-cat="jpmorgan" style="--i:10">
+        <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
+            <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">HR</span>
-            <div class="card-title">HR Workforce Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> 16% organisation-wide attrition with no visibility into root causes.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Life Sciences attrition: 39% costing Rs.2.8 Cr/year.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Modelled interventions projected to save Rs.3.1 Cr annually.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/HR-Talent-Analytics-CodeNest-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
+            <div class="cert-title">JPMorgan Chase Virtual Experience</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Jazz Telecom Data Analysis Dashboard.jpg','Jazz Telecom Analysis')">
-            <img src="Jazz Telecom Data Analysis Dashboard.jpg" alt="Jazz Telecom Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 10. HP Life -->
+    <div class="cert-card" data-cat="other" style="--i:11">
+        <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
+            <img src="hplife.jpg" alt="HP Life">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Telecom</span>
-            <div class="card-title">Jazz Telecom Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need to detect early churn signals and align network investment.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Early churn indicators detected via CTEs before cancellation.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Re-prioritised capital investment toward data infrastructure.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span><span class="tool-tag">CTEs</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-hp">HP Life</span>
+            <div class="cert-title">Diploma in Data Analytics – HP Life</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('TrendMart Sales Analysis Dashboard.jpg','TrendMart Sales')">
-            <img src="TrendMart Sales Analysis Dashboard.jpg" alt="TrendMart Sales">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 11. NSW -->
+    <div class="cert-card" data-cat="other" style="--i:12">
+        <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
+            <img src="nsw.jpg" alt="NSW">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Retail</span>
-            <div class="card-title">TrendMart Sales</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No data on customer spending windows to optimise staffing.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Revenue peaks in Feb, Mar & Dec. Adults (53%) are top spenders.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Optimised shift scheduling based on sales-window data.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/TrendMart-Sales-Analysis-Dashboard-in-PowerBI" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-nsw">NSW</span>
+            <div class="cert-title">NSW Data Analytics Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Xmart sales Dashboard.jpg','X-Mart Sales')">
-            <img src="Xmart sales Dashboard.jpg" alt="X-Mart Sales">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 12. DigiSkills Old -->
+    <div class="cert-card" data-cat="digi" style="--i:13">
+        <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
+            <img src="digiskills.jpg" alt="DigiSkills">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Executive</span>
-            <div class="card-title">X-Mart Sales</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need a 3-year strategic view of $99M revenue to guide investment.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Samsung (16%) and Dell (14%) are highest-value brands.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Case for discontinuing underperforming SKUs built.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-digi">DigiSkills</span>
+            <div class="cert-title">DigiSkills Data Analytics & BI</div>
+            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
+            </a>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Samsung Pakistan Sales Analysis Dashboard.jpg','Samsung Pakistan')">
-            <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Samsung Pakistan">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 13. DigiSkills New -->
+    <div class="cert-card" data-cat="digi" style="--i:14">
+        <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills Data Analytics & Business Intelligence – DSTP 3.0')">
+            <img src="DigiSkills New.jpg" alt="DigiSkills New">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Regional</span>
-            <div class="card-title">Samsung Pakistan</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Regional sales team had no channel-level performance data.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Karachi leads. Distributor stores miss targets consistently.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Delivered channel strategy on a 7-table normalised data model.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Samsung-Pakistan-Retail-Sales-Channel-Performance-Analytics-SQL-Project-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-digi">DigiSkills</span>
+            <div class="cert-title">DigiSkills Data Analytics & Business Intelligence – DSTP 3.0</div>
+            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
+                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
+            </a>
         </div>
     </div>
 
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Bank Customer Churn Analysis Dashboard.jpg','Bank Churn Analysis')">
-            <img src="Bank Customer Churn Analysis Dashboard.jpg" alt="Bank Churn Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
+    <!-- 14. One Million Prompters -->
+    <div class="cert-card" data-cat="other" style="--i:15">
+        <div class="cert-img-box" onclick="openModal('One Million Prompters Certificate.jpg','One Million Prompters Certificate')">
+            <img src="One Million Prompters Certificate.jpg" alt="One Million Prompters Certificate">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
         </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Churn</span>
-            <div class="card-title">Bank Churn Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Retail bank losing customers with no demographics view of attrition.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Product 4: 69% churn—clearly failing its users.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Prioritised retention spend by segment to maximise recovery.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('I Point Sales Dashboard.jpg','I-Point Performance')">
-            <img src="I Point Sales Dashboard.jpg" alt="I-Point Performance">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Inventory</span>
-            <div class="card-title">I-Point Performance</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> 304% revenue growth but leadership blind to margin erosion.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> 34% avg discount rate is the primary margin threat.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Reformed discount structure to align growth with profit.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-            <a href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <!-- ═══════════ NEW: TOBACCO ENTERPRISE ANALYTICS ═══════════ -->
-    <div class="project-card" data-cat="pbi">
-        <div class="img-box" onclick="openModal('Tobacco_dashboard.png','Tobacco Enterprise Analytics Dashboard')">
-            <img src="Tobacco_dashboard.png" alt="Tobacco Enterprise Analytics Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-pbi"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-            <span class="card-category">Manufacturing</span>
-            <div class="card-title">Tobacco Enterprise Analytics Dashboard</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Tobacco manufacturer with no centralized view of sales growth, production waste, or distributor performance — decision-makers were operating blind.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Punjab Corp leads at 3.9M PKR while Cherab Dist lags at 1.5M PKR — a 2.4M PKR gap. Production waste hit 20.26K units with rejection rates spiking to 5% in peak months.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Unified sales, production & target data into one platform revealing 34.1% revenue growth (2024–2026) and a 1.39 target achievement ratio — enabling waste reduction and distributor development strategies.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">Power BI</span>
-                <span class="tool-tag">DAX</span>
-                <span class="tool-tag">Power Query</span>
-                <span class="tool-tag">Star Schema</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/Tobacco-Enterprise-Analytics-Production-Sales-Efficiency" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <!-- ═══════════ EXCEL PROJECTS ═══════════ -->
-    <div class="project-card" data-cat="excel">
-        <div class="img-box" onclick="openModal('Road Accident Dashboard.jpg','Road Accident Dashboard')">
-            <img src="Road Accident Dashboard.jpg" alt="Road Accident Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">Road Safety</span>
-            <div class="card-title">Road Accident Dashboard</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No data-driven framework to prioritise infrastructure spend.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Single-carriageway roads account for 390K casualties.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Risk map to direct enforcement and redesign investment.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span><span class="tool-tag">Slicers</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Road-Accident-Dashboard-In-Excel" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <div class="project-card" data-cat="excel">
-        <div class="img-box" onclick="openModal('Call Centre Data Analysis Excel Project.jpg','Call Centre Analysis')">
-            <img src="Call Centre Data Analysis Excel Project.jpg" alt="Call Centre Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">Operations</span>
-            <div class="card-title">Call Centre Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> No view of which segments were driving high-value conversions.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top agent F05 consistently outperformed peers.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Identified Rs.18K daily revenue opportunity via playbook.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Call-Centre-Data-Analysis-Dashboard-" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <div class="project-card" data-cat="excel">
-        <div class="img-box" onclick="openModal('Coffee Sales Dashboard.jpg','Coffee Sales Dashboard')">
-            <img src="Coffee Sales Dashboard.jpg" alt="Coffee Sales Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">Sales</span>
-            <div class="card-title">Coffee Sales Dashboard</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Multi-country retailer with no view of revenue drivers.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Top 5 customers generate revenue far above order share.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Flagged top accounts for active retention management.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Pivot Tables</span></div>
-            <a href="https://github.com/Khurramnaveed3233/Coffee-Sales-Dashboard" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <div class="project-card" data-cat="excel">
-        <div class="img-box" onclick="openModal('CRM Dahboard in Excel.jpg','CRM Dashboard')">
-            <img src="CRM Dahboard in Excel.jpg" alt="CRM Dashboard">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">CRM</span>
-            <div class="card-title">CRM Dashboard</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Leadership making pipeline decisions blind without data.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Mid-funnel stages accounted for majority of lost deals.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Pinpointed bottlenecks for targeted coaching.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Google Sheets</span><span class="tool-tag">Formulas</span></div>
-            <a href="https://github.com/Khurramnaveed3233/CRM-Sales-Dashboard-for-SoftTech-in-Google-Sheet" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <div class="project-card" data-cat="excel">
-        <div class="img-box" onclick="openModal('ECOMMERCE SALES ANALYSIS.jpg','Ecommerce Sales Analysis')">
-            <img src="ECOMMERCE SALES ANALYSIS.jpg" alt="Ecommerce Sales Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-excel"><i class="fa-solid fa-file-excel"></i> Excel</span>
-            <span class="card-category">E-Commerce</span>
-            <div class="card-title">Ecommerce Sales Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> $484K sales masked compressed margins with no clarity.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Phones are the #1 product. Technology leads profit.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Redirected budget toward highest-margin product lines.
-            </p>
-            <div class="tool-tags"><span class="tool-tag">Excel</span><span class="tool-tag">Power BI</span></div>
-            <a href="https://github.com/Khurramnaveed3233/ECOMMERCE-SALES-ANALYSIS." class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <!-- ═══════════ SQL PROJECTS ═══════════ -->
-
-    <!-- FEROZSONS PHARMACEUTICALS -->
-    <div class="project-card" data-cat="sql">
-        <div class="img-box" onclick="openModal('Ferozsons Pharmaceuticals.png','Ferozsons Pharmaceuticals ERP Analytics')">
-            <img src="Ferozsons Pharmaceuticals.png" alt="Ferozsons Pharmaceuticals ERP Analytics">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
-            <span class="card-category">ERP Analytics</span>
-            <div class="card-title">Ferozsons Pharmaceuticals – ERP Operations Analytics & SQL Optimization</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Pharmaceutical operations faced inventory mismatches, shipment delays, unpaid invoice holds, and poor cross-department visibility across ERP workflows.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> SQL-driven reporting identified payment-blocked shipments, supplier inefficiencies, inventory inaccuracies, and operational bottlenecks impacting order fulfillment and stock availability.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Built a fully normalized ERP-style SQL system with automated inventory triggers, supplier ranking logic, financial alert reporting, and centralized operational analytics for faster business decision-making.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">SQL Server</span>
-                <span class="tool-tag">Triggers</span>
-                <span class="tool-tag">Window Functions</span>
-                <span class="tool-tag">ERP Analytics</span>
-                <span class="tool-tag">Normalization</span>
-                <span class="tool-tag">JOINs</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/Ferozsons-Pharmaceuticals-ERP-Operations-Analytics-SQL-Optimization-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
-        </div>
-    </div>
-
-    <!-- AMAZON SQL ANALYSIS -->
-    <div class="project-card" data-cat="sql">
-        <div class="img-box" onclick="openModal('AmazonSQL.png','Amazon SQL Analysis')">
-            <img src="AmazonSQL.png" alt="Amazon SQL Analysis">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> Preview</div>
-        </div>
-        <div class="card-body">
-            <span class="type-badge badge-sql"><i class="fa-solid fa-database"></i> SQL</span>
-            <span class="card-category">Optimizing</span>
-            <div class="card-title">Amazon SQL Analysis</div>
-            <p class="card-desc">
-                <strong style="color:#e2d4f0;">🔴 Problem:</strong> Need pure SQL approach for commercial questions.<br><br>
-                <strong style="color:#e2d4f0;">📊 Finding:</strong> Pareto trends confirmed top-customer revenue concentration.<br><br>
-                <strong style="color:#e2d4f0;">✅ Impact:</strong> Framework for segmentation and demand forecasting.
-            </p>
-            <div class="tool-tags">
-                <span class="tool-tag">SQL Server</span>
-                <span class="tool-tag">CTEs</span>
-                <span class="tool-tag">Window Functions</span>
-            </div>
-            <a href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" class="btn-github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <div class="cert-body">
+            <span class="issuer-badge badge-other">AI & Prompting</span>
+            <div class="cert-title">One Million Prompters Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
         </div>
     </div>
 
 </div>
 
-<!-- Modal -->
-<div class="modal" id="imgModal" onclick="closeModal()">
+<!-- MODAL -->
+<div id="imgModal" class="modal" onclick="closeModal()">
     <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-    <img class="modal-img" id="modalImg" src="" alt="">
-    <div class="modal-caption" id="modalCaption"></div>
+    <img class="modal-img" id="fullImg" onclick="event.stopPropagation()">
+    <div id="caption" class="modal-caption"></div>
 </div>
 
-<footer class="footer-brand">
-    <p style="color:var(--muted);font-size:0.75rem;letter-spacing:1px;">© 2025 Khurram Insights. All rights reserved.</p>
-</footer>
+<!-- FOOTER -->
+<div class="footer-brand">
+    <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+</div>
 
 <script>
-    function openModal(src, caption) {
-        document.getElementById('modalImg').src = src;
-        document.getElementById('modalCaption').textContent = caption;
+    function openModal(src, title) {
+        document.getElementById('fullImg').src = src;
+        document.getElementById('caption').innerHTML = title;
         document.getElementById('imgModal').classList.add('open');
         document.body.style.overflow = 'hidden';
     }
@@ -831,17 +557,11 @@
         document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    function filterProjects(cat, btn) {
+    function filterCards(cat, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        document.querySelectorAll('.project-card').forEach(card => {
-            const cats = card.dataset.cat || '';
-            if (cat === 'all' || cats.includes(cat)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
+        document.querySelectorAll('.cert-card').forEach(card => {
+            card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
         });
     }
 </script>
