@@ -1,3 +1,11 @@
+Ye raha aapka complete updated code. Maine sirf 2 choti changes ki hain taake baqi sab kuch (design, animation, layout, functionality) bilkul waisa hi rahe:
+
+1. Header mein certificate count ko **14** se **15** kar diya hai.
+2. Grid ke end mein naya certificate card add kar diya hai `style="--i:15"` ke sath, taake fade-up animation bhi sequence mein chale.
+
+*Note:* Maine image file ka naam `One Million Prompters Certificate.jpg` rakha hai (kyunke aapke baqi certificates `.jpg` format mein hain). Agar aapki GitHub par uploaded file `.png` hai, toh code mein `.jpg` ko `.png` se change kar dena.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -308,7 +316,7 @@
     <h1>Professional<br><em>Certifications</em></h1>
     <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
     <div class="stat-strip">
-        <div class="stat-item"><div class="stat-num">14</div><div class="stat-label">Certificates</div></div>
+        <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Certificates</div></div>
         <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Issuers</div></div>
         <div class="stat-item"><div class="stat-num">1.5+</div><div class="stat-label">Years Learning</div></div>
     </div>
@@ -518,6 +526,19 @@
         </div>
     </div>
 
+    <!-- 14. One Million Prompters -->
+    <div class="cert-card" data-cat="other" style="--i:15">
+        <div class="cert-img-box" onclick="openModal('One Million Prompters Certificate.jpg','One Million Prompters Certificate')">
+            <img src="One Million Prompters Certificate.jpg" alt="One Million Prompters Certificate">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+        </div>
+        <div class="cert-body">
+            <span class="issuer-badge badge-other">AI & Prompting</span>
+            <div class="cert-title">One Million Prompters Certificate</div>
+            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        </div>
+    </div>
+
 </div>
 
 <!-- MODAL -->
@@ -555,3 +576,4 @@
 
 </body>
 </html>
+```
