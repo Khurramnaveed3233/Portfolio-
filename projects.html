@@ -457,6 +457,95 @@
     grid-column:1/-1;
     display:none;
   }
+
+  /* ---------- Card media as a button (click to enlarge) ---------- */
+  .card-media{
+    cursor:zoom-in;
+  }
+
+  .card-media .view-hint{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:rgba(10,7,19,0.55);
+    opacity:0;
+    transition:opacity .25s ease;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+
+  .card:hover .view-hint{opacity:1;}
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:rgba(6,4,12,0.92);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+
+  .lightbox.open{display:flex;}
+
+  .lightbox-inner{
+    position:relative;
+    max-width:min(1100px, 92vw);
+    max-height:88vh;
+  }
+
+  .lightbox-inner img{
+    max-width:100%;
+    max-height:88vh;
+    width:auto;
+    height:auto;
+    border-radius:var(--radius-md);
+    border:1px solid var(--border-strong);
+    box-shadow:0 30px 80px -20px rgba(139,92,246,0.4);
+  }
+
+  .lightbox-caption{
+    text-align:center;
+    color:var(--text-secondary);
+    font-size:14px;
+    margin-top:16px;
+  }
+
+  .lightbox-close{
+    position:absolute;
+    top:-18px;
+    right:-18px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--bg-secondary);
+    border:1px solid var(--border-strong);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+  }
+
+  .lightbox-close:hover{
+    background:var(--purple-dark);
+    transform:scale(1.08);
+  }
+
+  @media (max-width:600px){
+    .lightbox-close{top:-46px;right:0;}
+  }
 </style>
 </head>
 <body>
@@ -518,8 +607,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/AmazonPowerBI.png" alt="Amazon E-Commerce Power BI dashboard showing revenue, profit, and category performance" loading="lazy">
-        </div>
+          <img src="AmazonPowerBI.png" alt="Amazon E-Commerce Power BI dashboard showing revenue, profit, and category performance" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Amazon E-Commerce SQL &amp; Power BI Analysis</h3>
           <div class="card-block">
@@ -550,8 +642,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Netflix.png" alt="Netflix movies and TV shows SQL data analysis project cover" loading="lazy">
-        </div>
+          <img src="Netflix.png" alt="Netflix movies and TV shows SQL data analysis project cover" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Netflix Movies &amp; TV Shows Data Analysis</h3>
           <div class="card-block">
@@ -580,8 +675,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Spotify.jpg" alt="Spotify tracks and artists SQL data analysis project cover" loading="lazy">
-        </div>
+          <img src="Spotify.jpg" alt="Spotify tracks and artists SQL data analysis project cover" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Spotify Data Analysis using SQL</h3>
           <div class="card-block">
@@ -610,8 +708,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Tesla.png" alt="Tesla Motors operational data SQL Server analysis project cover" loading="lazy">
-        </div>
+          <img src="Tesla.png" alt="Tesla Motors operational data SQL Server analysis project cover" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Analyzing Tesla Motors Insights (SQL Server)</h3>
           <div class="card-block">
@@ -640,8 +741,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Jazz%20Telecom%20Data%20Analysis%20Dashboard.jpg" alt="Jazz Telecom customer behavior and revenue SQL analysis dashboard" loading="lazy">
-        </div>
+          <img src="Jazz%20Telecom%20Data%20Analysis%20Dashboard.jpg" alt="Jazz Telecom customer behavior and revenue SQL analysis dashboard" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Jazz Telecom — Customer Behavior &amp; Revenue Optimization</h3>
           <div class="card-block">
@@ -670,8 +774,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Kap's%20Caf%C3%A9%20%E2%80%93%20SQL%20Analytics%20Project.jpg" alt="Kap's Café SQL analytics project showing monthly revenue trends" loading="lazy">
-        </div>
+          <img src="Kap%E2%80%99s%20Caf%C3%A9%20%E2%80%93%20SQL%20Analytics%20Project.jpg" alt="Kap's Café SQL analytics project showing monthly revenue trends" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Kap's Café — SQL Analytics Project</h3>
           <div class="card-block">
@@ -700,8 +807,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL · Power BI</span>
-          <img src="images/ola_sql.jpg" alt="Ola NZ ride-hailing performance SQL and Power BI analysis" loading="lazy">
-        </div>
+          <img src="ola_sql.jpg" alt="Ola NZ ride-hailing performance SQL and Power BI analysis" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Ola NZ — Ride-Hailing Performance Analysis &amp; Strategy</h3>
           <div class="card-block">
@@ -731,8 +841,11 @@
       <article class="card" data-category="sql">
         <div class="card-media">
           <span class="card-badge">SQL</span>
-          <img src="images/Freelancer.jpeg" alt="Freelancer earnings tracker in Pakistan SQL project cover" loading="lazy">
-        </div>
+          <img src="Freelancer.jpeg" alt="Freelancer earnings tracker in Pakistan SQL project cover" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Freelancer Earnings Tracker in Pakistan</h3>
           <div class="card-block">
@@ -761,8 +874,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">Power BI</span>
-          <img src="images/zomato.jpg" alt="Zomato restaurant and customer data analysis dashboard" loading="lazy">
-        </div>
+          <img src="zomato.jpg" alt="Zomato restaurant and customer data analysis dashboard" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Zomato — Restaurant &amp; Customer Data Analysis</h3>
           <div class="card-block">
@@ -791,8 +907,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">Power BI</span>
-          <img src="images/bank_customer.png" alt="Bank customer churn analysis Power BI dashboard" loading="lazy">
-        </div>
+          <img src="bank_customer.png" alt="Bank customer churn analysis Power BI dashboard" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Bank Customer Churn Analysis</h3>
           <div class="card-block">
@@ -822,8 +941,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">Power BI</span>
-          <img src="images/X-Mart%20Sales%20Dashboard.jpg" alt="X-Mart sales dashboard 2020 to 2022 in Power BI" loading="lazy">
-        </div>
+          <img src="X-Mart%20Sales%20Dashboar.jpg" alt="X-Mart sales dashboard 2020 to 2022 in Power BI" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">X-Mart Sales Dashboard (2020–2022)</h3>
           <div class="card-block">
@@ -853,8 +975,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">Power BI</span>
-          <img src="images/edtech.png" alt="EdTech online courses analysis Power BI dashboard" loading="lazy">
-        </div>
+          <img src="edtech.png" alt="EdTech online courses analysis Power BI dashboard" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">EdTech Online Courses Analysis</h3>
           <div class="card-block">
@@ -883,8 +1008,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">SQL · Power BI</span>
-          <img src="images/pakistan_ecommerce.png" alt="Pakistan e-commerce analytics dashboard 2022 to 2024" loading="lazy">
-        </div>
+          <img src="pakistan_ecommerce.png" alt="Pakistan e-commerce analytics dashboard 2022 to 2024" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Pakistan E-Commerce Analytics Dashboard (2022–2024)</h3>
           <div class="card-block">
@@ -915,8 +1043,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">SQL · Power BI</span>
-          <img src="images/i-point.jpg" alt="I-Point sales performance dashboard in Power BI" loading="lazy">
-        </div>
+          <img src="i-point.jpg" alt="I-Point sales performance dashboard in Power BI" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">I-Point Sales Performance Dashboard</h3>
           <div class="card-block">
@@ -947,8 +1078,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">SQL · Power BI</span>
-          <img src="images/TheCookieLab.png" alt="The Cookie Lab retail analytics and business intelligence dashboard" loading="lazy">
-        </div>
+          <img src="TheCookieLab.png" alt="The Cookie Lab retail analytics and business intelligence dashboard" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">The Cookie Lab — Retail Analytics &amp; BI</h3>
           <div class="card-block">
@@ -978,8 +1112,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">Power BI</span>
-          <img src="images/stylo%20dashboard.png" alt="Stylo retail operations dashboard in Power BI" loading="lazy">
-        </div>
+          <img src="stylo%20dashboard.png" alt="Stylo retail operations dashboard in Power BI" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Stylo Retail Operations Dashboard</h3>
           <div class="card-block">
@@ -1010,8 +1147,11 @@
       <article class="card" data-category="powerbi">
         <div class="card-media">
           <span class="card-badge">SQL · Power BI</span>
-          <img src="images/Global%20terrorism%20Analysis%20Dashboard.jpg" alt="Global terrorism analysis dashboard 1970 to 2017 in Power BI" loading="lazy">
-        </div>
+          <img src="Global%20terrorism%20Analysis%20Dashboard.jpg" alt="Global terrorism analysis dashboard 1970 to 2017 in Power BI" loading="lazy">
+        <span class="view-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            View Full Size
+          </span></div>
         <div class="card-body">
           <h3 class="card-title">Global Terrorism Analysis Dashboard (1970–2017)</h3>
           <div class="card-block">
@@ -1058,6 +1198,16 @@
   &nbsp;·&nbsp; <a href="mailto:khurramnaveed4545@gmail.com">Get in touch</a>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full size project image">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close full size image">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
 <script>
   (function(){
     const buttons = document.querySelectorAll('.filter-btn');
@@ -1084,6 +1234,61 @@
 
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       });
+    });
+  })();
+
+  /* ---------- Lightbox: click a project image to view it full size ---------- */
+  (function(){
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('lightboxClose');
+    let lastFocused = null;
+
+    function openLightbox(imgEl){
+      lastFocused = document.activeElement;
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt;
+      lightboxCaption.textContent = imgEl.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.card-media').forEach(media => {
+      media.setAttribute('tabindex', '0');
+      media.setAttribute('role', 'button');
+      media.setAttribute('aria-label', 'View full size image');
+
+      media.addEventListener('click', () => {
+        const img = media.querySelector('img');
+        if (img) openLightbox(img);
+      });
+
+      media.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          const img = media.querySelector('img');
+          if (img) openLightbox(img);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
   })();
 </script>
