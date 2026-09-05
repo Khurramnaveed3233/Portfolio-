@@ -1,569 +1,1091 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications | Khurram Naveed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --bg:      #07030f;
-            --surface: #0f0720;
-            --border:  rgba(209,179,255,0.12);
-            --accent:  #c084fc;
-            --accent2: #7c3aed;
-            --white:   #f0e8ff;
-            --muted:   #8b7aa0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Khurram Naveed | Data Analyst Portfolio</title>
+<meta name="description" content="17 real-world SQL and Power BI data analytics projects by Khurram Naveed — turning raw business data into actionable insights.">
 
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
+<!--
+  ============================================================
+  NOTE ON IMAGE PATHS
+  ============================================================
+  No existing HTML file was provided for this rebuild, so this
+  page assumes your project images live in a folder named
+  "images/" next to this HTML file (the most common convention),
+  e.g.  /images/AmazonPowerBI.png
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--white);
-            overflow-x: hidden;
-        }
+  If your repository actually stores project images somewhere
+  else (for example "assets/projects/"), do a find-and-replace
+  of the string   images/   with your real folder path before
+  publishing. Every filename below is copied EXACTLY as written
+  in your PDF — nothing was renamed or guessed.
+-->
 
-        body::before {
-            content:'';
-            position:fixed; inset:0;
-            background-image:
-                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events:none; z-index:0;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-        .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
-        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
-        .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
+<style>
+  :root{
+    --bg-primary:#0a0713;
+    --bg-secondary:#120b1f;
+    --purple:#8b5cf6;
+    --purple-light:#a78bfa;
+    --purple-dark:#5b21b6;
+    --text-primary:#f5f3f9;
+    --text-secondary:#a5a0b5;
+    --border:rgba(139,92,246,0.22);
+    --border-strong:rgba(139,92,246,0.5);
+    --card-bg:rgba(255,255,255,0.03);
+    --card-bg-hover:rgba(139,92,246,0.06);
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-pill:999px;
+    --max-width:1280px;
+  }
 
-        /* NAV */
-        nav {
-            position:sticky; top:0; z-index:1000;
-            background:rgba(26,11,46,0.88);
-            backdrop-filter:blur(18px);
-            border-bottom:1px solid var(--border);
-            padding:16px 0; text-align:center;
-        }
-        nav a {
-            color:#d1b3ff; text-decoration:none; margin:0 16px;
-            font-family:'Syne',sans-serif; font-size:0.78rem;
-            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
-            transition:color 0.2s;
-        }
-        nav a:hover { color:#fff; }
-        nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+  *{margin:0;padding:0;box-sizing:border-box;}
 
-        /* HEADER */
-        .page-header {
-            position:relative; z-index:1;
-            text-align:center; padding:90px 20px 60px;
-        }
-        .eyebrow {
-            display:inline-flex; align-items:center; gap:8px;
-            font-size:0.72rem; font-weight:700; letter-spacing:3px;
-            text-transform:uppercase; color:var(--accent);
-            border:1px solid rgba(192,132,252,0.3);
-            padding:6px 18px; border-radius:50px;
-            margin-bottom:22px;
-            background:rgba(192,132,252,0.06);
-        }
-        .eyebrow span {
-            width:6px; height:6px; background:var(--accent);
-            border-radius:50%; display:inline-block;
-            animation:blink 2s infinite;
-        }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  html{scroll-behavior:smooth;}
 
-        .page-header h1 {
-            font-family:'Syne',sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight:800; letter-spacing:-1px; color:#fff; line-height:1.1;
-        }
-        .page-header h1 em {
-            font-style:normal;
-            background:linear-gradient(90deg,#c084fc,#7c3aed);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
-        .page-header p {
-            margin-top:16px; color:var(--muted); font-size:1rem;
-            max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
-        }
+  body{
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
 
-        .stat-strip {
-            display:flex; justify-content:center; gap:48px;
-            margin-top:44px; flex-wrap:wrap;
-        }
-        .stat-item { text-align:center; }
-        .stat-num {
-            font-family:'Syne',sans-serif; font-size:2rem; font-weight:800;
-            background:linear-gradient(90deg,#c084fc,#7c3aed);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
-        .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+  }
 
-        /* FILTER TABS */
-        .filter-row {
-            display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-            padding:0 5%; margin-bottom:36px; position:relative; z-index:1;
-        }
-        .filter-btn {
-            font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
-            letter-spacing:1px; text-transform:uppercase;
-            padding:8px 20px; border-radius:50px; cursor:pointer;
-            border:1px solid var(--border);
-            background:rgba(255,255,255,0.03); color:var(--muted);
-            transition:0.25s; outline:none;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background:rgba(192,132,252,0.12);
-            border-color:rgba(192,132,252,0.4);
-            color:#fff;
-        }
+  a{color:inherit;text-decoration:none;}
 
-        /* CERT GRID */
-        .cert-grid {
-            display:grid;
-            grid-template-columns:repeat(4, 1fr);
-            gap:22px;
-            max-width:1400px;
-            margin:0 auto 100px;
-            padding:0 5%;
-            position:relative; z-index:1;
-        }
+  img{max-width:100%;display:block;}
 
-        /* CERT CARD */
-        .cert-card {
-            background:rgba(15,7,32,0.7);
-            border:1px solid var(--border);
-            border-radius:20px;
-            overflow:hidden;
-            display:flex; flex-direction:column;
-            transition:transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-            opacity:0; transform:translateY(24px);
-            animation:fadeUp 0.5s ease forwards;
-            backdrop-filter:blur(10px);
-            position:relative;
-        }
-        .cert-card::before {
-            content:'';
-            position:absolute; top:0; left:0; right:0; height:1px;
-            background:linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity:0; transition:opacity 0.35s;
-        }
-        .cert-card:hover { transform:translateY(-6px); border-color:rgba(192,132,252,0.38); box-shadow:0 20px 50px rgba(124,58,237,0.2); }
-        .cert-card:hover::before { opacity:1; }
+  :focus-visible{
+    outline:2px solid var(--purple-light);
+    outline-offset:3px;
+    border-radius:4px;
+  }
 
-        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  .container{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:0 32px;
+  }
 
-        /* Animation delays for cards */
-        .cert-card:nth-child(n) { animation-delay: calc(0.05s * var(--i, 1)); }
+  /* ---------- Background treatment ---------- */
+  .bg-grid{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background-image:
+      linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 20%, black 40%, transparent 90%);
+  }
 
-        .cert-img-box {
-            width:100%; height:170px; overflow:hidden;
-            position:relative; cursor:pointer;
-            background:#0a0418;
-        }
-        .cert-img-box img {
-            width:100%; height:100%; object-fit:cover;
-            transition:transform 0.4s ease, opacity 0.3s;
-            opacity:0.82;
-        }
-        .cert-card:hover .cert-img-box img { transform:scale(1.06); opacity:1; }
-        .cert-img-box .overlay {
-            position:absolute; inset:0;
-            background:rgba(76,0,130,0.55);
-            display:flex; align-items:center; justify-content:center;
-            opacity:0; transition:0.3s;
-            font-family:'Syne',sans-serif; font-size:0.78rem;
-            font-weight:700; letter-spacing:1px; color:#fff; gap:7px;
-        }
-        .cert-img-box:hover .overlay { opacity:1; }
+  .bg-glow{
+    position:fixed;
+    top:-10%;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:600px;
+    background:radial-gradient(closest-side, rgba(139,92,246,0.20), transparent 70%);
+    z-index:-1;
+    pointer-events:none;
+  }
 
-        .cert-body {
-            padding:16px 18px 18px;
-            display:flex; flex-direction:column; flex:1; gap:12px;
-        }
+  /* ---------- Navigation ---------- */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:linear-gradient(180deg, rgba(18,11,31,0.95), rgba(10,7,19,0.92));
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
 
-        /* Issuer badges */
-        .issuer-badge {
-            display:inline-flex; align-items:center; gap:6px;
-            font-size:0.65rem; font-weight:700; letter-spacing:1.2px;
-            text-transform:uppercase; padding:3px 10px; border-radius:50px;
-            width:fit-content;
-        }
-        .badge-google   { color:#4ade80; border:1px solid rgba(74,222,128,0.3);  background:rgba(74,222,128,0.06); }
-        .badge-cisco    { color:#38bdf8; border:1px solid rgba(56,189,248,0.3);  background:rgba(56,189,248,0.06); }
-        .badge-pwc      { color:#fb923c; border:1px solid rgba(251,146,60,0.3);  background:rgba(251,146,60,0.06); }
-        .badge-jpmorgan { color:#F2C811; border:1px solid rgba(242,200,17,0.3);  background:rgba(242,200,17,0.06); }
-        .badge-hp       { color:#c084fc; border:1px solid rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
-        .badge-nsw      { color:#e879f9; border:1px solid rgba(232,121,249,0.3); background:rgba(232,121,249,0.06); }
-        .badge-digi     { color:#34d399; border:1px solid rgba(52,211,153,0.3);  background:rgba(52,211,153,0.06); }
-        .badge-other    { color:#94a3b8; border:1px solid rgba(148,163,184,0.3); background:rgba(148,163,184,0.06); }
+  .nav-inner{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:20px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:44px;
+    flex-wrap:wrap;
+  }
 
-        .cert-title {
-            font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700;
-            color:#fff; line-height:1.4; flex:1;
-        }
+  .nav-link{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--text-secondary);
+    transition:color .25s ease;
+    padding-bottom:4px;
+  }
 
-        .btn-verify {
-            display:inline-flex; align-items:center; gap:6px;
-            background:rgba(74,222,128,0.08);
-            border:1px solid rgba(74,222,128,0.3);
-            color:#4ade80; text-decoration:none;
-            padding:8px 16px; border-radius:8px;
-            font-size:0.72rem; font-weight:700;
-            letter-spacing:0.5px; text-transform:uppercase;
-            transition:0.25s; margin-top:auto;
-        }
-        .btn-verify:hover {
-            background:rgba(74,222,128,0.18);
-            border-color:rgba(74,222,128,0.6);
-            color:#fff;
-            transform:translateY(-1px);
-        }
+  .nav-link:hover{color:var(--text-primary);}
 
-        .btn-no-link {
-            display:inline-flex; align-items:center; gap:6px;
-            background:rgba(255,255,255,0.03);
-            border:1px solid rgba(255,255,255,0.08);
-            color:var(--muted);
-            padding:8px 16px; border-radius:8px;
-            font-size:0.72rem; font-weight:700;
-            letter-spacing:0.5px; text-transform:uppercase;
-            margin-top:auto; opacity:0.45;
-            pointer-events:none; cursor:not-allowed;
-        }
+  .nav-link.active{
+    color:var(--text-primary);
+    border-bottom:2px solid var(--purple-light);
+  }
 
-        /* MODAL */
-        .modal {
-            display:none; position:fixed; z-index:2000; inset:0;
-            background:rgba(0,0,0,0.92);
-            backdrop-filter:blur(12px);
-            justify-content:center; align-items:center; flex-direction:column;
-            padding:20px;
-        }
-        .modal.open { display:flex; }
-        .modal-img {
-            max-width:88vw; max-height:78vh;
-            border:2px solid rgba(192,132,252,0.4);
-            border-radius:14px;
-            box-shadow:0 0 80px rgba(124,58,237,0.4);
-            animation:zoomIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
-        }
-        @keyframes zoomIn { from{transform:scale(0.75);opacity:0} to{transform:scale(1);opacity:1} }
-        .modal-caption {
-            color:var(--accent); margin-top:18px;
-            font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:700;
-            letter-spacing:0.5px; text-align:center;
-        }
-        .modal-close {
-            position:absolute; top:18px; right:28px;
-            color:#fff; font-size:1.4rem; cursor:pointer;
-            background:rgba(255,255,255,0.07); border:none;
-            width:44px; height:44px; border-radius:50%;
-            display:flex; align-items:center; justify-content:center;
-            transition:background 0.2s;
-        }
-        .modal-close:hover { background:rgba(255,255,255,0.15); }
+  /* ---------- Hero ---------- */
+  .hero{
+    text-align:center;
+    padding:96px 24px 64px;
+  }
 
-        .footer-brand {
-            text-align:center; padding:36px 20px;
-            border-top:1px solid var(--border);
-            position:relative; z-index:1;
-        }
-        .footer-brand img { height:34px; opacity:0.45; }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 20px;
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-pill);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--purple-light);
+    margin-bottom:36px;
+  }
 
-        /* RESPONSIVE */
-        @media (max-width:1100px) { .cert-grid { grid-template-columns:repeat(3,1fr); } }
-        @media (max-width:800px)  { .cert-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:500px)  {
-            .cert-grid { grid-template-columns:1fr; }
-            nav a { margin:0 8px; font-size:0.7rem; }
-        }
-    </style>
+  .eyebrow::before{
+    content:'';
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--purple-light);
+  }
+
+  .hero h1{
+    font-size:clamp(42px, 7vw, 84px);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-1px;
+  }
+
+  .hero h1 .gradient{
+    background:linear-gradient(135deg, var(--purple-light), var(--purple) 60%, #6d3fd6);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p.sub{
+    max-width:640px;
+    margin:32px auto 0;
+    color:var(--text-secondary);
+    font-size:18px;
+  }
+
+  /* ---------- Stats ---------- */
+  .stats{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+    padding:56px 24px 72px;
+  }
+
+  .stat-num{
+    font-size:44px;
+    font-weight:700;
+    color:var(--purple-light);
+    line-height:1;
+  }
+
+  .stat-label{
+    margin-top:8px;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--text-secondary);
+  }
+
+  /* ---------- Filters ---------- */
+  .filters{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    padding:0 24px 64px;
+  }
+
+  .filter-btn{
+    padding:11px 26px;
+    border-radius:var(--radius-pill);
+    border:1px solid var(--border);
+    background:rgba(255,255,255,0.02);
+    color:var(--text-secondary);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:all .25s ease;
+  }
+
+  .filter-btn:hover{
+    border-color:var(--border-strong);
+    color:var(--text-primary);
+  }
+
+  .filter-btn.active{
+    background:rgba(139,92,246,0.16);
+    border-color:var(--purple-light);
+    color:#fff;
+  }
+
+  /* ---------- Project Grid ---------- */
+  .projects-section{
+    padding:0 24px 100px;
+  }
+
+  .grid{
+    max-width:var(--max-width);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+
+  @media (max-width: 1024px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width: 680px){
+    .grid{grid-template-columns:1fr;}
+    .nav-inner{gap:20px 28px;}
+    .stats{gap:44px;}
+  }
+
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-8px);
+    border-color:var(--border-strong);
+    background:var(--card-bg-hover);
+    box-shadow:0 20px 50px -20px rgba(139,92,246,0.35);
+  }
+
+  .card-media{
+    position:relative;
+    aspect-ratio:16/10;
+    overflow:hidden;
+    background:#1a1226;
+  }
+
+  .card-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+  }
+
+  .card:hover .card-media img{
+    transform:scale(1.06);
+  }
+
+  .card-badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    padding:6px 14px;
+    border-radius:var(--radius-pill);
+    background:rgba(10,7,19,0.75);
+    backdrop-filter:blur(6px);
+    border:1px solid var(--border-strong);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--purple-light);
+  }
+
+  .card-body{
+    padding:26px 26px 28px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
+  .card-title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:12px;
+    line-height:1.3;
+  }
+
+  .card-block{
+    margin-bottom:14px;
+  }
+
+  .card-block .label{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--purple-light);
+    margin-bottom:5px;
+    display:block;
+  }
+
+  .card-block p{
+    font-size:14px;
+    color:var(--text-secondary);
+    line-height:1.55;
+  }
+
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:6px 0 18px;
+  }
+
+  .tag{
+    font-size:11px;
+    font-weight:600;
+    padding:5px 12px;
+    border-radius:var(--radius-pill);
+    border:1px solid var(--border);
+    color:var(--text-secondary);
+    background:rgba(255,255,255,0.02);
+  }
+
+  .card-insight{
+    background:rgba(139,92,246,0.06);
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:14px 16px;
+    margin-bottom:20px;
+  }
+
+  .card-insight .label{color:var(--purple-light);}
+  .card-insight p{color:var(--text-primary);font-size:13.5px;}
+
+  .card-link{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--text-primary);
+    padding-top:6px;
+    transition:gap .25s ease, color .25s ease;
+  }
+
+  .card-link svg{transition:transform .25s ease;}
+
+  .card-link:hover{color:var(--purple-light);}
+  .card-link:hover svg{transform:translateX(4px);}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    text-align:center;
+    padding:20px 24px 110px;
+  }
+
+  .cta h2{
+    font-size:clamp(28px, 4vw, 40px);
+    margin-bottom:16px;
+  }
+
+  .cta p{
+    color:var(--text-secondary);
+    max-width:520px;
+    margin:0 auto 32px;
+  }
+
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 34px;
+    border-radius:var(--radius-pill);
+    background:linear-gradient(135deg, var(--purple-light), var(--purple-dark));
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px -10px rgba(139,92,246,0.6);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--border);
+    padding:36px 24px;
+    text-align:center;
+    color:var(--text-secondary);
+    font-size:13px;
+  }
+
+  footer a{color:var(--purple-light);}
+
+  .no-results{
+    text-align:center;
+    color:var(--text-secondary);
+    padding:60px 20px;
+    grid-column:1/-1;
+    display:none;
+  }
+</style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="certifications.html" class="active">Certifications</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-<!-- HEADER -->
-<header class="page-header">
-    <div class="eyebrow"><span></span> Verified Credentials</div>
-    <h1>Professional<br><em>Certifications</em></h1>
-    <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
-    <div class="stat-strip">
-        <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Certificates</div></div>
-        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Issuers</div></div>
-        <div class="stat-item"><div class="stat-num">1.5+</div><div class="stat-label">Years Learning</div></div>
-    </div>
+<header class="navbar">
+  <nav class="nav-inner" aria-label="Primary navigation">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="about.html">About</a>
+    <a class="nav-link active" href="projects.html" aria-current="page">Projects</a>
+    <a class="nav-link" href="skills.html">Skills</a>
+    <a class="nav-link" href="certifications.html">Certifications</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<!-- FILTER TABS -->
-<div class="filter-row">
-    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
-    <button class="filter-btn" onclick="filterCards('google',this)">Google</button>
-    <button class="filter-btn" onclick="filterCards('cisco',this)">Cisco</button>
-    <button class="filter-btn" onclick="filterCards('pwc',this)">PwC</button>
-    <button class="filter-btn" onclick="filterCards('jpmorgan',this)">JPMorgan</button>
-    <button class="filter-btn" onclick="filterCards('digi',this)">DigiSkills</button>
-    <button class="filter-btn" onclick="filterCards('other',this)">Other</button>
-</div>
+<main id="main">
 
-<!-- CERT GRID -->
-<div class="cert-grid">
+  <section class="hero">
+    <div class="eyebrow">Real-World Data Projects</div>
+    <h1>
+      Featured<br>
+      <span class="gradient">Projects</span>
+    </h1>
+    <p class="sub">
+      17 end-to-end SQL and Power BI projects — turning raw business data from
+      e-commerce, retail, telecom, and ride-hailing companies into clear,
+      actionable insights.
+    </p>
+  </section>
 
-    <!-- NEW: Critical Thinking in the AI Era -->
-    <div class="cert-card" data-cat="other" style="--i:1">
-        <div class="cert-img-box" onclick="openModal('Critical Thinking in the AI Era.jpg','Critical Thinking in the AI Era')">
-            <img src="Critical Thinking in the AI Era.jpg" alt="Critical Thinking AI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">AI & Logic</span>
-            <div class="cert-title">Critical Thinking in the AI Era</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
+  <section class="stats" aria-label="Project statistics">
+    <div>
+      <div class="stat-num">17</div>
+      <div class="stat-label">Total Projects</div>
     </div>
-
-    <!-- 1. Power Query -->
-    <div class="cert-card" data-cat="other" style="--i:2">
-        <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
-            <img src="power_query.png" alt="Power Query">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">Masterclass</span>
-            <div class="cert-title">Power Query Training Masterclass Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
+    <div>
+      <div class="stat-num">8</div>
+      <div class="stat-label">SQL Projects</div>
     </div>
-
-    <!-- 2. Cisco Data Science -->
-    <div class="cert-card" data-cat="cisco" style="--i:3">
-        <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
-            <img src="DataScience.jpg" alt="Data Science Cisco">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">Introduction to Data Science – Cisco</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
+    <div>
+      <div class="stat-num">9</div>
+      <div class="stat-label">Power BI Projects</div>
     </div>
+  </section>
 
-    <!-- 3. Cisco C++ -->
-    <div class="cert-card" data-cat="cisco" style="--i:4">
-        <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
-            <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+  <div class="filters" role="group" aria-label="Filter projects by category">
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="sql" aria-pressed="false">SQL</button>
+    <button class="filter-btn" data-filter="powerbi" aria-pressed="false">Power BI</button>
+  </div>
+
+  <section class="projects-section">
+    <div class="grid" id="projectGrid">
+
+      <!-- ============ SQL PROJECT 1 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/AmazonPowerBI.png" alt="Amazon E-Commerce Power BI dashboard showing revenue, profit, and category performance" loading="lazy">
         </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">Cisco C++ Essentials Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+        <div class="card-body">
+          <h3 class="card-title">Amazon E-Commerce SQL &amp; Power BI Analysis</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Leadership had no unified view of revenue, product profitability, or regional performance — no way to see which products were high-margin vs. high-volume.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Designed a full e-commerce database schema in SQL Server (ER diagram, joins, window functions, CTEs) and layered a star-schema Power BI dashboard with DAX KPIs on top.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Analyzed $1.2M revenue, $250K profit (20.8% margin). Electronics was most profitable and North America drove 60%+ of sales — but margin dropped 2.8% month-over-month, flagging a cost/discount issue.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Amazon-E-Commerce-SQL-Project" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 2 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Netflix.png" alt="Netflix movies and TV shows SQL data analysis project cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Netflix Movies &amp; TV Shows Data Analysis</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Needed to answer business questions about Netflix's content library — content-type mix, top ratings, regional distribution, and genre trends — from a large, unstructured dataset.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL (GROUP BY, window functions like RANK(), string/array functions, CTEs) across 15 real business questions, from content-type counts to keyword-based content categorization.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Identified the most common content ratings and genres, the top content-producing countries, and flagged content by keyword sentiment — demonstrating strong SQL fundamentals for content-strategy analysis.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Netflix_Movies_Data_Analysis-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 3 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Spotify.jpg" alt="Spotify tracks and artists SQL data analysis project cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Spotify Data Analysis using SQL</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>A large, denormalized Spotify dataset (tracks, albums, artists, engagement metrics) needed to be structured and queried to uncover listening trends and platform preferences.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Normalized the dataset for data integrity, then wrote SQL queries of increasing complexity — filters, window functions, subqueries, CTEs — plus query optimization with indexing and EXPLAIN ANALYZE.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Found tracks with 1B+ streams, ranked the top 3 most-viewed tracks per artist using window functions, and identified tracks that streamed more on Spotify than YouTube.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Spotify-Data-Analysis-using-SQL" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 4 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Tesla.png" alt="Tesla Motors operational data SQL Server analysis project cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Analyzing Tesla Motors Insights (SQL Server)</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Tesla needed cross-domain visibility across Sales, Inventory, Customer Feedback, and Service Records to catch inefficiencies before they hurt the business.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Queried a 5-domain relational SQL Server database — handling complex joins, inconsistent feedback data, and missing values — to connect sales trends with service and inventory data.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Model X had the highest sales, peaking in Q2 and Q4. Models with higher service frequency had lower ratings — driven by battery issues and software bugs — recommending predictive maintenance and OTA updates.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Analyzing-Tesla-Motors-Insights-from-SQL-Server-Project" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 5 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Jazz%20Telecom%20Data%20Analysis%20Dashboard.jpg" alt="Jazz Telecom customer behavior and revenue SQL analysis dashboard" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Jazz Telecom — Customer Behavior &amp; Revenue Optimization</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Jazz Pakistan needed to detect early churn signals, understand usage trends, and identify top revenue segments — pain points common across telecom operators.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Solved 12 business questions in SQL Server using aggregations, window functions (ROW_NUMBER(), NTILE()), CTEs, and date logic across ARPU, churn, and plan-migration data.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Data usage is rising faster than call minutes, postpaid users have higher ARPU than prepaid, and some customers showed zero activity for 2+ months — a clear churn signal for retention teams.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Jazz-Telecom-SQL-Project-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 6 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Kap's%20Caf%C3%A9%20%E2%80%93%20SQL%20Analytics%20Project.jpg" alt="Kap's Café SQL analytics project showing monthly revenue trends" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Kap's Café — SQL Analytics Project</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Café management was making decisions with zero visibility into monthly revenue, order volume trends, or product demand shifts, despite having raw transaction data.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL Server's LAG() window function for month-over-month (MoM) comparative analysis across revenue, order count, and quantity sold.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Some months held steady revenue despite fewer orders — a premium-pricing effect — while other months showed sharp order/revenue volatility tied to seasonality, informing promotion timing.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Kap-s-Caf-SQL-Analytics-Project" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 7 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL · Power BI</span>
+          <img src="images/ola_sql.jpg" alt="Ola NZ ride-hailing performance SQL and Power BI analysis" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ola NZ — Ride-Hailing Performance Analysis &amp; Strategy</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Ola's New Zealand operations faced high cancellations, uneven driver utilization, and revenue stagnation with no data-driven diagnosis in place.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Built a star-schema SQL Server model (fact/dimension tables for bookings, ratings, drivers, customers) using joins, CTEs, window functions, and stored procedures, visualized in Power BI.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Wellington's cancellation rate (~18%) was nearly double Auckland's; top 10% of drivers earned 3x the average; EVs had the highest fare-per-km — projecting a NZD 3.1M+ opportunity if cancellations dropped to 15%.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Ola-NZ-Ride-Hailing-Performance-Analysis-Strategy" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ SQL PROJECT 8 ============ -->
+      <article class="card" data-category="sql">
+        <div class="card-media">
+          <span class="card-badge">SQL</span>
+          <img src="images/Freelancer.jpeg" alt="Freelancer earnings tracker in Pakistan SQL project cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Freelancer Earnings Tracker in Pakistan</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Pakistani freelancers had no structured way to track earnings, skills, or platform performance to make data-driven career decisions.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Designed an 8-table normalized SQL Server schema (freelancers, projects, reviews, skills, earnings, platforms, category, clients) and solved 10 business questions using window functions.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Top 20% of freelancers earn 60%+ of total revenue. SEO, Web Development, and Digital Marketing were the top-paying skills; Upwork paid best while Fiverr suited beginners.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Freelancer-Earnings-Tracker-in-Pakistan-SQL-Portfolio-Project" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 1 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">Power BI</span>
+          <img src="images/zomato.jpg" alt="Zomato restaurant and customer data analysis dashboard" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Zomato — Restaurant &amp; Customer Data Analysis</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Zomato needed to understand customer behavior, restaurant performance, and referral program impact to guide growth decisions.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL (joins, CTEs, window functions, ranking) to analyze orders, ratings, cuisines, delivery times, and referral chains across the customer/restaurant dataset.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Chinese cuisine generated the highest revenue; several users showed 6-month inactivity (churn risk); top-rated restaurants were ranked by revenue within each city.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Comprehensive-Analysis-of-Zomato-s-Restaurant-and-Customer-Data-to-Drive-Business-Growth" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 2 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">Power BI</span>
+          <img src="images/bank_customer.png" alt="Bank customer churn analysis Power BI dashboard" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bank Customer Churn Analysis</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>A bank was losing customers but had no visibility into who was churning, why, or which segments were most at risk.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Built a Power BI dashboard with DAX measures analyzing demographics, product usage, geography, credit score, and balance patterns.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Highest churn was ages 31–40 and in France/Spain (~40% each). Product 4 had ~69% churn vs. Product 1 (lowest) — leading to a segment-based retention and product-redesign strategy.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Customer-Churn-Analysis-Report" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 3 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">Power BI</span>
+          <img src="images/X-Mart%20Sales%20Dashboard.jpg" alt="X-Mart sales dashboard 2020 to 2022 in Power BI" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">X-Mart Sales Dashboard (2020–2022)</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>X-Mart, a multinational electronics retailer, needed a consolidated view of sales, cost, and profit performance across 3 years to guide inventory and marketing decisions.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Built a Power BI dashboard with DAX KPIs across categories, brands, regions, and supervisors from 5,095 transactions.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Total sales reached $99M with $23M profit. Monitors, Mice, CPUs, and Graphic Cards were top revenue drivers; Intel (19%), Samsung (16%), and Dell (14%) dominated brand sales.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/X-Mart-Sales-Dashboard-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 4 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">Power BI</span>
+          <img src="images/edtech.png" alt="EdTech online courses analysis Power BI dashboard" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">EdTech Online Courses Analysis</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>An EdTech platform needed to understand which course formats, languages, and content types actually drive engagement to guide content strategy.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Built a Power BI dashboard analyzing course type distribution, views by category/language, subtitle impact, and course duration vs. viewership.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Power BI</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Courses dominated at 746 instances; English made up 95.91% of content; courses with 1–2 subtitles and 200–400 hours of content saw the highest engagement.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/EdTech-Online-Courses-Analysis" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 5 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">SQL · Power BI</span>
+          <img src="images/pakistan_ecommerce.png" alt="Pakistan e-commerce analytics dashboard 2022 to 2024" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Pakistan E-Commerce Analytics Dashboard (2022–2024)</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Pakistani e-commerce operations and strategy teams lacked visibility into revenue drivers, city-level performance, and profit margin leakage.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL Server (CTEs, window functions) for data modeling plus Power BI/DAX for an end-to-end analytics dashboard across a 5-table relational schema.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Electronics drove 64% of revenue but only 19–24% margin, while Fashion/Footwear hit 34–38% margins. Top 3 customers made up 51% of revenue — a concentration risk.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Pakistan-E-Commerce-Analytics-Dashboard-2022-2024-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 6 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">SQL · Power BI</span>
+          <img src="images/i-point.jpg" alt="I-Point sales performance dashboard in Power BI" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">I-Point Sales Performance Dashboard</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>I-Point's leadership saw 4 years of strong revenue growth (2011–2014) but flat profit margins, with no visibility into the root cause.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Analyzed 4 years of sales data in SQL/Power BI (star schema, DAX) across segments, regions, categories, and discount levels to trace the margin problem.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Uncovered a "Discount Squeeze": revenue grew 304% ($0.57M → $2.30M) but avg. discount doubled, stalling margin. A 90-day action plan projected ~$108K EBIT uplift.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/I-Point-Sales-Performance-Dashboard-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 7 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">SQL · Power BI</span>
+          <img src="images/TheCookieLab.png" alt="The Cookie Lab retail analytics and business intelligence dashboard" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The Cookie Lab — Retail Analytics &amp; BI</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>The Cookie Lab (an omnichannel cookie retailer) had 824,838+ transaction records across channels and stores but no consolidated view of revenue, customer value, or refund risk.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL Server (joins, CTEs, NTILE window functions for RFM segmentation), then built a 4-page Power BI dashboard for executive review.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Segmented customers into Champions/Loyal/At-Risk tiers via RFM scoring, identified refund hotspots, and benchmarked store performance with ongoing monitorable KPIs.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/The-Cookie-Lab-Retail-Analytics-Business-Intelligence" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 8 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">Power BI</span>
+          <img src="images/stylo%20dashboard.png" alt="Stylo retail operations dashboard in Power BI" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Stylo Retail Operations Dashboard</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>Stylo Pakistan (fashion footwear retailer) needed a single source of truth to track store, product, and channel performance across thousands of daily transactions.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Built a star-schema Power BI model (FactSales + 7 dimension tables) with Power Query ETL and DAX measures across Executive Overview and Store Performance pages.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">Power Query</span>
+            <span class="tag">DAX</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Total sales of 286M with a 47% profit margin across 26K orders. Women's Shoes was the top category; in-store sales contributed ~80% of revenue vs. 20% online.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Stylo-Retail-Operations-Dashboard-Power-BI-" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ============ POWER BI PROJECT 9 ============ -->
+      <article class="card" data-category="powerbi">
+        <div class="card-media">
+          <span class="card-badge">SQL · Power BI</span>
+          <img src="images/Global%20terrorism%20Analysis%20Dashboard.jpg" alt="Global terrorism analysis dashboard 1970 to 2017 in Power BI" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Global Terrorism Analysis Dashboard (1970–2017)</h3>
+          <div class="card-block">
+            <span class="label">Problem</span>
+            <p>96,000+ terrorism records across 47 years were too unstructured to reveal regional hotspots, high-risk groups, or attack trends for security planning.</p>
+          </div>
+          <div class="card-block">
+            <span class="label">Approach</span>
+            <p>Used SQL Server (aggregations, GROUP BY, JOINs, category standardization) plus an interactive Power BI dashboard with map visuals and time-series trend analysis.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+          </div>
+          <div class="card-insight">
+            <span class="label">Key Insight</span>
+            <p>Taliban identified as the most deadly group; explosives were the most-used weapon; South Asia was the highest-risk region; 2017 recorded the peak number of attacks.</p>
+          </div>
+          <a class="card-link" href="https://github.com/Khurramnaveed3233/Global-Terrorism-Analysis-Dashboard-Report" target="_blank" rel="noopener">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <p class="no-results" id="noResults">No projects match this filter yet.</p>
+
     </div>
+  </section>
 
-    <!-- 4. Google BI -->
-    <div class="cert-card" data-cat="google" style="--i:5">
-        <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Business Intelligence Professional Certificate')">
-            <img src="google_bi.jpg" alt="Google BI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google Business Intelligence Professional Certificate</div>
-            <a href="https://www.coursera.org/account/accomplishments/professional-cert/VAMXR2JKSJVP" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
-            </a>
-        </div>
-    </div>
+  <section class="cta">
+    <h2>Want to see more?</h2>
+    <p>Explore the full source code, SQL scripts, and dashboard files for every project on GitHub.</p>
+    <a class="btn-primary" href="https://github.com/Khurramnaveed3233" target="_blank" rel="noopener">
+      Visit GitHub
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
 
-    <!-- 5. Google Data Analytics -->
-    <div class="cert-card" data-cat="google" style="--i:6">
-        <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
-            <img src="google_pro.jpg" alt="Google Data Analytics">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google Data Analytics Professional Certificate</div>
-            <a href="https://www.coursera.org/account/accomplishments/professional-cert/H948EJL58NAZ" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
-            </a>
-        </div>
-    </div>
+</main>
 
-    <!-- 6. PwC Power BI -->
-    <div class="cert-card" data-cat="pwc" style="--i:7">
-        <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
-            <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-pwc">PwC</span>
-            <div class="cert-title">Power BI Corporate Training – PwC</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 7. Google AI -->
-    <div class="cert-card" data-cat="google" style="--i:8">
-        <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
-            <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google AI Essentials Professional</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 8. Cisco Data Analytics -->
-    <div class="cert-card" data-cat="cisco" style="--i:9">
-        <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
-            <img src="cisco.jpg" alt="Cisco Data Analytics">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">CISCO Data Analytics Essentials</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 9. JPMorgan -->
-    <div class="cert-card" data-cat="jpmorgan" style="--i:10">
-        <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
-            <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
-            <div class="cert-title">JPMorgan Chase Virtual Experience</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 10. HP Life -->
-    <div class="cert-card" data-cat="other" style="--i:11">
-        <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
-            <img src="hplife.jpg" alt="HP Life">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-hp">HP Life</span>
-            <div class="cert-title">Diploma in Data Analytics – HP Life</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 11. NSW -->
-    <div class="cert-card" data-cat="other" style="--i:12">
-        <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
-            <img src="nsw.jpg" alt="NSW">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-nsw">NSW</span>
-            <div class="cert-title">NSW Data Analytics Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 12. DigiSkills Old -->
-    <div class="cert-card" data-cat="digi" style="--i:13">
-        <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
-            <img src="digiskills.jpg" alt="DigiSkills">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-digi">DigiSkills</span>
-            <div class="cert-title">DigiSkills Data Analytics & BI</div>
-            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
-            </a>
-        </div>
-    </div>
-
-    <!-- 13. DigiSkills New -->
-    <div class="cert-card" data-cat="digi" style="--i:14">
-        <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills Data Analytics & Business Intelligence – DSTP 3.0')">
-            <img src="DigiSkills New.jpg" alt="DigiSkills New">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-digi">DigiSkills</span>
-            <div class="cert-title">DigiSkills Data Analytics & Business Intelligence – DSTP 3.0</div>
-            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
-            </a>
-        </div>
-    </div>
-
-    <!-- 14. One Million Prompters -->
-    <div class="cert-card" data-cat="other" style="--i:15">
-        <div class="cert-img-box" onclick="openModal('One Million Prompters Certificate.jpg','One Million Prompters Certificate')">
-            <img src="One Million Prompters Certificate.jpg" alt="One Million Prompters Certificate">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">AI & Prompting</span>
-            <div class="cert-title">One Million Prompters Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-</div>
-
-<!-- MODAL -->
-<div id="imgModal" class="modal" onclick="closeModal()">
-    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-    <img class="modal-img" id="fullImg" onclick="event.stopPropagation()">
-    <div id="caption" class="modal-caption"></div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer-brand">
-    <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
-</div>
+<footer>
+  &copy; 2026 Khurram Naveed. Built with SQL, Power BI, and a lot of curiosity.
+  &nbsp;·&nbsp; <a href="mailto:khurramnaveed4545@gmail.com">Get in touch</a>
+</footer>
 
 <script>
-    function openModal(src, title) {
-        document.getElementById('fullImg').src = src;
-        document.getElementById('caption').innerHTML = title;
-        document.getElementById('imgModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-        document.getElementById('imgModal').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-    function filterCards(cat, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.cert-card').forEach(card => {
-            card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  (function(){
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#projectGrid .card');
+    const noResults = document.getElementById('noResults');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
         });
-    }
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const filter = btn.dataset.filter;
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      });
+    });
+  })();
 </script>
 
 </body>
