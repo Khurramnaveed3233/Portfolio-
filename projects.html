@@ -6,22 +6,6 @@
 <title>Projects — Khurram Naveed | Data Analyst Portfolio</title>
 <meta name="description" content="18 real-world SQL, Power BI, Excel, and Python data analytics projects by Khurram Naveed — turning raw business data into actionable insights.">
 
-<!--
-  ============================================================
-  NOTE ON IMAGE PATHS
-  ============================================================
-  No existing HTML file was provided for this rebuild, so this
-  page assumes your project images live in a folder named
-  "images/" next to this HTML file (the most common convention),
-  e.g.  /images/AmazonPowerBI.png
-
-  If your repository actually stores project images somewhere
-  else (for example "assets/projects/"), do a find-and-replace
-  of the string   images/   with your real folder path before
-  publishing. Every filename below is copied EXACTLY as written
-  in your PDF — nothing was renamed or guessed.
--->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,10 +123,12 @@
     border-bottom:2px solid var(--purple-light);
   }
 
-  /* ---------- Hero ---------- */
+  /* ---------- Hero (Redesigned for compactness) ---------- */
   .hero{
     text-align:center;
-    padding:96px 24px 64px;
+    /* Reduced padding to move content up */
+    padding:60px 24px 40px;
+    position:relative;
   }
 
   .eyebrow{
@@ -157,7 +143,7 @@
     letter-spacing:2px;
     text-transform:uppercase;
     color:var(--purple-light);
-    margin-bottom:36px;
+    margin-bottom:24px; /* Reduced margin */
   }
 
   .eyebrow::before{
@@ -173,6 +159,7 @@
     font-weight:700;
     line-height:1.05;
     letter-spacing:-1px;
+    margin-bottom:24px; /* Added margin to separate from description */
   }
 
   .hero h1 .gradient{
@@ -184,18 +171,21 @@
 
   .hero p.sub{
     max-width:640px;
-    margin:32px auto 0;
+    margin:0 auto 40px; /* Centered margin */
     color:var(--text-secondary);
     font-size:18px;
+    line-height:1.6;
   }
 
-  /* ---------- Stats ---------- */
+  /* ---------- Stats (Integrated into Hero flow) ---------- */
   .stats{
     display:flex;
     justify-content:center;
-    gap:80px;
+    gap:60px; /* Slightly tighter gap */
     flex-wrap:wrap;
-    padding:56px 24px 72px;
+    /* Removed large vertical padding, using margin instead */
+    padding:0 24px;
+    margin-bottom:40px;
   }
 
   .stat-num{
@@ -211,6 +201,53 @@
     letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--text-secondary);
+  }
+
+  /* ---------- View Projects Button ---------- */
+  .view-projects-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 32px 60px; /* Space before filters */
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .btn-view-projects {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--border-strong);
+    color: var(--purple-light);
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .btn-view-projects svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.25s ease;
+  }
+
+  .btn-view-projects:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--purple-light);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(139, 92, 246, 0.4);
+  }
+
+  .btn-view-projects:hover svg {
+    transform: translateY(3px);
   }
 
   /* ---------- Filters ---------- */
@@ -268,6 +305,12 @@
     .grid{grid-template-columns:1fr;}
     .nav-inner{gap:20px 28px;}
     .stats{gap:44px;}
+    
+    /* Mobile adjustment for View Projects button */
+    .view-projects-wrapper {
+        justify-content: center;
+        padding-bottom: 40px;
+    }
   }
 
   .card{
@@ -566,6 +609,7 @@
 
 <main id="main">
 
+  <!-- Redesigned Hero Section -->
   <section class="hero">
     <div class="eyebrow">Real-World Data Projects</div>
     <h1>
@@ -577,22 +621,31 @@
       e-commerce, retail, telecom, and ride-hailing companies into clear,
       actionable insights.
     </p>
+
+    <!-- Stats moved up to be visible in first viewport -->
+    <div class="stats" aria-label="Project statistics">
+      <div>
+        <div class="stat-num">18</div>
+        <div class="stat-label">Total Projects</div>
+      </div>
+      <div>
+        <div class="stat-num">9</div>
+        <div class="stat-label">SQL Projects</div>
+      </div>
+      <div>
+        <div class="stat-num">10</div>
+        <div class="stat-label">Power BI Projects</div>
+      </div>
+    </div>
   </section>
 
-  <section class="stats" aria-label="Project statistics">
-    <div>
-      <div class="stat-num">18</div>
-      <div class="stat-label">Total Projects</div>
-    </div>
-    <div>
-      <div class="stat-num">9</div>
-      <div class="stat-label">SQL Projects</div>
-    </div>
-    <div>
-      <div class="stat-num">10</div>
-      <div class="stat-label">Power BI Projects</div>
-    </div>
-  </section>
+  <!-- View Projects Button (Right aligned on desktop) -->
+  <div class="view-projects-wrapper">
+    <button class="btn-view-projects" id="scrollToProjectsBtn" aria-label="Scroll to featured projects">
+      <span>View Projects</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </button>
+  </div>
 
   <div class="filters" role="group" aria-label="Filter projects by category">
     <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
@@ -600,7 +653,8 @@
     <button class="filter-btn" data-filter="powerbi" aria-pressed="false">Power BI</button>
   </div>
 
-  <section class="projects-section">
+  <!-- Added ID for scrolling target -->
+  <section class="projects-section" id="featured-projects-grid">
     <div class="grid" id="projectGrid">
 
       <!-- ============ NEW PROJECT: XEVEN SOLUTIONS ============ -->
@@ -1269,6 +1323,27 @@
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       });
     });
+  })();
+
+  /* ---------- Smooth Scroll to Projects ---------- */
+  (function(){
+    const scrollBtn = document.getElementById('scrollToProjectsBtn');
+    const targetSection = document.getElementById('featured-projects-grid');
+    
+    if(scrollBtn && targetSection){
+      scrollBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Calculate position accounting for sticky navbar height
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      });
+    }
   })();
 
   /* ---------- Lightbox: click a project image to view it full size ---------- */
