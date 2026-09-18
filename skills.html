@@ -17,6 +17,8 @@
             --text-main: #ffffff;
             --text-muted: #9ca3af;
             --border-color: rgba(168, 85, 247, 0.2);
+            
+            /* Skill Specific Colors */
             --excel-green: #10b981;
             --sql-blue: #3b82f6;
             --pbi-yellow: #f59e0b;
@@ -28,7 +30,7 @@
         
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 80px; /* Offset for sticky nav */
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -411,6 +413,15 @@
             display: block;
             margin-bottom: 4px;
         }
+        .metric-script {
+            font-family: 'Outfit', cursive; /* Fallback if script not available */
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--primary-purple);
+            opacity: 0.9;
+            text-align: right;
+            line-height: 1.2;
+        }
 
         /* Responsive */
         @media (max-width: 1200px) {
@@ -558,8 +569,19 @@
                     <span class="tag">Formulas</span>
                 </div>
                 <div class="preview-area">
-                    <!-- NEW GENERATED EXCEL DASHBOARD IMAGE -->
-                    <img src="assets/excel-data-analysis.svg" alt="Excel Data Analysis Dashboard" loading="lazy">
+                    <!-- Generated Excel Dashboard Visual -->
+                    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#0d1117; width:100%; height:100%;">
+                        <rect x="20" y="30" width="100" height="6" rx="3" fill="#30363d"/>
+                        <rect x="20" y="45" width="140" height="6" rx="3" fill="#30363d"/>
+                        <rect x="20" y="60" width="80" height="6" rx="3" fill="#30363d"/>
+                        <g transform="translate(180, 20)">
+                            <line x1="0" y1="150" x2="200" y2="150" stroke="#30363d" stroke-width="1"/>
+                            <rect x="20" y="100" width="25" height="50" fill="#3fb950" opacity="0.8"/>
+                            <rect x="60" y="80" width="25" height="70" fill="#3fb950" opacity="0.8"/>
+                            <rect x="100" y="50" width="25" height="100" fill="#3fb950" opacity="0.8"/>
+                            <path d="M 32 100 L 72 80 L 112 50" stroke="#58a6ff" stroke-width="3" fill="none"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
 
@@ -583,7 +605,28 @@
                     <span class="tag">SQL Server</span>
                 </div>
                 <div class="preview-area">
-                    <img src="AmazonSQL.png" alt="Amazon SQL Data Analysis Project" loading="lazy">
+                    <!-- Generated SQL Code Visual -->
+                    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#0d1117; width:100%; height:100%;">
+                        <rect x="20" y="30" width="30" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="55" y="30" width="40" height="6" rx="3" fill="#79c0ff"/>
+                        <rect x="100" y="30" width="60" height="6" rx="3" fill="#c9d1d9"/>
+                        
+                        <rect x="20" y="45" width="25" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="50" y="45" width="60" height="6" rx="3" fill="#d2a8ff"/>
+                        <rect x="115" y="45" width="40" height="6" rx="3" fill="#c9d1d9"/>
+                        
+                        <rect x="20" y="60" width="30" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="55" y="60" width="80" height="6" rx="3" fill="#c9d1d9"/>
+                        
+                        <rect x="20" y="75" width="20" height="6" rx="3" fill="#79c0ff"/>
+                        <rect x="45" y="75" width="50" height="6" rx="3" fill="#c9d1d9"/>
+                        
+                        <rect x="20" y="90" width="30" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="55" y="90" width="70" height="6" rx="3" fill="#c9d1d9"/>
+                        
+                        <rect x="20" y="105" width="25" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="50" y="105" width="60" height="6" rx="3" fill="#d2a8ff"/>
+                    </svg>
                 </div>
             </div>
 
@@ -607,7 +650,23 @@
                     <span class="tag">Power Query</span>
                 </div>
                 <div class="preview-area">
-                    <img src="stylo dashboard.png" alt="Stylo Power BI Dashboard" loading="lazy">
+                    <!-- Generated Power BI Dashboard Visual -->
+                    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#0d1117; width:100%; height:100%;">
+                        <rect x="20" y="30" width="80" height="40" rx="4" fill="#161b22" stroke="#30363d"/>
+                        <rect x="110" y="30" width="80" height="40" rx="4" fill="#161b22" stroke="#30363d"/>
+                        <rect x="200" y="30" width="80" height="40" rx="4" fill="#161b22" stroke="#30363d"/>
+                        
+                        <rect x="20" y="80" width="170" height="140" rx="4" fill="#161b22" stroke="#30363d"/>
+                        <path d="M 30 200 L 60 180 L 90 190 L 120 150 L 150 160 L 180 120" stroke="#58a6ff" stroke-width="2" fill="none"/>
+                        
+                        <rect x="200" y="80" width="80" height="65" rx="4" fill="#161b22" stroke="#30363d"/>
+                        <circle cx="240" cy="112" r="20" fill="none" stroke="#3fb950" stroke-width="8" stroke-dasharray="40 60"/>
+                        
+                        <rect x="290" y="80" width="80" height="65" rx="4" fill="#161b22" stroke="#30363d"/>
+                        <rect x="300" y="120" width="15" height="15" fill="#3fb950"/>
+                        <rect x="320" y="100" width="15" height="35" fill="#3fb950"/>
+                        <rect x="340" y="110" width="15" height="25" fill="#3fb950"/>
+                    </svg>
                 </div>
             </div>
 
@@ -632,11 +691,13 @@
                     <span class="tag">Jupyter Notebook</span>
                 </div>
                 <div class="preview-area">
-                    <!-- Placeholder for Python Visual -->
+                    <!-- Generated Python Analytics Visual -->
                     <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#0d1117; width:100%; height:100%;">
-                        <rect x="20" y="30" width="100" height="6" rx="3" fill="#30363d"/>
-                        <rect x="20" y="45" width="140" height="6" rx="3" fill="#30363d"/>
-                        <rect x="20" y="60" width="80" height="6" rx="3" fill="#30363d"/>
+                        <rect x="20" y="30" width="30" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="55" y="30" width="40" height="6" rx="3" fill="#79c0ff"/>
+                        <rect x="20" y="45" width="25" height="6" rx="3" fill="#ff7b72"/>
+                        <rect x="50" y="45" width="60" height="6" rx="3" fill="#d2a8ff"/>
+                        
                         <g transform="translate(180, 20)">
                             <line x1="0" y1="150" x2="200" y2="150" stroke="#30363d" stroke-width="1"/>
                             <rect x="20" y="100" width="25" height="50" fill="#3fb950" opacity="0.8"/>
@@ -712,6 +773,9 @@
                     <span class="metric-highlight">Real Impact</span>
                     <span class="metric-label">Data Driven Decisions</span>
                 </div>
+            </div>
+            <div class="metric-script">
+                Turning<br>Data into Opportunities
             </div>
         </div>
     </section>
