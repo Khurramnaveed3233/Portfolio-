@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications | Khurram Naveed</title>
+    <title>Certifications & Skills | Khurram Naveed</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -15,6 +15,11 @@
             --accent2: #7c3aed;
             --white:   #f0e8ff;
             --muted:   #8b7aa0;
+            
+            /* Skill Specific Colors */
+            --excel-green: #22c55e;
+            --sql-blue:    #3b82f6;
+            --pbi-yellow:  #eab308;
         }
 
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -41,27 +46,47 @@
         .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.15); top:-80px; right:-100px; }
         .orb-2 { width:350px; height:350px; background:rgba(192,132,252,0.08); bottom:0; left:-60px; }
 
-        /* NAV */
+        /* ── NAVIGATION ── */
         nav {
             position:sticky; top:0; z-index:1000;
             background:rgba(26,11,46,0.88);
             backdrop-filter:blur(18px);
             border-bottom:1px solid var(--border);
-            padding:16px 0; text-align:center;
+            padding:16px 5%; 
+            display: flex; justify-content: space-between; align-items: center;
         }
-        nav a {
-            color:#d1b3ff; text-decoration:none; margin:0 16px;
+        
+        .nav-brand {
+            display: flex; flex-direction: column;
+        }
+        .nav-brand-name {
+            font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; line-height: 1;
+        }
+        .nav-brand-title {
+            font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px;
+        }
+
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            color:#d1b3ff; text-decoration:none;
             font-family:'Syne',sans-serif; font-size:0.78rem;
             text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
             transition:color 0.2s;
         }
-        nav a:hover { color:#fff; }
-        nav a.active { color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+        .nav-links a:hover, .nav-links a.active { color:#fff; }
+        .nav-links a.active { border-bottom:2px solid var(--accent); padding-bottom:2px; }
 
-        /* HEADER */
+        .btn-connect {
+            border: 1px solid var(--accent); padding: 8px 20px; border-radius: 50px;
+            color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-connect:hover { background: var(--accent); color: #fff; box-shadow: 0 0 15px rgba(192,132,252,0.4); }
+
+        /* ── HEADER ── */
         .page-header {
             position:relative; z-index:1;
-            text-align:center; padding:90px 20px 60px;
+            text-align:center; padding:80px 20px 40px;
         }
         .eyebrow {
             display:inline-flex; align-items:center; gap:8px;
@@ -94,22 +119,110 @@
             max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;
         }
 
-        .stat-strip {
-            display:flex; justify-content:center; gap:48px;
-            margin-top:44px; flex-wrap:wrap;
+        /* ── SKILLS SECTION (NEW DESIGN) ── */
+        .skills-section {
+            max-width: 1200px; margin: 60px auto; padding: 0 5%;
+            position: relative; z-index: 1;
         }
-        .stat-item { text-align:center; }
-        .stat-num {
-            font-family:'Syne',sans-serif; font-size:2rem; font-weight:800;
-            background:linear-gradient(90deg,#c084fc,#7c3aed);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        .section-title {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
+            margin-bottom: 30px; display: flex; align-items: center; gap: 12px;
         }
-        .stat-label { font-size:0.72rem; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+        .section-title::before {
+            content: ''; width: 4px; height: 24px; background: var(--accent); border-radius: 2px;
+        }
 
-        /* FILTER TABS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: rgba(15,7,32,0.7);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            transition: transform 0.35s ease, border-color 0.35s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(192,132,252,0.4);
+            box-shadow: 0 20px 50px rgba(124,58,237,0.15);
+        }
+
+        .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        
+        .card-top-row {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;
+        }
+        .skill-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+        .icon-excel { background: rgba(34,197,94,0.15); color: var(--excel-green); }
+        .icon-sql   { background: rgba(59,130,246,0.15); color: var(--sql-blue); }
+        .icon-pbi   { background: rgba(234,179,8,0.15); color: var(--pbi-yellow); }
+
+        .step-num {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+            color: rgba(255,255,255,0.05);
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 4px;
+        }
+        .card-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+
+        .prof-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; width: fit-content;
+        }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+        
+        .badge-excel { background: rgba(34,197,94,0.1); color: var(--excel-green); border: 1px solid rgba(34,197,94,0.2); }
+        .badge-excel .badge-dot { background: var(--excel-green); box-shadow: 0 0 6px var(--excel-green); }
+        
+        .badge-sql { background: rgba(59,130,246,0.1); color: var(--sql-blue); border: 1px solid rgba(59,130,246,0.2); }
+        .badge-sql .badge-dot { background: var(--sql-blue); box-shadow: 0 0 6px var(--sql-blue); }
+        
+        .badge-pbi { background: rgba(234,179,8,0.1); color: var(--pbi-yellow); border: 1px solid rgba(234,179,8,0.2); }
+        .badge-pbi .badge-dot { background: var(--pbi-yellow); box-shadow: 0 0 6px var(--pbi-yellow); }
+
+        .card-desc {
+            font-size: 0.9rem; color: #a89bb8; line-height: 1.6; margin-bottom: 24px; flex-grow: 1;
+        }
+
+        .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .tag {
+            font-size: 0.72rem; font-weight: 500; padding: 4px 10px;
+            border-radius: 6px; background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08); color: var(--muted);
+        }
+
+        .project-image-container {
+            width: 100%; height: 195px; overflow: hidden;
+            border-top: 1px solid var(--border); position: relative; background: #000;
+        }
+        .project-image {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            opacity: 0.8; transition: transform 0.5s ease, opacity 0.3s;
+        }
+        .skill-card:hover .project-image { transform: scale(1.05); opacity: 1; }
+
+        /* ── CERTIFICATIONS SECTION (EXISTING) ── */
+        .certs-section {
+            max-width: 1400px; margin: 80px auto 100px; padding: 0 5%;
+            position: relative; z-index: 1;
+        }
+        
         .filter-row {
             display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-            padding:0 5%; margin-bottom:36px; position:relative; z-index:1;
+            margin-bottom:36px;
         }
         .filter-btn {
             font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700;
@@ -125,18 +238,12 @@
             color:#fff;
         }
 
-        /* CERT GRID */
         .cert-grid {
             display:grid;
             grid-template-columns:repeat(4, 1fr);
             gap:22px;
-            max-width:1400px;
-            margin:0 auto 100px;
-            padding:0 5%;
-            position:relative; z-index:1;
         }
 
-        /* CERT CARD */
         .cert-card {
             background:rgba(15,7,32,0.7);
             border:1px solid var(--border);
@@ -159,8 +266,6 @@
         .cert-card:hover::before { opacity:1; }
 
         @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-
-        /* Animation delays for cards */
         .cert-card:nth-child(n) { animation-delay: calc(0.05s * var(--i, 1)); }
 
         .cert-img-box {
@@ -189,7 +294,6 @@
             display:flex; flex-direction:column; flex:1; gap:12px;
         }
 
-        /* Issuer badges */
         .issuer-badge {
             display:inline-flex; align-items:center; gap:6px;
             font-size:0.65rem; font-weight:700; letter-spacing:1.2px;
@@ -280,11 +384,18 @@
         .footer-brand img { height:34px; opacity:0.45; }
 
         /* RESPONSIVE */
-        @media (max-width:1100px) { .cert-grid { grid-template-columns:repeat(3,1fr); } }
-        @media (max-width:800px)  { .cert-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:500px)  {
+        @media (max-width: 1100px) { 
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns:repeat(3,1fr); } 
+        }
+        @media (max-width: 800px) { 
+            .skills-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns:repeat(2,1fr); } 
+            nav { flex-direction: column; gap: 16px; padding: 16px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+        }
+        @media (max-width: 500px) {  
             .cert-grid { grid-template-columns:1fr; }
-            nav a { margin:0 8px; font-size:0.7rem; }
         }
     </style>
 </head>
@@ -295,12 +406,19 @@
 
 <!-- NAV -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="certifications.html" class="active">Certifications</a>
-    <a href="contact.html">Contact</a>
+    <div class="nav-brand">
+        <span class="nav-brand-name">Khurram Naveed</span>
+        <span class="nav-brand-title">Data Analyst</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="certifications.html" class="active">Certifications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="#contact" class="btn-connect">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
 </nav>
 
 <!-- HEADER -->
@@ -308,279 +426,365 @@
     <div class="eyebrow"><span></span> Verified Credentials</div>
     <h1>Professional<br><em>Certifications</em></h1>
     <p>Industry-recognized credentials from Google, Cisco, PwC, JPMorgan, and more — validating a full-stack analytics skill set.</p>
-    <div class="stat-strip">
-        <div class="stat-item"><div class="stat-num">17</div><div class="stat-label">Certificates</div></div>
-        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Issuers</div></div>
-        <div class="stat-item"><div class="stat-num">1.5+</div><div class="stat-label">Years Learning</div></div>
-    </div>
 </header>
 
-<!-- FILTER TABS -->
-<div class="filter-row">
-    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
-    <button class="filter-btn" onclick="filterCards('google',this)">Google</button>
-    <button class="filter-btn" onclick="filterCards('meta',this)">Meta</button>
-    <button class="filter-btn" onclick="filterCards('cisco',this)">Cisco</button>
-    <button class="filter-btn" onclick="filterCards('pwc',this)">PwC</button>
-    <button class="filter-btn" onclick="filterCards('jpmorgan',this)">JPMorgan</button>
-    <button class="filter-btn" onclick="filterCards('digi',this)">DigiSkills</button>
-    <button class="filter-btn" onclick="filterCards('other',this)">Other</button>
-</div>
-
-<!-- CERT GRID -->
-<div class="cert-grid">
-
-    <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- 1. OpenAI Academy Certificate — NEW CARD (moved to position #1) -->
-    <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div class="cert-card" data-cat="other" style="--i:1">
-        <div class="cert-img-box" onclick="openModal('OpenAI Certificate.jpg','OpenAI Academy Certificate')">
-            <img src="OpenAI Certificate.jpg" alt="OpenAI Academy Certificate">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+<!-- NEW SKILLS SECTION -->
+<section class="skills-section">
+    <h2 class="section-title">Technical Expertise</h2>
+    
+    <div class="skills-grid">
+        
+        <!-- CARD 01: EXCEL -->
+        <div class="skill-card">
+            <div class="card-body">
+                <div class="card-top-row">
+                    <div class="skill-icon icon-excel"><i class="fa-solid fa-file-excel"></i></div>
+                    <div class="step-num">01</div>
+                </div>
+                <h3 class="card-title">Excel</h3>
+                <p class="card-subtitle">Data Cleaning & Analysis</p>
+                <div class="prof-badge badge-excel">
+                    <span class="badge-dot"></span> Advanced
+                </div>
+                <p class="card-desc">Cleaning, transforming and analyzing business data using advanced Excel features, Pivot Tables and Power Query.</p>
+                <div class="tags-wrap">
+                    <span class="tag">XLOOKUP</span>
+                    <span class="tag">Pivot Tables</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Formulas</span>
+                </div>
+            </div>
+            <div class="project-image-container">
+                <!-- IMPORTANT: Using %20 for spaces in filename. Ensure file is in root or adjust path -->
+                <img src="Call%20Centre%20Data%20Analysis%20Excel%20Project.jpg" alt="Call Centre Data Analysis Excel Project" class="project-image" loading="lazy">
+            </div>
         </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">OpenAI</span>
-            <div class="cert-title">OpenAI Academy Certificate</div>
-            <a href="https://academy.openai.com/public/certificate/7a7otld3r2" class="btn-verify" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-circle-check"></i> Verify on Site
-            </a>
+
+        <!-- CARD 02: SQL -->
+        <div class="skill-card">
+            <div class="card-body">
+                <div class="card-top-row">
+                    <div class="skill-icon icon-sql"><i class="fa-solid fa-database"></i></div>
+                    <div class="step-num">02</div>
+                </div>
+                <h3 class="card-title">SQL</h3>
+                <p class="card-subtitle">Data Extraction & Analysis</p>
+                <div class="prof-badge badge-sql">
+                    <span class="badge-dot"></span> Intermediate - Advanced
+                </div>
+                <p class="card-desc">Writing efficient SQL queries using joins, CTEs, window functions and subqueries to extract, transform and analyze business data.</p>
+                <div class="tags-wrap">
+                    <span class="tag">Joins</span>
+                    <span class="tag">CTEs</span>
+                    <span class="tag">Window Functions</span>
+                    <span class="tag">Subqueries</span>
+                    <span class="tag">CASE WHEN</span>
+                    <span class="tag">Aggregations</span>
+                    <span class="tag">SQL Server</span>
+                </div>
+            </div>
+            <div class="project-image-container">
+                <img src="AmazonSQL.png" alt="Amazon SQL Data Analysis Project" class="project-image" loading="lazy">
+            </div>
         </div>
+
+        <!-- CARD 03: POWER BI -->
+        <div class="skill-card">
+            <div class="card-body">
+                <div class="card-top-row">
+                    <div class="skill-icon icon-pbi"><i class="fa-solid fa-chart-simple"></i></div>
+                    <div class="step-num">03</div>
+                </div>
+                <h3 class="card-title">Power BI</h3>
+                <p class="card-subtitle">Dashboard & Data Storytelling</p>
+                <div class="prof-badge badge-pbi">
+                    <span class="badge-dot"></span> Advanced
+                </div>
+                <p class="card-desc">Building interactive dashboards using DAX, data modeling and visual design to turn business data into actionable insights.</p>
+                <div class="tags-wrap">
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Modeling</span>
+                    <span class="tag">Slicers</span>
+                    <span class="tag">Drill-through</span>
+                    <span class="tag">KPI Cards</span>
+                    <span class="tag">Relationships</span>
+                    <span class="tag">Power Query</span>
+                </div>
+            </div>
+            <div class="project-image-container">
+                <!-- IMPORTANT: Using %20 for space in filename -->
+                <img src="stylo%20dashboard.png" alt="Stylo Power BI Dashboard" class="project-image" loading="lazy">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXISTING CERTIFICATIONS SECTION -->
+<section class="certs-section">
+    <div class="filter-row">
+        <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+        <button class="filter-btn" onclick="filterCards('google',this)">Google</button>
+        <button class="filter-btn" onclick="filterCards('meta',this)">Meta</button>
+        <button class="filter-btn" onclick="filterCards('cisco',this)">Cisco</button>
+        <button class="filter-btn" onclick="filterCards('pwc',this)">PwC</button>
+        <button class="filter-btn" onclick="filterCards('jpmorgan',this)">JPMorgan</button>
+        <button class="filter-btn" onclick="filterCards('digi',this)">DigiSkills</button>
+        <button class="filter-btn" onclick="filterCards('other',this)">Other</button>
     </div>
 
-    <!-- 2. Quantium Data Analytics -->
-    <div class="cert-card" data-cat="other" style="--i:2">
-        <div class="cert-img-box" onclick="openModal('Quantium Data Analytics Virtual Experience.png','Quantium Data Analytics Virtual Experience')">
-            <img src="Quantium Data Analytics Virtual Experience.png" alt="Quantium Data Analytics Virtual Experience">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+    <div class="cert-grid">
+        <!-- 1. OpenAI Academy Certificate -->
+        <div class="cert-card" data-cat="other" style="--i:1">
+            <div class="cert-img-box" onclick="openModal('OpenAI Certificate.jpg','OpenAI Academy Certificate')">
+                <img src="OpenAI Certificate.jpg" alt="OpenAI Academy Certificate">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-other">OpenAI</span>
+                <div class="cert-title">OpenAI Academy Certificate</div>
+                <a href="https://academy.openai.com/public/certificate/7a7otld3r2" class="btn-verify" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-circle-check"></i> Verify on Site
+                </a>
+            </div>
         </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">Quantium / Forage</span>
-            <div class="cert-title">Quantium Data Analytics Virtual Experience</div>
-            <span class="btn-no-link"><i class="fa-solid fa-briefcase"></i> Virtual Internship</span>
+
+        <!-- 2. Quantium Data Analytics -->
+        <div class="cert-card" data-cat="other" style="--i:2">
+            <div class="cert-img-box" onclick="openModal('Quantium Data Analytics Virtual Experience.png','Quantium Data Analytics Virtual Experience')">
+                <img src="Quantium Data Analytics Virtual Experience.png" alt="Quantium Data Analytics Virtual Experience">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-other">Quantium / Forage</span>
+                <div class="cert-title">Quantium Data Analytics Virtual Experience</div>
+                <span class="btn-no-link"><i class="fa-solid fa-briefcase"></i> Virtual Internship</span>
+            </div>
+        </div>
+
+        <!-- 3. One Million Prompters -->
+        <div class="cert-card" data-cat="other" style="--i:3">
+            <div class="cert-img-box" onclick="openModal('One Million Prompters Certificate.jpg','One Million Prompters Certificate')">
+                <img src="One Million Prompters Certificate.jpg" alt="One Million Prompters Certificate">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-other">AI & Prompting</span>
+                <div class="cert-title">One Million Prompters Certificate</div>
+                <a href="https://omp.dub.ai/certificate/6dYrrzsPmonC" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on Site
+                </a>
+            </div>
+        </div>
+
+        <!-- 4. Critical Thinking in the AI Era -->
+        <div class="cert-card" data-cat="other" style="--i:4">
+            <div class="cert-img-box" onclick="openModal('Critical Thinking in the AI Era.jpg','Critical Thinking in the AI Era')">
+                <img src="Critical Thinking in the AI Era.jpg" alt="Critical Thinking AI">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-other">AI & Logic</span>
+                <div class="cert-title">Critical Thinking in the AI Era</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 5. Power Query -->
+        <div class="cert-card" data-cat="other" style="--i:5">
+            <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
+                <img src="power_query.png" alt="Power Query">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-other">Masterclass</span>
+                <div class="cert-title">Power Query Training Masterclass Certificate</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 6. Cisco Data Science -->
+        <div class="cert-card" data-cat="cisco" style="--i:6">
+            <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
+                <img src="DataScience.jpg" alt="Data Science Cisco">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-cisco">Cisco</span>
+                <div class="cert-title">Introduction to Data Science – Cisco</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 7. Cisco C++ -->
+        <div class="cert-card" data-cat="cisco" style="--i:7">
+            <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
+                <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-cisco">Cisco</span>
+                <div class="cert-title">Cisco C++ Essentials Certificate</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 8. Google BI -->
+        <div class="cert-card" data-cat="google" style="--i:8">
+            <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Business Intelligence Professional Certificate')">
+                <img src="google_bi.jpg" alt="Google BI">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-google">Google</span>
+                <div class="cert-title">Google Business Intelligence Professional Certificate</div>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/VAMXR2JKSJVP" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+                </a>
+            </div>
+        </div>
+
+        <!-- 9. Google Data Analytics -->
+        <div class="cert-card" data-cat="google" style="--i:9">
+            <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
+                <img src="google_pro.jpg" alt="Google Data Analytics">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-google">Google</span>
+                <div class="cert-title">Google Data Analytics Professional Certificate</div>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/H948EJL58NAZ" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+                </a>
+            </div>
+        </div>
+
+        <!-- 10. Meta Data Analyst Professional Certificate -->
+        <div class="cert-card" data-cat="meta" style="--i:10">
+            <div class="cert-img-box" onclick="openModal('Meta Data Analyst Professional Certificate.jpg','Meta Data Analyst Professional Certificate')">
+                <img src="Meta Data Analyst Professional Certificate.jpg" alt="Meta Data Analyst Professional Certificate">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-meta">Meta</span>
+                <div class="cert-title">Meta Data Analyst Professional Certificate</div>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/MSB2M91E8002" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on Coursera
+                </a>
+            </div>
+        </div>
+
+        <!-- 11. PwC Power BI -->
+        <div class="cert-card" data-cat="pwc" style="--i:11">
+            <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
+                <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-pwc">PwC</span>
+                <div class="cert-title">Power BI Corporate Training – PwC</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 12. Google AI -->
+        <div class="cert-card" data-cat="google" style="--i:12">
+            <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
+                <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-google">Google</span>
+                <div class="cert-title">Google AI Essentials Professional</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 13. Cisco Data Analytics -->
+        <div class="cert-card" data-cat="cisco" style="--i:13">
+            <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
+                <img src="cisco.jpg" alt="Cisco Data Analytics">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-cisco">Cisco</span>
+                <div class="cert-title">CISCO Data Analytics Essentials</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 14. JPMorgan -->
+        <div class="cert-card" data-cat="jpmorgan" style="--i:14">
+            <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
+                <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
+                <div class="cert-title">JPMorgan Chase Virtual Experience</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 15. HP Life -->
+        <div class="cert-card" data-cat="other" style="--i:15">
+            <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
+                <img src="hplife.jpg" alt="HP Life">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-hp">HP Life</span>
+                <div class="cert-title">Diploma in Data Analytics – HP Life</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 16. NSW -->
+        <div class="cert-card" data-cat="other" style="--i:16">
+            <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
+                <img src="nsw.jpg" alt="NSW">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-nsw">NSW</span>
+                <div class="cert-title">NSW Data Analytics Certificate</div>
+                <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
+            </div>
+        </div>
+
+        <!-- 17. DigiSkills Old -->
+        <div class="cert-card" data-cat="digi" style="--i:17">
+            <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
+                <img src="digiskills.jpg" alt="DigiSkills">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-digi">DigiSkills</span>
+                <div class="cert-title">DigiSkills Data Analytics & BI</div>
+                <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
+                </a>
+            </div>
+        </div>
+
+        <!-- 18. DigiSkills New -->
+        <div class="cert-card" data-cat="digi" style="--i:18">
+            <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills Data Analytics & Business Intelligence – DSTP 3.0')">
+                <img src="DigiSkills New.jpg" alt="DigiSkills New">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
+            </div>
+            <div class="cert-body">
+                <span class="issuer-badge badge-digi">DigiSkills</span>
+                <div class="cert-title">DigiSkills Data Analytics & Business Intelligence – DSTP 3.0</div>
+                <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
+                </a>
+            </div>
         </div>
     </div>
-
-    <!-- 3. One Million Prompters -->
-    <div class="cert-card" data-cat="other" style="--i:3">
-        <div class="cert-img-box" onclick="openModal('One Million Prompters Certificate.jpg','One Million Prompters Certificate')">
-            <img src="One Million Prompters Certificate.jpg" alt="One Million Prompters Certificate">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">AI & Prompting</span>
-            <div class="cert-title">One Million Prompters Certificate</div>
-            <a href="https://omp.dub.ai/certificate/6dYrrzsPmonC" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Site
-            </a>
-        </div>
-    </div>
-
-    <!-- 4. Critical Thinking in the AI Era -->
-    <div class="cert-card" data-cat="other" style="--i:4">
-        <div class="cert-img-box" onclick="openModal('Critical Thinking in the AI Era.jpg','Critical Thinking in the AI Era')">
-            <img src="Critical Thinking in the AI Era.jpg" alt="Critical Thinking AI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">AI & Logic</span>
-            <div class="cert-title">Critical Thinking in the AI Era</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 5. Power Query -->
-    <div class="cert-card" data-cat="other" style="--i:5">
-        <div class="cert-img-box" onclick="openModal('power_query.png','Power Query Training Masterclass Certificate')">
-            <img src="power_query.png" alt="Power Query">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-other">Masterclass</span>
-            <div class="cert-title">Power Query Training Masterclass Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 6. Cisco Data Science -->
-    <div class="cert-card" data-cat="cisco" style="--i:6">
-        <div class="cert-img-box" onclick="openModal('DataScience.jpg','Introduction to Data Science – Cisco')">
-            <img src="DataScience.jpg" alt="Data Science Cisco">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">Introduction to Data Science – Cisco</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 7. Cisco C++ -->
-    <div class="cert-card" data-cat="cisco" style="--i:7">
-        <div class="cert-img-box" onclick="openModal('Cisco%20C%2B%2B%20Essentials%20Certificate.jpg','Cisco C++ Essentials Certificate')">
-            <img src="Cisco%20C%2B%2B%20Essentials%20Certificate.jpg" alt="Cisco C++">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">Cisco C++ Essentials Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 8. Google BI -->
-    <div class="cert-card" data-cat="google" style="--i:8">
-        <div class="cert-img-box" onclick="openModal('google_bi.jpg','Google Business Intelligence Professional Certificate')">
-            <img src="google_bi.jpg" alt="Google BI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google Business Intelligence Professional Certificate</div>
-            <a href="https://www.coursera.org/account/accomplishments/professional-cert/VAMXR2JKSJVP" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
-            </a>
-        </div>
-    </div>
-
-    <!-- 9. Google Data Analytics -->
-    <div class="cert-card" data-cat="google" style="--i:9">
-        <div class="cert-img-box" onclick="openModal('google_pro.jpg','Google Data Analytics Professional Certificate')">
-            <img src="google_pro.jpg" alt="Google Data Analytics">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google Data Analytics Professional Certificate</div>
-            <a href="https://www.coursera.org/account/accomplishments/professional-cert/H948EJL58NAZ" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
-            </a>
-        </div>
-    </div>
-
-    <!-- 10. Meta Data Analyst Professional Certificate -->
-    <div class="cert-card" data-cat="meta" style="--i:10">
-        <div class="cert-img-box" onclick="openModal('Meta Data Analyst Professional Certificate.jpg','Meta Data Analyst Professional Certificate')">
-            <img src="Meta Data Analyst Professional Certificate.jpg" alt="Meta Data Analyst Professional Certificate">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-meta">Meta</span>
-            <div class="cert-title">Meta Data Analyst Professional Certificate</div>
-            <a href="https://www.coursera.org/account/accomplishments/professional-cert/MSB2M91E8002" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on Coursera
-            </a>
-        </div>
-    </div>
-
-    <!-- 11. PwC Power BI -->
-    <div class="cert-card" data-cat="pwc" style="--i:11">
-        <div class="cert-img-box" onclick="openModal('Power%20Bi%20by%20PwC.jpg','Power BI Corporate Training – PwC')">
-            <img src="Power%20Bi%20by%20PwC.jpg" alt="PwC Power BI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-pwc">PwC</span>
-            <div class="cert-title">Power BI Corporate Training – PwC</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 12. Google AI -->
-    <div class="cert-card" data-cat="google" style="--i:12">
-        <div class="cert-img-box" onclick="openModal('Google%20AI%20Essentials%20Professional%20Certificate.jpg','Google AI Essentials Professional')">
-            <img src="Google%20AI%20Essentials%20Professional%20Certificate.jpg" alt="Google AI">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-google">Google</span>
-            <div class="cert-title">Google AI Essentials Professional</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 13. Cisco Data Analytics -->
-    <div class="cert-card" data-cat="cisco" style="--i:13">
-        <div class="cert-img-box" onclick="openModal('cisco.jpg','CISCO Data Analytics Essentials')">
-            <img src="cisco.jpg" alt="Cisco Data Analytics">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-cisco">Cisco</span>
-            <div class="cert-title">CISCO Data Analytics Essentials</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 14. JPMorgan -->
-    <div class="cert-card" data-cat="jpmorgan" style="--i:14">
-        <div class="cert-img-box" onclick="openModal('JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg','JPMorgan Chase Virtual Experience')">
-            <img src="JPMorgan%20Chase%20%26%20Co.%20completion_certificate.jpg" alt="JPMorgan">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-jpmorgan">JPMorgan</span>
-            <div class="cert-title">JPMorgan Chase Virtual Experience</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 15. HP Life -->
-    <div class="cert-card" data-cat="other" style="--i:15">
-        <div class="cert-img-box" onclick="openModal('hplife.jpg','Diploma in Data Analytics – HP Life')">
-            <img src="hplife.jpg" alt="HP Life">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-hp">HP Life</span>
-            <div class="cert-title">Diploma in Data Analytics – HP Life</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 16. NSW -->
-    <div class="cert-card" data-cat="other" style="--i:16">
-        <div class="cert-img-box" onclick="openModal('nsw.jpg','NSW Data Analytics Certificate')">
-            <img src="nsw.jpg" alt="NSW">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-nsw">NSW</span>
-            <div class="cert-title">NSW Data Analytics Certificate</div>
-            <span class="btn-no-link"><i class="fa-solid fa-lock"></i> Not Verified</span>
-        </div>
-    </div>
-
-    <!-- 17. DigiSkills Old -->
-    <div class="cert-card" data-cat="digi" style="--i:17">
-        <div class="cert-img-box" onclick="openModal('digiskills.jpg','DigiSkills Data Analytics & BI')">
-            <img src="digiskills.jpg" alt="DigiSkills">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-digi">DigiSkills</span>
-            <div class="cert-title">DigiSkills Data Analytics & BI</div>
-            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
-            </a>
-        </div>
-    </div>
-
-    <!-- 18. DigiSkills New -->
-    <div class="cert-card" data-cat="digi" style="--i:18">
-        <div class="cert-img-box" onclick="openModal('DigiSkills New.jpg','DigiSkills Data Analytics & Business Intelligence – DSTP 3.0')">
-            <img src="DigiSkills New.jpg" alt="DigiSkills New">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i> View</div>
-        </div>
-        <div class="cert-body">
-            <span class="issuer-badge badge-digi">DigiSkills</span>
-            <div class="cert-title">DigiSkills Data Analytics & Business Intelligence – DSTP 3.0</div>
-            <a href="https://digiskills.pk/verify/" class="btn-verify" target="_blank" rel="noopener">
-                <i class="fa-solid fa-circle-check"></i> Verify on DigiSkills
-            </a>
-        </div>
-    </div>
-
-</div>
+</section>
 
 <!-- MODAL -->
 <div id="imgModal" class="modal" onclick="closeModal()">
