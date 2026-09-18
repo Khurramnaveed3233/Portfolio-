@@ -135,11 +135,11 @@
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 24px; /* Adjusted gap slightly to fit 6 items better */
         }
 
         .nav-links a {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-muted);
             position: relative;
@@ -178,6 +178,26 @@
         .social-icons a:hover { color: var(--primary-light); }
 
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Mobile Menu Styles (Added for functionality) */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 40px;
+                transition: 0.3s ease;
+                border-left: 1px solid var(--border-glass);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -673,7 +693,7 @@
         <div class="container nav-inner">
             <div class="logo">
                 <a href="index.html">
-                    <h2>Khurram</h2>
+                    <h2>Khurram Naveed</h2>
                     <span>Data Analyst</span>
                 </a>
             </div>
@@ -681,9 +701,10 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
                     <li><a href="skills.html">Skills</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -844,7 +865,6 @@
                 <!-- Project 1: Foodpanda -->
                 <article class="project-card">
                     <div class="card-img-container">
-                        <!-- FIXED: Corrected filename capitalization for GitHub Pages compatibility -->
                         <img src="FoodPanda.png" alt="Foodpanda Pakistan SQL Data Analysis Project" onerror="this.style.background='linear-gradient(135deg, #2b004e, #5c00a3)'">
                     </div>
                     <div class="card-content">
@@ -887,8 +907,6 @@
                         <a href="#" class="card-link"><i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
-                
-                <!-- REMOVED: I Point Sales Performance Dashboard project card -->
             </div>
         </div>
     </section>
@@ -932,7 +950,7 @@
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo">
-                <h3>Khurram</h3>
+                <h3>Khurram Naveed</h3>
                 <span>Aspiring Data Analyst</span>
             </div>
             <div class="footer-socials">
@@ -942,6 +960,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Simple script to toggle mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
 </body>
 </html>
