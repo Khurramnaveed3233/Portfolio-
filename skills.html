@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NK Data Analyst - Skills Portfolio</title>
-    
-    <!-- Fonts: Outfit for Headings, Inter for Body -->
+    <title>Khurram Naveed | Data Analyst Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
             --bg-dark: #050508;
@@ -22,8 +17,6 @@
             --text-main: #ffffff;
             --text-muted: #9ca3af;
             --border-color: rgba(168, 85, 247, 0.2);
-            
-            /* Skill Specific Colors */
             --excel-green: #10b981;
             --sql-blue: #3b82f6;
             --pbi-yellow: #f59e0b;
@@ -31,10 +24,11 @@
             --da-pink: #ec4899;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 80px; /* Offset for sticky nav */
         }
 
         body {
@@ -42,13 +36,12 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            /* Subtle Grid Background */
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(126, 34, 206, 0.08), transparent 25%),
                 radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
         }
 
-        /* --- Navigation --- */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -58,31 +51,25 @@
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(5, 5, 8, 0.8);
+            z-index: 1000;
+            background: rgba(5, 5, 8, 0.9);
         }
 
         .logo {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
+            line-height: 1.1;
         }
-        .logo span { color: var(--primary-purple); }
-        .logo small {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--text-muted);
+        .logo-name { font-size: 1.4rem; letter-spacing: -0.5px; }
+        .logo-title { 
+            font-size: 0.7rem; 
+            font-weight: 500; 
+            color: var(--text-muted); 
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
@@ -91,11 +78,18 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
+            position: relative;
         }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-main);
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-purple);
+            box-shadow: 0 0 8px var(--primary-purple);
         }
 
         .btn-connect {
@@ -110,20 +104,31 @@
             align-items: center;
             gap: 8px;
         }
-
         .btn-connect:hover {
             background: var(--primary-purple);
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
         }
 
-        /* --- Hero Section --- */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Sections General */
+        section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 100px 20px 60px;
             max-width: 900px;
             margin: 0 auto;
         }
-
         .badge-top {
             display: inline-block;
             border: 1px solid var(--border-color);
@@ -137,21 +142,18 @@
             text-transform: uppercase;
             margin-bottom: 20px;
         }
-
         .hero h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 1.1;
             margin-bottom: 20px;
             font-weight: 700;
         }
-
         .gradient-text {
             background: linear-gradient(90deg, #c084fc, #7e22ce);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .hero p {
             color: var(--text-muted);
             font-size: 1.1rem;
@@ -160,19 +162,18 @@
             margin: 0 auto;
         }
 
-        /* --- Workflow Timeline --- */
+        /* Workflow Timeline */
         .workflow-container {
             max-width: 1200px;
             margin: 60px auto;
             padding: 0 20px;
             position: relative;
         }
-
         .workflow-line {
             position: absolute;
-            top: 25px; /* Aligns with circle center */
-            left: 50px;
-            right: 50px;
+            top: 25px;
+            left: 60px;
+            right: 60px;
             height: 2px;
             background: linear-gradient(90deg, 
                 rgba(16, 185, 129, 0.2), 
@@ -182,59 +183,53 @@
                 rgba(236, 72, 153, 0.2));
             z-index: 0;
         }
-
         .workflow-steps {
             display: flex;
             justify-content: space-between;
             position: relative;
             z-index: 1;
         }
-
         .step {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
         .step-circle {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             background: var(--bg-dark);
-            border: 2px solid var(--primary-purple);
+            border: 2px solid var(--secondary-purple);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 15px rgba(126, 34, 206, 0.3);
+            transition: transform 0.3s;
         }
-
+        .step:hover .step-circle { transform: scale(1.1); border-color: var(--primary-purple); }
         .step-info h4 {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 2px;
         }
+        .step-info h3 { font-size: 1rem; font-weight: 600; }
 
-        .step-info h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* --- Cards Grid --- */
-        .cards-grid {
+        /* Skills Grid */
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
             max-width: 1400px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
         }
 
-        .card {
+        .skill-card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px;
@@ -245,21 +240,18 @@
             position: relative;
             overflow: hidden;
         }
-
-        .card:hover {
+        .skill-card:hover {
             transform: translateY(-5px);
             border-color: var(--border-color);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Card Header */
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 20px;
         }
-
         .icon-box {
             width: 45px;
             height: 45px;
@@ -269,6 +261,11 @@
             justify-content: center;
             font-size: 1.5rem;
         }
+        .icon-excel { background: rgba(16, 185, 129, 0.1); color: var(--excel-green); }
+        .icon-sql { background: rgba(59, 130, 246, 0.1); color: var(--sql-blue); }
+        .icon-pbi { background: rgba(245, 158, 11, 0.1); color: var(--pbi-yellow); }
+        .icon-py { background: rgba(96, 165, 250, 0.1); color: var(--py-blue); }
+        .icon-da { background: rgba(236, 72, 153, 0.1); color: var(--da-pink); }
 
         .card-num {
             font-family: 'Outfit', sans-serif;
@@ -277,25 +274,8 @@
             font-size: 1.2rem;
         }
 
-        /* Specific Icon Colors */
-        .excel-icon { background: rgba(16, 185, 129, 0.1); color: var(--excel-green); }
-        .sql-icon { background: rgba(59, 130, 246, 0.1); color: var(--sql-blue); }
-        .pbi-icon { background: rgba(245, 158, 11, 0.1); color: var(--pbi-yellow); }
-        .py-icon { background: rgba(96, 165, 250, 0.1); color: var(--py-blue); }
-        .da-icon { background: rgba(236, 72, 153, 0.1); color: var(--da-pink); }
-
-        /* Card Content */
-        .card h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
+        .card h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-bottom: 5px; }
+        .card-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; min-height: 2.4em; }
 
         .level-badge {
             display: inline-flex;
@@ -310,7 +290,6 @@
             margin-bottom: 20px;
             width: fit-content;
         }
-
         .level-adv { background: rgba(16, 185, 129, 0.1); color: var(--excel-green); border: 1px solid rgba(16, 185, 129, 0.2); }
         .level-int { background: rgba(59, 130, 246, 0.1); color: var(--sql-blue); border: 1px solid rgba(59, 130, 246, 0.2); }
         .level-pbi { background: rgba(245, 158, 11, 0.1); color: var(--pbi-yellow); border: 1px solid rgba(245, 158, 11, 0.2); }
@@ -325,14 +304,7 @@
             flex-grow: 1;
         }
 
-        /* Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .tag {
             font-size: 0.7rem;
             padding: 4px 8px;
@@ -342,127 +314,150 @@
             color: var(--text-muted);
         }
 
-        /* Preview Image Area */
+        /* Consistent Image Container */
         .preview-area {
             width: 100%;
-            height: 140px;
-            border-radius: 8px;
+            height: 170px;
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.05);
             background: #000;
             position: relative;
+            margin-top: auto;
         }
-
-        .preview-area img {
+        .preview-area img, .preview-area svg {
             width: 100%;
             height: 100%;
             object-fit: cover;
             opacity: 0.8;
             transition: 0.3s;
+            display: block;
         }
-        
-        .card:hover .preview-area img { opacity: 1; }
+        .skill-card:hover .preview-area img, 
+        .skill-card:hover .preview-area svg { opacity: 1; transform: scale(1.05); }
 
-        /* Special Key Insights Card Styling */
-        .insights-list {
-            list-style: none;
-            text-align: left;
-            width: 100%;
-        }
-        .insights-list li {
-            font-size: 0.75rem;
-            margin-bottom: 8px;
+        /* Key Insights Panel */
+        .insights-panel {
+            background: #fff;
+            color: #0f0720;
+            padding: 16px;
+            border-radius: 10px;
+            height: 100%;
             display: flex;
-            align-items: start;
-            gap: 8px;
-            color: #d1d5db;
+            flex-direction: column;
+            justify-content: center;
         }
-        .insights-list li i {
-            color: var(--excel-green);
-            margin-top: 3px;
+        .insights-header { 
+            font-weight: 800; 
+            font-size: 0.95rem; 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
         }
+        .insights-list { list-style: none; }
+        .insights-list li { 
+            font-size: 0.75rem; 
+            margin-bottom: 8px; 
+            display: flex; 
+            align-items: start; 
+            gap: 8px; 
+            font-weight: 500; 
+            line-height: 1.4; 
+        }
+        .insights-list li i { color: var(--excel-green); margin-top: 3px; font-size: 0.7rem; }
 
-        /* --- Footer Stats --- */
-        .stats-bar {
-            background: linear-gradient(90deg, rgba(15,15,22,0.9), rgba(15,15,22,0.9));
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 40px 5%;
+        /* Metrics Bar */
+        .metrics-bar {
+            max-width: 1200px;
+            margin: 20px auto 80px;
+            padding: 30px 40px;
+            background: rgba(15,7,32,0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
             gap: 30px;
             position: relative;
+            z-index: 1;
         }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .stat-icon {
-            font-size: 1.5rem;
-            color: var(--primary-purple);
-            opacity: 0.8;
-        }
-
-        .stat-text h3 {
+        .metric-item { text-align: center; display: flex; align-items: center; gap: 15px; }
+        .metric-icon { font-size: 1.8rem; color: var(--primary-purple); opacity: 0.8; }
+        .metric-num {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            display: block;
             line-height: 1;
+            margin-bottom: 4px;
+        }
+        .metric-label { 
+            font-size: 0.8rem; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .metric-highlight {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #c084fc, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 4px;
         }
 
-        .stat-text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .footer-script {
-            font-family: 'Outfit', sans-serif; /* Fallback if script font not available */
-            font-size: 2rem;
-            color: var(--primary-purple);
-            font-style: italic;
-            opacity: 0.8;
-            text-align: right;
-        }
-
-        /* --- Responsive Design --- */
+        /* Responsive */
         @media (max-width: 1200px) {
-            .cards-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .skills-grid { grid-template-columns: repeat(3, 1fr); }
             .workflow-line { display: none; }
-            .workflow-steps {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
-            .step {
-                background: rgba(255,255,255,0.03);
-                padding: 10px 20px;
-                border-radius: 50px;
-                border: 1px solid rgba(255,255,255,0.05);
-            }
+            .workflow-steps { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .step { width: auto; background: rgba(255,255,255,0.02); padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.05); }
         }
 
-        @media (max-width: 768px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 900px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .metrics-bar { flex-direction: column; gap: 40px; }
+            .metric-item { flex-direction: column; text-align: center; }
+            
+            .mobile-menu-btn { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 100px 40px;
+                transition: 0.3s;
+                border-left: 1px solid var(--border-color);
+                z-index: 999;
             }
-            .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 20px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .stats-bar { flex-direction: column; text-align: center; }
-            .stat-item { flex-direction: column; }
-            .footer-script { text-align: center; }
+            .nav-links.active { right: 0; }
+            .btn-connect { display: none; }
         }
 
-        @media (max-width: 480px) {
-            .cards-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.4rem; }
+            .step { width: 100%; flex-direction: row; align-items: center; text-align: left; gap: 15px; }
+            .step-circle { margin-bottom: 0; width: 40px; height: 40px; font-size: 1rem; }
         }
+
+        /* Animations */
+        .skill-card { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
     </style>
 </head>
 <body>
@@ -470,241 +465,318 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">
-            NK<span>.</span>
-            <small>Data Analyst</small>
+            <div class="logo-name">Khurram Naveed</div>
+            <div class="logo-title">Data Analyst</div>
         </div>
+        
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#" class="active">Skills</a></li>
-            <li><a href="#">Certifications</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills" class="active">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#" class="btn-connect">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
+        
+        <a href="#contact" class="btn-connect">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Home / Hero Section -->
+    <section id="home" class="hero">
         <div class="badge-top">Technical Expertise</div>
         <h1>Analytics Skills <span class="gradient-text">That Drive Results</span></h1>
         <p>A complete data analytics toolkit — from data cleaning and analysis to interactive dashboards and business insights. I use modern tools and analytical thinking to turn data into real-world impact.</p>
     </section>
 
-    <!-- Workflow Timeline -->
-    <div class="workflow-container">
-        <div class="workflow-line"></div>
-        <div class="workflow-steps">
-            <div class="step">
-                <div class="step-circle">01</div>
-                <div class="step-info">
-                    <h4>Clean & Prepare</h4>
-                    <h3>Excel</h3>
+    <!-- Skills Section -->
+    <section id="skills">
+        <!-- Workflow Timeline -->
+        <div class="workflow-container">
+            <div class="workflow-line"></div>
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-circle">01</div>
+                    <div class="step-info">
+                        <h4>Clean & Prepare</h4>
+                        <h3>Excel</h3>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">02</div>
+                    <div class="step-info">
+                        <h4>Query & Analyze</h4>
+                        <h3>SQL</h3>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">03</div>
+                    <div class="step-info">
+                        <h4>Visualize & Explore</h4>
+                        <h3>Power BI</h3>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">04</div>
+                    <div class="step-info">
+                        <h4>Extend & Automate</h4>
+                        <h3>Python</h3>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">05</div>
+                    <div class="step-info">
+                        <h4>Insights & Impact</h4>
+                        <h3>Data Analysis</h3>
+                    </div>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-circle">02</div>
-                <div class="step-info">
-                    <h4>Query & Analyze</h4>
-                    <h3>SQL</h3>
+        </div>
+
+        <!-- Skills Cards Grid -->
+        <div class="skills-grid">
+            
+            <!-- CARD 01: EXCEL -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box icon-excel"><i class="fa-solid fa-file-excel"></i></div>
+                    <span class="card-num">01</span>
+                </div>
+                <h2>Excel</h2>
+                <p class="card-subtitle">Data Cleaning & Analysis</p>
+                <div class="level-badge level-adv"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
+                <p class="card-desc">Cleaning, transforming and analyzing business data using advanced Excel features, Pivot Tables and Power Query.</p>
+                <div class="tags">
+                    <span class="tag">XLOOKUP</span>
+                    <span class="tag">Pivot Tables</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Formulas</span>
+                </div>
+                <div class="preview-area">
+                    <!-- NEW GENERATED EXCEL DASHBOARD IMAGE -->
+                    <img src="assets/excel-data-analysis.svg" alt="Excel Data Analysis Dashboard" loading="lazy">
                 </div>
             </div>
-            <div class="step">
-                <div class="step-circle">03</div>
-                <div class="step-info">
-                    <h4>Visualize & Explore</h4>
-                    <h3>Power BI</h3>
+
+            <!-- CARD 02: SQL -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box icon-sql"><i class="fa-solid fa-database"></i></div>
+                    <span class="card-num">02</span>
+                </div>
+                <h2>SQL</h2>
+                <p class="card-subtitle">Data Extraction & Analysis</p>
+                <div class="level-badge level-int"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate - Advanced</div>
+                <p class="card-desc">Writing efficient SQL queries using joins, CTEs, window functions and subqueries to extract, transform and analyze business data.</p>
+                <div class="tags">
+                    <span class="tag">Joins</span>
+                    <span class="tag">CTEs</span>
+                    <span class="tag">Window Functions</span>
+                    <span class="tag">Subqueries</span>
+                    <span class="tag">CASE WHEN</span>
+                    <span class="tag">Aggregations</span>
+                    <span class="tag">SQL Server</span>
+                </div>
+                <div class="preview-area">
+                    <img src="AmazonSQL.png" alt="Amazon SQL Data Analysis Project" loading="lazy">
                 </div>
             </div>
-            <div class="step">
-                <div class="step-circle">04</div>
-                <div class="step-info">
-                    <h4>Extend & Automate</h4>
-                    <h3>Python</h3>
+
+            <!-- CARD 03: POWER BI -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box icon-pbi"><i class="fa-solid fa-chart-simple"></i></div>
+                    <span class="card-num">03</span>
+                </div>
+                <h2>Power BI</h2>
+                <p class="card-subtitle">Dashboard & Data Storytelling</p>
+                <div class="level-badge level-pbi"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
+                <p class="card-desc">Building interactive dashboards using DAX, data modeling, and visual design to turn data into actionable business insights.</p>
+                <div class="tags">
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Modeling</span>
+                    <span class="tag">Slicers</span>
+                    <span class="tag">Drill-through</span>
+                    <span class="tag">KPI Cards</span>
+                    <span class="tag">Relationships</span>
+                    <span class="tag">Power Query</span>
+                </div>
+                <div class="preview-area">
+                    <img src="stylo dashboard.png" alt="Stylo Power BI Dashboard" loading="lazy">
                 </div>
             </div>
-            <div class="step">
-                <div class="step-circle">05</div>
-                <div class="step-info">
-                    <h4>Insights & Impact</h4>
-                    <h3>Data Analysis</h3>
+
+            <!-- CARD 04: PYTHON -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box icon-py"><i class="fa-brands fa-python"></i></div>
+                    <span class="card-num">04</span>
+                </div>
+                <h2>Python</h2>
+                <p class="card-subtitle">Data Analysis & Automation</p>
+                <div class="level-badge level-py"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate</div>
+                <p class="card-desc">Using Python for data cleaning, exploratory analysis, visualization and automation to solve real business problems.</p>
+                <div class="tags">
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">Seaborn</span>
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Jupyter Notebook</span>
+                </div>
+                <div class="preview-area">
+                    <!-- Placeholder for Python Visual -->
+                    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#0d1117; width:100%; height:100%;">
+                        <rect x="20" y="30" width="100" height="6" rx="3" fill="#30363d"/>
+                        <rect x="20" y="45" width="140" height="6" rx="3" fill="#30363d"/>
+                        <rect x="20" y="60" width="80" height="6" rx="3" fill="#30363d"/>
+                        <g transform="translate(180, 20)">
+                            <line x1="0" y1="150" x2="200" y2="150" stroke="#30363d" stroke-width="1"/>
+                            <rect x="20" y="100" width="25" height="50" fill="#3fb950" opacity="0.8"/>
+                            <rect x="60" y="80" width="25" height="70" fill="#3fb950" opacity="0.8"/>
+                            <rect x="100" y="50" width="25" height="100" fill="#3fb950" opacity="0.8"/>
+                            <path d="M 32 100 L 72 80 L 112 50" stroke="#58a6ff" stroke-width="3" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CARD 05: DATA ANALYSIS -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box icon-da"><i class="fa-solid fa-lightbulb"></i></div>
+                    <span class="card-num">05</span>
+                </div>
+                <h2>Data Analysis</h2>
+                <p class="card-subtitle">Insights & Business Impact</p>
+                <div class="level-badge level-da"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
+                <p class="card-desc">Applying analytical thinking to uncover trends, KPIs and opportunities, and communicating clear insights for better decisions.</p>
+                <div class="tags">
+                    <span class="tag">EDA</span>
+                    <span class="tag">KPI Analysis</span>
+                    <span class="tag">Trend Analysis</span>
+                    <span class="tag">A/B Testing</span>
+                    <span class="tag">Business Insights</span>
+                    <span class="tag">Problem Solving</span>
+                </div>
+                <div class="preview-area">
+                    <div class="insights-panel">
+                        <div class="insights-header">
+                            <i class="fa-regular fa-lightbulb" style="color:#eab308;"></i> Key Insights
+                        </div>
+                        <ul class="insights-list">
+                            <li><i class="fa-solid fa-check-circle"></i> Sales increased by 28%</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Top-performing city identified</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Electronics drives highest margin</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Repeat customers +18.5%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Metrics Bar -->
+        <div class="metrics-bar">
+            <div class="metric-item">
+                <div class="metric-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div>
+                    <span class="metric-num">5</span>
+                    <span class="metric-label">Core Skills</span>
+                </div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div>
+                    <span class="metric-num">20+</span>
+                    <span class="metric-label">Key Technologies</span>
+                </div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-icon"><i class="fa-solid fa-chart-column"></i></div>
+                <div>
+                    <span class="metric-num">18</span>
+                    <span class="metric-label">End-to-End Projects</span>
+                </div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div>
+                    <span class="metric-highlight">Real Impact</span>
+                    <span class="metric-label">Data Driven Decisions</span>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Skills Cards Grid -->
-    <section class="cards-grid">
-        
-        <!-- Card 1: Excel -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                <div class="card-num">01</div>
-            </div>
-            <h2>Excel</h2>
-            <p class="card-subtitle">Data Cleaning & Analysis</p>
-            <div class="level-badge level-adv"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Cleaning, transforming and analyzing business data using advanced Excel features, Pivot Tables and Power Query.</p>
-            <div class="tags">
-                <span class="tag">XLOOKUP</span>
-                <span class="tag">Pivot Tables</span>
-                <span class="tag">Power Query</span>
-                <span class="tag">Data Cleaning</span>
-                <span class="tag">EDA</span>
-                <span class="tag">Formulas</span>
-            </div>
-            <div class="preview-area">
-                <!-- Placeholder for Excel Dashboard Screenshot -->
-                <img src="https://images.unsplash.com/photo-1543286386-713df75e2385?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Excel Dashboard">
-            </div>
-        </div>
-
-        <!-- Card 2: SQL -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box sql-icon"><i class="fa-solid fa-database"></i></div>
-                <div class="card-num">02</div>
-            </div>
-            <h2>SQL</h2>
-            <p class="card-subtitle">Data Extraction & Analysis</p>
-            <div class="level-badge level-int"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate - Advanced</div>
-            <p class="card-desc">Writing efficient SQL queries using joins, CTEs, window functions and subqueries to extract, transform and analyze business data.</p>
-            <div class="tags">
-                <span class="tag">Joins</span>
-                <span class="tag">CTEs</span>
-                <span class="tag">Window Functions</span>
-                <span class="tag">Subqueries</span>
-                <span class="tag">CASE WHEN</span>
-                <span class="tag">Aggregations</span>
-                <span class="tag">SQL Server</span>
-            </div>
-            <div class="preview-area">
-                <!-- Placeholder for SQL Code Screenshot -->
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="SQL Code">
-            </div>
-        </div>
-
-        <!-- Card 3: Power BI -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box pbi-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                <div class="card-num">03</div>
-            </div>
-            <h2>Power BI</h2>
-            <p class="card-subtitle">Dashboard & Data Storytelling</p>
-            <div class="level-badge level-pbi"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Building interactive dashboards using DAX, data modeling, and visual design to turn data into actionable business insights.</p>
-            <div class="tags">
-                <span class="tag">DAX</span>
-                <span class="tag">Data Modeling</span>
-                <span class="tag">Slicers</span>
-                <span class="tag">Drill-through</span>
-                <span class="tag">KPI Cards</span>
-                <span class="tag">Relationships</span>
-                <span class="tag">Power Query</span>
-            </div>
-            <div class="preview-area">
-                <!-- Placeholder for Power BI Dashboard -->
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Power BI Dashboard">
-            </div>
-        </div>
-
-        <!-- Card 4: Python -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box py-icon"><i class="fa-brands fa-python"></i></div>
-                <div class="card-num">04</div>
-            </div>
-            <h2>Python</h2>
-            <p class="card-subtitle">Data Analysis & Automation</p>
-            <div class="level-badge level-py"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate</div>
-            <p class="card-desc">Using Python for data cleaning, exploratory analysis, visualization and automation to solve real business problems.</p>
-            <div class="tags">
-                <span class="tag">Pandas</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Seaborn</span>
-                <span class="tag">Data Cleaning</span>
-                <span class="tag">EDA</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Jupyter Notebook</span>
-            </div>
-            <div class="preview-area">
-                <!-- Placeholder for Python Code/Chart -->
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Python Code">
-            </div>
-        </div>
-
-        <!-- Card 5: Data Analysis -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box da-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                <div class="card-num">05</div>
-            </div>
-            <h2>Data Analysis</h2>
-            <p class="card-subtitle">Insights & Business Impact</p>
-            <div class="level-badge level-da"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Applying analytical thinking to uncover trends, KPIs and opportunities, and communicating clear insights for better decisions.</p>
-            <div class="tags">
-                <span class="tag">EDA</span>
-                <span class="tag">KPI Analysis</span>
-                <span class="tag">Trend Analysis</span>
-                <span class="tag">A/B Testing</span>
-                <span class="tag">Business Insights</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Problem Solving</span>
-            </div>
-            <!-- Custom Key Insights Panel instead of Image -->
-            <div class="preview-area" style="background: #fff; padding: 15px; display: flex; flex-direction: column; justify-content: center;">
-                <h4 style="color: #000; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 5px;">
-                    <i class="fa-regular fa-lightbulb" style="color: #f59e0b;"></i> Key Insights
-                </h4>
-                <ul class="insights-list">
-                    <li><i class="fa-solid fa-check-circle"></i> Sales increased by 28% after new offer</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Lahore is the top-performing city</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Electronics drives highest profit margin</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Repeat customers increased by 18.5%</li>
-                </ul>
-            </div>
-        </div>
-
     </section>
 
-    <!-- Footer Stats Bar -->
-    <footer class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-            <div class="stat-text">
-                <h3>5</h3>
-                <p>Core Skills</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
-            <div class="stat-text">
-                <h3>20+</h3>
-                <p>Key Technologies</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-chart-column"></i></div>
-            <div class="stat-text">
-                <h3>18</h3>
-                <p>End-to-End Projects</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
-            <div class="stat-text">
-                <h3>Real Impact</h3>
-                <p>Data Driven Decisions</p>
-            </div>
-        </div>
-        <div class="footer-script">
-            Turning<br>Data into Opportunities
-        </div>
-    </footer>
+    <!-- Placeholder Sections for Navigation Testing -->
+    <section id="about" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border-color);">
+        <h2>About Section</h2>
+    </section>
+    <section id="projects" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border-color);">
+        <h2>Projects Section</h2>
+    </section>
+    <section id="certifications" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border-color);">
+        <h2>Certifications Section</h2>
+    </section>
+    <section id="contact" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border-color);">
+        <h2>Contact Section</h2>
+    </section>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-xmark');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Active Navigation State on Scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
