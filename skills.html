@@ -3,705 +3,746 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NK Data Analyst - Skills Portfolio</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Skills Journey | Khurram Insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #050508;
-            --card-bg: #0f0f16;
-            --primary-purple: #a855f7;
-            --secondary-purple: #7e22ce;
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border-color: rgba(168, 85, 247, 0.2);
-            
-            /* Skill Specific Colors */
-            --excel-green: #10b981;
-            --sql-blue: #3b82f6;
-            --pbi-yellow: #f59e0b;
-            --py-blue: #60a5fa;
-            --da-pink: #ec4899;
+            --bg:        #07030f;
+            --surface:   #0f0720;
+            --border:    rgba(209,179,255,0.12);
+            --accent:    #c084fc;
+            --accent2:   #7c3aed;
+            --gold:      #F2C811;
+            --green:     #22c55e;
+            --white:     #f0e8ff;
+            --muted:     #8b7aa0;
+            --nav-bg:    #1a0b2e;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--white);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(126, 34, 206, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
         }
 
-        /* --- Navigation --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(5, 5, 8, 0.8);
-        }
-
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-        }
-        .logo span { color: var(--primary-purple); }
-        .logo small {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-main);
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-
-        .btn-connect {
-            border: 1px solid var(--primary-purple);
-            padding: 10px 24px;
-            border-radius: 50px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-connect:hover {
-            background: var(--primary-purple);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            text-align: center;
-            padding: 80px 20px 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge-top {
-            display: inline-block;
-            border: 1px solid var(--border-color);
-            background: rgba(168, 85, 247, 0.1);
-            color: var(--primary-purple);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #c084fc, #7e22ce);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* --- Workflow Timeline --- */
-        .workflow-container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .workflow-line {
-            position: absolute;
-            top: 25px; /* Aligns with circle center */
-            left: 50px;
-            right: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                rgba(16, 185, 129, 0.2), 
-                rgba(59, 130, 246, 0.2), 
-                rgba(245, 158, 11, 0.2), 
-                rgba(96, 165, 250, 0.2), 
-                rgba(236, 72, 153, 0.2));
+        /* ── ANIMATED GRID BACKGROUND ── */
+        body::before {
+            content:'';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
             z-index: 0;
         }
 
-        .workflow-steps {
+        /* ── FLOATING ORB ── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width:500px; height:500px; background:rgba(124,58,237,0.18); top:-100px; right:-100px; }
+        .orb-2 { width:400px; height:400px; background:rgba(192,132,252,0.10); bottom:0; left:-80px; }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top:0; z-index:1000;
+            background: rgba(26,11,46,0.85);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #d1b3ff; text-decoration:none; margin:0 16px;
+            font-family:'Syne',sans-serif; font-size:0.78rem;
+            text-transform:uppercase; font-weight:700; letter-spacing:1.5px;
+            transition:color 0.2s;
+        }
+        nav a:hover, nav a.active { color:#fff; }
+        nav a.active { border-bottom: 2px solid var(--accent); padding-bottom:2px; }
+
+        /* ── HERO HEADER ── */
+        .page-header {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 90px 20px 60px;
+        }
+        .eyebrow {
+            display: inline-flex; align-items:center; gap:8px;
+            font-size:0.72rem; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color: var(--accent);
+            border:1px solid rgba(192,132,252,0.3);
+            padding: 6px 18px; border-radius:50px;
+            margin-bottom: 22px;
+            background: rgba(192,132,252,0.06);
+        }
+        .eyebrow span { width:6px; height:6px; background:var(--accent); border-radius:50%; display:inline-block; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .page-header h1 {
+            font-family:'Syne', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight:800;
+            line-height: 1.1;
+            letter-spacing:-1px;
+            color:#fff;
+        }
+        .page-header h1 em {
+            font-style:normal;
+            background: linear-gradient(90deg, #c084fc, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p {
+            margin-top:16px;
+            color: var(--muted);
+            font-size:1rem;
+            max-width:480px;
+            margin-left:auto;
+            margin-right:auto;
+            line-height:1.7;
+        }
+
+        /* ── PROGRESS PIPELINE (horizontal numbers) ── */
+        .pipeline {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 48px auto 0;
+            max-width: 700px;
             position: relative;
             z-index: 1;
         }
-
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .pip-step {
+            display:flex; flex-direction:column; align-items:center;
+            gap:8px; flex:1; cursor:pointer;
+            transition: opacity 0.3s;
         }
-
-        .step-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--bg-dark);
-            border: 2px solid var(--primary-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
-        }
-
-        .step-info h4 {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-        }
-
-        .step-info h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* --- Cards Grid --- */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* Card Header */
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .icon-box {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .card-num {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            color: rgba(255,255,255,0.1);
-            font-size: 1.2rem;
-        }
-
-        /* Specific Icon Colors */
-        .excel-icon { background: rgba(16, 185, 129, 0.1); color: var(--excel-green); }
-        .sql-icon { background: rgba(59, 130, 246, 0.1); color: var(--sql-blue); }
-        .pbi-icon { background: rgba(245, 158, 11, 0.1); color: var(--pbi-yellow); }
-        .py-icon { background: rgba(96, 165, 250, 0.1); color: var(--py-blue); }
-        .da-icon { background: rgba(236, 72, 153, 0.1); color: var(--da-pink); }
-
-        /* Card Content */
-        .card h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .level-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            width: fit-content;
-        }
-
-        .level-adv { background: rgba(16, 185, 129, 0.1); color: var(--excel-green); border: 1px solid rgba(16, 185, 129, 0.2); }
-        .level-int { background: rgba(59, 130, 246, 0.1); color: var(--sql-blue); border: 1px solid rgba(59, 130, 246, 0.2); }
-        .level-pbi { background: rgba(245, 158, 11, 0.1); color: var(--pbi-yellow); border: 1px solid rgba(245, 158, 11, 0.2); }
-        .level-py { background: rgba(96, 165, 250, 0.1); color: var(--py-blue); border: 1px solid rgba(96, 165, 250, 0.2); }
-        .level-da { background: rgba(236, 72, 153, 0.1); color: var(--da-pink); border: 1px solid rgba(236, 72, 153, 0.2); }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: #d1d5db;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        /* Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-        }
-
-        /* Preview Image Area */
-        .preview-area {
-            width: 100%;
-            height: 140px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            background: #000;
-            position: relative;
-        }
-
-        .preview-area img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
+        .pip-num {
+            width:44px; height:44px; border-radius:50%;
+            border:2px solid var(--border);
+            display:flex; align-items:center; justify-content:center;
+            font-family:'Syne',sans-serif; font-weight:800;
+            font-size:0.9rem; color:var(--muted);
+            background: var(--surface);
             transition: 0.3s;
+            position: relative; z-index:2;
         }
-        
-        .card:hover .preview-area img { opacity: 1; }
-
-        /* Special Key Insights Card Styling */
-        .insights-list {
-            list-style: none;
-            text-align: left;
-            width: 100%;
+        .pip-step.active .pip-num {
+            border-color: var(--accent);
+            background: rgba(192,132,252,0.15);
+            color:#fff;
+            box-shadow: 0 0 20px rgba(192,132,252,0.4);
         }
-        .insights-list li {
-            font-size: 0.75rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: start;
-            gap: 8px;
-            color: #d1d5db;
+        .pip-label {
+            font-size:0.7rem; font-weight:600; text-transform:uppercase;
+            letter-spacing:1px; color:var(--muted);
+            transition: color 0.3s;
         }
-        .insights-list li i {
-            color: var(--excel-green);
-            margin-top: 3px;
+        .pip-step.active .pip-label { color: var(--accent); }
+        .pip-line {
+            flex:1; height:1px;
+            background: linear-gradient(90deg, var(--accent2), transparent);
+            opacity:0.3;
+            margin-bottom:22px;
         }
 
-        /* --- Footer Stats --- */
-        .stats-bar {
-            background: linear-gradient(90deg, rgba(15,15,22,0.9), rgba(15,15,22,0.9));
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 40px 5%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
+        /* ── SKILL CARDS GRID ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 70px auto 0;
+            padding: 0 5% 100px;
+            position: relative; z-index:1;
+        }
+
+        /* Card 3 spans full width */
+        .skill-card:nth-child(3) { grid-column: 1 / -1; }
+
+        .skill-card {
+            background: rgba(15,7,32,0.6);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 36px;
             position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+            cursor: default;
+            backdrop-filter: blur(10px);
+        }
+        .skill-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity:0;
+            transition: opacity 0.35s;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(192,132,252,0.35);
+            box-shadow: 0 24px 60px rgba(124,58,237,0.2);
+        }
+        .skill-card:hover::before { opacity:1; }
+
+        /* Card accent corner glow */
+        .skill-card .corner-glow {
+            position:absolute; top:-60px; right:-60px;
+            width:160px; height:160px; border-radius:50%;
+            opacity:0; transition: opacity 0.4s;
+        }
+        .skill-card:hover .corner-glow { opacity:1; }
+        .card-excel .corner-glow  { background: radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%); }
+        .card-sql .corner-glow    { background: radial-gradient(circle, rgba(192,132,252,0.15), transparent 70%); }
+        .card-pbi .corner-glow    { background: radial-gradient(circle, rgba(242,200,17,0.15), transparent 70%); }
+        .card-insights .corner-glow { background: radial-gradient(circle, rgba(192,132,252,0.15), transparent 70%); }
+        .card-python .corner-glow { background: radial-gradient(circle, rgba(56,189,248,0.15), transparent 70%); }
+
+        /* Card inner layout */
+        .card-top {
+            display:flex; align-items:flex-start; justify-content:space-between;
+            margin-bottom: 28px;
+        }
+        .card-icon-wrap {
+            width:56px; height:56px; border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.6rem;
+        }
+        .card-excel .card-icon-wrap  { background:rgba(34,197,94,0.12); color:var(--green); }
+        .card-sql .card-icon-wrap    { background:rgba(192,132,252,0.12); color:var(--accent); }
+        .card-pbi .card-icon-wrap    { background:rgba(242,200,17,0.12); color:var(--gold); }
+        .card-insights .card-icon-wrap { background:rgba(192,132,252,0.12); color:var(--accent); }
+        .card-python .card-icon-wrap { background:rgba(56,189,248,0.12); color:#38bdf8; }
+
+        .card-badge {
+            font-size:0.65rem; font-weight:700; letter-spacing:1.5px;
+            text-transform:uppercase; padding:4px 12px; border-radius:50px;
+            border:1px solid; white-space:nowrap;
+        }
+        .badge-excel    { color:var(--green); border-color:rgba(34,197,94,0.3); background:rgba(34,197,94,0.06); }
+        .badge-sql      { color:var(--accent); border-color:rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-pbi      { color:var(--gold); border-color:rgba(242,200,17,0.3); background:rgba(242,200,17,0.06); }
+        .badge-insights { color:var(--accent); border-color:rgba(192,132,252,0.3); background:rgba(192,132,252,0.06); }
+        .badge-python   { color:#38bdf8; border-color:rgba(56,189,248,0.3); background:rgba(56,189,248,0.06); }
+
+        /* ── PROFICIENCY BADGE ── */
+        .proficiency-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 1.2px;
+            text-transform: uppercase; padding: 4px 11px; border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        .proficiency-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+        }
+        .prof-advanced {
+            color: #4ade80;
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.25);
+        }
+        .prof-advanced .dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+
+        .prof-intermediate {
+            color: #c084fc;
+            background: rgba(192,132,252,0.08);
+            border: 1px solid rgba(192,132,252,0.25);
+        }
+        .prof-intermediate .dot { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
+
+        .prof-learning {
+            color: #38bdf8;
+            background: rgba(56,189,248,0.08);
+            border: 1px solid rgba(56,189,248,0.25);
+            animation: pulse-border 2s infinite;
+        }
+        .prof-learning .dot { background: #38bdf8; animation: blink 1.2s infinite; }
+
+        @keyframes pulse-border {
+            0%,100% { border-color: rgba(56,189,248,0.25); }
+            50%      { border-color: rgba(56,189,248,0.55); }
         }
 
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .card-title {
+            font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800;
+            color:#fff; margin-bottom:6px;
+        }
+        .card-subtitle { font-size:0.78rem; color:var(--muted); margin-bottom:18px; }
+
+        .card-desc { font-size:0.88rem; color:#a89bb8; line-height:1.75; margin-bottom:28px; }
+
+        /* Skill tags */
+        .tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+        .tag {
+            font-size:0.72rem; font-weight:600; padding:5px 13px;
+            border-radius:50px; border:1px solid var(--border);
+            color:#c4b5d4; background:rgba(255,255,255,0.03);
+            letter-spacing:0.3px;
         }
 
-        .stat-icon {
-            font-size: 1.5rem;
-            color: var(--primary-purple);
-            opacity: 0.8;
+        /* Skill bars */
+        .skill-bars { display:flex; flex-direction:column; gap:12px; }
+        .bar-row { display:flex; align-items:center; gap:12px; }
+        .bar-label { font-size:0.75rem; color:var(--muted); width:120px; flex-shrink:0; }
+        .bar-track {
+            flex:1; height:5px; background:rgba(255,255,255,0.07);
+            border-radius:10px; overflow:hidden;
+        }
+        .bar-fill {
+            height:100%; border-radius:10px;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: barGrow 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        .bar-fill.green  { background: linear-gradient(90deg, #16a34a, #4ade80); }
+        .bar-fill.purple { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+        .bar-fill.gold   { background: linear-gradient(90deg, #b45309, #F2C811); }
+        .bar-fill.sky    { background: linear-gradient(90deg, #0369a1, #38bdf8); }
+
+        @keyframes barGrow { to { transform: scaleX(1); } }
+        .bar-fill[style*="0.5s"] { animation-delay:0.1s; }
+        .bar-fill[style*="0.7s"] { animation-delay:0.2s; }
+        .bar-fill[style*="0.9s"] { animation-delay:0.3s; }
+        .bar-fill[style*="1.1s"] { animation-delay:0.4s; }
+
+        /* Preview image in card */
+        .card-preview {
+            border-radius:12px; overflow:hidden;
+            border:1px solid var(--border);
+            margin-bottom:28px;
+            height: 160px;
+        }
+        .card-preview img {
+            width:100%; height:100%; object-fit:cover;
+            opacity:0.75; transition:0.4s;
+        }
+        .skill-card:hover .card-preview img { opacity:1; transform:scale(1.03); }
+
+        /* Full-width card inner grid */
+        .pbi-inner {
+            display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;
         }
 
-        .stat-text h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1;
+        /* ── FINAL INSIGHTS CARD ── */
+        .insights-flow {
+            display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:20px;
+        }
+        .insight-step {
+            background:rgba(255,255,255,0.03);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:20px 16px;
+            text-align:center;
+            transition:0.3s;
+        }
+        .insight-step:hover { border-color:rgba(192,132,252,0.35); background:rgba(192,132,252,0.05); }
+        .insight-step i { font-size:1.4rem; color:var(--accent); margin-bottom:12px; display:block; }
+        .insight-step h4 { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:#fff; margin-bottom:6px; }
+        .insight-step p  { font-size:0.75rem; color:var(--muted); line-height:1.5; }
+
+        /* ── PYTHON CARD ── */
+        .python-learning-note {
+            background: rgba(56,189,248,0.05);
+            border: 1px dashed rgba(56,189,248,0.25);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex; align-items: flex-start; gap: 14px;
+            margin-bottom: 28px;
+        }
+        .python-learning-note i { color:#38bdf8; font-size:1.1rem; margin-top:2px; flex-shrink:0; }
+        .python-learning-note p { font-size:0.82rem; color:#7ec8e3; line-height:1.6; }
+        .python-learning-note strong { color:#38bdf8; }
+
+        /* ── CERTIFICATIONS CTA ── */
+        .certs-cta {
+            position: relative; z-index:1;
+            text-align: center;
+            padding: 0 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .certs-cta-inner {
+            background: rgba(15,7,32,0.6);
+            border: 1px solid rgba(192,132,252,0.2);
+            border-radius: 20px;
+            padding: 40px 36px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 24px;
+            backdrop-filter: blur(10px);
+            position: relative; overflow: hidden;
+        }
+        .certs-cta-inner::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .certs-cta-text { text-align:left; }
+        .certs-cta-text h3 {
+            font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:800;
+            color:#fff; margin-bottom:6px;
+        }
+        .certs-cta-text p { font-size:0.85rem; color:var(--muted); }
+        .certs-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #7c3aed, #c084fc);
+            color: #fff; text-decoration: none;
+            font-family:'Syne',sans-serif; font-size:0.8rem; font-weight:700;
+            letter-spacing:1px; text-transform:uppercase;
+            padding: 14px 28px; border-radius: 50px;
+            white-space: nowrap;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 8px 30px rgba(124,58,237,0.35);
+        }
+        .certs-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(124,58,237,0.5);
         }
 
-        .stat-text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+        /* ── FOOTER BRAND ── */
+        .footer-brand {
+            text-align:center; padding:40px 20px;
+            border-top:1px solid var(--border);
+            position:relative; z-index:1;
+        }
+        .footer-brand img { height:36px; opacity:0.5; }
+
+        /* ── FADE-IN ANIMATION ── */
+        .skill-card {
+            opacity:0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .skill-card:nth-child(1) { animation-delay:0.1s; }
+        .skill-card:nth-child(2) { animation-delay:0.25s; }
+        .skill-card:nth-child(3) { animation-delay:0.4s; }
+        .skill-card:nth-child(4) { animation-delay:0.55s; }
+        .skill-card:nth-child(5) { animation-delay:0.7s; }
+
+        @keyframes fadeUp {
+            to { opacity:1; transform:translateY(0); }
         }
 
-        .footer-script {
-            font-family: 'Outfit', sans-serif; /* Fallback if script font not available */
-            font-size: 2rem;
-            color: var(--primary-purple);
-            font-style: italic;
-            opacity: 0.8;
-            text-align: right;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 1200px) {
-            .cards-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .workflow-line { display: none; }
-            .workflow-steps {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
-            .step {
-                background: rgba(255,255,255,0.03);
-                padding: 10px 20px;
-                border-radius: 50px;
-                border: 1px solid rgba(255,255,255,0.05);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 20px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .stats-bar { flex-direction: column; text-align: center; }
-            .stat-item { flex-direction: column; }
-            .footer-script { text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-            .cards-grid { grid-template-columns: 1fr; }
+        /* ── RESPONSIVE ── */
+        @media (max-width:900px) {
+            .skills-grid { grid-template-columns:1fr; }
+            .skill-card:nth-child(3) { grid-column:auto; }
+            .pbi-inner { grid-template-columns:1fr; }
+            .insights-flow { grid-template-columns:1fr; }
+            nav a { margin:0 8px; font-size:0.72rem; }
+            .certs-cta-inner { flex-direction:column; text-align:center; }
+            .certs-cta-text { text-align:center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- NAV -->
     <nav>
-        <div class="logo">
-            NK<span>.</span>
-            <small>Data Analyst</small>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#" class="active">Skills</a></li>
-            <li><a href="#">Certifications</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <a href="#" class="btn-connect">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="badge-top">Technical Expertise</div>
-        <h1>Analytics Skills <span class="gradient-text">That Drive Results</span></h1>
-        <p>A complete data analytics toolkit — from data cleaning and analysis to interactive dashboards and business insights. I use modern tools and analytical thinking to turn data into real-world impact.</p>
-    </section>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="eyebrow"><span></span> Technical Expertise</div>
+        <h1>Analytics Skills<br><em>That Drive Results</em></h1>
+        <p>From raw data wrangling to executive-ready dashboards — a full-stack analytics pipeline built over 1.5+ years of hands-on projects.</p>
 
-    <!-- Workflow Timeline -->
-    <div class="workflow-container">
-        <div class="workflow-line"></div>
-        <div class="workflow-steps">
-            <div class="step">
-                <div class="step-circle">01</div>
-                <div class="step-info">
-                    <h4>Clean & Prepare</h4>
-                    <h3>Excel</h3>
-                </div>
+        <!-- Pipeline Steps -->
+        <div class="pipeline">
+            <div class="pip-step active">
+                <div class="pip-num">01</div>
+                <div class="pip-label">Excel</div>
             </div>
-            <div class="step">
-                <div class="step-circle">02</div>
-                <div class="step-info">
-                    <h4>Query & Analyze</h4>
-                    <h3>SQL</h3>
-                </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">02</div>
+                <div class="pip-label">SQL</div>
             </div>
-            <div class="step">
-                <div class="step-circle">03</div>
-                <div class="step-info">
-                    <h4>Visualize & Explore</h4>
-                    <h3>Power BI</h3>
-                </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">03</div>
+                <div class="pip-label">Power BI</div>
             </div>
-            <div class="step">
-                <div class="step-circle">04</div>
-                <div class="step-info">
-                    <h4>Extend & Automate</h4>
-                    <h3>Python</h3>
-                </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">04</div>
+                <div class="pip-label">Insights</div>
             </div>
-            <div class="step">
-                <div class="step-circle">05</div>
-                <div class="step-info">
-                    <h4>Insights & Impact</h4>
-                    <h3>Data Analysis</h3>
-                </div>
+            <div class="pip-line"></div>
+            <div class="pip-step active">
+                <div class="pip-num">05</div>
+                <div class="pip-label">Python</div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Skills Cards Grid -->
-    <section class="cards-grid">
-        
-        <!-- Card 1: Excel -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                <div class="card-num">01</div>
+    <!-- SKILLS GRID -->
+    <section class="skills-grid">
+
+        <!-- ── CARD 1: EXCEL ── -->
+        <div class="skill-card card-excel">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-file-excel"></i></div>
+                <span class="card-badge badge-excel">Step 01</span>
             </div>
-            <h2>Excel</h2>
-            <p class="card-subtitle">Data Cleaning & Analysis</p>
-            <div class="level-badge level-adv"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Cleaning, transforming and analyzing business data using advanced Excel features, Pivot Tables and Power Query.</p>
+            <h2 class="card-title">Spreadsheets</h2>
+            <p class="card-subtitle">Excel &amp; Google Sheets</p>
+            <div class="proficiency-badge prof-advanced"><span class="dot"></span> Advanced</div>
+
+            <div class="card-preview">
+                <img src="Road Accident Dashboard.jpg" alt="Excel Dashboard">
+            </div>
+
+            <p class="card-desc">
+                Transforming messy raw data into clean, structured datasets using advanced formulas, Pivot Tables, and Power Query — the foundation of any reliable analytics pipeline.
+            </p>
+
             <div class="tags">
                 <span class="tag">XLOOKUP</span>
+                <span class="tag">INDEX+MATCH</span>
                 <span class="tag">Pivot Tables</span>
                 <span class="tag">Power Query</span>
                 <span class="tag">Data Cleaning</span>
                 <span class="tag">EDA</span>
-                <span class="tag">Formulas</span>
             </div>
-            <div class="preview-area">
-                <!-- Placeholder for Excel Dashboard Screenshot -->
-                <img src="https://images.unsplash.com/photo-1543286386-713df75e2385?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Excel Dashboard">
+
+            <div class="skill-bars">
+                <div class="bar-row">
+                    <span class="bar-label">Data Cleaning</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:92%; animation-delay:0.5s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Advanced Formulas</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:88%; animation-delay:0.7s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Power Query</span>
+                    <div class="bar-track"><div class="bar-fill green" style="width:80%; animation-delay:0.9s"></div></div>
+                </div>
             </div>
         </div>
 
-        <!-- Card 2: SQL -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box sql-icon"><i class="fa-solid fa-database"></i></div>
-                <div class="card-num">02</div>
+        <!-- ── CARD 2: SQL ── -->
+        <div class="skill-card card-sql">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-database"></i></div>
+                <span class="card-badge badge-sql">Step 02</span>
             </div>
-            <h2>SQL</h2>
-            <p class="card-subtitle">Data Extraction & Analysis</p>
-            <div class="level-badge level-int"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate - Advanced</div>
-            <p class="card-desc">Writing efficient SQL queries using joins, CTEs, window functions and subqueries to extract, transform and analyze business data.</p>
+            <h2 class="card-title">SQL</h2>
+            <p class="card-subtitle">Structured Query Language · SQL Server</p>
+            <div class="proficiency-badge prof-intermediate"><span class="dot"></span> Intermediate — Advanced</div>
+
+            <div class="card-preview">
+                <img src="AmazonSQL.png" alt="SQL Code">
+            </div>
+
+            <p class="card-desc">
+                Writing complex queries — multi-table joins, CTEs, Window Functions (RANK, LEAD/LAG), and Stored Procedures — to extract, transform, and diagnose large-scale business data.
+            </p>
+
             <div class="tags">
-                <span class="tag">Joins</span>
                 <span class="tag">CTEs</span>
                 <span class="tag">Window Functions</span>
+                <span class="tag">Joins</span>
+                <span class="tag">Stored Procedures</span>
                 <span class="tag">Subqueries</span>
-                <span class="tag">CASE WHEN</span>
-                <span class="tag">Aggregations</span>
                 <span class="tag">SQL Server</span>
             </div>
-            <div class="preview-area">
-                <!-- Placeholder for SQL Code Screenshot -->
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="SQL Code">
+
+            <div class="skill-bars">
+                <div class="bar-row">
+                    <span class="bar-label">Query Writing</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:87%; animation-delay:0.5s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Window Functions</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:82%; animation-delay:0.7s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Stored Procedures</span>
+                    <div class="bar-track"><div class="bar-fill purple" style="width:75%; animation-delay:0.9s"></div></div>
+                </div>
             </div>
         </div>
 
-        <!-- Card 3: Power BI -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box pbi-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                <div class="card-num">03</div>
-            </div>
-            <h2>Power BI</h2>
-            <p class="card-subtitle">Dashboard & Data Storytelling</p>
-            <div class="level-badge level-pbi"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Building interactive dashboards using DAX, data modeling, and visual design to turn data into actionable business insights.</p>
-            <div class="tags">
-                <span class="tag">DAX</span>
-                <span class="tag">Data Modeling</span>
-                <span class="tag">Slicers</span>
-                <span class="tag">Drill-through</span>
-                <span class="tag">KPI Cards</span>
-                <span class="tag">Relationships</span>
-                <span class="tag">Power Query</span>
-            </div>
-            <div class="preview-area">
-                <!-- Placeholder for Power BI Dashboard -->
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Power BI Dashboard">
+        <!-- ── CARD 3: POWER BI (full width) ── -->
+        <div class="skill-card card-pbi">
+            <div class="corner-glow"></div>
+            <div class="pbi-inner">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon-wrap"><i class="fa-solid fa-chart-pie"></i></div>
+                        <span class="card-badge badge-pbi">Step 03</span>
+                    </div>
+                    <h2 class="card-title">Power BI</h2>
+                    <p class="card-subtitle">Business Intelligence &amp; Data Storytelling</p>
+                    <div class="proficiency-badge prof-advanced"><span class="dot"></span> Advanced</div>
+                    <p class="card-desc">
+                        Developing executive-ready interactive dashboards with DAX measures, drill-throughs, and compelling data stories that turn raw numbers into decisive business action.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">DAX</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">Drill-through</span>
+                        <span class="tag">KPI Cards</span>
+                        <span class="tag">Slicers</span>
+                        <span class="tag">Relationships</span>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="bar-row">
+                            <span class="bar-label">DAX Formulas</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:83%; animation-delay:0.5s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Dashboard Design</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:90%; animation-delay:0.7s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Data Modeling</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:78%; animation-delay:0.9s"></div></div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">Storytelling</span>
+                            <div class="bar-track"><div class="bar-fill gold" style="width:88%; animation-delay:1.1s"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-preview" style="height:100%; min-height:280px; margin-bottom:0;">
+                    <img src="Samsung Pakistan Sales Analysis Dashboard.jpg" alt="Power BI Dashboard" style="height:100%;">
+                </div>
             </div>
         </div>
 
-        <!-- Card 4: Python -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box py-icon"><i class="fa-brands fa-python"></i></div>
-                <div class="card-num">04</div>
+        <!-- ── CARD 4: FINAL INSIGHTS ── -->
+        <div class="skill-card card-insights" style="grid-column: 1 / -1;">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-solid fa-gem"></i></div>
+                <span class="card-badge badge-insights">Step 04</span>
             </div>
-            <h2>Python</h2>
-            <p class="card-subtitle">Data Analysis & Automation</p>
-            <div class="level-badge level-py"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Intermediate</div>
-            <p class="card-desc">Using Python for data cleaning, exploratory analysis, visualization and automation to solve real business problems.</p>
+            <h2 class="card-title">Final Insights</h2>
+            <p class="card-subtitle">Delivering Actionable Value to Stakeholders</p>
+            <p class="card-desc" style="max-width:700px;">
+                Synthesizing outputs across all analytics stages into clear, strategic recommendations — bridging the gap between raw data and the business decisions that drive real growth.
+            </p>
+
+            <div class="tags" style="margin-bottom:20px;">
+                <span class="tag">Problem Solving</span>
+                <span class="tag">KPI Analysis</span>
+                <span class="tag">Decision Making</span>
+                <span class="tag">Communication</span>
+                <span class="tag">Business Thinking</span>
+                <span class="tag">PowerPoint Reporting</span>
+                <span class="tag">Storytelling with Data</span>
+            </div>
+
+            <div class="insights-flow">
+                <div class="insight-step">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h4>Identify Patterns</h4>
+                    <p>Surface hidden trends across large datasets using statistical reasoning and domain context.</p>
+                </div>
+                <div class="insight-step">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h4>Communicate Clearly</h4>
+                    <p>Translate complex findings into concise, jargon-free narratives for non-technical stakeholders.</p>
+                </div>
+                <div class="insight-step">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h4>Drive Action</h4>
+                    <p>Deliver data-backed recommendations that are measurable, practical, and tied to business goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── CARD 5: PYTHON (Currently Learning) ── -->
+        <div class="skill-card card-python" style="grid-column: 1 / -1;">
+            <div class="corner-glow"></div>
+            <div class="card-top">
+                <div class="card-icon-wrap"><i class="fa-brands fa-python"></i></div>
+                <span class="card-badge badge-python">Step 05</span>
+            </div>
+            <h2 class="card-title">Python for Analytics</h2>
+            <p class="card-subtitle">Pandas · NumPy · Data Wrangling</p>
+            <div class="proficiency-badge prof-learning"><span class="dot"></span> Currently Learning</div>
+
+            <div class="python-learning-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                    <strong>Actively expanding my toolkit.</strong> Building on my SQL and Excel foundation to learn Python for data manipulation with Pandas, exploratory analysis with NumPy, and eventually data visualization with Matplotlib — completing the modern analyst stack.
+                </p>
+            </div>
+
             <div class="tags">
+                <span class="tag">Python Basics</span>
                 <span class="tag">Pandas</span>
                 <span class="tag">NumPy</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Seaborn</span>
-                <span class="tag">Data Cleaning</span>
-                <span class="tag">EDA</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Jupyter Notebook</span>
+                <span class="tag">Data Wrangling</span>
+                <span class="tag">Jupyter Notebooks</span>
+                <span class="tag">Matplotlib (Next)</span>
             </div>
-            <div class="preview-area">
-                <!-- Placeholder for Python Code/Chart -->
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Python Code">
-            </div>
-        </div>
 
-        <!-- Card 5: Data Analysis -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box da-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                <div class="card-num">05</div>
-            </div>
-            <h2>Data Analysis</h2>
-            <p class="card-subtitle">Insights & Business Impact</p>
-            <div class="level-badge level-da"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Advanced</div>
-            <p class="card-desc">Applying analytical thinking to uncover trends, KPIs and opportunities, and communicating clear insights for better decisions.</p>
-            <div class="tags">
-                <span class="tag">EDA</span>
-                <span class="tag">KPI Analysis</span>
-                <span class="tag">Trend Analysis</span>
-                <span class="tag">A/B Testing</span>
-                <span class="tag">Business Insights</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Problem Solving</span>
-            </div>
-            <!-- Custom Key Insights Panel instead of Image -->
-            <div class="preview-area" style="background: #fff; padding: 15px; display: flex; flex-direction: column; justify-content: center;">
-                <h4 style="color: #000; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 5px;">
-                    <i class="fa-regular fa-lightbulb" style="color: #f59e0b;"></i> Key Insights
-                </h4>
-                <ul class="insights-list">
-                    <li><i class="fa-solid fa-check-circle"></i> Sales increased by 28% after new offer</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Lahore is the top-performing city</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Electronics drives highest profit margin</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Repeat customers increased by 18.5%</li>
-                </ul>
+            <div class="skill-bars">
+                <div class="bar-row">
+                    <span class="bar-label">Python Basics</span>
+                    <div class="bar-track"><div class="bar-fill sky" style="width:55%; animation-delay:0.5s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Pandas / NumPy</span>
+                    <div class="bar-track"><div class="bar-fill sky" style="width:40%; animation-delay:0.7s"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Data Wrangling</span>
+                    <div class="bar-track"><div class="bar-fill sky" style="width:48%; animation-delay:0.9s"></div></div>
+                </div>
             </div>
         </div>
 
     </section>
 
-    <!-- Footer Stats Bar -->
-    <footer class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-            <div class="stat-text">
-                <h3>5</h3>
-                <p>Core Skills</p>
+    <!-- ── CERTIFICATIONS CTA ── -->
+    <div class="certs-cta">
+        <div class="certs-cta-inner">
+            <div class="certs-cta-text">
+                <h3>Want to verify these skills?</h3>
+                <p>Browse my certifications — each skill above is backed by real credentials and completed coursework.</p>
             </div>
+            <a href="certifications.html" class="certs-btn">
+                <i class="fa-solid fa-certificate"></i>
+                View My Certifications
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
-            <div class="stat-text">
-                <h3>20+</h3>
-                <p>Key Technologies</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-chart-column"></i></div>
-            <div class="stat-text">
-                <h3>18</h3>
-                <p>End-to-End Projects</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
-            <div class="stat-text">
-                <h3>Real Impact</h3>
-                <p>Data Driven Decisions</p>
-            </div>
-        </div>
-        <div class="footer-script">
-            Turning<br>Data into Opportunities
-        </div>
-    </footer>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-brand">
+        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
+    </div>
 
 </body>
 </html>
