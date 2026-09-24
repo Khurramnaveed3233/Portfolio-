@@ -52,13 +52,14 @@
         }
         
         .nav-brand {
-            display: flex; flex-direction: column;
+            display: flex;
+            align-items: center;
         }
-        .nav-brand-name {
-            font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; line-height: 1;
-        }
-        .nav-brand-title {
-            font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px;
+        .nav-brand img {
+            height: 38px;
+            width: auto;
+            border-radius: 8px;
+            object-fit: contain;
         }
 
         .nav-links { display: flex; gap: 24px; }
@@ -305,8 +306,7 @@
 <!-- NAV -->
 <nav>
     <div class="nav-brand">
-        <span class="nav-brand-name">Khurram Naveed</span>
-        <span class="nav-brand-title">Data Analyst</span>
+        <img src="Khurram Insights.jpeg" alt="Khurram Insights Logo">
     </div>
     <div class="nav-links">
         <a href="index.html">Home</a>
