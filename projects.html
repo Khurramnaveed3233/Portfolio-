@@ -143,12 +143,266 @@
     border-bottom:2px solid var(--purple-light);
   }
 
-  /* ---------- Hero (Redesigned for compactness) ---------- */
+  /* ---------- Hero (Redesigned with decorative elements) ---------- */
   .hero{
-    text-align:center;
-    /* Reduced padding to move content up */
-    padding:60px 24px 40px;
     position:relative;
+    padding:80px 24px 60px;
+    overflow:hidden;
+  }
+
+  /* Decorative side panels */
+  .hero-decorations{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* Left side decorations */
+  .decor-left{
+    position:absolute;
+    left:5%;
+    top:50%;
+    transform:translateY(-50%);
+    width:280px;
+  }
+
+  /* Right side decorations */
+  .decor-right{
+    position:absolute;
+    right:5%;
+    top:50%;
+    transform:translateY(-50%);
+    width:280px;
+  }
+
+  /* Chart panels */
+  .chart-panel{
+    position:absolute;
+    background:rgba(139,92,246,0.05);
+    border:1px solid rgba(139,92,246,0.2);
+    border-radius:12px;
+    padding:16px;
+    backdrop-filter:blur(10px);
+  }
+
+  .chart-panel.bar-chart{
+    left:0;
+    top:0;
+    width:140px;
+    height:120px;
+  }
+
+  .chart-panel.line-chart{
+    right:0;
+    top:40px;
+    width:160px;
+    height:100px;
+  }
+
+  .chart-panel.donut-chart{
+    left:20px;
+    bottom:0;
+    width:120px;
+    height:120px;
+  }
+
+  .chart-panel.data-panel{
+    right:10px;
+    bottom:60px;
+    width:150px;
+    height:100px;
+  }
+
+  /* Chart bars */
+  .bar-chart-inner{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    height:80px;
+    gap:8px;
+  }
+
+  .bar{
+    background:linear-gradient(180deg, var(--purple-light), var(--purple));
+    border-radius:4px 4px 0 0;
+    opacity:0.6;
+  }
+
+  .bar:nth-child(1){height:60%;width:18px;}
+  .bar:nth-child(2){height:40%;width:18px;}
+  .bar:nth-child(3){height:80%;width:18px;}
+  .bar:nth-child(4){height:55%;width:18px;}
+
+  /* Line chart */
+  .line-chart-inner{
+    position:relative;
+    height:70px;
+  }
+
+  .line-chart svg{
+    width:100%;
+    height:100%;
+  }
+
+  .line-chart path{
+    fill:none;
+    stroke:var(--purple-light);
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    opacity:0.7;
+  }
+
+  /* Donut chart */
+  .donut-chart-inner{
+    position:relative;
+    width:90px;
+    height:90px;
+    margin:15px auto;
+  }
+
+  .donut-chart svg{
+    transform:rotate(-90deg);
+  }
+
+  .donut-chart circle{
+    fill:none;
+    stroke-width:12;
+  }
+
+  .donut-bg{
+    stroke:rgba(139,92,246,0.2);
+  }
+
+  .donut-segment{
+    stroke:var(--purple-light);
+    stroke-dasharray:226;
+    stroke-dashoffset:56;
+    opacity:0.7;
+  }
+
+  .donut-segment-2{
+    stroke:var(--purple);
+    stroke-dasharray:226;
+    stroke-dashoffset:113;
+    opacity:0.5;
+  }
+
+  /* Data panel */
+  .data-panel-inner{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .data-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .data-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--purple-light);
+  }
+
+  .data-line{
+    flex:1;
+    height:6px;
+    background:rgba(139,92,246,0.2);
+    border-radius:3px;
+    overflow:hidden;
+  }
+
+  .data-fill{
+    height:100%;
+    background:var(--purple-light);
+    border-radius:3px;
+    opacity:0.6;
+  }
+
+  /* Tool icons */
+  .tool-icon{
+    position:absolute;
+    width:56px;
+    height:56px;
+    background:rgba(139,92,246,0.1);
+    border:1px solid rgba(139,92,246,0.3);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 30px rgba(139,92,246,0.2);
+  }
+
+  .tool-icon svg{
+    width:32px;
+    height:32px;
+  }
+
+  .tool-icon.excel{
+    left:-20px;
+    top:120px;
+    background:rgba(34,139,34,0.15);
+    border-color:rgba(34,139,34,0.4);
+  }
+
+  .tool-icon.sql{
+    right:-10px;
+    top:160px;
+    background:rgba(56,189,248,0.15);
+    border-color:rgba(56,189,248,0.4);
+  }
+
+  .tool-icon.powerbi{
+    right:20px;
+    bottom:180px;
+    background:rgba(242,200,17,0.15);
+    border-color:rgba(242,200,17,0.4);
+  }
+
+  .tool-icon.python{
+    left:10px;
+    bottom:140px;
+    background:rgba(56,189,248,0.15);
+    border-color:rgba(56,189,248,0.4);
+  }
+
+  /* Glowing orbs */
+  .glow-orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:0.3;
+  }
+
+  .glow-orb-1{
+    width:300px;
+    height:300px;
+    background:var(--purple);
+    left:-100px;
+    top:100px;
+  }
+
+  .glow-orb-2{
+    width:250px;
+    height:250px;
+    background:var(--purple-light);
+    right:-80px;
+    bottom:80px;
+    opacity:0.2;
+  }
+
+  /* Central content */
+  .hero-content{
+    position:relative;
+    z-index:1;
+    max-width:800px;
+    margin:0 auto;
+    text-align:center;
   }
 
   .eyebrow{
@@ -163,7 +417,8 @@
     letter-spacing:2px;
     text-transform:uppercase;
     color:var(--purple-light);
-    margin-bottom:24px; /* Reduced margin */
+    margin-bottom:24px;
+    background:rgba(139,92,246,0.05);
   }
 
   .eyebrow::before{
@@ -175,11 +430,16 @@
   }
 
   .hero h1{
-    font-size:clamp(42px, 7vw, 84px);
+    font-size:clamp(48px, 8vw, 96px);
     font-weight:700;
     line-height:1.05;
     letter-spacing:-1px;
-    margin-bottom:24px; /* Added margin to separate from description */
+    margin-bottom:24px;
+  }
+
+  .hero h1 .white{
+    color:var(--text-primary);
+    display:block;
   }
 
   .hero h1 .gradient{
@@ -187,49 +447,57 @@
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+    display:block;
   }
 
   .hero p.sub{
-    max-width:640px;
-    margin:0 auto 40px; /* Centered margin */
+    max-width:680px;
+    margin:0 auto 48px;
     color:var(--text-secondary);
-    font-size:18px;
-    line-height:1.6;
+    font-size:17px;
+    line-height:1.7;
   }
 
-  /* ---------- Stats (Integrated into Hero flow) ---------- */
+  /* Stats */
   .stats{
     display:flex;
     justify-content:center;
-    gap:60px; /* Slightly tighter gap */
+    gap:80px;
     flex-wrap:wrap;
-    /* Removed large vertical padding, using margin instead */
     padding:0 24px;
     margin-bottom:40px;
   }
 
+  .stat-item{
+    text-align:center;
+  }
+
   .stat-num{
-    font-size:44px;
+    font-size:52px;
     font-weight:700;
     color:var(--purple-light);
     line-height:1;
+    display:block;
   }
 
   .stat-label{
-    margin-top:8px;
+    margin-top:10px;
     font-size:13px;
     letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--text-secondary);
+    display:block;
   }
 
-  /* ---------- View Projects Button ---------- */
+  /* View Projects Button */
   .view-projects-wrapper {
     display: flex;
     justify-content: flex-end;
-    padding: 0 32px 60px; /* Space before filters */
+    padding: 0 32px 60px;
     max-width: var(--max-width);
     margin: 0 auto;
+    position:relative;
+    z-index:1;
   }
 
   .btn-view-projects {
@@ -270,13 +538,15 @@
     transform: translateY(3px);
   }
 
-  /* ---------- Filters ---------- */
+  /* Filters */
   .filters{
     display:flex;
     justify-content:center;
     gap:14px;
     flex-wrap:wrap;
     padding:0 24px 64px;
+    position:relative;
+    z-index:1;
   }
 
   .filter-btn{
@@ -304,9 +574,11 @@
     color:#fff;
   }
 
-  /* ---------- Project Grid ---------- */
+  /* Project Grid */
   .projects-section{
     padding:0 24px 100px;
+    position:relative;
+    z-index:1;
   }
 
   .grid{
@@ -319,18 +591,20 @@
 
   @media (max-width: 1024px){
     .grid{grid-template-columns:repeat(2, 1fr);}
+    .decor-left, .decor-right{display:none;}
   }
 
   @media (max-width: 680px){
     .grid{grid-template-columns:1fr;}
     .nav-inner{gap:20px 28px;}
     .stats{gap:44px;}
-    
-    /* Mobile adjustment for View Projects button */
     .view-projects-wrapper {
         justify-content: center;
         padding-bottom: 40px;
     }
+    .hero h1{font-size:clamp(36px, 10vw, 56px);}
+    .stat-num{font-size:40px;}
+    .decor-left, .decor-right{display:none;}
   }
 
   .card{
@@ -355,6 +629,7 @@
     aspect-ratio:16/10;
     overflow:hidden;
     background:#1a1226;
+    cursor:zoom-in;
   }
 
   .card-media img{
@@ -465,10 +740,32 @@
   .card-link:hover{color:var(--purple-light);}
   .card-link:hover svg{transform:translateX(4px);}
 
-  /* ---------- CTA ---------- */
+  .view-hint{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:rgba(10,7,19,0.55);
+    opacity:0;
+    transition:opacity .25s ease;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+
+  .card:hover .view-hint{opacity:1;}
+
+  /* CTA */
   .cta{
     text-align:center;
     padding:20px 24px 110px;
+    position:relative;
+    z-index:1;
   }
 
   .cta h2{
@@ -502,13 +799,15 @@
     box-shadow:0 12px 30px -10px rgba(139,92,246,0.6);
   }
 
-  /* ---------- Footer ---------- */
+  /* Footer */
   footer{
     border-top:1px solid var(--border);
     padding:36px 24px;
     text-align:center;
     color:var(--text-secondary);
     font-size:13px;
+    position:relative;
+    z-index:1;
   }
 
   footer a{color:var(--purple-light);}
@@ -521,32 +820,7 @@
     display:none;
   }
 
-  /* ---------- Card media as a button (click to enlarge) ---------- */
-  .card-media{
-    cursor:zoom-in;
-  }
-
-  .card-media .view-hint{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    background:rgba(10,7,19,0.55);
-    opacity:0;
-    transition:opacity .25s ease;
-    color:#fff;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    pointer-events:none;
-  }
-
-  .card:hover .view-hint{opacity:1;}
-
-  /* ---------- Lightbox ---------- */
+  /* Lightbox */
   .lightbox{
     position:fixed;
     inset:0;
@@ -634,32 +908,133 @@
 
 <main id="main">
 
-  <!-- Redesigned Hero Section -->
+  <!-- Redesigned Hero Section with Decorations -->
   <section class="hero">
-    <div class="eyebrow">Real-World Data Projects</div>
-    <h1>
-      Featured<br>
-      <span class="gradient">Projects</span>
-    </h1>
-    <p class="sub">
-      19 end-to-end SQL, Power BI, Excel, and Python projects — turning raw business data from
-      e-commerce, retail, telecom, and ride-hailing companies into clear,
-      actionable insights.
-    </p>
+    <!-- Decorative side elements -->
+    <div class="hero-decorations">
+      <!-- Glowing orbs -->
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
 
-    <!-- Stats moved up to be visible in first viewport -->
-    <div class="stats" aria-label="Project statistics">
-      <div>
-        <div class="stat-num">19</div>
-        <div class="stat-label">Total Projects</div>
+      <!-- Left side decorations -->
+      <div class="decor-left">
+        <!-- Bar chart panel -->
+        <div class="chart-panel bar-chart">
+          <div class="bar-chart-inner">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+
+        <!-- Donut chart panel -->
+        <div class="chart-panel donut-chart">
+          <div class="donut-chart-inner">
+            <svg width="90" height="90" viewBox="0 0 90 90">
+              <circle class="donut-bg" cx="45" cy="45" r="36"/>
+              <circle class="donut-segment" cx="45" cy="45" r="36"/>
+              <circle class="donut-segment-2" cx="45" cy="45" r="36"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Excel icon -->
+        <div class="tool-icon excel">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#217346"/>
+            <path d="M14.5 7H9.5V17H14.5V15H11.5V13H14.5V11H11.5V9H14.5V7Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Python icon -->
+        <div class="tool-icon python">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 6 4.24 6 5V8H12V9H5C3.5 9 2 10.5 2 13C2 15.5 3.5 17 5 17H7V14C7 12.5 8.5 11 10 11H14C15.5 11 17 9.5 17 8V5C17 3.5 15.5 2 12 2ZM10 4C10.55 4 11 4.45 11 5C11 5.55 10.55 6 10 6C9.45 6 9 5.55 9 5C9 4.45 9.45 4 10 4Z" fill="#3776AB"/>
+            <path d="M12 22C17.52 22 18 19.76 18 19V16H12V15H19C20.5 15 22 13.5 22 11C22 8.5 20.5 7 19 7H17V10C17 11.5 15.5 13 14 13H10C8.5 13 7 14.5 7 16V19C7 20.5 8.5 22 12 22ZM14 20C13.45 20 13 19.55 13 19C13 18.45 13.45 18 14 18C14.55 18 15 18.45 15 19C15 19.55 14.55 20 14 20Z" fill="#FFD43B"/>
+          </svg>
+        </div>
       </div>
-      <div>
-        <div class="stat-num">9</div>
-        <div class="stat-label">SQL Projects</div>
+
+      <!-- Right side decorations -->
+      <div class="decor-right">
+        <!-- Line chart panel -->
+        <div class="chart-panel line-chart">
+          <div class="line-chart-inner">
+            <svg viewBox="0 0 160 70" preserveAspectRatio="none">
+              <path d="M0,60 Q20,50 40,55 T80,35 T120,40 T160,15"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Data panel -->
+        <div class="chart-panel data-panel">
+          <div class="data-panel-inner">
+            <div class="data-row">
+              <div class="data-dot"></div>
+              <div class="data-line"><div class="data-fill" style="width:75%"></div></div>
+            </div>
+            <div class="data-row">
+              <div class="data-dot"></div>
+              <div class="data-line"><div class="data-fill" style="width:60%"></div></div>
+            </div>
+            <div class="data-row">
+              <div class="data-dot"></div>
+              <div class="data-line"><div class="data-fill" style="width:85%"></div></div>
+            </div>
+            <div class="data-row">
+              <div class="data-dot"></div>
+              <div class="data-line"><div class="data-fill" style="width:45%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL icon -->
+        <div class="tool-icon sql">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="5" rx="8" ry="3" fill="#38bdf8" opacity="0.8"/>
+            <path d="M4 5V19C4 20.66 7.58 22 12 22C16.42 22 20 20.66 20 19V5" stroke="#38bdf8" stroke-width="2" fill="none"/>
+            <path d="M4 12C4 13.66 7.58 15 12 15C16.42 15 20 13.66 20 12" stroke="#38bdf8" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- Power BI icon -->
+        <div class="tool-icon powerbi">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#F2C811"/>
+            <path d="M7 17V10H10V17H7ZM11 17V7H14V17H11ZM15 17V13H18V17H15Z" fill="white"/>
+          </svg>
+        </div>
       </div>
-      <div>
-        <div class="stat-num">11</div>
-        <div class="stat-label">Power BI Projects</div>
+    </div>
+
+    <!-- Central content -->
+    <div class="hero-content">
+      <div class="eyebrow">Real-World Data Projects</div>
+      <h1>
+        <span class="white">Featured</span>
+        <span class="gradient">Projects</span>
+      </h1>
+      <p class="sub">
+        19 end-to-end SQL, Power BI, Excel, and Python projects — turning raw business data from
+        e-commerce, retail, telecom, and ride-hailing companies into clear,
+        actionable insights.
+      </p>
+
+      <!-- Stats -->
+      <div class="stats" aria-label="Project statistics">
+        <div class="stat-item">
+          <span class="stat-num">19</span>
+          <span class="stat-label">Total Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">9</span>
+          <span class="stat-label">SQL Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">11</span>
+          <span class="stat-label">Power BI Projects</span>
+        </div>
       </div>
     </div>
   </section>
@@ -697,7 +1072,7 @@
           <h3 class="card-title">Samsung Pakistan Retail Sales Channel Performance</h3>
           <div class="card-block">
             <span class="label">Problem</span>
-            <p>Evaluate Samsung Pakistan’s retail sales performance across cities, sales channels, products, categories, and customer behavior to identify revenue drivers, growth trends, and areas requiring improvement.</p>
+            <p>Evaluate Samsung Pakistan's retail sales performance across cities, sales channels, products, categories, and customer behavior to identify revenue drivers, growth trends, and areas requiring improvement.</p>
           </div>
           <div class="card-block">
             <span class="label">Approach</span>
