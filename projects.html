@@ -102,13 +102,13 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:44px;
-    flex-wrap:wrap;
+    gap:40px;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .nav-brand img {
@@ -124,6 +124,7 @@
     list-style: none;
     align-items: center;
     margin-left: auto;
+    flex-wrap: nowrap;
   }
 
   .nav-link{
@@ -133,7 +134,8 @@
     text-transform:uppercase;
     color:var(--text-secondary);
     transition:color .25s ease;
-    padding-bottom:4px;
+    padding:4px 0;
+    white-space: nowrap;
   }
 
   .nav-link:hover{color:var(--text-primary);}
@@ -141,6 +143,34 @@
   .nav-link.active{
     color:var(--text-primary);
     border-bottom:2px solid var(--purple-light);
+  }
+
+  /* Responsive navbar adjustments */
+  @media (max-width: 768px){
+    .nav-inner{
+        padding:16px 20px;
+        gap:24px;
+    }
+    
+    .nav-links{
+        gap:20px;
+    }
+    
+    .nav-link{
+        font-size:12px;
+        letter-spacing:1.2px;
+    }
+  }
+
+  @media (max-width: 640px){
+    .nav-links{
+        gap:16px;
+    }
+    
+    .nav-link{
+        font-size:11px;
+        letter-spacing:1px;
+    }
   }
 
   /* ---------- Hero Redesigned with Analytics Side Panels ---------- */
@@ -950,7 +980,7 @@
           <h3 class="card-title">Samsung Pakistan Retail Sales Channel Performance</h3>
           <div class="card-block">
             <span class="label">Problem</span>
-            <p>Evaluate Samsung Pakistan’s retail sales performance across cities, sales channels, products, categories, and customer behavior to identify revenue drivers, growth trends, and areas requiring improvement.</p>
+            <p>Evaluate Samsung Pakistan's retail sales performance across cities, sales channels, products, categories, and customer behavior to identify revenue drivers, growth trends, and areas requiring improvement.</p>
           </div>
           <div class="card-block">
             <span class="label">Approach</span>
